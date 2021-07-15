@@ -35,9 +35,7 @@ func NewLoadBalancerProbesClient(subscriptionID string) LoadBalancerProbesClient
 	return NewLoadBalancerProbesClientWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewLoadBalancerProbesClientWithBaseURI creates an instance of the LoadBalancerProbesClient client using a custom
-// endpoint.  Use this when interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure
-// stack).
+// NewLoadBalancerProbesClientWithBaseURI creates an instance of the LoadBalancerProbesClient client.
 func NewLoadBalancerProbesClientWithBaseURI(baseURI string, subscriptionID string) LoadBalancerProbesClient {
 	return LoadBalancerProbesClient{NewWithBaseURI(baseURI, subscriptionID)}
 }
@@ -74,7 +72,6 @@ func (client LoadBalancerProbesClient) Get(ctx context.Context, resourceGroupNam
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "network.LoadBalancerProbesClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -105,7 +102,8 @@ func (client LoadBalancerProbesClient) GetPreparer(ctx context.Context, resource
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client LoadBalancerProbesClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -113,6 +111,7 @@ func (client LoadBalancerProbesClient) GetSender(req *http.Request) (*http.Respo
 func (client LoadBalancerProbesClient) GetResponder(resp *http.Response) (result Probe, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -152,11 +151,6 @@ func (client LoadBalancerProbesClient) List(ctx context.Context, resourceGroupNa
 	result.lbplr, err = client.ListResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "network.LoadBalancerProbesClient", "List", resp, "Failure responding to request")
-		return
-	}
-	if result.lbplr.hasNextLink() && result.lbplr.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -186,7 +180,8 @@ func (client LoadBalancerProbesClient) ListPreparer(ctx context.Context, resourc
 // ListSender sends the List request. The method will close the
 // http.Response Body if it receives an error.
 func (client LoadBalancerProbesClient) ListSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListResponder handles the response to the List request. The method always
@@ -194,6 +189,7 @@ func (client LoadBalancerProbesClient) ListSender(req *http.Request) (*http.Resp
 func (client LoadBalancerProbesClient) ListResponder(resp *http.Response) (result LoadBalancerProbeListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())

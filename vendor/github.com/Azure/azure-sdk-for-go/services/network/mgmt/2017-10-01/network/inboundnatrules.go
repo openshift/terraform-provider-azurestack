@@ -36,8 +36,7 @@ func NewInboundNatRulesClient(subscriptionID string) InboundNatRulesClient {
 	return NewInboundNatRulesClientWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewInboundNatRulesClientWithBaseURI creates an instance of the InboundNatRulesClient client using a custom endpoint.
-// Use this when interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure stack).
+// NewInboundNatRulesClientWithBaseURI creates an instance of the InboundNatRulesClient client.
 func NewInboundNatRulesClientWithBaseURI(baseURI string, subscriptionID string) InboundNatRulesClient {
 	return InboundNatRulesClient{NewWithBaseURI(baseURI, subscriptionID)}
 }
@@ -86,7 +85,7 @@ func (client InboundNatRulesClient) CreateOrUpdate(ctx context.Context, resource
 
 	result, err = client.CreateOrUpdateSender(req)
 	if err != nil {
-		err = autorest.NewErrorWithError(err, "network.InboundNatRulesClient", "CreateOrUpdate", nil, "Failure sending request")
+		err = autorest.NewErrorWithError(err, "network.InboundNatRulesClient", "CreateOrUpdate", result.Response(), "Failure sending request")
 		return
 	}
 
@@ -120,38 +119,13 @@ func (client InboundNatRulesClient) CreateOrUpdatePreparer(ctx context.Context, 
 // CreateOrUpdateSender sends the CreateOrUpdate request. The method will close the
 // http.Response Body if it receives an error.
 func (client InboundNatRulesClient) CreateOrUpdateSender(req *http.Request) (future InboundNatRulesCreateOrUpdateFuture, err error) {
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
 	var resp *http.Response
-	resp, err = client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	resp, err = autorest.SendWithSender(client, req, sd...)
 	if err != nil {
 		return
 	}
-	var azf azure.Future
-	azf, err = azure.NewFutureFromResponse(resp)
-	future.FutureAPI = &azf
-	future.Result = func(client InboundNatRulesClient) (inr InboundNatRule, err error) {
-		var done bool
-		done, err = future.DoneWithContext(context.Background(), client)
-		if err != nil {
-			err = autorest.NewErrorWithError(err, "network.InboundNatRulesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
-			return
-		}
-		if !done {
-			err = azure.NewAsyncOpIncompleteError("network.InboundNatRulesCreateOrUpdateFuture")
-			return
-		}
-		sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
-		inr.Response.Response, err = future.GetResult(sender)
-		if inr.Response.Response == nil && err == nil {
-			err = autorest.NewErrorWithError(err, "network.InboundNatRulesCreateOrUpdateFuture", "Result", nil, "received nil response and error")
-		}
-		if err == nil && inr.Response.Response.StatusCode != http.StatusNoContent {
-			inr, err = client.CreateOrUpdateResponder(inr.Response.Response)
-			if err != nil {
-				err = autorest.NewErrorWithError(err, "network.InboundNatRulesCreateOrUpdateFuture", "Result", inr.Response.Response, "Failure responding to request")
-			}
-		}
-		return
-	}
+	future.Future, err = azure.NewFutureFromResponse(resp)
 	return
 }
 
@@ -160,6 +134,7 @@ func (client InboundNatRulesClient) CreateOrUpdateSender(req *http.Request) (fut
 func (client InboundNatRulesClient) CreateOrUpdateResponder(resp *http.Response) (result InboundNatRule, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -191,7 +166,7 @@ func (client InboundNatRulesClient) Delete(ctx context.Context, resourceGroupNam
 
 	result, err = client.DeleteSender(req)
 	if err != nil {
-		err = autorest.NewErrorWithError(err, "network.InboundNatRulesClient", "Delete", nil, "Failure sending request")
+		err = autorest.NewErrorWithError(err, "network.InboundNatRulesClient", "Delete", result.Response(), "Failure sending request")
 		return
 	}
 
@@ -223,28 +198,13 @@ func (client InboundNatRulesClient) DeletePreparer(ctx context.Context, resource
 // DeleteSender sends the Delete request. The method will close the
 // http.Response Body if it receives an error.
 func (client InboundNatRulesClient) DeleteSender(req *http.Request) (future InboundNatRulesDeleteFuture, err error) {
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
 	var resp *http.Response
-	resp, err = client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	resp, err = autorest.SendWithSender(client, req, sd...)
 	if err != nil {
 		return
 	}
-	var azf azure.Future
-	azf, err = azure.NewFutureFromResponse(resp)
-	future.FutureAPI = &azf
-	future.Result = func(client InboundNatRulesClient) (ar autorest.Response, err error) {
-		var done bool
-		done, err = future.DoneWithContext(context.Background(), client)
-		if err != nil {
-			err = autorest.NewErrorWithError(err, "network.InboundNatRulesDeleteFuture", "Result", future.Response(), "Polling failure")
-			return
-		}
-		if !done {
-			err = azure.NewAsyncOpIncompleteError("network.InboundNatRulesDeleteFuture")
-			return
-		}
-		ar.Response = future.Response()
-		return
-	}
+	future.Future, err = azure.NewFutureFromResponse(resp)
 	return
 }
 
@@ -253,6 +213,7 @@ func (client InboundNatRulesClient) DeleteSender(req *http.Request) (future Inbo
 func (client InboundNatRulesClient) DeleteResponder(resp *http.Response) (result autorest.Response, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent),
 		autorest.ByClosing())
 	result.Response = resp
@@ -292,7 +253,6 @@ func (client InboundNatRulesClient) Get(ctx context.Context, resourceGroupName s
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "network.InboundNatRulesClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -326,7 +286,8 @@ func (client InboundNatRulesClient) GetPreparer(ctx context.Context, resourceGro
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client InboundNatRulesClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -334,6 +295,7 @@ func (client InboundNatRulesClient) GetSender(req *http.Request) (*http.Response
 func (client InboundNatRulesClient) GetResponder(resp *http.Response) (result InboundNatRule, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -373,11 +335,6 @@ func (client InboundNatRulesClient) List(ctx context.Context, resourceGroupName 
 	result.inrlr, err = client.ListResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "network.InboundNatRulesClient", "List", resp, "Failure responding to request")
-		return
-	}
-	if result.inrlr.hasNextLink() && result.inrlr.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -407,7 +364,8 @@ func (client InboundNatRulesClient) ListPreparer(ctx context.Context, resourceGr
 // ListSender sends the List request. The method will close the
 // http.Response Body if it receives an error.
 func (client InboundNatRulesClient) ListSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListResponder handles the response to the List request. The method always
@@ -415,6 +373,7 @@ func (client InboundNatRulesClient) ListSender(req *http.Request) (*http.Respons
 func (client InboundNatRulesClient) ListResponder(resp *http.Response) (result InboundNatRuleListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())

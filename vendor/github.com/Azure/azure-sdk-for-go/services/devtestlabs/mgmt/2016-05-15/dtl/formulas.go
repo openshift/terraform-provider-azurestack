@@ -36,8 +36,7 @@ func NewFormulasClient(subscriptionID string) FormulasClient {
 	return NewFormulasClientWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewFormulasClientWithBaseURI creates an instance of the FormulasClient client using a custom endpoint.  Use this
-// when interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure stack).
+// NewFormulasClientWithBaseURI creates an instance of the FormulasClient client.
 func NewFormulasClientWithBaseURI(baseURI string, subscriptionID string) FormulasClient {
 	return FormulasClient{NewWithBaseURI(baseURI, subscriptionID)}
 }
@@ -86,7 +85,7 @@ func (client FormulasClient) CreateOrUpdate(ctx context.Context, resourceGroupNa
 
 	result, err = client.CreateOrUpdateSender(req)
 	if err != nil {
-		err = autorest.NewErrorWithError(err, "dtl.FormulasClient", "CreateOrUpdate", nil, "Failure sending request")
+		err = autorest.NewErrorWithError(err, "dtl.FormulasClient", "CreateOrUpdate", result.Response(), "Failure sending request")
 		return
 	}
 
@@ -120,38 +119,13 @@ func (client FormulasClient) CreateOrUpdatePreparer(ctx context.Context, resourc
 // CreateOrUpdateSender sends the CreateOrUpdate request. The method will close the
 // http.Response Body if it receives an error.
 func (client FormulasClient) CreateOrUpdateSender(req *http.Request) (future FormulasCreateOrUpdateFuture, err error) {
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
 	var resp *http.Response
-	resp, err = client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	resp, err = autorest.SendWithSender(client, req, sd...)
 	if err != nil {
 		return
 	}
-	var azf azure.Future
-	azf, err = azure.NewFutureFromResponse(resp)
-	future.FutureAPI = &azf
-	future.Result = func(client FormulasClient) (f Formula, err error) {
-		var done bool
-		done, err = future.DoneWithContext(context.Background(), client)
-		if err != nil {
-			err = autorest.NewErrorWithError(err, "dtl.FormulasCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
-			return
-		}
-		if !done {
-			err = azure.NewAsyncOpIncompleteError("dtl.FormulasCreateOrUpdateFuture")
-			return
-		}
-		sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
-		f.Response.Response, err = future.GetResult(sender)
-		if f.Response.Response == nil && err == nil {
-			err = autorest.NewErrorWithError(err, "dtl.FormulasCreateOrUpdateFuture", "Result", nil, "received nil response and error")
-		}
-		if err == nil && f.Response.Response.StatusCode != http.StatusNoContent {
-			f, err = client.CreateOrUpdateResponder(f.Response.Response)
-			if err != nil {
-				err = autorest.NewErrorWithError(err, "dtl.FormulasCreateOrUpdateFuture", "Result", f.Response.Response, "Failure responding to request")
-			}
-		}
-		return
-	}
+	future.Future, err = azure.NewFutureFromResponse(resp)
 	return
 }
 
@@ -160,6 +134,7 @@ func (client FormulasClient) CreateOrUpdateSender(req *http.Request) (future For
 func (client FormulasClient) CreateOrUpdateResponder(resp *http.Response) (result Formula, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -199,7 +174,6 @@ func (client FormulasClient) Delete(ctx context.Context, resourceGroupName strin
 	result, err = client.DeleteResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.FormulasClient", "Delete", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -230,7 +204,8 @@ func (client FormulasClient) DeletePreparer(ctx context.Context, resourceGroupNa
 // DeleteSender sends the Delete request. The method will close the
 // http.Response Body if it receives an error.
 func (client FormulasClient) DeleteSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // DeleteResponder handles the response to the Delete request. The method always
@@ -238,6 +213,7 @@ func (client FormulasClient) DeleteSender(req *http.Request) (*http.Response, er
 func (client FormulasClient) DeleteResponder(resp *http.Response) (result autorest.Response, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
 		autorest.ByClosing())
 	result.Response = resp
@@ -277,7 +253,6 @@ func (client FormulasClient) Get(ctx context.Context, resourceGroupName string, 
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.FormulasClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -311,7 +286,8 @@ func (client FormulasClient) GetPreparer(ctx context.Context, resourceGroupName 
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client FormulasClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -319,6 +295,7 @@ func (client FormulasClient) GetSender(req *http.Request) (*http.Response, error
 func (client FormulasClient) GetResponder(resp *http.Response) (result Formula, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -362,11 +339,6 @@ func (client FormulasClient) List(ctx context.Context, resourceGroupName string,
 	result.rwcf, err = client.ListResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.FormulasClient", "List", resp, "Failure responding to request")
-		return
-	}
-	if result.rwcf.hasNextLink() && result.rwcf.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -408,7 +380,8 @@ func (client FormulasClient) ListPreparer(ctx context.Context, resourceGroupName
 // ListSender sends the List request. The method will close the
 // http.Response Body if it receives an error.
 func (client FormulasClient) ListSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListResponder handles the response to the List request. The method always
@@ -416,6 +389,7 @@ func (client FormulasClient) ListSender(req *http.Request) (*http.Response, erro
 func (client FormulasClient) ListResponder(resp *http.Response) (result ResponseWithContinuationFormula, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())

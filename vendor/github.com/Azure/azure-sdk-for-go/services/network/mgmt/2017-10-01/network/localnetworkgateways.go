@@ -36,9 +36,7 @@ func NewLocalNetworkGatewaysClient(subscriptionID string) LocalNetworkGatewaysCl
 	return NewLocalNetworkGatewaysClientWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewLocalNetworkGatewaysClientWithBaseURI creates an instance of the LocalNetworkGatewaysClient client using a custom
-// endpoint.  Use this when interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure
-// stack).
+// NewLocalNetworkGatewaysClientWithBaseURI creates an instance of the LocalNetworkGatewaysClient client.
 func NewLocalNetworkGatewaysClientWithBaseURI(baseURI string, subscriptionID string) LocalNetworkGatewaysClient {
 	return LocalNetworkGatewaysClient{NewWithBaseURI(baseURI, subscriptionID)}
 }
@@ -75,7 +73,7 @@ func (client LocalNetworkGatewaysClient) CreateOrUpdate(ctx context.Context, res
 
 	result, err = client.CreateOrUpdateSender(req)
 	if err != nil {
-		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysClient", "CreateOrUpdate", nil, "Failure sending request")
+		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysClient", "CreateOrUpdate", result.Response(), "Failure sending request")
 		return
 	}
 
@@ -108,38 +106,13 @@ func (client LocalNetworkGatewaysClient) CreateOrUpdatePreparer(ctx context.Cont
 // CreateOrUpdateSender sends the CreateOrUpdate request. The method will close the
 // http.Response Body if it receives an error.
 func (client LocalNetworkGatewaysClient) CreateOrUpdateSender(req *http.Request) (future LocalNetworkGatewaysCreateOrUpdateFuture, err error) {
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
 	var resp *http.Response
-	resp, err = client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	resp, err = autorest.SendWithSender(client, req, sd...)
 	if err != nil {
 		return
 	}
-	var azf azure.Future
-	azf, err = azure.NewFutureFromResponse(resp)
-	future.FutureAPI = &azf
-	future.Result = func(client LocalNetworkGatewaysClient) (lng LocalNetworkGateway, err error) {
-		var done bool
-		done, err = future.DoneWithContext(context.Background(), client)
-		if err != nil {
-			err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
-			return
-		}
-		if !done {
-			err = azure.NewAsyncOpIncompleteError("network.LocalNetworkGatewaysCreateOrUpdateFuture")
-			return
-		}
-		sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
-		lng.Response.Response, err = future.GetResult(sender)
-		if lng.Response.Response == nil && err == nil {
-			err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysCreateOrUpdateFuture", "Result", nil, "received nil response and error")
-		}
-		if err == nil && lng.Response.Response.StatusCode != http.StatusNoContent {
-			lng, err = client.CreateOrUpdateResponder(lng.Response.Response)
-			if err != nil {
-				err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysCreateOrUpdateFuture", "Result", lng.Response.Response, "Failure responding to request")
-			}
-		}
-		return
-	}
+	future.Future, err = azure.NewFutureFromResponse(resp)
 	return
 }
 
@@ -148,6 +121,7 @@ func (client LocalNetworkGatewaysClient) CreateOrUpdateSender(req *http.Request)
 func (client LocalNetworkGatewaysClient) CreateOrUpdateResponder(resp *http.Response) (result LocalNetworkGateway, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -184,7 +158,7 @@ func (client LocalNetworkGatewaysClient) Delete(ctx context.Context, resourceGro
 
 	result, err = client.DeleteSender(req)
 	if err != nil {
-		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysClient", "Delete", nil, "Failure sending request")
+		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysClient", "Delete", result.Response(), "Failure sending request")
 		return
 	}
 
@@ -215,28 +189,13 @@ func (client LocalNetworkGatewaysClient) DeletePreparer(ctx context.Context, res
 // DeleteSender sends the Delete request. The method will close the
 // http.Response Body if it receives an error.
 func (client LocalNetworkGatewaysClient) DeleteSender(req *http.Request) (future LocalNetworkGatewaysDeleteFuture, err error) {
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
 	var resp *http.Response
-	resp, err = client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	resp, err = autorest.SendWithSender(client, req, sd...)
 	if err != nil {
 		return
 	}
-	var azf azure.Future
-	azf, err = azure.NewFutureFromResponse(resp)
-	future.FutureAPI = &azf
-	future.Result = func(client LocalNetworkGatewaysClient) (ar autorest.Response, err error) {
-		var done bool
-		done, err = future.DoneWithContext(context.Background(), client)
-		if err != nil {
-			err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysDeleteFuture", "Result", future.Response(), "Polling failure")
-			return
-		}
-		if !done {
-			err = azure.NewAsyncOpIncompleteError("network.LocalNetworkGatewaysDeleteFuture")
-			return
-		}
-		ar.Response = future.Response()
-		return
-	}
+	future.Future, err = azure.NewFutureFromResponse(resp)
 	return
 }
 
@@ -245,6 +204,7 @@ func (client LocalNetworkGatewaysClient) DeleteSender(req *http.Request) (future
 func (client LocalNetworkGatewaysClient) DeleteResponder(resp *http.Response) (result autorest.Response, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent),
 		autorest.ByClosing())
 	result.Response = resp
@@ -288,7 +248,6 @@ func (client LocalNetworkGatewaysClient) Get(ctx context.Context, resourceGroupN
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -318,7 +277,8 @@ func (client LocalNetworkGatewaysClient) GetPreparer(ctx context.Context, resour
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client LocalNetworkGatewaysClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -326,6 +286,7 @@ func (client LocalNetworkGatewaysClient) GetSender(req *http.Request) (*http.Res
 func (client LocalNetworkGatewaysClient) GetResponder(resp *http.Response) (result LocalNetworkGateway, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -364,11 +325,6 @@ func (client LocalNetworkGatewaysClient) List(ctx context.Context, resourceGroup
 	result.lnglr, err = client.ListResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysClient", "List", resp, "Failure responding to request")
-		return
-	}
-	if result.lnglr.hasNextLink() && result.lnglr.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -397,7 +353,8 @@ func (client LocalNetworkGatewaysClient) ListPreparer(ctx context.Context, resou
 // ListSender sends the List request. The method will close the
 // http.Response Body if it receives an error.
 func (client LocalNetworkGatewaysClient) ListSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListResponder handles the response to the List request. The method always
@@ -405,6 +362,7 @@ func (client LocalNetworkGatewaysClient) ListSender(req *http.Request) (*http.Re
 func (client LocalNetworkGatewaysClient) ListResponder(resp *http.Response) (result LocalNetworkGatewayListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -479,7 +437,7 @@ func (client LocalNetworkGatewaysClient) UpdateTags(ctx context.Context, resourc
 
 	result, err = client.UpdateTagsSender(req)
 	if err != nil {
-		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysClient", "UpdateTags", nil, "Failure sending request")
+		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysClient", "UpdateTags", result.Response(), "Failure sending request")
 		return
 	}
 
@@ -512,38 +470,13 @@ func (client LocalNetworkGatewaysClient) UpdateTagsPreparer(ctx context.Context,
 // UpdateTagsSender sends the UpdateTags request. The method will close the
 // http.Response Body if it receives an error.
 func (client LocalNetworkGatewaysClient) UpdateTagsSender(req *http.Request) (future LocalNetworkGatewaysUpdateTagsFuture, err error) {
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
 	var resp *http.Response
-	resp, err = client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	resp, err = autorest.SendWithSender(client, req, sd...)
 	if err != nil {
 		return
 	}
-	var azf azure.Future
-	azf, err = azure.NewFutureFromResponse(resp)
-	future.FutureAPI = &azf
-	future.Result = func(client LocalNetworkGatewaysClient) (lng LocalNetworkGateway, err error) {
-		var done bool
-		done, err = future.DoneWithContext(context.Background(), client)
-		if err != nil {
-			err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysUpdateTagsFuture", "Result", future.Response(), "Polling failure")
-			return
-		}
-		if !done {
-			err = azure.NewAsyncOpIncompleteError("network.LocalNetworkGatewaysUpdateTagsFuture")
-			return
-		}
-		sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
-		lng.Response.Response, err = future.GetResult(sender)
-		if lng.Response.Response == nil && err == nil {
-			err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysUpdateTagsFuture", "Result", nil, "received nil response and error")
-		}
-		if err == nil && lng.Response.Response.StatusCode != http.StatusNoContent {
-			lng, err = client.UpdateTagsResponder(lng.Response.Response)
-			if err != nil {
-				err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysUpdateTagsFuture", "Result", lng.Response.Response, "Failure responding to request")
-			}
-		}
-		return
-	}
+	future.Future, err = azure.NewFutureFromResponse(resp)
 	return
 }
 
@@ -552,6 +485,7 @@ func (client LocalNetworkGatewaysClient) UpdateTagsSender(req *http.Request) (fu
 func (client LocalNetworkGatewaysClient) UpdateTagsResponder(resp *http.Response) (result LocalNetworkGateway, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())

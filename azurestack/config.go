@@ -59,7 +59,6 @@ type ArmClient struct {
 	// Compute
 	availSetClient       compute.AvailabilitySetsClient
 	diskClient           compute.DisksClient
-	imagesClient         compute.ImagesClient
 	vmExtensionClient    compute.VirtualMachineExtensionsClient
 	vmClient             compute.VirtualMachinesClient
 	vmImageClient        compute.VirtualMachineImagesClient
@@ -169,10 +168,6 @@ func (c *ArmClient) registerComputeClients(endpoint, subscriptionId string, auth
 	diskClient := compute.NewDisksClientWithBaseURI(endpoint, subscriptionId)
 	c.configureClient(&diskClient.Client, auth)
 	c.diskClient = diskClient
-
-	imagesClient := compute.NewImagesClientWithBaseURI(endpoint, subscriptionId)
-	c.configureClient(&imagesClient.Client, auth)
-	c.imagesClient = imagesClient
 
 	extensionsClient := compute.NewVirtualMachineExtensionsClientWithBaseURI(endpoint, subscriptionId)
 	c.configureClient(&extensionsClient.Client, auth)

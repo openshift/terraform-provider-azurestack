@@ -442,9 +442,10 @@ func resourceArmVirtualMachineScaleSet() *schema.Resource {
 						},
 
 						"managed_disk_type": {
-							Type:     schema.TypeString,
-							Optional: true,
-							Computed: true,
+							Type:          schema.TypeString,
+							Optional:      true,
+							Computed:      true,
+							ConflictsWith: []string{"storage_profile_os_disk.vhd_containers"},
 							ValidateFunc: validation.StringInSlice([]string{
 								string(compute.PremiumLRS),
 								string(compute.StandardLRS),
@@ -500,9 +501,10 @@ func resourceArmVirtualMachineScaleSet() *schema.Resource {
 						},
 
 						"managed_disk_type": {
-							Type:     schema.TypeString,
-							Optional: true,
-							Computed: true,
+							Type:          schema.TypeString,
+							Optional:      true,
+							Computed:      true,
+							ConflictsWith: []string{"storage_profile_os_disk.vhd_containers"},
 							ValidateFunc: validation.StringInSlice([]string{
 								string(compute.PremiumLRS),
 								string(compute.StandardLRS),

@@ -36,8 +36,7 @@ func NewSecretsClient(subscriptionID string) SecretsClient {
 	return NewSecretsClientWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewSecretsClientWithBaseURI creates an instance of the SecretsClient client using a custom endpoint.  Use this when
-// interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure stack).
+// NewSecretsClientWithBaseURI creates an instance of the SecretsClient client.
 func NewSecretsClientWithBaseURI(baseURI string, subscriptionID string) SecretsClient {
 	return SecretsClient{NewWithBaseURI(baseURI, subscriptionID)}
 }
@@ -82,7 +81,6 @@ func (client SecretsClient) CreateOrUpdate(ctx context.Context, resourceGroupNam
 	result, err = client.CreateOrUpdateResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.SecretsClient", "CreateOrUpdate", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -116,7 +114,8 @@ func (client SecretsClient) CreateOrUpdatePreparer(ctx context.Context, resource
 // CreateOrUpdateSender sends the CreateOrUpdate request. The method will close the
 // http.Response Body if it receives an error.
 func (client SecretsClient) CreateOrUpdateSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // CreateOrUpdateResponder handles the response to the CreateOrUpdate request. The method always
@@ -124,6 +123,7 @@ func (client SecretsClient) CreateOrUpdateSender(req *http.Request) (*http.Respo
 func (client SecretsClient) CreateOrUpdateResponder(resp *http.Response) (result Secret, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -164,7 +164,6 @@ func (client SecretsClient) Delete(ctx context.Context, resourceGroupName string
 	result, err = client.DeleteResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.SecretsClient", "Delete", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -196,7 +195,8 @@ func (client SecretsClient) DeletePreparer(ctx context.Context, resourceGroupNam
 // DeleteSender sends the Delete request. The method will close the
 // http.Response Body if it receives an error.
 func (client SecretsClient) DeleteSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // DeleteResponder handles the response to the Delete request. The method always
@@ -204,6 +204,7 @@ func (client SecretsClient) DeleteSender(req *http.Request) (*http.Response, err
 func (client SecretsClient) DeleteResponder(resp *http.Response) (result autorest.Response, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
 		autorest.ByClosing())
 	result.Response = resp
@@ -244,7 +245,6 @@ func (client SecretsClient) Get(ctx context.Context, resourceGroupName string, l
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.SecretsClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -279,7 +279,8 @@ func (client SecretsClient) GetPreparer(ctx context.Context, resourceGroupName s
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client SecretsClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -287,6 +288,7 @@ func (client SecretsClient) GetSender(req *http.Request) (*http.Response, error)
 func (client SecretsClient) GetResponder(resp *http.Response) (result Secret, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -331,11 +333,6 @@ func (client SecretsClient) List(ctx context.Context, resourceGroupName string, 
 	result.rwcs, err = client.ListResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.SecretsClient", "List", resp, "Failure responding to request")
-		return
-	}
-	if result.rwcs.hasNextLink() && result.rwcs.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -378,7 +375,8 @@ func (client SecretsClient) ListPreparer(ctx context.Context, resourceGroupName 
 // ListSender sends the List request. The method will close the
 // http.Response Body if it receives an error.
 func (client SecretsClient) ListSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListResponder handles the response to the List request. The method always
@@ -386,6 +384,7 @@ func (client SecretsClient) ListSender(req *http.Request) (*http.Response, error
 func (client SecretsClient) ListResponder(resp *http.Response) (result ResponseWithContinuationSecret, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())

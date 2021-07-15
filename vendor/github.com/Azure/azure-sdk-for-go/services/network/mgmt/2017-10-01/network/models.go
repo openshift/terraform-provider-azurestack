@@ -31,6 +31,1260 @@ import (
 // The package's fully qualified name.
 const fqdn = "github.com/Azure/azure-sdk-for-go/services/network/mgmt/2017-10-01/network"
 
+// Access enumerates the values for access.
+type Access string
+
+const (
+	// Allow ...
+	Allow Access = "Allow"
+	// Deny ...
+	Deny Access = "Deny"
+)
+
+// PossibleAccessValues returns an array of possible values for the Access const type.
+func PossibleAccessValues() []Access {
+	return []Access{Allow, Deny}
+}
+
+// ApplicationGatewayBackendHealthServerHealth enumerates the values for application gateway backend health
+// server health.
+type ApplicationGatewayBackendHealthServerHealth string
+
+const (
+	// Down ...
+	Down ApplicationGatewayBackendHealthServerHealth = "Down"
+	// Draining ...
+	Draining ApplicationGatewayBackendHealthServerHealth = "Draining"
+	// Partial ...
+	Partial ApplicationGatewayBackendHealthServerHealth = "Partial"
+	// Unknown ...
+	Unknown ApplicationGatewayBackendHealthServerHealth = "Unknown"
+	// Up ...
+	Up ApplicationGatewayBackendHealthServerHealth = "Up"
+)
+
+// PossibleApplicationGatewayBackendHealthServerHealthValues returns an array of possible values for the ApplicationGatewayBackendHealthServerHealth const type.
+func PossibleApplicationGatewayBackendHealthServerHealthValues() []ApplicationGatewayBackendHealthServerHealth {
+	return []ApplicationGatewayBackendHealthServerHealth{Down, Draining, Partial, Unknown, Up}
+}
+
+// ApplicationGatewayCookieBasedAffinity enumerates the values for application gateway cookie based affinity.
+type ApplicationGatewayCookieBasedAffinity string
+
+const (
+	// Disabled ...
+	Disabled ApplicationGatewayCookieBasedAffinity = "Disabled"
+	// Enabled ...
+	Enabled ApplicationGatewayCookieBasedAffinity = "Enabled"
+)
+
+// PossibleApplicationGatewayCookieBasedAffinityValues returns an array of possible values for the ApplicationGatewayCookieBasedAffinity const type.
+func PossibleApplicationGatewayCookieBasedAffinityValues() []ApplicationGatewayCookieBasedAffinity {
+	return []ApplicationGatewayCookieBasedAffinity{Disabled, Enabled}
+}
+
+// ApplicationGatewayFirewallMode enumerates the values for application gateway firewall mode.
+type ApplicationGatewayFirewallMode string
+
+const (
+	// Detection ...
+	Detection ApplicationGatewayFirewallMode = "Detection"
+	// Prevention ...
+	Prevention ApplicationGatewayFirewallMode = "Prevention"
+)
+
+// PossibleApplicationGatewayFirewallModeValues returns an array of possible values for the ApplicationGatewayFirewallMode const type.
+func PossibleApplicationGatewayFirewallModeValues() []ApplicationGatewayFirewallMode {
+	return []ApplicationGatewayFirewallMode{Detection, Prevention}
+}
+
+// ApplicationGatewayOperationalState enumerates the values for application gateway operational state.
+type ApplicationGatewayOperationalState string
+
+const (
+	// Running ...
+	Running ApplicationGatewayOperationalState = "Running"
+	// Starting ...
+	Starting ApplicationGatewayOperationalState = "Starting"
+	// Stopped ...
+	Stopped ApplicationGatewayOperationalState = "Stopped"
+	// Stopping ...
+	Stopping ApplicationGatewayOperationalState = "Stopping"
+)
+
+// PossibleApplicationGatewayOperationalStateValues returns an array of possible values for the ApplicationGatewayOperationalState const type.
+func PossibleApplicationGatewayOperationalStateValues() []ApplicationGatewayOperationalState {
+	return []ApplicationGatewayOperationalState{Running, Starting, Stopped, Stopping}
+}
+
+// ApplicationGatewayProtocol enumerates the values for application gateway protocol.
+type ApplicationGatewayProtocol string
+
+const (
+	// HTTP ...
+	HTTP ApplicationGatewayProtocol = "Http"
+	// HTTPS ...
+	HTTPS ApplicationGatewayProtocol = "Https"
+)
+
+// PossibleApplicationGatewayProtocolValues returns an array of possible values for the ApplicationGatewayProtocol const type.
+func PossibleApplicationGatewayProtocolValues() []ApplicationGatewayProtocol {
+	return []ApplicationGatewayProtocol{HTTP, HTTPS}
+}
+
+// ApplicationGatewayRedirectType enumerates the values for application gateway redirect type.
+type ApplicationGatewayRedirectType string
+
+const (
+	// Found ...
+	Found ApplicationGatewayRedirectType = "Found"
+	// Permanent ...
+	Permanent ApplicationGatewayRedirectType = "Permanent"
+	// SeeOther ...
+	SeeOther ApplicationGatewayRedirectType = "SeeOther"
+	// Temporary ...
+	Temporary ApplicationGatewayRedirectType = "Temporary"
+)
+
+// PossibleApplicationGatewayRedirectTypeValues returns an array of possible values for the ApplicationGatewayRedirectType const type.
+func PossibleApplicationGatewayRedirectTypeValues() []ApplicationGatewayRedirectType {
+	return []ApplicationGatewayRedirectType{Found, Permanent, SeeOther, Temporary}
+}
+
+// ApplicationGatewayRequestRoutingRuleType enumerates the values for application gateway request routing rule
+// type.
+type ApplicationGatewayRequestRoutingRuleType string
+
+const (
+	// Basic ...
+	Basic ApplicationGatewayRequestRoutingRuleType = "Basic"
+	// PathBasedRouting ...
+	PathBasedRouting ApplicationGatewayRequestRoutingRuleType = "PathBasedRouting"
+)
+
+// PossibleApplicationGatewayRequestRoutingRuleTypeValues returns an array of possible values for the ApplicationGatewayRequestRoutingRuleType const type.
+func PossibleApplicationGatewayRequestRoutingRuleTypeValues() []ApplicationGatewayRequestRoutingRuleType {
+	return []ApplicationGatewayRequestRoutingRuleType{Basic, PathBasedRouting}
+}
+
+// ApplicationGatewaySkuName enumerates the values for application gateway sku name.
+type ApplicationGatewaySkuName string
+
+const (
+	// StandardLarge ...
+	StandardLarge ApplicationGatewaySkuName = "Standard_Large"
+	// StandardMedium ...
+	StandardMedium ApplicationGatewaySkuName = "Standard_Medium"
+	// StandardSmall ...
+	StandardSmall ApplicationGatewaySkuName = "Standard_Small"
+	// WAFLarge ...
+	WAFLarge ApplicationGatewaySkuName = "WAF_Large"
+	// WAFMedium ...
+	WAFMedium ApplicationGatewaySkuName = "WAF_Medium"
+)
+
+// PossibleApplicationGatewaySkuNameValues returns an array of possible values for the ApplicationGatewaySkuName const type.
+func PossibleApplicationGatewaySkuNameValues() []ApplicationGatewaySkuName {
+	return []ApplicationGatewaySkuName{StandardLarge, StandardMedium, StandardSmall, WAFLarge, WAFMedium}
+}
+
+// ApplicationGatewaySslCipherSuite enumerates the values for application gateway ssl cipher suite.
+type ApplicationGatewaySslCipherSuite string
+
+const (
+	// TLSDHEDSSWITH3DESEDECBCSHA ...
+	TLSDHEDSSWITH3DESEDECBCSHA ApplicationGatewaySslCipherSuite = "TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA"
+	// TLSDHEDSSWITHAES128CBCSHA ...
+	TLSDHEDSSWITHAES128CBCSHA ApplicationGatewaySslCipherSuite = "TLS_DHE_DSS_WITH_AES_128_CBC_SHA"
+	// TLSDHEDSSWITHAES128CBCSHA256 ...
+	TLSDHEDSSWITHAES128CBCSHA256 ApplicationGatewaySslCipherSuite = "TLS_DHE_DSS_WITH_AES_128_CBC_SHA256"
+	// TLSDHEDSSWITHAES256CBCSHA ...
+	TLSDHEDSSWITHAES256CBCSHA ApplicationGatewaySslCipherSuite = "TLS_DHE_DSS_WITH_AES_256_CBC_SHA"
+	// TLSDHEDSSWITHAES256CBCSHA256 ...
+	TLSDHEDSSWITHAES256CBCSHA256 ApplicationGatewaySslCipherSuite = "TLS_DHE_DSS_WITH_AES_256_CBC_SHA256"
+	// TLSDHERSAWITHAES128CBCSHA ...
+	TLSDHERSAWITHAES128CBCSHA ApplicationGatewaySslCipherSuite = "TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
+	// TLSDHERSAWITHAES128GCMSHA256 ...
+	TLSDHERSAWITHAES128GCMSHA256 ApplicationGatewaySslCipherSuite = "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+	// TLSDHERSAWITHAES256CBCSHA ...
+	TLSDHERSAWITHAES256CBCSHA ApplicationGatewaySslCipherSuite = "TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
+	// TLSDHERSAWITHAES256GCMSHA384 ...
+	TLSDHERSAWITHAES256GCMSHA384 ApplicationGatewaySslCipherSuite = "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384"
+	// TLSECDHEECDSAWITHAES128CBCSHA ...
+	TLSECDHEECDSAWITHAES128CBCSHA ApplicationGatewaySslCipherSuite = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA"
+	// TLSECDHEECDSAWITHAES128CBCSHA256 ...
+	TLSECDHEECDSAWITHAES128CBCSHA256 ApplicationGatewaySslCipherSuite = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"
+	// TLSECDHEECDSAWITHAES128GCMSHA256 ...
+	TLSECDHEECDSAWITHAES128GCMSHA256 ApplicationGatewaySslCipherSuite = "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+	// TLSECDHEECDSAWITHAES256CBCSHA ...
+	TLSECDHEECDSAWITHAES256CBCSHA ApplicationGatewaySslCipherSuite = "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA"
+	// TLSECDHEECDSAWITHAES256CBCSHA384 ...
+	TLSECDHEECDSAWITHAES256CBCSHA384 ApplicationGatewaySslCipherSuite = "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384"
+	// TLSECDHEECDSAWITHAES256GCMSHA384 ...
+	TLSECDHEECDSAWITHAES256GCMSHA384 ApplicationGatewaySslCipherSuite = "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
+	// TLSECDHERSAWITHAES128CBCSHA ...
+	TLSECDHERSAWITHAES128CBCSHA ApplicationGatewaySslCipherSuite = "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+	// TLSECDHERSAWITHAES128CBCSHA256 ...
+	TLSECDHERSAWITHAES128CBCSHA256 ApplicationGatewaySslCipherSuite = "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+	// TLSECDHERSAWITHAES128GCMSHA256 ...
+	TLSECDHERSAWITHAES128GCMSHA256 ApplicationGatewaySslCipherSuite = "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+	// TLSECDHERSAWITHAES256CBCSHA ...
+	TLSECDHERSAWITHAES256CBCSHA ApplicationGatewaySslCipherSuite = "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+	// TLSECDHERSAWITHAES256CBCSHA384 ...
+	TLSECDHERSAWITHAES256CBCSHA384 ApplicationGatewaySslCipherSuite = "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+	// TLSECDHERSAWITHAES256GCMSHA384 ...
+	TLSECDHERSAWITHAES256GCMSHA384 ApplicationGatewaySslCipherSuite = "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+	// TLSRSAWITH3DESEDECBCSHA ...
+	TLSRSAWITH3DESEDECBCSHA ApplicationGatewaySslCipherSuite = "TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+	// TLSRSAWITHAES128CBCSHA ...
+	TLSRSAWITHAES128CBCSHA ApplicationGatewaySslCipherSuite = "TLS_RSA_WITH_AES_128_CBC_SHA"
+	// TLSRSAWITHAES128CBCSHA256 ...
+	TLSRSAWITHAES128CBCSHA256 ApplicationGatewaySslCipherSuite = "TLS_RSA_WITH_AES_128_CBC_SHA256"
+	// TLSRSAWITHAES128GCMSHA256 ...
+	TLSRSAWITHAES128GCMSHA256 ApplicationGatewaySslCipherSuite = "TLS_RSA_WITH_AES_128_GCM_SHA256"
+	// TLSRSAWITHAES256CBCSHA ...
+	TLSRSAWITHAES256CBCSHA ApplicationGatewaySslCipherSuite = "TLS_RSA_WITH_AES_256_CBC_SHA"
+	// TLSRSAWITHAES256CBCSHA256 ...
+	TLSRSAWITHAES256CBCSHA256 ApplicationGatewaySslCipherSuite = "TLS_RSA_WITH_AES_256_CBC_SHA256"
+	// TLSRSAWITHAES256GCMSHA384 ...
+	TLSRSAWITHAES256GCMSHA384 ApplicationGatewaySslCipherSuite = "TLS_RSA_WITH_AES_256_GCM_SHA384"
+)
+
+// PossibleApplicationGatewaySslCipherSuiteValues returns an array of possible values for the ApplicationGatewaySslCipherSuite const type.
+func PossibleApplicationGatewaySslCipherSuiteValues() []ApplicationGatewaySslCipherSuite {
+	return []ApplicationGatewaySslCipherSuite{TLSDHEDSSWITH3DESEDECBCSHA, TLSDHEDSSWITHAES128CBCSHA, TLSDHEDSSWITHAES128CBCSHA256, TLSDHEDSSWITHAES256CBCSHA, TLSDHEDSSWITHAES256CBCSHA256, TLSDHERSAWITHAES128CBCSHA, TLSDHERSAWITHAES128GCMSHA256, TLSDHERSAWITHAES256CBCSHA, TLSDHERSAWITHAES256GCMSHA384, TLSECDHEECDSAWITHAES128CBCSHA, TLSECDHEECDSAWITHAES128CBCSHA256, TLSECDHEECDSAWITHAES128GCMSHA256, TLSECDHEECDSAWITHAES256CBCSHA, TLSECDHEECDSAWITHAES256CBCSHA384, TLSECDHEECDSAWITHAES256GCMSHA384, TLSECDHERSAWITHAES128CBCSHA, TLSECDHERSAWITHAES128CBCSHA256, TLSECDHERSAWITHAES128GCMSHA256, TLSECDHERSAWITHAES256CBCSHA, TLSECDHERSAWITHAES256CBCSHA384, TLSECDHERSAWITHAES256GCMSHA384, TLSRSAWITH3DESEDECBCSHA, TLSRSAWITHAES128CBCSHA, TLSRSAWITHAES128CBCSHA256, TLSRSAWITHAES128GCMSHA256, TLSRSAWITHAES256CBCSHA, TLSRSAWITHAES256CBCSHA256, TLSRSAWITHAES256GCMSHA384}
+}
+
+// ApplicationGatewaySslPolicyName enumerates the values for application gateway ssl policy name.
+type ApplicationGatewaySslPolicyName string
+
+const (
+	// AppGwSslPolicy20150501 ...
+	AppGwSslPolicy20150501 ApplicationGatewaySslPolicyName = "AppGwSslPolicy20150501"
+	// AppGwSslPolicy20170401 ...
+	AppGwSslPolicy20170401 ApplicationGatewaySslPolicyName = "AppGwSslPolicy20170401"
+	// AppGwSslPolicy20170401S ...
+	AppGwSslPolicy20170401S ApplicationGatewaySslPolicyName = "AppGwSslPolicy20170401S"
+)
+
+// PossibleApplicationGatewaySslPolicyNameValues returns an array of possible values for the ApplicationGatewaySslPolicyName const type.
+func PossibleApplicationGatewaySslPolicyNameValues() []ApplicationGatewaySslPolicyName {
+	return []ApplicationGatewaySslPolicyName{AppGwSslPolicy20150501, AppGwSslPolicy20170401, AppGwSslPolicy20170401S}
+}
+
+// ApplicationGatewaySslPolicyType enumerates the values for application gateway ssl policy type.
+type ApplicationGatewaySslPolicyType string
+
+const (
+	// Custom ...
+	Custom ApplicationGatewaySslPolicyType = "Custom"
+	// Predefined ...
+	Predefined ApplicationGatewaySslPolicyType = "Predefined"
+)
+
+// PossibleApplicationGatewaySslPolicyTypeValues returns an array of possible values for the ApplicationGatewaySslPolicyType const type.
+func PossibleApplicationGatewaySslPolicyTypeValues() []ApplicationGatewaySslPolicyType {
+	return []ApplicationGatewaySslPolicyType{Custom, Predefined}
+}
+
+// ApplicationGatewaySslProtocol enumerates the values for application gateway ssl protocol.
+type ApplicationGatewaySslProtocol string
+
+const (
+	// TLSv10 ...
+	TLSv10 ApplicationGatewaySslProtocol = "TLSv1_0"
+	// TLSv11 ...
+	TLSv11 ApplicationGatewaySslProtocol = "TLSv1_1"
+	// TLSv12 ...
+	TLSv12 ApplicationGatewaySslProtocol = "TLSv1_2"
+)
+
+// PossibleApplicationGatewaySslProtocolValues returns an array of possible values for the ApplicationGatewaySslProtocol const type.
+func PossibleApplicationGatewaySslProtocolValues() []ApplicationGatewaySslProtocol {
+	return []ApplicationGatewaySslProtocol{TLSv10, TLSv11, TLSv12}
+}
+
+// ApplicationGatewayTier enumerates the values for application gateway tier.
+type ApplicationGatewayTier string
+
+const (
+	// Standard ...
+	Standard ApplicationGatewayTier = "Standard"
+	// WAF ...
+	WAF ApplicationGatewayTier = "WAF"
+)
+
+// PossibleApplicationGatewayTierValues returns an array of possible values for the ApplicationGatewayTier const type.
+func PossibleApplicationGatewayTierValues() []ApplicationGatewayTier {
+	return []ApplicationGatewayTier{Standard, WAF}
+}
+
+// AssociationType enumerates the values for association type.
+type AssociationType string
+
+const (
+	// Associated ...
+	Associated AssociationType = "Associated"
+	// Contains ...
+	Contains AssociationType = "Contains"
+)
+
+// PossibleAssociationTypeValues returns an array of possible values for the AssociationType const type.
+func PossibleAssociationTypeValues() []AssociationType {
+	return []AssociationType{Associated, Contains}
+}
+
+// AuthenticationMethod enumerates the values for authentication method.
+type AuthenticationMethod string
+
+const (
+	// EAPMSCHAPv2 ...
+	EAPMSCHAPv2 AuthenticationMethod = "EAPMSCHAPv2"
+	// EAPTLS ...
+	EAPTLS AuthenticationMethod = "EAPTLS"
+)
+
+// PossibleAuthenticationMethodValues returns an array of possible values for the AuthenticationMethod const type.
+func PossibleAuthenticationMethodValues() []AuthenticationMethod {
+	return []AuthenticationMethod{EAPMSCHAPv2, EAPTLS}
+}
+
+// AuthorizationUseStatus enumerates the values for authorization use status.
+type AuthorizationUseStatus string
+
+const (
+	// Available ...
+	Available AuthorizationUseStatus = "Available"
+	// InUse ...
+	InUse AuthorizationUseStatus = "InUse"
+)
+
+// PossibleAuthorizationUseStatusValues returns an array of possible values for the AuthorizationUseStatus const type.
+func PossibleAuthorizationUseStatusValues() []AuthorizationUseStatus {
+	return []AuthorizationUseStatus{Available, InUse}
+}
+
+// BgpPeerState enumerates the values for bgp peer state.
+type BgpPeerState string
+
+const (
+	// BgpPeerStateConnected ...
+	BgpPeerStateConnected BgpPeerState = "Connected"
+	// BgpPeerStateConnecting ...
+	BgpPeerStateConnecting BgpPeerState = "Connecting"
+	// BgpPeerStateIdle ...
+	BgpPeerStateIdle BgpPeerState = "Idle"
+	// BgpPeerStateStopped ...
+	BgpPeerStateStopped BgpPeerState = "Stopped"
+	// BgpPeerStateUnknown ...
+	BgpPeerStateUnknown BgpPeerState = "Unknown"
+)
+
+// PossibleBgpPeerStateValues returns an array of possible values for the BgpPeerState const type.
+func PossibleBgpPeerStateValues() []BgpPeerState {
+	return []BgpPeerState{BgpPeerStateConnected, BgpPeerStateConnecting, BgpPeerStateIdle, BgpPeerStateStopped, BgpPeerStateUnknown}
+}
+
+// ConnectionState enumerates the values for connection state.
+type ConnectionState string
+
+const (
+	// ConnectionStateReachable ...
+	ConnectionStateReachable ConnectionState = "Reachable"
+	// ConnectionStateUnknown ...
+	ConnectionStateUnknown ConnectionState = "Unknown"
+	// ConnectionStateUnreachable ...
+	ConnectionStateUnreachable ConnectionState = "Unreachable"
+)
+
+// PossibleConnectionStateValues returns an array of possible values for the ConnectionState const type.
+func PossibleConnectionStateValues() []ConnectionState {
+	return []ConnectionState{ConnectionStateReachable, ConnectionStateUnknown, ConnectionStateUnreachable}
+}
+
+// ConnectionStatus enumerates the values for connection status.
+type ConnectionStatus string
+
+const (
+	// ConnectionStatusConnected ...
+	ConnectionStatusConnected ConnectionStatus = "Connected"
+	// ConnectionStatusDegraded ...
+	ConnectionStatusDegraded ConnectionStatus = "Degraded"
+	// ConnectionStatusDisconnected ...
+	ConnectionStatusDisconnected ConnectionStatus = "Disconnected"
+	// ConnectionStatusUnknown ...
+	ConnectionStatusUnknown ConnectionStatus = "Unknown"
+)
+
+// PossibleConnectionStatusValues returns an array of possible values for the ConnectionStatus const type.
+func PossibleConnectionStatusValues() []ConnectionStatus {
+	return []ConnectionStatus{ConnectionStatusConnected, ConnectionStatusDegraded, ConnectionStatusDisconnected, ConnectionStatusUnknown}
+}
+
+// DhGroup enumerates the values for dh group.
+type DhGroup string
+
+const (
+	// DHGroup1 ...
+	DHGroup1 DhGroup = "DHGroup1"
+	// DHGroup14 ...
+	DHGroup14 DhGroup = "DHGroup14"
+	// DHGroup2 ...
+	DHGroup2 DhGroup = "DHGroup2"
+	// DHGroup2048 ...
+	DHGroup2048 DhGroup = "DHGroup2048"
+	// DHGroup24 ...
+	DHGroup24 DhGroup = "DHGroup24"
+	// ECP256 ...
+	ECP256 DhGroup = "ECP256"
+	// ECP384 ...
+	ECP384 DhGroup = "ECP384"
+	// None ...
+	None DhGroup = "None"
+)
+
+// PossibleDhGroupValues returns an array of possible values for the DhGroup const type.
+func PossibleDhGroupValues() []DhGroup {
+	return []DhGroup{DHGroup1, DHGroup14, DHGroup2, DHGroup2048, DHGroup24, ECP256, ECP384, None}
+}
+
+// Direction enumerates the values for direction.
+type Direction string
+
+const (
+	// Inbound ...
+	Inbound Direction = "Inbound"
+	// Outbound ...
+	Outbound Direction = "Outbound"
+)
+
+// PossibleDirectionValues returns an array of possible values for the Direction const type.
+func PossibleDirectionValues() []Direction {
+	return []Direction{Inbound, Outbound}
+}
+
+// EffectiveRouteSource enumerates the values for effective route source.
+type EffectiveRouteSource string
+
+const (
+	// EffectiveRouteSourceDefault ...
+	EffectiveRouteSourceDefault EffectiveRouteSource = "Default"
+	// EffectiveRouteSourceUnknown ...
+	EffectiveRouteSourceUnknown EffectiveRouteSource = "Unknown"
+	// EffectiveRouteSourceUser ...
+	EffectiveRouteSourceUser EffectiveRouteSource = "User"
+	// EffectiveRouteSourceVirtualNetworkGateway ...
+	EffectiveRouteSourceVirtualNetworkGateway EffectiveRouteSource = "VirtualNetworkGateway"
+)
+
+// PossibleEffectiveRouteSourceValues returns an array of possible values for the EffectiveRouteSource const type.
+func PossibleEffectiveRouteSourceValues() []EffectiveRouteSource {
+	return []EffectiveRouteSource{EffectiveRouteSourceDefault, EffectiveRouteSourceUnknown, EffectiveRouteSourceUser, EffectiveRouteSourceVirtualNetworkGateway}
+}
+
+// EffectiveRouteState enumerates the values for effective route state.
+type EffectiveRouteState string
+
+const (
+	// Active ...
+	Active EffectiveRouteState = "Active"
+	// Invalid ...
+	Invalid EffectiveRouteState = "Invalid"
+)
+
+// PossibleEffectiveRouteStateValues returns an array of possible values for the EffectiveRouteState const type.
+func PossibleEffectiveRouteStateValues() []EffectiveRouteState {
+	return []EffectiveRouteState{Active, Invalid}
+}
+
+// EffectiveSecurityRuleProtocol enumerates the values for effective security rule protocol.
+type EffectiveSecurityRuleProtocol string
+
+const (
+	// All ...
+	All EffectiveSecurityRuleProtocol = "All"
+	// TCP ...
+	TCP EffectiveSecurityRuleProtocol = "Tcp"
+	// UDP ...
+	UDP EffectiveSecurityRuleProtocol = "Udp"
+)
+
+// PossibleEffectiveSecurityRuleProtocolValues returns an array of possible values for the EffectiveSecurityRuleProtocol const type.
+func PossibleEffectiveSecurityRuleProtocolValues() []EffectiveSecurityRuleProtocol {
+	return []EffectiveSecurityRuleProtocol{All, TCP, UDP}
+}
+
+// EvaluationState enumerates the values for evaluation state.
+type EvaluationState string
+
+const (
+	// Completed ...
+	Completed EvaluationState = "Completed"
+	// InProgress ...
+	InProgress EvaluationState = "InProgress"
+	// NotStarted ...
+	NotStarted EvaluationState = "NotStarted"
+)
+
+// PossibleEvaluationStateValues returns an array of possible values for the EvaluationState const type.
+func PossibleEvaluationStateValues() []EvaluationState {
+	return []EvaluationState{Completed, InProgress, NotStarted}
+}
+
+// ExpressRouteCircuitPeeringAdvertisedPublicPrefixState enumerates the values for express route circuit
+// peering advertised public prefix state.
+type ExpressRouteCircuitPeeringAdvertisedPublicPrefixState string
+
+const (
+	// Configured ...
+	Configured ExpressRouteCircuitPeeringAdvertisedPublicPrefixState = "Configured"
+	// Configuring ...
+	Configuring ExpressRouteCircuitPeeringAdvertisedPublicPrefixState = "Configuring"
+	// NotConfigured ...
+	NotConfigured ExpressRouteCircuitPeeringAdvertisedPublicPrefixState = "NotConfigured"
+	// ValidationNeeded ...
+	ValidationNeeded ExpressRouteCircuitPeeringAdvertisedPublicPrefixState = "ValidationNeeded"
+)
+
+// PossibleExpressRouteCircuitPeeringAdvertisedPublicPrefixStateValues returns an array of possible values for the ExpressRouteCircuitPeeringAdvertisedPublicPrefixState const type.
+func PossibleExpressRouteCircuitPeeringAdvertisedPublicPrefixStateValues() []ExpressRouteCircuitPeeringAdvertisedPublicPrefixState {
+	return []ExpressRouteCircuitPeeringAdvertisedPublicPrefixState{Configured, Configuring, NotConfigured, ValidationNeeded}
+}
+
+// ExpressRouteCircuitPeeringState enumerates the values for express route circuit peering state.
+type ExpressRouteCircuitPeeringState string
+
+const (
+	// ExpressRouteCircuitPeeringStateDisabled ...
+	ExpressRouteCircuitPeeringStateDisabled ExpressRouteCircuitPeeringState = "Disabled"
+	// ExpressRouteCircuitPeeringStateEnabled ...
+	ExpressRouteCircuitPeeringStateEnabled ExpressRouteCircuitPeeringState = "Enabled"
+)
+
+// PossibleExpressRouteCircuitPeeringStateValues returns an array of possible values for the ExpressRouteCircuitPeeringState const type.
+func PossibleExpressRouteCircuitPeeringStateValues() []ExpressRouteCircuitPeeringState {
+	return []ExpressRouteCircuitPeeringState{ExpressRouteCircuitPeeringStateDisabled, ExpressRouteCircuitPeeringStateEnabled}
+}
+
+// ExpressRouteCircuitPeeringType enumerates the values for express route circuit peering type.
+type ExpressRouteCircuitPeeringType string
+
+const (
+	// AzurePrivatePeering ...
+	AzurePrivatePeering ExpressRouteCircuitPeeringType = "AzurePrivatePeering"
+	// AzurePublicPeering ...
+	AzurePublicPeering ExpressRouteCircuitPeeringType = "AzurePublicPeering"
+	// MicrosoftPeering ...
+	MicrosoftPeering ExpressRouteCircuitPeeringType = "MicrosoftPeering"
+)
+
+// PossibleExpressRouteCircuitPeeringTypeValues returns an array of possible values for the ExpressRouteCircuitPeeringType const type.
+func PossibleExpressRouteCircuitPeeringTypeValues() []ExpressRouteCircuitPeeringType {
+	return []ExpressRouteCircuitPeeringType{AzurePrivatePeering, AzurePublicPeering, MicrosoftPeering}
+}
+
+// ExpressRouteCircuitSkuFamily enumerates the values for express route circuit sku family.
+type ExpressRouteCircuitSkuFamily string
+
+const (
+	// MeteredData ...
+	MeteredData ExpressRouteCircuitSkuFamily = "MeteredData"
+	// UnlimitedData ...
+	UnlimitedData ExpressRouteCircuitSkuFamily = "UnlimitedData"
+)
+
+// PossibleExpressRouteCircuitSkuFamilyValues returns an array of possible values for the ExpressRouteCircuitSkuFamily const type.
+func PossibleExpressRouteCircuitSkuFamilyValues() []ExpressRouteCircuitSkuFamily {
+	return []ExpressRouteCircuitSkuFamily{MeteredData, UnlimitedData}
+}
+
+// ExpressRouteCircuitSkuTier enumerates the values for express route circuit sku tier.
+type ExpressRouteCircuitSkuTier string
+
+const (
+	// ExpressRouteCircuitSkuTierPremium ...
+	ExpressRouteCircuitSkuTierPremium ExpressRouteCircuitSkuTier = "Premium"
+	// ExpressRouteCircuitSkuTierStandard ...
+	ExpressRouteCircuitSkuTierStandard ExpressRouteCircuitSkuTier = "Standard"
+)
+
+// PossibleExpressRouteCircuitSkuTierValues returns an array of possible values for the ExpressRouteCircuitSkuTier const type.
+func PossibleExpressRouteCircuitSkuTierValues() []ExpressRouteCircuitSkuTier {
+	return []ExpressRouteCircuitSkuTier{ExpressRouteCircuitSkuTierPremium, ExpressRouteCircuitSkuTierStandard}
+}
+
+// IkeEncryption enumerates the values for ike encryption.
+type IkeEncryption string
+
+const (
+	// AES128 ...
+	AES128 IkeEncryption = "AES128"
+	// AES192 ...
+	AES192 IkeEncryption = "AES192"
+	// AES256 ...
+	AES256 IkeEncryption = "AES256"
+	// DES ...
+	DES IkeEncryption = "DES"
+	// DES3 ...
+	DES3 IkeEncryption = "DES3"
+)
+
+// PossibleIkeEncryptionValues returns an array of possible values for the IkeEncryption const type.
+func PossibleIkeEncryptionValues() []IkeEncryption {
+	return []IkeEncryption{AES128, AES192, AES256, DES, DES3}
+}
+
+// IkeIntegrity enumerates the values for ike integrity.
+type IkeIntegrity string
+
+const (
+	// MD5 ...
+	MD5 IkeIntegrity = "MD5"
+	// SHA1 ...
+	SHA1 IkeIntegrity = "SHA1"
+	// SHA256 ...
+	SHA256 IkeIntegrity = "SHA256"
+	// SHA384 ...
+	SHA384 IkeIntegrity = "SHA384"
+)
+
+// PossibleIkeIntegrityValues returns an array of possible values for the IkeIntegrity const type.
+func PossibleIkeIntegrityValues() []IkeIntegrity {
+	return []IkeIntegrity{MD5, SHA1, SHA256, SHA384}
+}
+
+// IPAllocationMethod enumerates the values for ip allocation method.
+type IPAllocationMethod string
+
+const (
+	// Dynamic ...
+	Dynamic IPAllocationMethod = "Dynamic"
+	// Static ...
+	Static IPAllocationMethod = "Static"
+)
+
+// PossibleIPAllocationMethodValues returns an array of possible values for the IPAllocationMethod const type.
+func PossibleIPAllocationMethodValues() []IPAllocationMethod {
+	return []IPAllocationMethod{Dynamic, Static}
+}
+
+// IpsecEncryption enumerates the values for ipsec encryption.
+type IpsecEncryption string
+
+const (
+	// IpsecEncryptionAES128 ...
+	IpsecEncryptionAES128 IpsecEncryption = "AES128"
+	// IpsecEncryptionAES192 ...
+	IpsecEncryptionAES192 IpsecEncryption = "AES192"
+	// IpsecEncryptionAES256 ...
+	IpsecEncryptionAES256 IpsecEncryption = "AES256"
+	// IpsecEncryptionDES ...
+	IpsecEncryptionDES IpsecEncryption = "DES"
+	// IpsecEncryptionDES3 ...
+	IpsecEncryptionDES3 IpsecEncryption = "DES3"
+	// IpsecEncryptionGCMAES128 ...
+	IpsecEncryptionGCMAES128 IpsecEncryption = "GCMAES128"
+	// IpsecEncryptionGCMAES192 ...
+	IpsecEncryptionGCMAES192 IpsecEncryption = "GCMAES192"
+	// IpsecEncryptionGCMAES256 ...
+	IpsecEncryptionGCMAES256 IpsecEncryption = "GCMAES256"
+	// IpsecEncryptionNone ...
+	IpsecEncryptionNone IpsecEncryption = "None"
+)
+
+// PossibleIpsecEncryptionValues returns an array of possible values for the IpsecEncryption const type.
+func PossibleIpsecEncryptionValues() []IpsecEncryption {
+	return []IpsecEncryption{IpsecEncryptionAES128, IpsecEncryptionAES192, IpsecEncryptionAES256, IpsecEncryptionDES, IpsecEncryptionDES3, IpsecEncryptionGCMAES128, IpsecEncryptionGCMAES192, IpsecEncryptionGCMAES256, IpsecEncryptionNone}
+}
+
+// IpsecIntegrity enumerates the values for ipsec integrity.
+type IpsecIntegrity string
+
+const (
+	// IpsecIntegrityGCMAES128 ...
+	IpsecIntegrityGCMAES128 IpsecIntegrity = "GCMAES128"
+	// IpsecIntegrityGCMAES192 ...
+	IpsecIntegrityGCMAES192 IpsecIntegrity = "GCMAES192"
+	// IpsecIntegrityGCMAES256 ...
+	IpsecIntegrityGCMAES256 IpsecIntegrity = "GCMAES256"
+	// IpsecIntegrityMD5 ...
+	IpsecIntegrityMD5 IpsecIntegrity = "MD5"
+	// IpsecIntegritySHA1 ...
+	IpsecIntegritySHA1 IpsecIntegrity = "SHA1"
+	// IpsecIntegritySHA256 ...
+	IpsecIntegritySHA256 IpsecIntegrity = "SHA256"
+)
+
+// PossibleIpsecIntegrityValues returns an array of possible values for the IpsecIntegrity const type.
+func PossibleIpsecIntegrityValues() []IpsecIntegrity {
+	return []IpsecIntegrity{IpsecIntegrityGCMAES128, IpsecIntegrityGCMAES192, IpsecIntegrityGCMAES256, IpsecIntegrityMD5, IpsecIntegritySHA1, IpsecIntegritySHA256}
+}
+
+// IPVersion enumerates the values for ip version.
+type IPVersion string
+
+const (
+	// IPv4 ...
+	IPv4 IPVersion = "IPv4"
+	// IPv6 ...
+	IPv6 IPVersion = "IPv6"
+)
+
+// PossibleIPVersionValues returns an array of possible values for the IPVersion const type.
+func PossibleIPVersionValues() []IPVersion {
+	return []IPVersion{IPv4, IPv6}
+}
+
+// IssueType enumerates the values for issue type.
+type IssueType string
+
+const (
+	// IssueTypeAgentStopped ...
+	IssueTypeAgentStopped IssueType = "AgentStopped"
+	// IssueTypeDNSResolution ...
+	IssueTypeDNSResolution IssueType = "DnsResolution"
+	// IssueTypeGuestFirewall ...
+	IssueTypeGuestFirewall IssueType = "GuestFirewall"
+	// IssueTypeNetworkSecurityRule ...
+	IssueTypeNetworkSecurityRule IssueType = "NetworkSecurityRule"
+	// IssueTypePlatform ...
+	IssueTypePlatform IssueType = "Platform"
+	// IssueTypePortThrottled ...
+	IssueTypePortThrottled IssueType = "PortThrottled"
+	// IssueTypeSocketBind ...
+	IssueTypeSocketBind IssueType = "SocketBind"
+	// IssueTypeUnknown ...
+	IssueTypeUnknown IssueType = "Unknown"
+	// IssueTypeUserDefinedRoute ...
+	IssueTypeUserDefinedRoute IssueType = "UserDefinedRoute"
+)
+
+// PossibleIssueTypeValues returns an array of possible values for the IssueType const type.
+func PossibleIssueTypeValues() []IssueType {
+	return []IssueType{IssueTypeAgentStopped, IssueTypeDNSResolution, IssueTypeGuestFirewall, IssueTypeNetworkSecurityRule, IssueTypePlatform, IssueTypePortThrottled, IssueTypeSocketBind, IssueTypeUnknown, IssueTypeUserDefinedRoute}
+}
+
+// LoadBalancerSkuName enumerates the values for load balancer sku name.
+type LoadBalancerSkuName string
+
+const (
+	// LoadBalancerSkuNameBasic ...
+	LoadBalancerSkuNameBasic LoadBalancerSkuName = "Basic"
+	// LoadBalancerSkuNameStandard ...
+	LoadBalancerSkuNameStandard LoadBalancerSkuName = "Standard"
+)
+
+// PossibleLoadBalancerSkuNameValues returns an array of possible values for the LoadBalancerSkuName const type.
+func PossibleLoadBalancerSkuNameValues() []LoadBalancerSkuName {
+	return []LoadBalancerSkuName{LoadBalancerSkuNameBasic, LoadBalancerSkuNameStandard}
+}
+
+// LoadDistribution enumerates the values for load distribution.
+type LoadDistribution string
+
+const (
+	// Default ...
+	Default LoadDistribution = "Default"
+	// SourceIP ...
+	SourceIP LoadDistribution = "SourceIP"
+	// SourceIPProtocol ...
+	SourceIPProtocol LoadDistribution = "SourceIPProtocol"
+)
+
+// PossibleLoadDistributionValues returns an array of possible values for the LoadDistribution const type.
+func PossibleLoadDistributionValues() []LoadDistribution {
+	return []LoadDistribution{Default, SourceIP, SourceIPProtocol}
+}
+
+// NextHopType enumerates the values for next hop type.
+type NextHopType string
+
+const (
+	// NextHopTypeHyperNetGateway ...
+	NextHopTypeHyperNetGateway NextHopType = "HyperNetGateway"
+	// NextHopTypeInternet ...
+	NextHopTypeInternet NextHopType = "Internet"
+	// NextHopTypeNone ...
+	NextHopTypeNone NextHopType = "None"
+	// NextHopTypeVirtualAppliance ...
+	NextHopTypeVirtualAppliance NextHopType = "VirtualAppliance"
+	// NextHopTypeVirtualNetworkGateway ...
+	NextHopTypeVirtualNetworkGateway NextHopType = "VirtualNetworkGateway"
+	// NextHopTypeVnetLocal ...
+	NextHopTypeVnetLocal NextHopType = "VnetLocal"
+)
+
+// PossibleNextHopTypeValues returns an array of possible values for the NextHopType const type.
+func PossibleNextHopTypeValues() []NextHopType {
+	return []NextHopType{NextHopTypeHyperNetGateway, NextHopTypeInternet, NextHopTypeNone, NextHopTypeVirtualAppliance, NextHopTypeVirtualNetworkGateway, NextHopTypeVnetLocal}
+}
+
+// OperationStatus enumerates the values for operation status.
+type OperationStatus string
+
+const (
+	// OperationStatusFailed ...
+	OperationStatusFailed OperationStatus = "Failed"
+	// OperationStatusInProgress ...
+	OperationStatusInProgress OperationStatus = "InProgress"
+	// OperationStatusSucceeded ...
+	OperationStatusSucceeded OperationStatus = "Succeeded"
+)
+
+// PossibleOperationStatusValues returns an array of possible values for the OperationStatus const type.
+func PossibleOperationStatusValues() []OperationStatus {
+	return []OperationStatus{OperationStatusFailed, OperationStatusInProgress, OperationStatusSucceeded}
+}
+
+// Origin enumerates the values for origin.
+type Origin string
+
+const (
+	// OriginInbound ...
+	OriginInbound Origin = "Inbound"
+	// OriginLocal ...
+	OriginLocal Origin = "Local"
+	// OriginOutbound ...
+	OriginOutbound Origin = "Outbound"
+)
+
+// PossibleOriginValues returns an array of possible values for the Origin const type.
+func PossibleOriginValues() []Origin {
+	return []Origin{OriginInbound, OriginLocal, OriginOutbound}
+}
+
+// PcError enumerates the values for pc error.
+type PcError string
+
+const (
+	// AgentStopped ...
+	AgentStopped PcError = "AgentStopped"
+	// CaptureFailed ...
+	CaptureFailed PcError = "CaptureFailed"
+	// InternalError ...
+	InternalError PcError = "InternalError"
+	// LocalFileFailed ...
+	LocalFileFailed PcError = "LocalFileFailed"
+	// StorageFailed ...
+	StorageFailed PcError = "StorageFailed"
+)
+
+// PossiblePcErrorValues returns an array of possible values for the PcError const type.
+func PossiblePcErrorValues() []PcError {
+	return []PcError{AgentStopped, CaptureFailed, InternalError, LocalFileFailed, StorageFailed}
+}
+
+// PcProtocol enumerates the values for pc protocol.
+type PcProtocol string
+
+const (
+	// PcProtocolAny ...
+	PcProtocolAny PcProtocol = "Any"
+	// PcProtocolTCP ...
+	PcProtocolTCP PcProtocol = "TCP"
+	// PcProtocolUDP ...
+	PcProtocolUDP PcProtocol = "UDP"
+)
+
+// PossiblePcProtocolValues returns an array of possible values for the PcProtocol const type.
+func PossiblePcProtocolValues() []PcProtocol {
+	return []PcProtocol{PcProtocolAny, PcProtocolTCP, PcProtocolUDP}
+}
+
+// PcStatus enumerates the values for pc status.
+type PcStatus string
+
+const (
+	// PcStatusError ...
+	PcStatusError PcStatus = "Error"
+	// PcStatusNotStarted ...
+	PcStatusNotStarted PcStatus = "NotStarted"
+	// PcStatusRunning ...
+	PcStatusRunning PcStatus = "Running"
+	// PcStatusStopped ...
+	PcStatusStopped PcStatus = "Stopped"
+	// PcStatusUnknown ...
+	PcStatusUnknown PcStatus = "Unknown"
+)
+
+// PossiblePcStatusValues returns an array of possible values for the PcStatus const type.
+func PossiblePcStatusValues() []PcStatus {
+	return []PcStatus{PcStatusError, PcStatusNotStarted, PcStatusRunning, PcStatusStopped, PcStatusUnknown}
+}
+
+// PfsGroup enumerates the values for pfs group.
+type PfsGroup string
+
+const (
+	// PfsGroupECP256 ...
+	PfsGroupECP256 PfsGroup = "ECP256"
+	// PfsGroupECP384 ...
+	PfsGroupECP384 PfsGroup = "ECP384"
+	// PfsGroupNone ...
+	PfsGroupNone PfsGroup = "None"
+	// PfsGroupPFS1 ...
+	PfsGroupPFS1 PfsGroup = "PFS1"
+	// PfsGroupPFS2 ...
+	PfsGroupPFS2 PfsGroup = "PFS2"
+	// PfsGroupPFS2048 ...
+	PfsGroupPFS2048 PfsGroup = "PFS2048"
+	// PfsGroupPFS24 ...
+	PfsGroupPFS24 PfsGroup = "PFS24"
+)
+
+// PossiblePfsGroupValues returns an array of possible values for the PfsGroup const type.
+func PossiblePfsGroupValues() []PfsGroup {
+	return []PfsGroup{PfsGroupECP256, PfsGroupECP384, PfsGroupNone, PfsGroupPFS1, PfsGroupPFS2, PfsGroupPFS2048, PfsGroupPFS24}
+}
+
+// ProbeProtocol enumerates the values for probe protocol.
+type ProbeProtocol string
+
+const (
+	// ProbeProtocolHTTP ...
+	ProbeProtocolHTTP ProbeProtocol = "Http"
+	// ProbeProtocolTCP ...
+	ProbeProtocolTCP ProbeProtocol = "Tcp"
+)
+
+// PossibleProbeProtocolValues returns an array of possible values for the ProbeProtocol const type.
+func PossibleProbeProtocolValues() []ProbeProtocol {
+	return []ProbeProtocol{ProbeProtocolHTTP, ProbeProtocolTCP}
+}
+
+// ProcessorArchitecture enumerates the values for processor architecture.
+type ProcessorArchitecture string
+
+const (
+	// Amd64 ...
+	Amd64 ProcessorArchitecture = "Amd64"
+	// X86 ...
+	X86 ProcessorArchitecture = "X86"
+)
+
+// PossibleProcessorArchitectureValues returns an array of possible values for the ProcessorArchitecture const type.
+func PossibleProcessorArchitectureValues() []ProcessorArchitecture {
+	return []ProcessorArchitecture{Amd64, X86}
+}
+
+// Protocol enumerates the values for protocol.
+type Protocol string
+
+const (
+	// ProtocolTCP ...
+	ProtocolTCP Protocol = "TCP"
+	// ProtocolUDP ...
+	ProtocolUDP Protocol = "UDP"
+)
+
+// PossibleProtocolValues returns an array of possible values for the Protocol const type.
+func PossibleProtocolValues() []Protocol {
+	return []Protocol{ProtocolTCP, ProtocolUDP}
+}
+
+// ProvisioningState enumerates the values for provisioning state.
+type ProvisioningState string
+
+const (
+	// Deleting ...
+	Deleting ProvisioningState = "Deleting"
+	// Failed ...
+	Failed ProvisioningState = "Failed"
+	// Succeeded ...
+	Succeeded ProvisioningState = "Succeeded"
+	// Updating ...
+	Updating ProvisioningState = "Updating"
+)
+
+// PossibleProvisioningStateValues returns an array of possible values for the ProvisioningState const type.
+func PossibleProvisioningStateValues() []ProvisioningState {
+	return []ProvisioningState{Deleting, Failed, Succeeded, Updating}
+}
+
+// PublicIPAddressSkuName enumerates the values for public ip address sku name.
+type PublicIPAddressSkuName string
+
+const (
+	// PublicIPAddressSkuNameBasic ...
+	PublicIPAddressSkuNameBasic PublicIPAddressSkuName = "Basic"
+	// PublicIPAddressSkuNameStandard ...
+	PublicIPAddressSkuNameStandard PublicIPAddressSkuName = "Standard"
+)
+
+// PossiblePublicIPAddressSkuNameValues returns an array of possible values for the PublicIPAddressSkuName const type.
+func PossiblePublicIPAddressSkuNameValues() []PublicIPAddressSkuName {
+	return []PublicIPAddressSkuName{PublicIPAddressSkuNameBasic, PublicIPAddressSkuNameStandard}
+}
+
+// RouteNextHopType enumerates the values for route next hop type.
+type RouteNextHopType string
+
+const (
+	// RouteNextHopTypeInternet ...
+	RouteNextHopTypeInternet RouteNextHopType = "Internet"
+	// RouteNextHopTypeNone ...
+	RouteNextHopTypeNone RouteNextHopType = "None"
+	// RouteNextHopTypeVirtualAppliance ...
+	RouteNextHopTypeVirtualAppliance RouteNextHopType = "VirtualAppliance"
+	// RouteNextHopTypeVirtualNetworkGateway ...
+	RouteNextHopTypeVirtualNetworkGateway RouteNextHopType = "VirtualNetworkGateway"
+	// RouteNextHopTypeVnetLocal ...
+	RouteNextHopTypeVnetLocal RouteNextHopType = "VnetLocal"
+)
+
+// PossibleRouteNextHopTypeValues returns an array of possible values for the RouteNextHopType const type.
+func PossibleRouteNextHopTypeValues() []RouteNextHopType {
+	return []RouteNextHopType{RouteNextHopTypeInternet, RouteNextHopTypeNone, RouteNextHopTypeVirtualAppliance, RouteNextHopTypeVirtualNetworkGateway, RouteNextHopTypeVnetLocal}
+}
+
+// SecurityRuleAccess enumerates the values for security rule access.
+type SecurityRuleAccess string
+
+const (
+	// SecurityRuleAccessAllow ...
+	SecurityRuleAccessAllow SecurityRuleAccess = "Allow"
+	// SecurityRuleAccessDeny ...
+	SecurityRuleAccessDeny SecurityRuleAccess = "Deny"
+)
+
+// PossibleSecurityRuleAccessValues returns an array of possible values for the SecurityRuleAccess const type.
+func PossibleSecurityRuleAccessValues() []SecurityRuleAccess {
+	return []SecurityRuleAccess{SecurityRuleAccessAllow, SecurityRuleAccessDeny}
+}
+
+// SecurityRuleDirection enumerates the values for security rule direction.
+type SecurityRuleDirection string
+
+const (
+	// SecurityRuleDirectionInbound ...
+	SecurityRuleDirectionInbound SecurityRuleDirection = "Inbound"
+	// SecurityRuleDirectionOutbound ...
+	SecurityRuleDirectionOutbound SecurityRuleDirection = "Outbound"
+)
+
+// PossibleSecurityRuleDirectionValues returns an array of possible values for the SecurityRuleDirection const type.
+func PossibleSecurityRuleDirectionValues() []SecurityRuleDirection {
+	return []SecurityRuleDirection{SecurityRuleDirectionInbound, SecurityRuleDirectionOutbound}
+}
+
+// SecurityRuleProtocol enumerates the values for security rule protocol.
+type SecurityRuleProtocol string
+
+const (
+	// SecurityRuleProtocolAsterisk ...
+	SecurityRuleProtocolAsterisk SecurityRuleProtocol = "*"
+	// SecurityRuleProtocolTCP ...
+	SecurityRuleProtocolTCP SecurityRuleProtocol = "Tcp"
+	// SecurityRuleProtocolUDP ...
+	SecurityRuleProtocolUDP SecurityRuleProtocol = "Udp"
+)
+
+// PossibleSecurityRuleProtocolValues returns an array of possible values for the SecurityRuleProtocol const type.
+func PossibleSecurityRuleProtocolValues() []SecurityRuleProtocol {
+	return []SecurityRuleProtocol{SecurityRuleProtocolAsterisk, SecurityRuleProtocolTCP, SecurityRuleProtocolUDP}
+}
+
+// ServiceProviderProvisioningState enumerates the values for service provider provisioning state.
+type ServiceProviderProvisioningState string
+
+const (
+	// Deprovisioning ...
+	Deprovisioning ServiceProviderProvisioningState = "Deprovisioning"
+	// NotProvisioned ...
+	NotProvisioned ServiceProviderProvisioningState = "NotProvisioned"
+	// Provisioned ...
+	Provisioned ServiceProviderProvisioningState = "Provisioned"
+	// Provisioning ...
+	Provisioning ServiceProviderProvisioningState = "Provisioning"
+)
+
+// PossibleServiceProviderProvisioningStateValues returns an array of possible values for the ServiceProviderProvisioningState const type.
+func PossibleServiceProviderProvisioningStateValues() []ServiceProviderProvisioningState {
+	return []ServiceProviderProvisioningState{Deprovisioning, NotProvisioned, Provisioned, Provisioning}
+}
+
+// Severity enumerates the values for severity.
+type Severity string
+
+const (
+	// SeverityError ...
+	SeverityError Severity = "Error"
+	// SeverityWarning ...
+	SeverityWarning Severity = "Warning"
+)
+
+// PossibleSeverityValues returns an array of possible values for the Severity const type.
+func PossibleSeverityValues() []Severity {
+	return []Severity{SeverityError, SeverityWarning}
+}
+
+// TransportProtocol enumerates the values for transport protocol.
+type TransportProtocol string
+
+const (
+	// TransportProtocolAll ...
+	TransportProtocolAll TransportProtocol = "All"
+	// TransportProtocolTCP ...
+	TransportProtocolTCP TransportProtocol = "Tcp"
+	// TransportProtocolUDP ...
+	TransportProtocolUDP TransportProtocol = "Udp"
+)
+
+// PossibleTransportProtocolValues returns an array of possible values for the TransportProtocol const type.
+func PossibleTransportProtocolValues() []TransportProtocol {
+	return []TransportProtocol{TransportProtocolAll, TransportProtocolTCP, TransportProtocolUDP}
+}
+
+// VirtualNetworkGatewayConnectionStatus enumerates the values for virtual network gateway connection status.
+type VirtualNetworkGatewayConnectionStatus string
+
+const (
+	// VirtualNetworkGatewayConnectionStatusConnected ...
+	VirtualNetworkGatewayConnectionStatusConnected VirtualNetworkGatewayConnectionStatus = "Connected"
+	// VirtualNetworkGatewayConnectionStatusConnecting ...
+	VirtualNetworkGatewayConnectionStatusConnecting VirtualNetworkGatewayConnectionStatus = "Connecting"
+	// VirtualNetworkGatewayConnectionStatusNotConnected ...
+	VirtualNetworkGatewayConnectionStatusNotConnected VirtualNetworkGatewayConnectionStatus = "NotConnected"
+	// VirtualNetworkGatewayConnectionStatusUnknown ...
+	VirtualNetworkGatewayConnectionStatusUnknown VirtualNetworkGatewayConnectionStatus = "Unknown"
+)
+
+// PossibleVirtualNetworkGatewayConnectionStatusValues returns an array of possible values for the VirtualNetworkGatewayConnectionStatus const type.
+func PossibleVirtualNetworkGatewayConnectionStatusValues() []VirtualNetworkGatewayConnectionStatus {
+	return []VirtualNetworkGatewayConnectionStatus{VirtualNetworkGatewayConnectionStatusConnected, VirtualNetworkGatewayConnectionStatusConnecting, VirtualNetworkGatewayConnectionStatusNotConnected, VirtualNetworkGatewayConnectionStatusUnknown}
+}
+
+// VirtualNetworkGatewayConnectionType enumerates the values for virtual network gateway connection type.
+type VirtualNetworkGatewayConnectionType string
+
+const (
+	// ExpressRoute ...
+	ExpressRoute VirtualNetworkGatewayConnectionType = "ExpressRoute"
+	// IPsec ...
+	IPsec VirtualNetworkGatewayConnectionType = "IPsec"
+	// Vnet2Vnet ...
+	Vnet2Vnet VirtualNetworkGatewayConnectionType = "Vnet2Vnet"
+	// VPNClient ...
+	VPNClient VirtualNetworkGatewayConnectionType = "VPNClient"
+)
+
+// PossibleVirtualNetworkGatewayConnectionTypeValues returns an array of possible values for the VirtualNetworkGatewayConnectionType const type.
+func PossibleVirtualNetworkGatewayConnectionTypeValues() []VirtualNetworkGatewayConnectionType {
+	return []VirtualNetworkGatewayConnectionType{ExpressRoute, IPsec, Vnet2Vnet, VPNClient}
+}
+
+// VirtualNetworkGatewaySkuName enumerates the values for virtual network gateway sku name.
+type VirtualNetworkGatewaySkuName string
+
+const (
+	// VirtualNetworkGatewaySkuNameBasic ...
+	VirtualNetworkGatewaySkuNameBasic VirtualNetworkGatewaySkuName = "Basic"
+	// VirtualNetworkGatewaySkuNameHighPerformance ...
+	VirtualNetworkGatewaySkuNameHighPerformance VirtualNetworkGatewaySkuName = "HighPerformance"
+	// VirtualNetworkGatewaySkuNameStandard ...
+	VirtualNetworkGatewaySkuNameStandard VirtualNetworkGatewaySkuName = "Standard"
+	// VirtualNetworkGatewaySkuNameUltraPerformance ...
+	VirtualNetworkGatewaySkuNameUltraPerformance VirtualNetworkGatewaySkuName = "UltraPerformance"
+	// VirtualNetworkGatewaySkuNameVpnGw1 ...
+	VirtualNetworkGatewaySkuNameVpnGw1 VirtualNetworkGatewaySkuName = "VpnGw1"
+	// VirtualNetworkGatewaySkuNameVpnGw2 ...
+	VirtualNetworkGatewaySkuNameVpnGw2 VirtualNetworkGatewaySkuName = "VpnGw2"
+	// VirtualNetworkGatewaySkuNameVpnGw3 ...
+	VirtualNetworkGatewaySkuNameVpnGw3 VirtualNetworkGatewaySkuName = "VpnGw3"
+)
+
+// PossibleVirtualNetworkGatewaySkuNameValues returns an array of possible values for the VirtualNetworkGatewaySkuName const type.
+func PossibleVirtualNetworkGatewaySkuNameValues() []VirtualNetworkGatewaySkuName {
+	return []VirtualNetworkGatewaySkuName{VirtualNetworkGatewaySkuNameBasic, VirtualNetworkGatewaySkuNameHighPerformance, VirtualNetworkGatewaySkuNameStandard, VirtualNetworkGatewaySkuNameUltraPerformance, VirtualNetworkGatewaySkuNameVpnGw1, VirtualNetworkGatewaySkuNameVpnGw2, VirtualNetworkGatewaySkuNameVpnGw3}
+}
+
+// VirtualNetworkGatewaySkuTier enumerates the values for virtual network gateway sku tier.
+type VirtualNetworkGatewaySkuTier string
+
+const (
+	// VirtualNetworkGatewaySkuTierBasic ...
+	VirtualNetworkGatewaySkuTierBasic VirtualNetworkGatewaySkuTier = "Basic"
+	// VirtualNetworkGatewaySkuTierHighPerformance ...
+	VirtualNetworkGatewaySkuTierHighPerformance VirtualNetworkGatewaySkuTier = "HighPerformance"
+	// VirtualNetworkGatewaySkuTierStandard ...
+	VirtualNetworkGatewaySkuTierStandard VirtualNetworkGatewaySkuTier = "Standard"
+	// VirtualNetworkGatewaySkuTierUltraPerformance ...
+	VirtualNetworkGatewaySkuTierUltraPerformance VirtualNetworkGatewaySkuTier = "UltraPerformance"
+	// VirtualNetworkGatewaySkuTierVpnGw1 ...
+	VirtualNetworkGatewaySkuTierVpnGw1 VirtualNetworkGatewaySkuTier = "VpnGw1"
+	// VirtualNetworkGatewaySkuTierVpnGw2 ...
+	VirtualNetworkGatewaySkuTierVpnGw2 VirtualNetworkGatewaySkuTier = "VpnGw2"
+	// VirtualNetworkGatewaySkuTierVpnGw3 ...
+	VirtualNetworkGatewaySkuTierVpnGw3 VirtualNetworkGatewaySkuTier = "VpnGw3"
+)
+
+// PossibleVirtualNetworkGatewaySkuTierValues returns an array of possible values for the VirtualNetworkGatewaySkuTier const type.
+func PossibleVirtualNetworkGatewaySkuTierValues() []VirtualNetworkGatewaySkuTier {
+	return []VirtualNetworkGatewaySkuTier{VirtualNetworkGatewaySkuTierBasic, VirtualNetworkGatewaySkuTierHighPerformance, VirtualNetworkGatewaySkuTierStandard, VirtualNetworkGatewaySkuTierUltraPerformance, VirtualNetworkGatewaySkuTierVpnGw1, VirtualNetworkGatewaySkuTierVpnGw2, VirtualNetworkGatewaySkuTierVpnGw3}
+}
+
+// VirtualNetworkGatewayType enumerates the values for virtual network gateway type.
+type VirtualNetworkGatewayType string
+
+const (
+	// VirtualNetworkGatewayTypeExpressRoute ...
+	VirtualNetworkGatewayTypeExpressRoute VirtualNetworkGatewayType = "ExpressRoute"
+	// VirtualNetworkGatewayTypeVpn ...
+	VirtualNetworkGatewayTypeVpn VirtualNetworkGatewayType = "Vpn"
+)
+
+// PossibleVirtualNetworkGatewayTypeValues returns an array of possible values for the VirtualNetworkGatewayType const type.
+func PossibleVirtualNetworkGatewayTypeValues() []VirtualNetworkGatewayType {
+	return []VirtualNetworkGatewayType{VirtualNetworkGatewayTypeExpressRoute, VirtualNetworkGatewayTypeVpn}
+}
+
+// VirtualNetworkPeeringState enumerates the values for virtual network peering state.
+type VirtualNetworkPeeringState string
+
+const (
+	// Connected ...
+	Connected VirtualNetworkPeeringState = "Connected"
+	// Disconnected ...
+	Disconnected VirtualNetworkPeeringState = "Disconnected"
+	// Initiated ...
+	Initiated VirtualNetworkPeeringState = "Initiated"
+)
+
+// PossibleVirtualNetworkPeeringStateValues returns an array of possible values for the VirtualNetworkPeeringState const type.
+func PossibleVirtualNetworkPeeringStateValues() []VirtualNetworkPeeringState {
+	return []VirtualNetworkPeeringState{Connected, Disconnected, Initiated}
+}
+
+// VpnClientProtocol enumerates the values for vpn client protocol.
+type VpnClientProtocol string
+
+const (
+	// IkeV2 ...
+	IkeV2 VpnClientProtocol = "IkeV2"
+	// SSTP ...
+	SSTP VpnClientProtocol = "SSTP"
+)
+
+// PossibleVpnClientProtocolValues returns an array of possible values for the VpnClientProtocol const type.
+func PossibleVpnClientProtocolValues() []VpnClientProtocol {
+	return []VpnClientProtocol{IkeV2, SSTP}
+}
+
+// VpnType enumerates the values for vpn type.
+type VpnType string
+
+const (
+	// PolicyBased ...
+	PolicyBased VpnType = "PolicyBased"
+	// RouteBased ...
+	RouteBased VpnType = "RouteBased"
+)
+
+// PossibleVpnTypeValues returns an array of possible values for the VpnType const type.
+func PossibleVpnTypeValues() []VpnType {
+	return []VpnType{PolicyBased, RouteBased}
+}
+
 // AddressSpace addressSpace contains an array of IP address ranges that can be used by subnets of the
 // virtual network.
 type AddressSpace struct {
@@ -454,15 +1708,10 @@ func (agaspp ApplicationGatewayAvailableSslPredefinedPolicies) IsEmpty() bool {
 	return agaspp.Value == nil || len(*agaspp.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (agaspp ApplicationGatewayAvailableSslPredefinedPolicies) hasNextLink() bool {
-	return agaspp.NextLink != nil && len(*agaspp.NextLink) != 0
-}
-
 // applicationGatewayAvailableSslPredefinedPoliciesPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (agaspp ApplicationGatewayAvailableSslPredefinedPolicies) applicationGatewayAvailableSslPredefinedPoliciesPreparer(ctx context.Context) (*http.Request, error) {
-	if !agaspp.hasNextLink() {
+	if agaspp.NextLink == nil || len(to.String(agaspp.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -491,16 +1740,11 @@ func (page *ApplicationGatewayAvailableSslPredefinedPoliciesPage) NextWithContex
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.agaspp)
-		if err != nil {
-			return err
-		}
-		page.agaspp = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.agaspp)
+	if err != nil {
+		return err
 	}
+	page.agaspp = next
 	return nil
 }
 
@@ -530,11 +1774,8 @@ func (page ApplicationGatewayAvailableSslPredefinedPoliciesPage) Values() []Appl
 }
 
 // Creates a new instance of the ApplicationGatewayAvailableSslPredefinedPoliciesPage type.
-func NewApplicationGatewayAvailableSslPredefinedPoliciesPage(cur ApplicationGatewayAvailableSslPredefinedPolicies, getNextPage func(context.Context, ApplicationGatewayAvailableSslPredefinedPolicies) (ApplicationGatewayAvailableSslPredefinedPolicies, error)) ApplicationGatewayAvailableSslPredefinedPoliciesPage {
-	return ApplicationGatewayAvailableSslPredefinedPoliciesPage{
-		fn:     getNextPage,
-		agaspp: cur,
-	}
+func NewApplicationGatewayAvailableSslPredefinedPoliciesPage(getNextPage func(context.Context, ApplicationGatewayAvailableSslPredefinedPolicies) (ApplicationGatewayAvailableSslPredefinedPolicies, error)) ApplicationGatewayAvailableSslPredefinedPoliciesPage {
+	return ApplicationGatewayAvailableSslPredefinedPoliciesPage{fn: getNextPage}
 }
 
 // ApplicationGatewayAvailableWafRuleSetsResult response for ApplicationGatewayAvailableWafRuleSets API
@@ -1469,15 +2710,10 @@ func (aglr ApplicationGatewayListResult) IsEmpty() bool {
 	return aglr.Value == nil || len(*aglr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (aglr ApplicationGatewayListResult) hasNextLink() bool {
-	return aglr.NextLink != nil && len(*aglr.NextLink) != 0
-}
-
 // applicationGatewayListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (aglr ApplicationGatewayListResult) applicationGatewayListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !aglr.hasNextLink() {
+	if aglr.NextLink == nil || len(to.String(aglr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -1505,16 +2741,11 @@ func (page *ApplicationGatewayListResultPage) NextWithContext(ctx context.Contex
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.aglr)
-		if err != nil {
-			return err
-		}
-		page.aglr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.aglr)
+	if err != nil {
+		return err
 	}
+	page.aglr = next
 	return nil
 }
 
@@ -1544,11 +2775,8 @@ func (page ApplicationGatewayListResultPage) Values() []ApplicationGateway {
 }
 
 // Creates a new instance of the ApplicationGatewayListResultPage type.
-func NewApplicationGatewayListResultPage(cur ApplicationGatewayListResult, getNextPage func(context.Context, ApplicationGatewayListResult) (ApplicationGatewayListResult, error)) ApplicationGatewayListResultPage {
-	return ApplicationGatewayListResultPage{
-		fn:   getNextPage,
-		aglr: cur,
-	}
+func NewApplicationGatewayListResultPage(getNextPage func(context.Context, ApplicationGatewayListResult) (ApplicationGatewayListResult, error)) ApplicationGatewayListResultPage {
+	return ApplicationGatewayListResultPage{fn: getNextPage}
 }
 
 // ApplicationGatewayPathRule path rule of URL path map of an application gateway.
@@ -1827,66 +3055,6 @@ type ApplicationGatewayPropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for ApplicationGatewayPropertiesFormat.
-func (agpf ApplicationGatewayPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if agpf.Sku != nil {
-		objectMap["sku"] = agpf.Sku
-	}
-	if agpf.SslPolicy != nil {
-		objectMap["sslPolicy"] = agpf.SslPolicy
-	}
-	if agpf.GatewayIPConfigurations != nil {
-		objectMap["gatewayIPConfigurations"] = agpf.GatewayIPConfigurations
-	}
-	if agpf.AuthenticationCertificates != nil {
-		objectMap["authenticationCertificates"] = agpf.AuthenticationCertificates
-	}
-	if agpf.SslCertificates != nil {
-		objectMap["sslCertificates"] = agpf.SslCertificates
-	}
-	if agpf.FrontendIPConfigurations != nil {
-		objectMap["frontendIPConfigurations"] = agpf.FrontendIPConfigurations
-	}
-	if agpf.FrontendPorts != nil {
-		objectMap["frontendPorts"] = agpf.FrontendPorts
-	}
-	if agpf.Probes != nil {
-		objectMap["probes"] = agpf.Probes
-	}
-	if agpf.BackendAddressPools != nil {
-		objectMap["backendAddressPools"] = agpf.BackendAddressPools
-	}
-	if agpf.BackendHTTPSettingsCollection != nil {
-		objectMap["backendHttpSettingsCollection"] = agpf.BackendHTTPSettingsCollection
-	}
-	if agpf.HTTPListeners != nil {
-		objectMap["httpListeners"] = agpf.HTTPListeners
-	}
-	if agpf.URLPathMaps != nil {
-		objectMap["urlPathMaps"] = agpf.URLPathMaps
-	}
-	if agpf.RequestRoutingRules != nil {
-		objectMap["requestRoutingRules"] = agpf.RequestRoutingRules
-	}
-	if agpf.RedirectConfigurations != nil {
-		objectMap["redirectConfigurations"] = agpf.RedirectConfigurations
-	}
-	if agpf.WebApplicationFirewallConfiguration != nil {
-		objectMap["webApplicationFirewallConfiguration"] = agpf.WebApplicationFirewallConfiguration
-	}
-	if agpf.EnableHTTP2 != nil {
-		objectMap["enableHttp2"] = agpf.EnableHTTP2
-	}
-	if agpf.ResourceGUID != nil {
-		objectMap["resourceGuid"] = agpf.ResourceGUID
-	}
-	if agpf.ProvisioningState != nil {
-		objectMap["provisioningState"] = agpf.ProvisioningState
-	}
-	return json.Marshal(objectMap)
-}
-
 // ApplicationGatewayRedirectConfiguration redirect configuration of an application gateway.
 type ApplicationGatewayRedirectConfiguration struct {
 	*ApplicationGatewayRedirectConfigurationPropertiesFormat `json:"properties,omitempty"`
@@ -2118,28 +3286,82 @@ type ApplicationGatewayRequestRoutingRulePropertiesFormat struct {
 // ApplicationGatewaysBackendHealthFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ApplicationGatewaysBackendHealthFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ApplicationGatewaysClient) (ApplicationGatewayBackendHealth, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ApplicationGatewaysBackendHealthFuture) Result(client ApplicationGatewaysClient) (agbh ApplicationGatewayBackendHealth, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ApplicationGatewaysBackendHealthFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ApplicationGatewaysBackendHealthFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if agbh.Response.Response, err = future.GetResult(sender); err == nil && agbh.Response.Response.StatusCode != http.StatusNoContent {
+		agbh, err = client.BackendHealthResponder(agbh.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ApplicationGatewaysBackendHealthFuture", "Result", agbh.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ApplicationGatewaysCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ApplicationGatewaysCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ApplicationGatewaysClient) (ApplicationGateway, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ApplicationGatewaysCreateOrUpdateFuture) Result(client ApplicationGatewaysClient) (ag ApplicationGateway, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ApplicationGatewaysCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ApplicationGatewaysCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if ag.Response.Response, err = future.GetResult(sender); err == nil && ag.Response.Response.StatusCode != http.StatusNoContent {
+		ag, err = client.CreateOrUpdateResponder(ag.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ApplicationGatewaysCreateOrUpdateFuture", "Result", ag.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ApplicationGatewaysDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ApplicationGatewaysDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ApplicationGatewaysClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ApplicationGatewaysDeleteFuture) Result(client ApplicationGatewaysClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ApplicationGatewaysDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ApplicationGatewaysDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ApplicationGatewaySku SKU of an application gateway
@@ -2352,28 +3574,76 @@ type ApplicationGatewaySslPredefinedPolicyPropertiesFormat struct {
 // ApplicationGatewaysStartFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ApplicationGatewaysStartFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ApplicationGatewaysClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ApplicationGatewaysStartFuture) Result(client ApplicationGatewaysClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ApplicationGatewaysStartFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ApplicationGatewaysStartFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ApplicationGatewaysStopFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type ApplicationGatewaysStopFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ApplicationGatewaysClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ApplicationGatewaysStopFuture) Result(client ApplicationGatewaysClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ApplicationGatewaysStopFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ApplicationGatewaysStopFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ApplicationGatewaysUpdateTagsFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ApplicationGatewaysUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ApplicationGatewaysClient) (ApplicationGateway, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ApplicationGatewaysUpdateTagsFuture) Result(client ApplicationGatewaysClient) (ag ApplicationGateway, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ApplicationGatewaysUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ApplicationGatewaysUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if ag.Response.Response, err = future.GetResult(sender); err == nil && ag.Response.Response.StatusCode != http.StatusNoContent {
+		ag, err = client.UpdateTagsResponder(ag.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ApplicationGatewaysUpdateTagsFuture", "Result", ag.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ApplicationGatewayURLPathMap urlPathMaps give a url path to the backend mapping information for
@@ -2624,15 +3894,6 @@ type ApplicationSecurityGroupListResult struct {
 	NextLink *string `json:"nextLink,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for ApplicationSecurityGroupListResult.
-func (asglr ApplicationSecurityGroupListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if asglr.Value != nil {
-		objectMap["value"] = asglr.Value
-	}
-	return json.Marshal(objectMap)
-}
-
 // ApplicationSecurityGroupListResultIterator provides access to a complete listing of
 // ApplicationSecurityGroup values.
 type ApplicationSecurityGroupListResultIterator struct {
@@ -2702,15 +3963,10 @@ func (asglr ApplicationSecurityGroupListResult) IsEmpty() bool {
 	return asglr.Value == nil || len(*asglr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (asglr ApplicationSecurityGroupListResult) hasNextLink() bool {
-	return asglr.NextLink != nil && len(*asglr.NextLink) != 0
-}
-
 // applicationSecurityGroupListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (asglr ApplicationSecurityGroupListResult) applicationSecurityGroupListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !asglr.hasNextLink() {
+	if asglr.NextLink == nil || len(to.String(asglr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -2738,16 +3994,11 @@ func (page *ApplicationSecurityGroupListResultPage) NextWithContext(ctx context.
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.asglr)
-		if err != nil {
-			return err
-		}
-		page.asglr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.asglr)
+	if err != nil {
+		return err
 	}
+	page.asglr = next
 	return nil
 }
 
@@ -2777,11 +4028,8 @@ func (page ApplicationSecurityGroupListResultPage) Values() []ApplicationSecurit
 }
 
 // Creates a new instance of the ApplicationSecurityGroupListResultPage type.
-func NewApplicationSecurityGroupListResultPage(cur ApplicationSecurityGroupListResult, getNextPage func(context.Context, ApplicationSecurityGroupListResult) (ApplicationSecurityGroupListResult, error)) ApplicationSecurityGroupListResultPage {
-	return ApplicationSecurityGroupListResultPage{
-		fn:    getNextPage,
-		asglr: cur,
-	}
+func NewApplicationSecurityGroupListResultPage(getNextPage func(context.Context, ApplicationSecurityGroupListResult) (ApplicationSecurityGroupListResult, error)) ApplicationSecurityGroupListResultPage {
+	return ApplicationSecurityGroupListResultPage{fn: getNextPage}
 }
 
 // ApplicationSecurityGroupPropertiesFormat application security group properties.
@@ -2795,19 +4043,53 @@ type ApplicationSecurityGroupPropertiesFormat struct {
 // ApplicationSecurityGroupsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results
 // of a long-running operation.
 type ApplicationSecurityGroupsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ApplicationSecurityGroupsClient) (ApplicationSecurityGroup, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ApplicationSecurityGroupsCreateOrUpdateFuture) Result(client ApplicationSecurityGroupsClient) (asg ApplicationSecurityGroup, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ApplicationSecurityGroupsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ApplicationSecurityGroupsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if asg.Response.Response, err = future.GetResult(sender); err == nil && asg.Response.Response.StatusCode != http.StatusNoContent {
+		asg, err = client.CreateOrUpdateResponder(asg.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ApplicationSecurityGroupsCreateOrUpdateFuture", "Result", asg.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ApplicationSecurityGroupsDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ApplicationSecurityGroupsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ApplicationSecurityGroupsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ApplicationSecurityGroupsDeleteFuture) Result(client ApplicationSecurityGroupsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ApplicationSecurityGroupsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ApplicationSecurityGroupsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // AuthorizationListResult response for ListAuthorizations API service call retrieves all authorizations
@@ -2889,15 +4171,10 @@ func (alr AuthorizationListResult) IsEmpty() bool {
 	return alr.Value == nil || len(*alr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (alr AuthorizationListResult) hasNextLink() bool {
-	return alr.NextLink != nil && len(*alr.NextLink) != 0
-}
-
 // authorizationListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (alr AuthorizationListResult) authorizationListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !alr.hasNextLink() {
+	if alr.NextLink == nil || len(to.String(alr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -2925,16 +4202,11 @@ func (page *AuthorizationListResultPage) NextWithContext(ctx context.Context) (e
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.alr)
-		if err != nil {
-			return err
-		}
-		page.alr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.alr)
+	if err != nil {
+		return err
 	}
+	page.alr = next
 	return nil
 }
 
@@ -2964,11 +4236,8 @@ func (page AuthorizationListResultPage) Values() []ExpressRouteCircuitAuthorizat
 }
 
 // Creates a new instance of the AuthorizationListResultPage type.
-func NewAuthorizationListResultPage(cur AuthorizationListResult, getNextPage func(context.Context, AuthorizationListResult) (AuthorizationListResult, error)) AuthorizationListResultPage {
-	return AuthorizationListResultPage{
-		fn:  getNextPage,
-		alr: cur,
-	}
+func NewAuthorizationListResultPage(getNextPage func(context.Context, AuthorizationListResult) (AuthorizationListResult, error)) AuthorizationListResultPage {
+	return AuthorizationListResultPage{fn: getNextPage}
 }
 
 // AuthorizationPropertiesFormat ...
@@ -3196,15 +4465,6 @@ type BackendAddressPoolPropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for BackendAddressPoolPropertiesFormat.
-func (bappf BackendAddressPoolPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if bappf.ProvisioningState != nil {
-		objectMap["provisioningState"] = bappf.ProvisioningState
-	}
-	return json.Marshal(objectMap)
-}
-
 // BGPCommunity contains bgp community information offered in Service Community resources.
 type BGPCommunity struct {
 	// ServiceSupportedRegion - The region which the service support. e.g. For O365, region is Global.
@@ -3428,15 +4688,10 @@ func (bsclr BgpServiceCommunityListResult) IsEmpty() bool {
 	return bsclr.Value == nil || len(*bsclr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (bsclr BgpServiceCommunityListResult) hasNextLink() bool {
-	return bsclr.NextLink != nil && len(*bsclr.NextLink) != 0
-}
-
 // bgpServiceCommunityListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (bsclr BgpServiceCommunityListResult) bgpServiceCommunityListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !bsclr.hasNextLink() {
+	if bsclr.NextLink == nil || len(to.String(bsclr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -3464,16 +4719,11 @@ func (page *BgpServiceCommunityListResultPage) NextWithContext(ctx context.Conte
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.bsclr)
-		if err != nil {
-			return err
-		}
-		page.bsclr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.bsclr)
+	if err != nil {
+		return err
 	}
+	page.bsclr = next
 	return nil
 }
 
@@ -3503,11 +4753,8 @@ func (page BgpServiceCommunityListResultPage) Values() []BgpServiceCommunity {
 }
 
 // Creates a new instance of the BgpServiceCommunityListResultPage type.
-func NewBgpServiceCommunityListResultPage(cur BgpServiceCommunityListResult, getNextPage func(context.Context, BgpServiceCommunityListResult) (BgpServiceCommunityListResult, error)) BgpServiceCommunityListResultPage {
-	return BgpServiceCommunityListResultPage{
-		fn:    getNextPage,
-		bsclr: cur,
-	}
+func NewBgpServiceCommunityListResultPage(getNextPage func(context.Context, BgpServiceCommunityListResult) (BgpServiceCommunityListResult, error)) BgpServiceCommunityListResultPage {
+	return BgpServiceCommunityListResultPage{fn: getNextPage}
 }
 
 // BgpServiceCommunityPropertiesFormat properties of Service Community.
@@ -3760,19 +5007,53 @@ type ConnectionMonitorResultProperties struct {
 // ConnectionMonitorsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ConnectionMonitorsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ConnectionMonitorsClient) (ConnectionMonitorResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ConnectionMonitorsCreateOrUpdateFuture) Result(client ConnectionMonitorsClient) (cmr ConnectionMonitorResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ConnectionMonitorsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ConnectionMonitorsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if cmr.Response.Response, err = future.GetResult(sender); err == nil && cmr.Response.Response.StatusCode != http.StatusNoContent {
+		cmr, err = client.CreateOrUpdateResponder(cmr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ConnectionMonitorsCreateOrUpdateFuture", "Result", cmr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ConnectionMonitorsDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ConnectionMonitorsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ConnectionMonitorsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ConnectionMonitorsDeleteFuture) Result(client ConnectionMonitorsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ConnectionMonitorsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ConnectionMonitorsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ConnectionMonitorSource describes the source of connection monitor.
@@ -3786,28 +5067,76 @@ type ConnectionMonitorSource struct {
 // ConnectionMonitorsQueryFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type ConnectionMonitorsQueryFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ConnectionMonitorsClient) (ConnectionMonitorQueryResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ConnectionMonitorsQueryFuture) Result(client ConnectionMonitorsClient) (cmqr ConnectionMonitorQueryResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ConnectionMonitorsQueryFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ConnectionMonitorsQueryFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if cmqr.Response.Response, err = future.GetResult(sender); err == nil && cmqr.Response.Response.StatusCode != http.StatusNoContent {
+		cmqr, err = client.QueryResponder(cmqr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ConnectionMonitorsQueryFuture", "Result", cmqr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ConnectionMonitorsStartFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type ConnectionMonitorsStartFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ConnectionMonitorsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ConnectionMonitorsStartFuture) Result(client ConnectionMonitorsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ConnectionMonitorsStartFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ConnectionMonitorsStartFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ConnectionMonitorsStopFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type ConnectionMonitorsStopFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ConnectionMonitorsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ConnectionMonitorsStopFuture) Result(client ConnectionMonitorsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ConnectionMonitorsStopFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ConnectionMonitorsStopFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ConnectionResetSharedKey the virtual network connection reset shared key
@@ -3836,24 +5165,6 @@ type ConnectionStateSnapshot struct {
 	EvaluationState EvaluationState `json:"evaluationState,omitempty"`
 	// Hops - READ-ONLY; List of hops between the source and the destination.
 	Hops *[]ConnectivityHop `json:"hops,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for ConnectionStateSnapshot.
-func (CSS ConnectionStateSnapshot) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if CSS.ConnectionState != "" {
-		objectMap["connectionState"] = CSS.ConnectionState
-	}
-	if CSS.StartTime != nil {
-		objectMap["startTime"] = CSS.StartTime
-	}
-	if CSS.EndTime != nil {
-		objectMap["endTime"] = CSS.EndTime
-	}
-	if CSS.EvaluationState != "" {
-		objectMap["evaluationState"] = CSS.EvaluationState
-	}
-	return json.Marshal(objectMap)
 }
 
 // ConnectivityDestination parameters that define destination of connection.
@@ -3999,15 +5310,6 @@ type EffectiveNetworkSecurityGroupListResult struct {
 	NextLink *string `json:"nextLink,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for EffectiveNetworkSecurityGroupListResult.
-func (ensglr EffectiveNetworkSecurityGroupListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if ensglr.Value != nil {
-		objectMap["value"] = ensglr.Value
-	}
-	return json.Marshal(objectMap)
-}
-
 // EffectiveNetworkSecurityRule effective network security rules.
 type EffectiveNetworkSecurityRule struct {
 	// Name - The name of the security rule specified by the user (if created by the user).
@@ -4067,15 +5369,6 @@ type EffectiveRouteListResult struct {
 	NextLink *string `json:"nextLink,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for EffectiveRouteListResult.
-func (erlr EffectiveRouteListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if erlr.Value != nil {
-		objectMap["value"] = erlr.Value
-	}
-	return json.Marshal(objectMap)
-}
-
 // EndpointServiceResult endpoint service.
 type EndpointServiceResult struct {
 	// Name - READ-ONLY; Name of the endpoint service.
@@ -4084,15 +5377,6 @@ type EndpointServiceResult struct {
 	Type *string `json:"type,omitempty"`
 	// ID - Resource ID.
 	ID *string `json:"id,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for EndpointServiceResult.
-func (esr EndpointServiceResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if esr.ID != nil {
-		objectMap["id"] = esr.ID
-	}
-	return json.Marshal(objectMap)
 }
 
 // EndpointServicesListResult response for the ListAvailableEndpointServices API service call.
@@ -4173,15 +5457,10 @@ func (eslr EndpointServicesListResult) IsEmpty() bool {
 	return eslr.Value == nil || len(*eslr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (eslr EndpointServicesListResult) hasNextLink() bool {
-	return eslr.NextLink != nil && len(*eslr.NextLink) != 0
-}
-
 // endpointServicesListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (eslr EndpointServicesListResult) endpointServicesListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !eslr.hasNextLink() {
+	if eslr.NextLink == nil || len(to.String(eslr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -4209,16 +5488,11 @@ func (page *EndpointServicesListResultPage) NextWithContext(ctx context.Context)
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.eslr)
-		if err != nil {
-			return err
-		}
-		page.eslr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.eslr)
+	if err != nil {
+		return err
 	}
+	page.eslr = next
 	return nil
 }
 
@@ -4248,11 +5522,8 @@ func (page EndpointServicesListResultPage) Values() []EndpointServiceResult {
 }
 
 // Creates a new instance of the EndpointServicesListResultPage type.
-func NewEndpointServicesListResultPage(cur EndpointServicesListResult, getNextPage func(context.Context, EndpointServicesListResult) (EndpointServicesListResult, error)) EndpointServicesListResultPage {
-	return EndpointServicesListResultPage{
-		fn:   getNextPage,
-		eslr: cur,
-	}
+func NewEndpointServicesListResultPage(getNextPage func(context.Context, EndpointServicesListResult) (EndpointServicesListResult, error)) EndpointServicesListResultPage {
+	return EndpointServicesListResultPage{fn: getNextPage}
 }
 
 // Error ...
@@ -4492,19 +5763,53 @@ func (erca *ExpressRouteCircuitAuthorization) UnmarshalJSON(body []byte) error {
 // ExpressRouteCircuitAuthorizationsCreateOrUpdateFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type ExpressRouteCircuitAuthorizationsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ExpressRouteCircuitAuthorizationsClient) (ExpressRouteCircuitAuthorization, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ExpressRouteCircuitAuthorizationsCreateOrUpdateFuture) Result(client ExpressRouteCircuitAuthorizationsClient) (erca ExpressRouteCircuitAuthorization, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitAuthorizationsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ExpressRouteCircuitAuthorizationsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if erca.Response.Response, err = future.GetResult(sender); err == nil && erca.Response.Response.StatusCode != http.StatusNoContent {
+		erca, err = client.CreateOrUpdateResponder(erca.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitAuthorizationsCreateOrUpdateFuture", "Result", erca.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ExpressRouteCircuitAuthorizationsDeleteFuture an abstraction for monitoring and retrieving the results
 // of a long-running operation.
 type ExpressRouteCircuitAuthorizationsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ExpressRouteCircuitAuthorizationsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ExpressRouteCircuitAuthorizationsDeleteFuture) Result(client ExpressRouteCircuitAuthorizationsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitAuthorizationsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ExpressRouteCircuitAuthorizationsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ExpressRouteCircuitListResult response for ListExpressRouteCircuit API service call.
@@ -4585,15 +5890,10 @@ func (erclr ExpressRouteCircuitListResult) IsEmpty() bool {
 	return erclr.Value == nil || len(*erclr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (erclr ExpressRouteCircuitListResult) hasNextLink() bool {
-	return erclr.NextLink != nil && len(*erclr.NextLink) != 0
-}
-
 // expressRouteCircuitListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (erclr ExpressRouteCircuitListResult) expressRouteCircuitListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !erclr.hasNextLink() {
+	if erclr.NextLink == nil || len(to.String(erclr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -4621,16 +5921,11 @@ func (page *ExpressRouteCircuitListResultPage) NextWithContext(ctx context.Conte
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.erclr)
-		if err != nil {
-			return err
-		}
-		page.erclr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.erclr)
+	if err != nil {
+		return err
 	}
+	page.erclr = next
 	return nil
 }
 
@@ -4660,11 +5955,8 @@ func (page ExpressRouteCircuitListResultPage) Values() []ExpressRouteCircuit {
 }
 
 // Creates a new instance of the ExpressRouteCircuitListResultPage type.
-func NewExpressRouteCircuitListResultPage(cur ExpressRouteCircuitListResult, getNextPage func(context.Context, ExpressRouteCircuitListResult) (ExpressRouteCircuitListResult, error)) ExpressRouteCircuitListResultPage {
-	return ExpressRouteCircuitListResultPage{
-		fn:    getNextPage,
-		erclr: cur,
-	}
+func NewExpressRouteCircuitListResultPage(getNextPage func(context.Context, ExpressRouteCircuitListResult) (ExpressRouteCircuitListResult, error)) ExpressRouteCircuitListResultPage {
+	return ExpressRouteCircuitListResultPage{fn: getNextPage}
 }
 
 // ExpressRouteCircuitPeering peering in an ExpressRouteCircuit resource.
@@ -4840,15 +6132,10 @@ func (ercplr ExpressRouteCircuitPeeringListResult) IsEmpty() bool {
 	return ercplr.Value == nil || len(*ercplr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (ercplr ExpressRouteCircuitPeeringListResult) hasNextLink() bool {
-	return ercplr.NextLink != nil && len(*ercplr.NextLink) != 0
-}
-
 // expressRouteCircuitPeeringListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (ercplr ExpressRouteCircuitPeeringListResult) expressRouteCircuitPeeringListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !ercplr.hasNextLink() {
+	if ercplr.NextLink == nil || len(to.String(ercplr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -4876,16 +6163,11 @@ func (page *ExpressRouteCircuitPeeringListResultPage) NextWithContext(ctx contex
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.ercplr)
-		if err != nil {
-			return err
-		}
-		page.ercplr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.ercplr)
+	if err != nil {
+		return err
 	}
+	page.ercplr = next
 	return nil
 }
 
@@ -4915,11 +6197,8 @@ func (page ExpressRouteCircuitPeeringListResultPage) Values() []ExpressRouteCirc
 }
 
 // Creates a new instance of the ExpressRouteCircuitPeeringListResultPage type.
-func NewExpressRouteCircuitPeeringListResultPage(cur ExpressRouteCircuitPeeringListResult, getNextPage func(context.Context, ExpressRouteCircuitPeeringListResult) (ExpressRouteCircuitPeeringListResult, error)) ExpressRouteCircuitPeeringListResultPage {
-	return ExpressRouteCircuitPeeringListResultPage{
-		fn:     getNextPage,
-		ercplr: cur,
-	}
+func NewExpressRouteCircuitPeeringListResultPage(getNextPage func(context.Context, ExpressRouteCircuitPeeringListResult) (ExpressRouteCircuitPeeringListResult, error)) ExpressRouteCircuitPeeringListResultPage {
+	return ExpressRouteCircuitPeeringListResultPage{fn: getNextPage}
 }
 
 // ExpressRouteCircuitPeeringPropertiesFormat ...
@@ -4963,19 +6242,53 @@ type ExpressRouteCircuitPeeringPropertiesFormat struct {
 // ExpressRouteCircuitPeeringsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results
 // of a long-running operation.
 type ExpressRouteCircuitPeeringsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ExpressRouteCircuitPeeringsClient) (ExpressRouteCircuitPeering, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ExpressRouteCircuitPeeringsCreateOrUpdateFuture) Result(client ExpressRouteCircuitPeeringsClient) (ercp ExpressRouteCircuitPeering, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitPeeringsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ExpressRouteCircuitPeeringsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if ercp.Response.Response, err = future.GetResult(sender); err == nil && ercp.Response.Response.StatusCode != http.StatusNoContent {
+		ercp, err = client.CreateOrUpdateResponder(ercp.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitPeeringsCreateOrUpdateFuture", "Result", ercp.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ExpressRouteCircuitPeeringsDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ExpressRouteCircuitPeeringsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ExpressRouteCircuitPeeringsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ExpressRouteCircuitPeeringsDeleteFuture) Result(client ExpressRouteCircuitPeeringsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitPeeringsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ExpressRouteCircuitPeeringsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ExpressRouteCircuitPropertiesFormat properties of ExpressRouteCircuit.
@@ -5043,19 +6356,53 @@ type ExpressRouteCircuitsArpTableListResult struct {
 // ExpressRouteCircuitsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ExpressRouteCircuitsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ExpressRouteCircuitsClient) (ExpressRouteCircuit, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ExpressRouteCircuitsCreateOrUpdateFuture) Result(client ExpressRouteCircuitsClient) (erc ExpressRouteCircuit, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ExpressRouteCircuitsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if erc.Response.Response, err = future.GetResult(sender); err == nil && erc.Response.Response.StatusCode != http.StatusNoContent {
+		erc, err = client.CreateOrUpdateResponder(erc.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsCreateOrUpdateFuture", "Result", erc.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ExpressRouteCircuitsDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ExpressRouteCircuitsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ExpressRouteCircuitsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ExpressRouteCircuitsDeleteFuture) Result(client ExpressRouteCircuitsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ExpressRouteCircuitsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ExpressRouteCircuitServiceProviderProperties contains ServiceProviderProperties in an
@@ -5082,28 +6429,88 @@ type ExpressRouteCircuitSku struct {
 // ExpressRouteCircuitsListArpTableFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ExpressRouteCircuitsListArpTableFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ExpressRouteCircuitsClient) (ExpressRouteCircuitsArpTableListResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ExpressRouteCircuitsListArpTableFuture) Result(client ExpressRouteCircuitsClient) (ercatlr ExpressRouteCircuitsArpTableListResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsListArpTableFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ExpressRouteCircuitsListArpTableFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if ercatlr.Response.Response, err = future.GetResult(sender); err == nil && ercatlr.Response.Response.StatusCode != http.StatusNoContent {
+		ercatlr, err = client.ListArpTableResponder(ercatlr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsListArpTableFuture", "Result", ercatlr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ExpressRouteCircuitsListRoutesTableFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ExpressRouteCircuitsListRoutesTableFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ExpressRouteCircuitsClient) (ExpressRouteCircuitsRoutesTableListResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ExpressRouteCircuitsListRoutesTableFuture) Result(client ExpressRouteCircuitsClient) (ercrtlr ExpressRouteCircuitsRoutesTableListResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsListRoutesTableFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ExpressRouteCircuitsListRoutesTableFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if ercrtlr.Response.Response, err = future.GetResult(sender); err == nil && ercrtlr.Response.Response.StatusCode != http.StatusNoContent {
+		ercrtlr, err = client.ListRoutesTableResponder(ercrtlr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsListRoutesTableFuture", "Result", ercrtlr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ExpressRouteCircuitsListRoutesTableSummaryFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type ExpressRouteCircuitsListRoutesTableSummaryFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ExpressRouteCircuitsClient) (ExpressRouteCircuitsRoutesTableSummaryListResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ExpressRouteCircuitsListRoutesTableSummaryFuture) Result(client ExpressRouteCircuitsClient) (ercrtslr ExpressRouteCircuitsRoutesTableSummaryListResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsListRoutesTableSummaryFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ExpressRouteCircuitsListRoutesTableSummaryFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if ercrtslr.Response.Response, err = future.GetResult(sender); err == nil && ercrtslr.Response.Response.StatusCode != http.StatusNoContent {
+		ercrtslr, err = client.ListRoutesTableSummaryResponder(ercrtslr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsListRoutesTableSummaryFuture", "Result", ercrtslr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ExpressRouteCircuitsRoutesTableListResult response for ListRoutesTable associated with the Express Route
@@ -5142,10 +6549,30 @@ type ExpressRouteCircuitStats struct {
 // ExpressRouteCircuitsUpdateTagsFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type ExpressRouteCircuitsUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ExpressRouteCircuitsClient) (ExpressRouteCircuit, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ExpressRouteCircuitsUpdateTagsFuture) Result(client ExpressRouteCircuitsClient) (erc ExpressRouteCircuit, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.ExpressRouteCircuitsUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if erc.Response.Response, err = future.GetResult(sender); err == nil && erc.Response.Response.StatusCode != http.StatusNoContent {
+		erc, err = client.UpdateTagsResponder(erc.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.ExpressRouteCircuitsUpdateTagsFuture", "Result", erc.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ExpressRouteServiceProvider a ExpressRouteResourceProvider object.
@@ -5337,15 +6764,10 @@ func (ersplr ExpressRouteServiceProviderListResult) IsEmpty() bool {
 	return ersplr.Value == nil || len(*ersplr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (ersplr ExpressRouteServiceProviderListResult) hasNextLink() bool {
-	return ersplr.NextLink != nil && len(*ersplr.NextLink) != 0
-}
-
 // expressRouteServiceProviderListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (ersplr ExpressRouteServiceProviderListResult) expressRouteServiceProviderListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !ersplr.hasNextLink() {
+	if ersplr.NextLink == nil || len(to.String(ersplr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -5373,16 +6795,11 @@ func (page *ExpressRouteServiceProviderListResultPage) NextWithContext(ctx conte
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.ersplr)
-		if err != nil {
-			return err
-		}
-		page.ersplr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.ersplr)
+	if err != nil {
+		return err
 	}
+	page.ersplr = next
 	return nil
 }
 
@@ -5412,11 +6829,8 @@ func (page ExpressRouteServiceProviderListResultPage) Values() []ExpressRouteSer
 }
 
 // Creates a new instance of the ExpressRouteServiceProviderListResultPage type.
-func NewExpressRouteServiceProviderListResultPage(cur ExpressRouteServiceProviderListResult, getNextPage func(context.Context, ExpressRouteServiceProviderListResult) (ExpressRouteServiceProviderListResult, error)) ExpressRouteServiceProviderListResultPage {
-	return ExpressRouteServiceProviderListResultPage{
-		fn:     getNextPage,
-		ersplr: cur,
-	}
+func NewExpressRouteServiceProviderListResultPage(getNextPage func(context.Context, ExpressRouteServiceProviderListResult) (ExpressRouteServiceProviderListResult, error)) ExpressRouteServiceProviderListResultPage {
+	return ExpressRouteServiceProviderListResultPage{fn: getNextPage}
 }
 
 // ExpressRouteServiceProviderPropertiesFormat properties of ExpressRouteServiceProvider.
@@ -5613,27 +7027,6 @@ type FrontendIPConfigurationPropertiesFormat struct {
 	PublicIPAddress *PublicIPAddress `json:"publicIPAddress,omitempty"`
 	// ProvisioningState - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `json:"provisioningState,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for FrontendIPConfigurationPropertiesFormat.
-func (ficpf FrontendIPConfigurationPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if ficpf.PrivateIPAddress != nil {
-		objectMap["privateIPAddress"] = ficpf.PrivateIPAddress
-	}
-	if ficpf.PrivateIPAllocationMethod != "" {
-		objectMap["privateIPAllocationMethod"] = ficpf.PrivateIPAllocationMethod
-	}
-	if ficpf.Subnet != nil {
-		objectMap["subnet"] = ficpf.Subnet
-	}
-	if ficpf.PublicIPAddress != nil {
-		objectMap["publicIPAddress"] = ficpf.PublicIPAddress
-	}
-	if ficpf.ProvisioningState != nil {
-		objectMap["provisioningState"] = ficpf.ProvisioningState
-	}
-	return json.Marshal(objectMap)
 }
 
 // GatewayRoute gateway routing details
@@ -5849,15 +7242,6 @@ type InboundNatRuleListResult struct {
 	NextLink *string `json:"nextLink,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for InboundNatRuleListResult.
-func (inrlr InboundNatRuleListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if inrlr.Value != nil {
-		objectMap["value"] = inrlr.Value
-	}
-	return json.Marshal(objectMap)
-}
-
 // InboundNatRuleListResultIterator provides access to a complete listing of InboundNatRule values.
 type InboundNatRuleListResultIterator struct {
 	i    int
@@ -5926,15 +7310,10 @@ func (inrlr InboundNatRuleListResult) IsEmpty() bool {
 	return inrlr.Value == nil || len(*inrlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (inrlr InboundNatRuleListResult) hasNextLink() bool {
-	return inrlr.NextLink != nil && len(*inrlr.NextLink) != 0
-}
-
 // inboundNatRuleListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (inrlr InboundNatRuleListResult) inboundNatRuleListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !inrlr.hasNextLink() {
+	if inrlr.NextLink == nil || len(to.String(inrlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -5962,16 +7341,11 @@ func (page *InboundNatRuleListResultPage) NextWithContext(ctx context.Context) (
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.inrlr)
-		if err != nil {
-			return err
-		}
-		page.inrlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.inrlr)
+	if err != nil {
+		return err
 	}
+	page.inrlr = next
 	return nil
 }
 
@@ -6001,11 +7375,8 @@ func (page InboundNatRuleListResultPage) Values() []InboundNatRule {
 }
 
 // Creates a new instance of the InboundNatRuleListResultPage type.
-func NewInboundNatRuleListResultPage(cur InboundNatRuleListResult, getNextPage func(context.Context, InboundNatRuleListResult) (InboundNatRuleListResult, error)) InboundNatRuleListResultPage {
-	return InboundNatRuleListResultPage{
-		fn:    getNextPage,
-		inrlr: cur,
-	}
+func NewInboundNatRuleListResultPage(getNextPage func(context.Context, InboundNatRuleListResult) (InboundNatRuleListResult, error)) InboundNatRuleListResultPage {
+	return InboundNatRuleListResultPage{fn: getNextPage}
 }
 
 // InboundNatRulePropertiesFormat properties of the inbound NAT rule.
@@ -6028,49 +7399,56 @@ type InboundNatRulePropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for InboundNatRulePropertiesFormat.
-func (inrpf InboundNatRulePropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if inrpf.FrontendIPConfiguration != nil {
-		objectMap["frontendIPConfiguration"] = inrpf.FrontendIPConfiguration
-	}
-	if inrpf.Protocol != "" {
-		objectMap["protocol"] = inrpf.Protocol
-	}
-	if inrpf.FrontendPort != nil {
-		objectMap["frontendPort"] = inrpf.FrontendPort
-	}
-	if inrpf.BackendPort != nil {
-		objectMap["backendPort"] = inrpf.BackendPort
-	}
-	if inrpf.IdleTimeoutInMinutes != nil {
-		objectMap["idleTimeoutInMinutes"] = inrpf.IdleTimeoutInMinutes
-	}
-	if inrpf.EnableFloatingIP != nil {
-		objectMap["enableFloatingIP"] = inrpf.EnableFloatingIP
-	}
-	if inrpf.ProvisioningState != nil {
-		objectMap["provisioningState"] = inrpf.ProvisioningState
-	}
-	return json.Marshal(objectMap)
-}
-
 // InboundNatRulesCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type InboundNatRulesCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(InboundNatRulesClient) (InboundNatRule, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *InboundNatRulesCreateOrUpdateFuture) Result(client InboundNatRulesClient) (inr InboundNatRule, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.InboundNatRulesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.InboundNatRulesCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if inr.Response.Response, err = future.GetResult(sender); err == nil && inr.Response.Response.StatusCode != http.StatusNoContent {
+		inr, err = client.CreateOrUpdateResponder(inr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.InboundNatRulesCreateOrUpdateFuture", "Result", inr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // InboundNatRulesDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type InboundNatRulesDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(InboundNatRulesClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *InboundNatRulesDeleteFuture) Result(client InboundNatRulesClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.InboundNatRulesDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.InboundNatRulesDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // Interface a network interface in a resource group.
@@ -6199,15 +7577,6 @@ type InterfaceAssociation struct {
 	SecurityRules *[]SecurityRule `json:"securityRules,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for InterfaceAssociation.
-func (ia InterfaceAssociation) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if ia.SecurityRules != nil {
-		objectMap["securityRules"] = ia.SecurityRules
-	}
-	return json.Marshal(objectMap)
-}
-
 // InterfaceDNSSettings DNS settings of a network interface.
 type InterfaceDNSSettings struct {
 	// DNSServers - List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
@@ -6313,15 +7682,6 @@ type InterfaceIPConfigurationListResult struct {
 	NextLink *string `json:"nextLink,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for InterfaceIPConfigurationListResult.
-func (iiclr InterfaceIPConfigurationListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if iiclr.Value != nil {
-		objectMap["value"] = iiclr.Value
-	}
-	return json.Marshal(objectMap)
-}
-
 // InterfaceIPConfigurationListResultIterator provides access to a complete listing of
 // InterfaceIPConfiguration values.
 type InterfaceIPConfigurationListResultIterator struct {
@@ -6391,15 +7751,10 @@ func (iiclr InterfaceIPConfigurationListResult) IsEmpty() bool {
 	return iiclr.Value == nil || len(*iiclr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (iiclr InterfaceIPConfigurationListResult) hasNextLink() bool {
-	return iiclr.NextLink != nil && len(*iiclr.NextLink) != 0
-}
-
 // interfaceIPConfigurationListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (iiclr InterfaceIPConfigurationListResult) interfaceIPConfigurationListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !iiclr.hasNextLink() {
+	if iiclr.NextLink == nil || len(to.String(iiclr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -6427,16 +7782,11 @@ func (page *InterfaceIPConfigurationListResultPage) NextWithContext(ctx context.
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.iiclr)
-		if err != nil {
-			return err
-		}
-		page.iiclr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.iiclr)
+	if err != nil {
+		return err
 	}
+	page.iiclr = next
 	return nil
 }
 
@@ -6466,11 +7816,8 @@ func (page InterfaceIPConfigurationListResultPage) Values() []InterfaceIPConfigu
 }
 
 // Creates a new instance of the InterfaceIPConfigurationListResultPage type.
-func NewInterfaceIPConfigurationListResultPage(cur InterfaceIPConfigurationListResult, getNextPage func(context.Context, InterfaceIPConfigurationListResult) (InterfaceIPConfigurationListResult, error)) InterfaceIPConfigurationListResultPage {
-	return InterfaceIPConfigurationListResultPage{
-		fn:    getNextPage,
-		iiclr: cur,
-	}
+func NewInterfaceIPConfigurationListResultPage(getNextPage func(context.Context, InterfaceIPConfigurationListResult) (InterfaceIPConfigurationListResult, error)) InterfaceIPConfigurationListResultPage {
+	return InterfaceIPConfigurationListResultPage{fn: getNextPage}
 }
 
 // InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
@@ -6506,15 +7853,6 @@ type InterfaceListResult struct {
 	Value *[]Interface `json:"value,omitempty"`
 	// NextLink - READ-ONLY; The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for InterfaceListResult.
-func (ilr InterfaceListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if ilr.Value != nil {
-		objectMap["value"] = ilr.Value
-	}
-	return json.Marshal(objectMap)
 }
 
 // InterfaceListResultIterator provides access to a complete listing of Interface values.
@@ -6585,15 +7923,10 @@ func (ilr InterfaceListResult) IsEmpty() bool {
 	return ilr.Value == nil || len(*ilr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (ilr InterfaceListResult) hasNextLink() bool {
-	return ilr.NextLink != nil && len(*ilr.NextLink) != 0
-}
-
 // interfaceListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (ilr InterfaceListResult) interfaceListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !ilr.hasNextLink() {
+	if ilr.NextLink == nil || len(to.String(ilr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -6621,16 +7954,11 @@ func (page *InterfaceListResultPage) NextWithContext(ctx context.Context) (err e
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.ilr)
-		if err != nil {
-			return err
-		}
-		page.ilr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.ilr)
+	if err != nil {
+		return err
 	}
+	page.ilr = next
 	return nil
 }
 
@@ -6660,11 +7988,8 @@ func (page InterfaceListResultPage) Values() []Interface {
 }
 
 // Creates a new instance of the InterfaceListResultPage type.
-func NewInterfaceListResultPage(cur InterfaceListResult, getNextPage func(context.Context, InterfaceListResult) (InterfaceListResult, error)) InterfaceListResultPage {
-	return InterfaceListResultPage{
-		fn:  getNextPage,
-		ilr: cur,
-	}
+func NewInterfaceListResultPage(getNextPage func(context.Context, InterfaceListResult) (InterfaceListResult, error)) InterfaceListResultPage {
+	return InterfaceListResultPage{fn: getNextPage}
 }
 
 // InterfaceLoadBalancerListResult response for list ip configurations API service call.
@@ -6674,15 +7999,6 @@ type InterfaceLoadBalancerListResult struct {
 	Value *[]LoadBalancer `json:"value,omitempty"`
 	// NextLink - READ-ONLY; The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for InterfaceLoadBalancerListResult.
-func (ilblr InterfaceLoadBalancerListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if ilblr.Value != nil {
-		objectMap["value"] = ilblr.Value
-	}
-	return json.Marshal(objectMap)
 }
 
 // InterfaceLoadBalancerListResultIterator provides access to a complete listing of LoadBalancer values.
@@ -6753,15 +8069,10 @@ func (ilblr InterfaceLoadBalancerListResult) IsEmpty() bool {
 	return ilblr.Value == nil || len(*ilblr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (ilblr InterfaceLoadBalancerListResult) hasNextLink() bool {
-	return ilblr.NextLink != nil && len(*ilblr.NextLink) != 0
-}
-
 // interfaceLoadBalancerListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (ilblr InterfaceLoadBalancerListResult) interfaceLoadBalancerListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !ilblr.hasNextLink() {
+	if ilblr.NextLink == nil || len(to.String(ilblr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -6789,16 +8100,11 @@ func (page *InterfaceLoadBalancerListResultPage) NextWithContext(ctx context.Con
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.ilblr)
-		if err != nil {
-			return err
-		}
-		page.ilblr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.ilblr)
+	if err != nil {
+		return err
 	}
+	page.ilblr = next
 	return nil
 }
 
@@ -6828,11 +8134,8 @@ func (page InterfaceLoadBalancerListResultPage) Values() []LoadBalancer {
 }
 
 // Creates a new instance of the InterfaceLoadBalancerListResultPage type.
-func NewInterfaceLoadBalancerListResultPage(cur InterfaceLoadBalancerListResult, getNextPage func(context.Context, InterfaceLoadBalancerListResult) (InterfaceLoadBalancerListResult, error)) InterfaceLoadBalancerListResultPage {
-	return InterfaceLoadBalancerListResultPage{
-		fn:    getNextPage,
-		ilblr: cur,
-	}
+func NewInterfaceLoadBalancerListResultPage(getNextPage func(context.Context, InterfaceLoadBalancerListResult) (InterfaceLoadBalancerListResult, error)) InterfaceLoadBalancerListResultPage {
+	return InterfaceLoadBalancerListResultPage{fn: getNextPage}
 }
 
 // InterfacePropertiesFormat networkInterface properties.
@@ -6862,46 +8165,140 @@ type InterfacePropertiesFormat struct {
 // InterfacesCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type InterfacesCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(InterfacesClient) (Interface, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *InterfacesCreateOrUpdateFuture) Result(client InterfacesClient) (i Interface, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.InterfacesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.InterfacesCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if i.Response.Response, err = future.GetResult(sender); err == nil && i.Response.Response.StatusCode != http.StatusNoContent {
+		i, err = client.CreateOrUpdateResponder(i.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.InterfacesCreateOrUpdateFuture", "Result", i.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // InterfacesDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type InterfacesDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(InterfacesClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *InterfacesDeleteFuture) Result(client InterfacesClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.InterfacesDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.InterfacesDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // InterfacesGetEffectiveRouteTableFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type InterfacesGetEffectiveRouteTableFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(InterfacesClient) (EffectiveRouteListResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *InterfacesGetEffectiveRouteTableFuture) Result(client InterfacesClient) (erlr EffectiveRouteListResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.InterfacesGetEffectiveRouteTableFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.InterfacesGetEffectiveRouteTableFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if erlr.Response.Response, err = future.GetResult(sender); err == nil && erlr.Response.Response.StatusCode != http.StatusNoContent {
+		erlr, err = client.GetEffectiveRouteTableResponder(erlr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.InterfacesGetEffectiveRouteTableFuture", "Result", erlr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // InterfacesListEffectiveNetworkSecurityGroupsFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type InterfacesListEffectiveNetworkSecurityGroupsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(InterfacesClient) (EffectiveNetworkSecurityGroupListResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *InterfacesListEffectiveNetworkSecurityGroupsFuture) Result(client InterfacesClient) (ensglr EffectiveNetworkSecurityGroupListResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.InterfacesListEffectiveNetworkSecurityGroupsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.InterfacesListEffectiveNetworkSecurityGroupsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if ensglr.Response.Response, err = future.GetResult(sender); err == nil && ensglr.Response.Response.StatusCode != http.StatusNoContent {
+		ensglr, err = client.ListEffectiveNetworkSecurityGroupsResponder(ensglr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.InterfacesListEffectiveNetworkSecurityGroupsFuture", "Result", ensglr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // InterfacesUpdateTagsFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type InterfacesUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(InterfacesClient) (Interface, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *InterfacesUpdateTagsFuture) Result(client InterfacesClient) (i Interface, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.InterfacesUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.InterfacesUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if i.Response.Response, err = future.GetResult(sender); err == nil && i.Response.Response.StatusCode != http.StatusNoContent {
+		i, err = client.UpdateTagsResponder(i.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.InterfacesUpdateTagsFuture", "Result", i.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // IPAddressAvailabilityResult response for CheckIPAddressAvailability API service call
@@ -7183,15 +8580,6 @@ type LoadBalancerBackendAddressPoolListResult struct {
 	NextLink *string `json:"nextLink,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for LoadBalancerBackendAddressPoolListResult.
-func (lbbaplr LoadBalancerBackendAddressPoolListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if lbbaplr.Value != nil {
-		objectMap["value"] = lbbaplr.Value
-	}
-	return json.Marshal(objectMap)
-}
-
 // LoadBalancerBackendAddressPoolListResultIterator provides access to a complete listing of
 // BackendAddressPool values.
 type LoadBalancerBackendAddressPoolListResultIterator struct {
@@ -7261,15 +8649,10 @@ func (lbbaplr LoadBalancerBackendAddressPoolListResult) IsEmpty() bool {
 	return lbbaplr.Value == nil || len(*lbbaplr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (lbbaplr LoadBalancerBackendAddressPoolListResult) hasNextLink() bool {
-	return lbbaplr.NextLink != nil && len(*lbbaplr.NextLink) != 0
-}
-
 // loadBalancerBackendAddressPoolListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (lbbaplr LoadBalancerBackendAddressPoolListResult) loadBalancerBackendAddressPoolListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !lbbaplr.hasNextLink() {
+	if lbbaplr.NextLink == nil || len(to.String(lbbaplr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -7297,16 +8680,11 @@ func (page *LoadBalancerBackendAddressPoolListResultPage) NextWithContext(ctx co
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.lbbaplr)
-		if err != nil {
-			return err
-		}
-		page.lbbaplr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.lbbaplr)
+	if err != nil {
+		return err
 	}
+	page.lbbaplr = next
 	return nil
 }
 
@@ -7336,11 +8714,8 @@ func (page LoadBalancerBackendAddressPoolListResultPage) Values() []BackendAddre
 }
 
 // Creates a new instance of the LoadBalancerBackendAddressPoolListResultPage type.
-func NewLoadBalancerBackendAddressPoolListResultPage(cur LoadBalancerBackendAddressPoolListResult, getNextPage func(context.Context, LoadBalancerBackendAddressPoolListResult) (LoadBalancerBackendAddressPoolListResult, error)) LoadBalancerBackendAddressPoolListResultPage {
-	return LoadBalancerBackendAddressPoolListResultPage{
-		fn:      getNextPage,
-		lbbaplr: cur,
-	}
+func NewLoadBalancerBackendAddressPoolListResultPage(getNextPage func(context.Context, LoadBalancerBackendAddressPoolListResult) (LoadBalancerBackendAddressPoolListResult, error)) LoadBalancerBackendAddressPoolListResultPage {
+	return LoadBalancerBackendAddressPoolListResultPage{fn: getNextPage}
 }
 
 // LoadBalancerFrontendIPConfigurationListResult response for ListFrontendIPConfiguration API service call.
@@ -7350,15 +8725,6 @@ type LoadBalancerFrontendIPConfigurationListResult struct {
 	Value *[]FrontendIPConfiguration `json:"value,omitempty"`
 	// NextLink - READ-ONLY; The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for LoadBalancerFrontendIPConfigurationListResult.
-func (lbficlr LoadBalancerFrontendIPConfigurationListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if lbficlr.Value != nil {
-		objectMap["value"] = lbficlr.Value
-	}
-	return json.Marshal(objectMap)
 }
 
 // LoadBalancerFrontendIPConfigurationListResultIterator provides access to a complete listing of
@@ -7430,15 +8796,10 @@ func (lbficlr LoadBalancerFrontendIPConfigurationListResult) IsEmpty() bool {
 	return lbficlr.Value == nil || len(*lbficlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (lbficlr LoadBalancerFrontendIPConfigurationListResult) hasNextLink() bool {
-	return lbficlr.NextLink != nil && len(*lbficlr.NextLink) != 0
-}
-
 // loadBalancerFrontendIPConfigurationListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (lbficlr LoadBalancerFrontendIPConfigurationListResult) loadBalancerFrontendIPConfigurationListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !lbficlr.hasNextLink() {
+	if lbficlr.NextLink == nil || len(to.String(lbficlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -7466,16 +8827,11 @@ func (page *LoadBalancerFrontendIPConfigurationListResultPage) NextWithContext(c
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.lbficlr)
-		if err != nil {
-			return err
-		}
-		page.lbficlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.lbficlr)
+	if err != nil {
+		return err
 	}
+	page.lbficlr = next
 	return nil
 }
 
@@ -7505,11 +8861,8 @@ func (page LoadBalancerFrontendIPConfigurationListResultPage) Values() []Fronten
 }
 
 // Creates a new instance of the LoadBalancerFrontendIPConfigurationListResultPage type.
-func NewLoadBalancerFrontendIPConfigurationListResultPage(cur LoadBalancerFrontendIPConfigurationListResult, getNextPage func(context.Context, LoadBalancerFrontendIPConfigurationListResult) (LoadBalancerFrontendIPConfigurationListResult, error)) LoadBalancerFrontendIPConfigurationListResultPage {
-	return LoadBalancerFrontendIPConfigurationListResultPage{
-		fn:      getNextPage,
-		lbficlr: cur,
-	}
+func NewLoadBalancerFrontendIPConfigurationListResultPage(getNextPage func(context.Context, LoadBalancerFrontendIPConfigurationListResult) (LoadBalancerFrontendIPConfigurationListResult, error)) LoadBalancerFrontendIPConfigurationListResultPage {
+	return LoadBalancerFrontendIPConfigurationListResultPage{fn: getNextPage}
 }
 
 // LoadBalancerListResult response for ListLoadBalancers API service call.
@@ -7519,15 +8872,6 @@ type LoadBalancerListResult struct {
 	Value *[]LoadBalancer `json:"value,omitempty"`
 	// NextLink - READ-ONLY; The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for LoadBalancerListResult.
-func (lblr LoadBalancerListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if lblr.Value != nil {
-		objectMap["value"] = lblr.Value
-	}
-	return json.Marshal(objectMap)
 }
 
 // LoadBalancerListResultIterator provides access to a complete listing of LoadBalancer values.
@@ -7598,15 +8942,10 @@ func (lblr LoadBalancerListResult) IsEmpty() bool {
 	return lblr.Value == nil || len(*lblr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (lblr LoadBalancerListResult) hasNextLink() bool {
-	return lblr.NextLink != nil && len(*lblr.NextLink) != 0
-}
-
 // loadBalancerListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (lblr LoadBalancerListResult) loadBalancerListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !lblr.hasNextLink() {
+	if lblr.NextLink == nil || len(to.String(lblr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -7634,16 +8973,11 @@ func (page *LoadBalancerListResultPage) NextWithContext(ctx context.Context) (er
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.lblr)
-		if err != nil {
-			return err
-		}
-		page.lblr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.lblr)
+	if err != nil {
+		return err
 	}
+	page.lblr = next
 	return nil
 }
 
@@ -7673,11 +9007,8 @@ func (page LoadBalancerListResultPage) Values() []LoadBalancer {
 }
 
 // Creates a new instance of the LoadBalancerListResultPage type.
-func NewLoadBalancerListResultPage(cur LoadBalancerListResult, getNextPage func(context.Context, LoadBalancerListResult) (LoadBalancerListResult, error)) LoadBalancerListResultPage {
-	return LoadBalancerListResultPage{
-		fn:   getNextPage,
-		lblr: cur,
-	}
+func NewLoadBalancerListResultPage(getNextPage func(context.Context, LoadBalancerListResult) (LoadBalancerListResult, error)) LoadBalancerListResultPage {
+	return LoadBalancerListResultPage{fn: getNextPage}
 }
 
 // LoadBalancerLoadBalancingRuleListResult response for ListLoadBalancingRule API service call.
@@ -7687,15 +9018,6 @@ type LoadBalancerLoadBalancingRuleListResult struct {
 	Value *[]LoadBalancingRule `json:"value,omitempty"`
 	// NextLink - READ-ONLY; The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for LoadBalancerLoadBalancingRuleListResult.
-func (lblbrlr LoadBalancerLoadBalancingRuleListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if lblbrlr.Value != nil {
-		objectMap["value"] = lblbrlr.Value
-	}
-	return json.Marshal(objectMap)
 }
 
 // LoadBalancerLoadBalancingRuleListResultIterator provides access to a complete listing of
@@ -7767,15 +9089,10 @@ func (lblbrlr LoadBalancerLoadBalancingRuleListResult) IsEmpty() bool {
 	return lblbrlr.Value == nil || len(*lblbrlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (lblbrlr LoadBalancerLoadBalancingRuleListResult) hasNextLink() bool {
-	return lblbrlr.NextLink != nil && len(*lblbrlr.NextLink) != 0
-}
-
 // loadBalancerLoadBalancingRuleListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (lblbrlr LoadBalancerLoadBalancingRuleListResult) loadBalancerLoadBalancingRuleListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !lblbrlr.hasNextLink() {
+	if lblbrlr.NextLink == nil || len(to.String(lblbrlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -7803,16 +9120,11 @@ func (page *LoadBalancerLoadBalancingRuleListResultPage) NextWithContext(ctx con
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.lblbrlr)
-		if err != nil {
-			return err
-		}
-		page.lblbrlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.lblbrlr)
+	if err != nil {
+		return err
 	}
+	page.lblbrlr = next
 	return nil
 }
 
@@ -7842,11 +9154,8 @@ func (page LoadBalancerLoadBalancingRuleListResultPage) Values() []LoadBalancing
 }
 
 // Creates a new instance of the LoadBalancerLoadBalancingRuleListResultPage type.
-func NewLoadBalancerLoadBalancingRuleListResultPage(cur LoadBalancerLoadBalancingRuleListResult, getNextPage func(context.Context, LoadBalancerLoadBalancingRuleListResult) (LoadBalancerLoadBalancingRuleListResult, error)) LoadBalancerLoadBalancingRuleListResultPage {
-	return LoadBalancerLoadBalancingRuleListResultPage{
-		fn:      getNextPage,
-		lblbrlr: cur,
-	}
+func NewLoadBalancerLoadBalancingRuleListResultPage(getNextPage func(context.Context, LoadBalancerLoadBalancingRuleListResult) (LoadBalancerLoadBalancingRuleListResult, error)) LoadBalancerLoadBalancingRuleListResultPage {
+	return LoadBalancerLoadBalancingRuleListResultPage{fn: getNextPage}
 }
 
 // LoadBalancerProbeListResult response for ListProbe API service call.
@@ -7856,15 +9165,6 @@ type LoadBalancerProbeListResult struct {
 	Value *[]Probe `json:"value,omitempty"`
 	// NextLink - READ-ONLY; The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for LoadBalancerProbeListResult.
-func (lbplr LoadBalancerProbeListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if lbplr.Value != nil {
-		objectMap["value"] = lbplr.Value
-	}
-	return json.Marshal(objectMap)
 }
 
 // LoadBalancerProbeListResultIterator provides access to a complete listing of Probe values.
@@ -7935,15 +9235,10 @@ func (lbplr LoadBalancerProbeListResult) IsEmpty() bool {
 	return lbplr.Value == nil || len(*lbplr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (lbplr LoadBalancerProbeListResult) hasNextLink() bool {
-	return lbplr.NextLink != nil && len(*lbplr.NextLink) != 0
-}
-
 // loadBalancerProbeListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (lbplr LoadBalancerProbeListResult) loadBalancerProbeListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !lbplr.hasNextLink() {
+	if lbplr.NextLink == nil || len(to.String(lbplr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -7971,16 +9266,11 @@ func (page *LoadBalancerProbeListResultPage) NextWithContext(ctx context.Context
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.lbplr)
-		if err != nil {
-			return err
-		}
-		page.lbplr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.lbplr)
+	if err != nil {
+		return err
 	}
+	page.lbplr = next
 	return nil
 }
 
@@ -8010,11 +9300,8 @@ func (page LoadBalancerProbeListResultPage) Values() []Probe {
 }
 
 // Creates a new instance of the LoadBalancerProbeListResultPage type.
-func NewLoadBalancerProbeListResultPage(cur LoadBalancerProbeListResult, getNextPage func(context.Context, LoadBalancerProbeListResult) (LoadBalancerProbeListResult, error)) LoadBalancerProbeListResultPage {
-	return LoadBalancerProbeListResultPage{
-		fn:    getNextPage,
-		lbplr: cur,
-	}
+func NewLoadBalancerProbeListResultPage(getNextPage func(context.Context, LoadBalancerProbeListResult) (LoadBalancerProbeListResult, error)) LoadBalancerProbeListResultPage {
+	return LoadBalancerProbeListResultPage{fn: getNextPage}
 }
 
 // LoadBalancerPropertiesFormat properties of the load balancer.
@@ -8042,19 +9329,53 @@ type LoadBalancerPropertiesFormat struct {
 // LoadBalancersCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type LoadBalancersCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(LoadBalancersClient) (LoadBalancer, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *LoadBalancersCreateOrUpdateFuture) Result(client LoadBalancersClient) (lb LoadBalancer, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.LoadBalancersCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.LoadBalancersCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if lb.Response.Response, err = future.GetResult(sender); err == nil && lb.Response.Response.StatusCode != http.StatusNoContent {
+		lb, err = client.CreateOrUpdateResponder(lb.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.LoadBalancersCreateOrUpdateFuture", "Result", lb.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // LoadBalancersDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type LoadBalancersDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(LoadBalancersClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *LoadBalancersDeleteFuture) Result(client LoadBalancersClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.LoadBalancersDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.LoadBalancersDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // LoadBalancerSku SKU of a load balancer
@@ -8066,10 +9387,30 @@ type LoadBalancerSku struct {
 // LoadBalancersUpdateTagsFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type LoadBalancersUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(LoadBalancersClient) (LoadBalancer, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *LoadBalancersUpdateTagsFuture) Result(client LoadBalancersClient) (lb LoadBalancer, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.LoadBalancersUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.LoadBalancersUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if lb.Response.Response, err = future.GetResult(sender); err == nil && lb.Response.Response.StatusCode != http.StatusNoContent {
+		lb, err = client.UpdateTagsResponder(lb.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.LoadBalancersUpdateTagsFuture", "Result", lb.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // LoadBalancingRule a load balancing rule for a load balancer.
@@ -8307,15 +9648,6 @@ type LocalNetworkGatewayListResult struct {
 	NextLink *string `json:"nextLink,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for LocalNetworkGatewayListResult.
-func (lnglr LocalNetworkGatewayListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if lnglr.Value != nil {
-		objectMap["value"] = lnglr.Value
-	}
-	return json.Marshal(objectMap)
-}
-
 // LocalNetworkGatewayListResultIterator provides access to a complete listing of LocalNetworkGateway
 // values.
 type LocalNetworkGatewayListResultIterator struct {
@@ -8385,15 +9717,10 @@ func (lnglr LocalNetworkGatewayListResult) IsEmpty() bool {
 	return lnglr.Value == nil || len(*lnglr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (lnglr LocalNetworkGatewayListResult) hasNextLink() bool {
-	return lnglr.NextLink != nil && len(*lnglr.NextLink) != 0
-}
-
 // localNetworkGatewayListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (lnglr LocalNetworkGatewayListResult) localNetworkGatewayListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !lnglr.hasNextLink() {
+	if lnglr.NextLink == nil || len(to.String(lnglr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -8421,16 +9748,11 @@ func (page *LocalNetworkGatewayListResultPage) NextWithContext(ctx context.Conte
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.lnglr)
-		if err != nil {
-			return err
-		}
-		page.lnglr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.lnglr)
+	if err != nil {
+		return err
 	}
+	page.lnglr = next
 	return nil
 }
 
@@ -8460,11 +9782,8 @@ func (page LocalNetworkGatewayListResultPage) Values() []LocalNetworkGateway {
 }
 
 // Creates a new instance of the LocalNetworkGatewayListResultPage type.
-func NewLocalNetworkGatewayListResultPage(cur LocalNetworkGatewayListResult, getNextPage func(context.Context, LocalNetworkGatewayListResult) (LocalNetworkGatewayListResult, error)) LocalNetworkGatewayListResultPage {
-	return LocalNetworkGatewayListResultPage{
-		fn:    getNextPage,
-		lnglr: cur,
-	}
+func NewLocalNetworkGatewayListResultPage(getNextPage func(context.Context, LocalNetworkGatewayListResult) (LocalNetworkGatewayListResult, error)) LocalNetworkGatewayListResultPage {
+	return LocalNetworkGatewayListResultPage{fn: getNextPage}
 }
 
 // LocalNetworkGatewayPropertiesFormat localNetworkGateway properties
@@ -8481,49 +9800,85 @@ type LocalNetworkGatewayPropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for LocalNetworkGatewayPropertiesFormat.
-func (lngpf LocalNetworkGatewayPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if lngpf.LocalNetworkAddressSpace != nil {
-		objectMap["localNetworkAddressSpace"] = lngpf.LocalNetworkAddressSpace
-	}
-	if lngpf.GatewayIPAddress != nil {
-		objectMap["gatewayIpAddress"] = lngpf.GatewayIPAddress
-	}
-	if lngpf.BgpSettings != nil {
-		objectMap["bgpSettings"] = lngpf.BgpSettings
-	}
-	if lngpf.ResourceGUID != nil {
-		objectMap["resourceGuid"] = lngpf.ResourceGUID
-	}
-	return json.Marshal(objectMap)
-}
-
 // LocalNetworkGatewaysCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type LocalNetworkGatewaysCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(LocalNetworkGatewaysClient) (LocalNetworkGateway, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *LocalNetworkGatewaysCreateOrUpdateFuture) Result(client LocalNetworkGatewaysClient) (lng LocalNetworkGateway, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.LocalNetworkGatewaysCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if lng.Response.Response, err = future.GetResult(sender); err == nil && lng.Response.Response.StatusCode != http.StatusNoContent {
+		lng, err = client.CreateOrUpdateResponder(lng.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysCreateOrUpdateFuture", "Result", lng.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // LocalNetworkGatewaysDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type LocalNetworkGatewaysDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(LocalNetworkGatewaysClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *LocalNetworkGatewaysDeleteFuture) Result(client LocalNetworkGatewaysClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.LocalNetworkGatewaysDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // LocalNetworkGatewaysUpdateTagsFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type LocalNetworkGatewaysUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(LocalNetworkGatewaysClient) (LocalNetworkGateway, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *LocalNetworkGatewaysUpdateTagsFuture) Result(client LocalNetworkGatewaysClient) (lng LocalNetworkGateway, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.LocalNetworkGatewaysUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if lng.Response.Response, err = future.GetResult(sender); err == nil && lng.Response.Response.StatusCode != http.StatusNoContent {
+		lng, err = client.UpdateTagsResponder(lng.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.LocalNetworkGatewaysUpdateTagsFuture", "Result", lng.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // LogSpecification description of logging specification.
@@ -8762,15 +10117,10 @@ func (olr OperationListResult) IsEmpty() bool {
 	return olr.Value == nil || len(*olr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (olr OperationListResult) hasNextLink() bool {
-	return olr.NextLink != nil && len(*olr.NextLink) != 0
-}
-
 // operationListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (olr OperationListResult) operationListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !olr.hasNextLink() {
+	if olr.NextLink == nil || len(to.String(olr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -8798,16 +10148,11 @@ func (page *OperationListResultPage) NextWithContext(ctx context.Context) (err e
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.olr)
-		if err != nil {
-			return err
-		}
-		page.olr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.olr)
+	if err != nil {
+		return err
 	}
+	page.olr = next
 	return nil
 }
 
@@ -8837,11 +10182,8 @@ func (page OperationListResultPage) Values() []Operation {
 }
 
 // Creates a new instance of the OperationListResultPage type.
-func NewOperationListResultPage(cur OperationListResult, getNextPage func(context.Context, OperationListResult) (OperationListResult, error)) OperationListResultPage {
-	return OperationListResultPage{
-		fn:  getNextPage,
-		olr: cur,
-	}
+func NewOperationListResultPage(getNextPage func(context.Context, OperationListResult) (OperationListResult, error)) OperationListResultPage {
+	return OperationListResultPage{fn: getNextPage}
 }
 
 // OperationPropertiesFormat description of operation properties format.
@@ -9134,37 +10476,105 @@ type PacketCaptureResultProperties struct {
 // PacketCapturesCreateFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type PacketCapturesCreateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(PacketCapturesClient) (PacketCaptureResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *PacketCapturesCreateFuture) Result(client PacketCapturesClient) (pcr PacketCaptureResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.PacketCapturesCreateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.PacketCapturesCreateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if pcr.Response.Response, err = future.GetResult(sender); err == nil && pcr.Response.Response.StatusCode != http.StatusNoContent {
+		pcr, err = client.CreateResponder(pcr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.PacketCapturesCreateFuture", "Result", pcr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // PacketCapturesDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type PacketCapturesDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(PacketCapturesClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *PacketCapturesDeleteFuture) Result(client PacketCapturesClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.PacketCapturesDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.PacketCapturesDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // PacketCapturesGetStatusFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type PacketCapturesGetStatusFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(PacketCapturesClient) (PacketCaptureQueryStatusResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *PacketCapturesGetStatusFuture) Result(client PacketCapturesClient) (pcqsr PacketCaptureQueryStatusResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.PacketCapturesGetStatusFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.PacketCapturesGetStatusFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if pcqsr.Response.Response, err = future.GetResult(sender); err == nil && pcqsr.Response.Response.StatusCode != http.StatusNoContent {
+		pcqsr, err = client.GetStatusResponder(pcqsr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.PacketCapturesGetStatusFuture", "Result", pcqsr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // PacketCapturesStopFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type PacketCapturesStopFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(PacketCapturesClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *PacketCapturesStopFuture) Result(client PacketCapturesClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.PacketCapturesStopFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.PacketCapturesStopFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // PacketCaptureStorageLocation describes the storage location for a packet capture session.
@@ -9464,30 +10874,6 @@ type ProbePropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for ProbePropertiesFormat.
-func (ppf ProbePropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if ppf.Protocol != "" {
-		objectMap["protocol"] = ppf.Protocol
-	}
-	if ppf.Port != nil {
-		objectMap["port"] = ppf.Port
-	}
-	if ppf.IntervalInSeconds != nil {
-		objectMap["intervalInSeconds"] = ppf.IntervalInSeconds
-	}
-	if ppf.NumberOfProbes != nil {
-		objectMap["numberOfProbes"] = ppf.NumberOfProbes
-	}
-	if ppf.RequestPath != nil {
-		objectMap["requestPath"] = ppf.RequestPath
-	}
-	if ppf.ProvisioningState != nil {
-		objectMap["provisioningState"] = ppf.ProvisioningState
-	}
-	return json.Marshal(objectMap)
-}
-
 // PublicIPAddress public IP address resource.
 type PublicIPAddress struct {
 	autorest.Response `json:"-"`
@@ -9647,28 +11033,82 @@ type PublicIPAddressDNSSettings struct {
 // PublicIPAddressesCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type PublicIPAddressesCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(PublicIPAddressesClient) (PublicIPAddress, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *PublicIPAddressesCreateOrUpdateFuture) Result(client PublicIPAddressesClient) (pia PublicIPAddress, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.PublicIPAddressesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.PublicIPAddressesCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if pia.Response.Response, err = future.GetResult(sender); err == nil && pia.Response.Response.StatusCode != http.StatusNoContent {
+		pia, err = client.CreateOrUpdateResponder(pia.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.PublicIPAddressesCreateOrUpdateFuture", "Result", pia.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // PublicIPAddressesDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type PublicIPAddressesDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(PublicIPAddressesClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *PublicIPAddressesDeleteFuture) Result(client PublicIPAddressesClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.PublicIPAddressesDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.PublicIPAddressesDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // PublicIPAddressesUpdateTagsFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type PublicIPAddressesUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(PublicIPAddressesClient) (PublicIPAddress, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *PublicIPAddressesUpdateTagsFuture) Result(client PublicIPAddressesClient) (pia PublicIPAddress, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.PublicIPAddressesUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.PublicIPAddressesUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if pia.Response.Response, err = future.GetResult(sender); err == nil && pia.Response.Response.StatusCode != http.StatusNoContent {
+		pia, err = client.UpdateTagsResponder(pia.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.PublicIPAddressesUpdateTagsFuture", "Result", pia.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // PublicIPAddressListResult response for ListPublicIpAddresses API service call.
@@ -9748,15 +11188,10 @@ func (pialr PublicIPAddressListResult) IsEmpty() bool {
 	return pialr.Value == nil || len(*pialr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (pialr PublicIPAddressListResult) hasNextLink() bool {
-	return pialr.NextLink != nil && len(*pialr.NextLink) != 0
-}
-
 // publicIPAddressListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (pialr PublicIPAddressListResult) publicIPAddressListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !pialr.hasNextLink() {
+	if pialr.NextLink == nil || len(to.String(pialr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -9784,16 +11219,11 @@ func (page *PublicIPAddressListResultPage) NextWithContext(ctx context.Context) 
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.pialr)
-		if err != nil {
-			return err
-		}
-		page.pialr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.pialr)
+	if err != nil {
+		return err
 	}
+	page.pialr = next
 	return nil
 }
 
@@ -9823,11 +11253,8 @@ func (page PublicIPAddressListResultPage) Values() []PublicIPAddress {
 }
 
 // Creates a new instance of the PublicIPAddressListResultPage type.
-func NewPublicIPAddressListResultPage(cur PublicIPAddressListResult, getNextPage func(context.Context, PublicIPAddressListResult) (PublicIPAddressListResult, error)) PublicIPAddressListResultPage {
-	return PublicIPAddressListResultPage{
-		fn:    getNextPage,
-		pialr: cur,
-	}
+func NewPublicIPAddressListResultPage(getNextPage func(context.Context, PublicIPAddressListResult) (PublicIPAddressListResult, error)) PublicIPAddressListResultPage {
+	return PublicIPAddressListResultPage{fn: getNextPage}
 }
 
 // PublicIPAddressPropertiesFormat public IP address properties.
@@ -9848,33 +11275,6 @@ type PublicIPAddressPropertiesFormat struct {
 	ResourceGUID *string `json:"resourceGuid,omitempty"`
 	// ProvisioningState - The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `json:"provisioningState,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for PublicIPAddressPropertiesFormat.
-func (piapf PublicIPAddressPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if piapf.PublicIPAllocationMethod != "" {
-		objectMap["publicIPAllocationMethod"] = piapf.PublicIPAllocationMethod
-	}
-	if piapf.PublicIPAddressVersion != "" {
-		objectMap["publicIPAddressVersion"] = piapf.PublicIPAddressVersion
-	}
-	if piapf.DNSSettings != nil {
-		objectMap["dnsSettings"] = piapf.DNSSettings
-	}
-	if piapf.IPAddress != nil {
-		objectMap["ipAddress"] = piapf.IPAddress
-	}
-	if piapf.IdleTimeoutInMinutes != nil {
-		objectMap["idleTimeoutInMinutes"] = piapf.IdleTimeoutInMinutes
-	}
-	if piapf.ResourceGUID != nil {
-		objectMap["resourceGuid"] = piapf.ResourceGUID
-	}
-	if piapf.ProvisioningState != nil {
-		objectMap["provisioningState"] = piapf.ProvisioningState
-	}
-	return json.Marshal(objectMap)
 }
 
 // PublicIPAddressSku SKU of a public IP address
@@ -10004,18 +11404,6 @@ type ResourceNavigationLinkFormat struct {
 	Link *string `json:"link,omitempty"`
 	// ProvisioningState - READ-ONLY; Provisioning state of the ResourceNavigationLink resource.
 	ProvisioningState *string `json:"provisioningState,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for ResourceNavigationLinkFormat.
-func (rnlf ResourceNavigationLinkFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if rnlf.LinkedResourceType != nil {
-		objectMap["linkedResourceType"] = rnlf.LinkedResourceType
-	}
-	if rnlf.Link != nil {
-		objectMap["link"] = rnlf.Link
-	}
-	return json.Marshal(objectMap)
 }
 
 // RetentionPolicyParameters parameters that define the retention policy for flow log.
@@ -10299,15 +11687,10 @@ func (rflr RouteFilterListResult) IsEmpty() bool {
 	return rflr.Value == nil || len(*rflr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (rflr RouteFilterListResult) hasNextLink() bool {
-	return rflr.NextLink != nil && len(*rflr.NextLink) != 0
-}
-
 // routeFilterListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (rflr RouteFilterListResult) routeFilterListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !rflr.hasNextLink() {
+	if rflr.NextLink == nil || len(to.String(rflr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -10335,16 +11718,11 @@ func (page *RouteFilterListResultPage) NextWithContext(ctx context.Context) (err
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.rflr)
-		if err != nil {
-			return err
-		}
-		page.rflr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.rflr)
+	if err != nil {
+		return err
 	}
+	page.rflr = next
 	return nil
 }
 
@@ -10374,11 +11752,8 @@ func (page RouteFilterListResultPage) Values() []RouteFilter {
 }
 
 // Creates a new instance of the RouteFilterListResultPage type.
-func NewRouteFilterListResultPage(cur RouteFilterListResult, getNextPage func(context.Context, RouteFilterListResult) (RouteFilterListResult, error)) RouteFilterListResultPage {
-	return RouteFilterListResultPage{
-		fn:   getNextPage,
-		rflr: cur,
-	}
+func NewRouteFilterListResultPage(getNextPage func(context.Context, RouteFilterListResult) (RouteFilterListResult, error)) RouteFilterListResultPage {
+	return RouteFilterListResultPage{fn: getNextPage}
 }
 
 // RouteFilterPropertiesFormat route Filter Resource
@@ -10389,18 +11764,6 @@ type RouteFilterPropertiesFormat struct {
 	Peerings *[]ExpressRouteCircuitPeering `json:"peerings,omitempty"`
 	// ProvisioningState - READ-ONLY; The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
 	ProvisioningState *string `json:"provisioningState,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for RouteFilterPropertiesFormat.
-func (rfpf RouteFilterPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if rfpf.Rules != nil {
-		objectMap["rules"] = rfpf.Rules
-	}
-	if rfpf.Peerings != nil {
-		objectMap["peerings"] = rfpf.Peerings
-	}
-	return json.Marshal(objectMap)
 }
 
 // RouteFilterRule route Filter Rule Resource
@@ -10586,15 +11949,10 @@ func (rfrlr RouteFilterRuleListResult) IsEmpty() bool {
 	return rfrlr.Value == nil || len(*rfrlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (rfrlr RouteFilterRuleListResult) hasNextLink() bool {
-	return rfrlr.NextLink != nil && len(*rfrlr.NextLink) != 0
-}
-
 // routeFilterRuleListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (rfrlr RouteFilterRuleListResult) routeFilterRuleListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !rfrlr.hasNextLink() {
+	if rfrlr.NextLink == nil || len(to.String(rfrlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -10622,16 +11980,11 @@ func (page *RouteFilterRuleListResultPage) NextWithContext(ctx context.Context) 
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.rfrlr)
-		if err != nil {
-			return err
-		}
-		page.rfrlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.rfrlr)
+	if err != nil {
+		return err
 	}
+	page.rfrlr = next
 	return nil
 }
 
@@ -10661,11 +12014,8 @@ func (page RouteFilterRuleListResultPage) Values() []RouteFilterRule {
 }
 
 // Creates a new instance of the RouteFilterRuleListResultPage type.
-func NewRouteFilterRuleListResultPage(cur RouteFilterRuleListResult, getNextPage func(context.Context, RouteFilterRuleListResult) (RouteFilterRuleListResult, error)) RouteFilterRuleListResultPage {
-	return RouteFilterRuleListResultPage{
-		fn:    getNextPage,
-		rfrlr: cur,
-	}
+func NewRouteFilterRuleListResultPage(getNextPage func(context.Context, RouteFilterRuleListResult) (RouteFilterRuleListResult, error)) RouteFilterRuleListResultPage {
+	return RouteFilterRuleListResultPage{fn: getNextPage}
 }
 
 // RouteFilterRulePropertiesFormat route Filter Rule Resource
@@ -10680,73 +12030,166 @@ type RouteFilterRulePropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for RouteFilterRulePropertiesFormat.
-func (rfrpf RouteFilterRulePropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if rfrpf.Access != "" {
-		objectMap["access"] = rfrpf.Access
-	}
-	if rfrpf.RouteFilterRuleType != nil {
-		objectMap["routeFilterRuleType"] = rfrpf.RouteFilterRuleType
-	}
-	if rfrpf.Communities != nil {
-		objectMap["communities"] = rfrpf.Communities
-	}
-	return json.Marshal(objectMap)
-}
-
 // RouteFilterRulesCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type RouteFilterRulesCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RouteFilterRulesClient) (RouteFilterRule, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RouteFilterRulesCreateOrUpdateFuture) Result(client RouteFilterRulesClient) (rfr RouteFilterRule, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RouteFilterRulesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RouteFilterRulesCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if rfr.Response.Response, err = future.GetResult(sender); err == nil && rfr.Response.Response.StatusCode != http.StatusNoContent {
+		rfr, err = client.CreateOrUpdateResponder(rfr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.RouteFilterRulesCreateOrUpdateFuture", "Result", rfr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // RouteFilterRulesDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type RouteFilterRulesDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RouteFilterRulesClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RouteFilterRulesDeleteFuture) Result(client RouteFilterRulesClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RouteFilterRulesDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RouteFilterRulesDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // RouteFilterRulesUpdateFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type RouteFilterRulesUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RouteFilterRulesClient) (RouteFilterRule, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RouteFilterRulesUpdateFuture) Result(client RouteFilterRulesClient) (rfr RouteFilterRule, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RouteFilterRulesUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RouteFilterRulesUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if rfr.Response.Response, err = future.GetResult(sender); err == nil && rfr.Response.Response.StatusCode != http.StatusNoContent {
+		rfr, err = client.UpdateResponder(rfr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.RouteFilterRulesUpdateFuture", "Result", rfr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // RouteFiltersCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type RouteFiltersCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RouteFiltersClient) (RouteFilter, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RouteFiltersCreateOrUpdateFuture) Result(client RouteFiltersClient) (rf RouteFilter, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RouteFiltersCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RouteFiltersCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if rf.Response.Response, err = future.GetResult(sender); err == nil && rf.Response.Response.StatusCode != http.StatusNoContent {
+		rf, err = client.CreateOrUpdateResponder(rf.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.RouteFiltersCreateOrUpdateFuture", "Result", rf.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // RouteFiltersDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type RouteFiltersDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RouteFiltersClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RouteFiltersDeleteFuture) Result(client RouteFiltersClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RouteFiltersDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RouteFiltersDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // RouteFiltersUpdateFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type RouteFiltersUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RouteFiltersClient) (RouteFilter, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RouteFiltersUpdateFuture) Result(client RouteFiltersClient) (rf RouteFilter, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RouteFiltersUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RouteFiltersUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if rf.Response.Response, err = future.GetResult(sender); err == nil && rf.Response.Response.StatusCode != http.StatusNoContent {
+		rf, err = client.UpdateResponder(rf.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.RouteFiltersUpdateFuture", "Result", rf.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // RouteListResult response for the ListRoute API service call
@@ -10826,15 +12269,10 @@ func (rlr RouteListResult) IsEmpty() bool {
 	return rlr.Value == nil || len(*rlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (rlr RouteListResult) hasNextLink() bool {
-	return rlr.NextLink != nil && len(*rlr.NextLink) != 0
-}
-
 // routeListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (rlr RouteListResult) routeListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !rlr.hasNextLink() {
+	if rlr.NextLink == nil || len(to.String(rlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -10862,16 +12300,11 @@ func (page *RouteListResultPage) NextWithContext(ctx context.Context) (err error
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.rlr)
-		if err != nil {
-			return err
-		}
-		page.rlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.rlr)
+	if err != nil {
+		return err
 	}
+	page.rlr = next
 	return nil
 }
 
@@ -10901,11 +12334,8 @@ func (page RouteListResultPage) Values() []Route {
 }
 
 // Creates a new instance of the RouteListResultPage type.
-func NewRouteListResultPage(cur RouteListResult, getNextPage func(context.Context, RouteListResult) (RouteListResult, error)) RouteListResultPage {
-	return RouteListResultPage{
-		fn:  getNextPage,
-		rlr: cur,
-	}
+func NewRouteListResultPage(getNextPage func(context.Context, RouteListResult) (RouteListResult, error)) RouteListResultPage {
+	return RouteListResultPage{fn: getNextPage}
 }
 
 // RoutePropertiesFormat route resource
@@ -10923,18 +12353,52 @@ type RoutePropertiesFormat struct {
 // RoutesCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type RoutesCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RoutesClient) (Route, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RoutesCreateOrUpdateFuture) Result(client RoutesClient) (r Route, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RoutesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RoutesCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if r.Response.Response, err = future.GetResult(sender); err == nil && r.Response.Response.StatusCode != http.StatusNoContent {
+		r, err = client.CreateOrUpdateResponder(r.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.RoutesCreateOrUpdateFuture", "Result", r.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // RoutesDeleteFuture an abstraction for monitoring and retrieving the results of a long-running operation.
 type RoutesDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RoutesClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RoutesDeleteFuture) Result(client RoutesClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RoutesDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RoutesDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // RouteTable route table resource.
@@ -11132,15 +12596,10 @@ func (rtlr RouteTableListResult) IsEmpty() bool {
 	return rtlr.Value == nil || len(*rtlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (rtlr RouteTableListResult) hasNextLink() bool {
-	return rtlr.NextLink != nil && len(*rtlr.NextLink) != 0
-}
-
 // routeTableListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (rtlr RouteTableListResult) routeTableListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !rtlr.hasNextLink() {
+	if rtlr.NextLink == nil || len(to.String(rtlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -11168,16 +12627,11 @@ func (page *RouteTableListResultPage) NextWithContext(ctx context.Context) (err 
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.rtlr)
-		if err != nil {
-			return err
-		}
-		page.rtlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.rtlr)
+	if err != nil {
+		return err
 	}
+	page.rtlr = next
 	return nil
 }
 
@@ -11207,11 +12661,8 @@ func (page RouteTableListResultPage) Values() []RouteTable {
 }
 
 // Creates a new instance of the RouteTableListResultPage type.
-func NewRouteTableListResultPage(cur RouteTableListResult, getNextPage func(context.Context, RouteTableListResult) (RouteTableListResult, error)) RouteTableListResultPage {
-	return RouteTableListResultPage{
-		fn:   getNextPage,
-		rtlr: cur,
-	}
+func NewRouteTableListResultPage(getNextPage func(context.Context, RouteTableListResult) (RouteTableListResult, error)) RouteTableListResultPage {
+	return RouteTableListResultPage{fn: getNextPage}
 }
 
 // RouteTablePropertiesFormat route Table resource
@@ -11226,46 +12677,85 @@ type RouteTablePropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for RouteTablePropertiesFormat.
-func (rtpf RouteTablePropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if rtpf.Routes != nil {
-		objectMap["routes"] = rtpf.Routes
-	}
-	if rtpf.DisableBgpRoutePropagation != nil {
-		objectMap["disableBgpRoutePropagation"] = rtpf.DisableBgpRoutePropagation
-	}
-	if rtpf.ProvisioningState != nil {
-		objectMap["provisioningState"] = rtpf.ProvisioningState
-	}
-	return json.Marshal(objectMap)
-}
-
 // RouteTablesCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type RouteTablesCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RouteTablesClient) (RouteTable, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RouteTablesCreateOrUpdateFuture) Result(client RouteTablesClient) (rt RouteTable, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RouteTablesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RouteTablesCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if rt.Response.Response, err = future.GetResult(sender); err == nil && rt.Response.Response.StatusCode != http.StatusNoContent {
+		rt, err = client.CreateOrUpdateResponder(rt.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.RouteTablesCreateOrUpdateFuture", "Result", rt.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // RouteTablesDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type RouteTablesDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RouteTablesClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RouteTablesDeleteFuture) Result(client RouteTablesClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RouteTablesDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RouteTablesDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // RouteTablesUpdateTagsFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type RouteTablesUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(RouteTablesClient) (RouteTable, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *RouteTablesUpdateTagsFuture) Result(client RouteTablesClient) (rt RouteTable, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.RouteTablesUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.RouteTablesUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if rt.Response.Response, err = future.GetResult(sender); err == nil && rt.Response.Response.StatusCode != http.StatusNoContent {
+		rt, err = client.UpdateTagsResponder(rt.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.RouteTablesUpdateTagsFuture", "Result", rt.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // SecurityGroup networkSecurityGroup resource.
@@ -11463,15 +12953,10 @@ func (sglr SecurityGroupListResult) IsEmpty() bool {
 	return sglr.Value == nil || len(*sglr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (sglr SecurityGroupListResult) hasNextLink() bool {
-	return sglr.NextLink != nil && len(*sglr.NextLink) != 0
-}
-
 // securityGroupListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (sglr SecurityGroupListResult) securityGroupListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !sglr.hasNextLink() {
+	if sglr.NextLink == nil || len(to.String(sglr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -11499,16 +12984,11 @@ func (page *SecurityGroupListResultPage) NextWithContext(ctx context.Context) (e
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.sglr)
-		if err != nil {
-			return err
-		}
-		page.sglr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.sglr)
+	if err != nil {
+		return err
 	}
+	page.sglr = next
 	return nil
 }
 
@@ -11538,11 +13018,8 @@ func (page SecurityGroupListResultPage) Values() []SecurityGroup {
 }
 
 // Creates a new instance of the SecurityGroupListResultPage type.
-func NewSecurityGroupListResultPage(cur SecurityGroupListResult, getNextPage func(context.Context, SecurityGroupListResult) (SecurityGroupListResult, error)) SecurityGroupListResultPage {
-	return SecurityGroupListResultPage{
-		fn:   getNextPage,
-		sglr: cur,
-	}
+func NewSecurityGroupListResultPage(getNextPage func(context.Context, SecurityGroupListResult) (SecurityGroupListResult, error)) SecurityGroupListResultPage {
+	return SecurityGroupListResultPage{fn: getNextPage}
 }
 
 // SecurityGroupNetworkInterface network interface and all its associated security rules.
@@ -11568,49 +13045,85 @@ type SecurityGroupPropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for SecurityGroupPropertiesFormat.
-func (sgpf SecurityGroupPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if sgpf.SecurityRules != nil {
-		objectMap["securityRules"] = sgpf.SecurityRules
-	}
-	if sgpf.DefaultSecurityRules != nil {
-		objectMap["defaultSecurityRules"] = sgpf.DefaultSecurityRules
-	}
-	if sgpf.ResourceGUID != nil {
-		objectMap["resourceGuid"] = sgpf.ResourceGUID
-	}
-	if sgpf.ProvisioningState != nil {
-		objectMap["provisioningState"] = sgpf.ProvisioningState
-	}
-	return json.Marshal(objectMap)
-}
-
 // SecurityGroupsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type SecurityGroupsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SecurityGroupsClient) (SecurityGroup, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SecurityGroupsCreateOrUpdateFuture) Result(client SecurityGroupsClient) (sg SecurityGroup, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.SecurityGroupsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.SecurityGroupsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if sg.Response.Response, err = future.GetResult(sender); err == nil && sg.Response.Response.StatusCode != http.StatusNoContent {
+		sg, err = client.CreateOrUpdateResponder(sg.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.SecurityGroupsCreateOrUpdateFuture", "Result", sg.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // SecurityGroupsDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type SecurityGroupsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SecurityGroupsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SecurityGroupsDeleteFuture) Result(client SecurityGroupsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.SecurityGroupsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.SecurityGroupsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // SecurityGroupsUpdateTagsFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type SecurityGroupsUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SecurityGroupsClient) (SecurityGroup, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SecurityGroupsUpdateTagsFuture) Result(client SecurityGroupsClient) (sg SecurityGroup, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.SecurityGroupsUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.SecurityGroupsUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if sg.Response.Response, err = future.GetResult(sender); err == nil && sg.Response.Response.StatusCode != http.StatusNoContent {
+		sg, err = client.UpdateTagsResponder(sg.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.SecurityGroupsUpdateTagsFuture", "Result", sg.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // SecurityGroupViewParameters parameters that define the VM to check security groups for.
@@ -11796,15 +13309,10 @@ func (srlr SecurityRuleListResult) IsEmpty() bool {
 	return srlr.Value == nil || len(*srlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (srlr SecurityRuleListResult) hasNextLink() bool {
-	return srlr.NextLink != nil && len(*srlr.NextLink) != 0
-}
-
 // securityRuleListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (srlr SecurityRuleListResult) securityRuleListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !srlr.hasNextLink() {
+	if srlr.NextLink == nil || len(to.String(srlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -11832,16 +13340,11 @@ func (page *SecurityRuleListResultPage) NextWithContext(ctx context.Context) (er
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.srlr)
-		if err != nil {
-			return err
-		}
-		page.srlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.srlr)
+	if err != nil {
+		return err
 	}
+	page.srlr = next
 	return nil
 }
 
@@ -11871,11 +13374,8 @@ func (page SecurityRuleListResultPage) Values() []SecurityRule {
 }
 
 // Creates a new instance of the SecurityRuleListResultPage type.
-func NewSecurityRuleListResultPage(cur SecurityRuleListResult, getNextPage func(context.Context, SecurityRuleListResult) (SecurityRuleListResult, error)) SecurityRuleListResultPage {
-	return SecurityRuleListResultPage{
-		fn:   getNextPage,
-		srlr: cur,
-	}
+func NewSecurityRuleListResultPage(getNextPage func(context.Context, SecurityRuleListResult) (SecurityRuleListResult, error)) SecurityRuleListResultPage {
+	return SecurityRuleListResultPage{fn: getNextPage}
 }
 
 // SecurityRulePropertiesFormat security rule resource.
@@ -11917,19 +13417,53 @@ type SecurityRulePropertiesFormat struct {
 // SecurityRulesCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type SecurityRulesCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SecurityRulesClient) (SecurityRule, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SecurityRulesCreateOrUpdateFuture) Result(client SecurityRulesClient) (sr SecurityRule, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.SecurityRulesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.SecurityRulesCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if sr.Response.Response, err = future.GetResult(sender); err == nil && sr.Response.Response.StatusCode != http.StatusNoContent {
+		sr, err = client.CreateOrUpdateResponder(sr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.SecurityRulesCreateOrUpdateFuture", "Result", sr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // SecurityRulesDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type SecurityRulesDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SecurityRulesClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SecurityRulesDeleteFuture) Result(client SecurityRulesClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.SecurityRulesDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.SecurityRulesDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ServiceEndpointPropertiesFormat the service endpoint properties.
@@ -12038,15 +13572,6 @@ type SubnetAssociation struct {
 	SecurityRules *[]SecurityRule `json:"securityRules,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for SubnetAssociation.
-func (sa SubnetAssociation) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if sa.SecurityRules != nil {
-		objectMap["securityRules"] = sa.SecurityRules
-	}
-	return json.Marshal(objectMap)
-}
-
 // SubnetListResult response for ListSubnets API service callRetrieves all subnet that belongs to a virtual
 // network
 type SubnetListResult struct {
@@ -12125,15 +13650,10 @@ func (slr SubnetListResult) IsEmpty() bool {
 	return slr.Value == nil || len(*slr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (slr SubnetListResult) hasNextLink() bool {
-	return slr.NextLink != nil && len(*slr.NextLink) != 0
-}
-
 // subnetListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (slr SubnetListResult) subnetListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !slr.hasNextLink() {
+	if slr.NextLink == nil || len(to.String(slr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -12161,16 +13681,11 @@ func (page *SubnetListResultPage) NextWithContext(ctx context.Context) (err erro
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.slr)
-		if err != nil {
-			return err
-		}
-		page.slr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.slr)
+	if err != nil {
+		return err
 	}
+	page.slr = next
 	return nil
 }
 
@@ -12200,11 +13715,8 @@ func (page SubnetListResultPage) Values() []Subnet {
 }
 
 // Creates a new instance of the SubnetListResultPage type.
-func NewSubnetListResultPage(cur SubnetListResult, getNextPage func(context.Context, SubnetListResult) (SubnetListResult, error)) SubnetListResultPage {
-	return SubnetListResultPage{
-		fn:  getNextPage,
-		slr: cur,
-	}
+func NewSubnetListResultPage(getNextPage func(context.Context, SubnetListResult) (SubnetListResult, error)) SubnetListResultPage {
+	return SubnetListResultPage{fn: getNextPage}
 }
 
 // SubnetPropertiesFormat properties of the subnet.
@@ -12225,46 +13737,56 @@ type SubnetPropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for SubnetPropertiesFormat.
-func (spf SubnetPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if spf.AddressPrefix != nil {
-		objectMap["addressPrefix"] = spf.AddressPrefix
-	}
-	if spf.NetworkSecurityGroup != nil {
-		objectMap["networkSecurityGroup"] = spf.NetworkSecurityGroup
-	}
-	if spf.RouteTable != nil {
-		objectMap["routeTable"] = spf.RouteTable
-	}
-	if spf.ServiceEndpoints != nil {
-		objectMap["serviceEndpoints"] = spf.ServiceEndpoints
-	}
-	if spf.ResourceNavigationLinks != nil {
-		objectMap["resourceNavigationLinks"] = spf.ResourceNavigationLinks
-	}
-	if spf.ProvisioningState != nil {
-		objectMap["provisioningState"] = spf.ProvisioningState
-	}
-	return json.Marshal(objectMap)
-}
-
 // SubnetsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type SubnetsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SubnetsClient) (Subnet, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SubnetsCreateOrUpdateFuture) Result(client SubnetsClient) (s Subnet, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.SubnetsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.SubnetsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if s.Response.Response, err = future.GetResult(sender); err == nil && s.Response.Response.StatusCode != http.StatusNoContent {
+		s, err = client.CreateOrUpdateResponder(s.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.SubnetsCreateOrUpdateFuture", "Result", s.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // SubnetsDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type SubnetsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SubnetsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SubnetsDeleteFuture) Result(client SubnetsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.SubnetsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.SubnetsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // SubResource reference to another subresource.
@@ -12298,15 +13820,6 @@ type Topology struct {
 	// LastModified - READ-ONLY; The datetime when the topology was last modified.
 	LastModified *date.Time          `json:"lastModified,omitempty"`
 	Resources    *[]TopologyResource `json:"resources,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for Topology.
-func (t Topology) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if t.Resources != nil {
-		objectMap["resources"] = t.Resources
-	}
-	return json.Marshal(objectMap)
 }
 
 // TopologyAssociation resources that have an association with the parent resource.
@@ -12468,24 +13981,6 @@ type Usage struct {
 	Name *UsageName `json:"name,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for Usage.
-func (u Usage) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if u.Unit != nil {
-		objectMap["unit"] = u.Unit
-	}
-	if u.CurrentValue != nil {
-		objectMap["currentValue"] = u.CurrentValue
-	}
-	if u.Limit != nil {
-		objectMap["limit"] = u.Limit
-	}
-	if u.Name != nil {
-		objectMap["name"] = u.Name
-	}
-	return json.Marshal(objectMap)
-}
-
 // UsageName the usage names.
 type UsageName struct {
 	// Value - A string describing the resource name.
@@ -12571,15 +14066,10 @@ func (ulr UsagesListResult) IsEmpty() bool {
 	return ulr.Value == nil || len(*ulr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (ulr UsagesListResult) hasNextLink() bool {
-	return ulr.NextLink != nil && len(*ulr.NextLink) != 0
-}
-
 // usagesListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (ulr UsagesListResult) usagesListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !ulr.hasNextLink() {
+	if ulr.NextLink == nil || len(to.String(ulr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -12607,16 +14097,11 @@ func (page *UsagesListResultPage) NextWithContext(ctx context.Context) (err erro
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.ulr)
-		if err != nil {
-			return err
-		}
-		page.ulr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.ulr)
+	if err != nil {
+		return err
 	}
+	page.ulr = next
 	return nil
 }
 
@@ -12646,11 +14131,8 @@ func (page UsagesListResultPage) Values() []Usage {
 }
 
 // Creates a new instance of the UsagesListResultPage type.
-func NewUsagesListResultPage(cur UsagesListResult, getNextPage func(context.Context, UsagesListResult) (UsagesListResult, error)) UsagesListResultPage {
-	return UsagesListResultPage{
-		fn:  getNextPage,
-		ulr: cur,
-	}
+func NewUsagesListResultPage(getNextPage func(context.Context, UsagesListResult) (UsagesListResult, error)) UsagesListResultPage {
+	return UsagesListResultPage{fn: getNextPage}
 }
 
 // VerificationIPFlowParameters parameters that define the IP flow to be verified.
@@ -13199,48 +14681,6 @@ type VirtualNetworkGatewayConnectionListEntityPropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualNetworkGatewayConnectionListEntityPropertiesFormat.
-func (vngclepf VirtualNetworkGatewayConnectionListEntityPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vngclepf.AuthorizationKey != nil {
-		objectMap["authorizationKey"] = vngclepf.AuthorizationKey
-	}
-	if vngclepf.VirtualNetworkGateway1 != nil {
-		objectMap["virtualNetworkGateway1"] = vngclepf.VirtualNetworkGateway1
-	}
-	if vngclepf.VirtualNetworkGateway2 != nil {
-		objectMap["virtualNetworkGateway2"] = vngclepf.VirtualNetworkGateway2
-	}
-	if vngclepf.LocalNetworkGateway2 != nil {
-		objectMap["localNetworkGateway2"] = vngclepf.LocalNetworkGateway2
-	}
-	if vngclepf.ConnectionType != "" {
-		objectMap["connectionType"] = vngclepf.ConnectionType
-	}
-	if vngclepf.RoutingWeight != nil {
-		objectMap["routingWeight"] = vngclepf.RoutingWeight
-	}
-	if vngclepf.SharedKey != nil {
-		objectMap["sharedKey"] = vngclepf.SharedKey
-	}
-	if vngclepf.Peer != nil {
-		objectMap["peer"] = vngclepf.Peer
-	}
-	if vngclepf.EnableBgp != nil {
-		objectMap["enableBgp"] = vngclepf.EnableBgp
-	}
-	if vngclepf.UsePolicyBasedTrafficSelectors != nil {
-		objectMap["usePolicyBasedTrafficSelectors"] = vngclepf.UsePolicyBasedTrafficSelectors
-	}
-	if vngclepf.IpsecPolicies != nil {
-		objectMap["ipsecPolicies"] = vngclepf.IpsecPolicies
-	}
-	if vngclepf.ResourceGUID != nil {
-		objectMap["resourceGuid"] = vngclepf.ResourceGUID
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualNetworkGatewayConnectionListResult response for the ListVirtualNetworkGatewayConnections API
 // service call
 type VirtualNetworkGatewayConnectionListResult struct {
@@ -13249,15 +14689,6 @@ type VirtualNetworkGatewayConnectionListResult struct {
 	Value *[]VirtualNetworkGatewayConnection `json:"value,omitempty"`
 	// NextLink - READ-ONLY; The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for VirtualNetworkGatewayConnectionListResult.
-func (vngclr VirtualNetworkGatewayConnectionListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vngclr.Value != nil {
-		objectMap["value"] = vngclr.Value
-	}
-	return json.Marshal(objectMap)
 }
 
 // VirtualNetworkGatewayConnectionListResultIterator provides access to a complete listing of
@@ -13329,15 +14760,10 @@ func (vngclr VirtualNetworkGatewayConnectionListResult) IsEmpty() bool {
 	return vngclr.Value == nil || len(*vngclr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vngclr VirtualNetworkGatewayConnectionListResult) hasNextLink() bool {
-	return vngclr.NextLink != nil && len(*vngclr.NextLink) != 0
-}
-
 // virtualNetworkGatewayConnectionListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vngclr VirtualNetworkGatewayConnectionListResult) virtualNetworkGatewayConnectionListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vngclr.hasNextLink() {
+	if vngclr.NextLink == nil || len(to.String(vngclr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -13365,16 +14791,11 @@ func (page *VirtualNetworkGatewayConnectionListResultPage) NextWithContext(ctx c
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vngclr)
-		if err != nil {
-			return err
-		}
-		page.vngclr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vngclr)
+	if err != nil {
+		return err
 	}
+	page.vngclr = next
 	return nil
 }
 
@@ -13404,11 +14825,8 @@ func (page VirtualNetworkGatewayConnectionListResultPage) Values() []VirtualNetw
 }
 
 // Creates a new instance of the VirtualNetworkGatewayConnectionListResultPage type.
-func NewVirtualNetworkGatewayConnectionListResultPage(cur VirtualNetworkGatewayConnectionListResult, getNextPage func(context.Context, VirtualNetworkGatewayConnectionListResult) (VirtualNetworkGatewayConnectionListResult, error)) VirtualNetworkGatewayConnectionListResultPage {
-	return VirtualNetworkGatewayConnectionListResultPage{
-		fn:     getNextPage,
-		vngclr: cur,
-	}
+func NewVirtualNetworkGatewayConnectionListResultPage(getNextPage func(context.Context, VirtualNetworkGatewayConnectionListResult) (VirtualNetworkGatewayConnectionListResult, error)) VirtualNetworkGatewayConnectionListResultPage {
+	return VirtualNetworkGatewayConnectionListResultPage{fn: getNextPage}
 }
 
 // VirtualNetworkGatewayConnectionPropertiesFormat virtualNetworkGatewayConnection properties
@@ -13449,91 +14867,143 @@ type VirtualNetworkGatewayConnectionPropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualNetworkGatewayConnectionPropertiesFormat.
-func (vngcpf VirtualNetworkGatewayConnectionPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vngcpf.AuthorizationKey != nil {
-		objectMap["authorizationKey"] = vngcpf.AuthorizationKey
-	}
-	if vngcpf.VirtualNetworkGateway1 != nil {
-		objectMap["virtualNetworkGateway1"] = vngcpf.VirtualNetworkGateway1
-	}
-	if vngcpf.VirtualNetworkGateway2 != nil {
-		objectMap["virtualNetworkGateway2"] = vngcpf.VirtualNetworkGateway2
-	}
-	if vngcpf.LocalNetworkGateway2 != nil {
-		objectMap["localNetworkGateway2"] = vngcpf.LocalNetworkGateway2
-	}
-	if vngcpf.ConnectionType != "" {
-		objectMap["connectionType"] = vngcpf.ConnectionType
-	}
-	if vngcpf.RoutingWeight != nil {
-		objectMap["routingWeight"] = vngcpf.RoutingWeight
-	}
-	if vngcpf.SharedKey != nil {
-		objectMap["sharedKey"] = vngcpf.SharedKey
-	}
-	if vngcpf.Peer != nil {
-		objectMap["peer"] = vngcpf.Peer
-	}
-	if vngcpf.EnableBgp != nil {
-		objectMap["enableBgp"] = vngcpf.EnableBgp
-	}
-	if vngcpf.UsePolicyBasedTrafficSelectors != nil {
-		objectMap["usePolicyBasedTrafficSelectors"] = vngcpf.UsePolicyBasedTrafficSelectors
-	}
-	if vngcpf.IpsecPolicies != nil {
-		objectMap["ipsecPolicies"] = vngcpf.IpsecPolicies
-	}
-	if vngcpf.ResourceGUID != nil {
-		objectMap["resourceGuid"] = vngcpf.ResourceGUID
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualNetworkGatewayConnectionsCreateOrUpdateFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type VirtualNetworkGatewayConnectionsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewayConnectionsClient) (VirtualNetworkGatewayConnection, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewayConnectionsCreateOrUpdateFuture) Result(client VirtualNetworkGatewayConnectionsClient) (vngc VirtualNetworkGatewayConnection, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewayConnectionsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewayConnectionsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vngc.Response.Response, err = future.GetResult(sender); err == nil && vngc.Response.Response.StatusCode != http.StatusNoContent {
+		vngc, err = client.CreateOrUpdateResponder(vngc.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewayConnectionsCreateOrUpdateFuture", "Result", vngc.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewayConnectionsDeleteFuture an abstraction for monitoring and retrieving the results of
 // a long-running operation.
 type VirtualNetworkGatewayConnectionsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewayConnectionsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewayConnectionsDeleteFuture) Result(client VirtualNetworkGatewayConnectionsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewayConnectionsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewayConnectionsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // VirtualNetworkGatewayConnectionsResetSharedKeyFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type VirtualNetworkGatewayConnectionsResetSharedKeyFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewayConnectionsClient) (ConnectionResetSharedKey, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewayConnectionsResetSharedKeyFuture) Result(client VirtualNetworkGatewayConnectionsClient) (crsk ConnectionResetSharedKey, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewayConnectionsResetSharedKeyFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewayConnectionsResetSharedKeyFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if crsk.Response.Response, err = future.GetResult(sender); err == nil && crsk.Response.Response.StatusCode != http.StatusNoContent {
+		crsk, err = client.ResetSharedKeyResponder(crsk.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewayConnectionsResetSharedKeyFuture", "Result", crsk.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewayConnectionsSetSharedKeyFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type VirtualNetworkGatewayConnectionsSetSharedKeyFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewayConnectionsClient) (ConnectionSharedKey, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewayConnectionsSetSharedKeyFuture) Result(client VirtualNetworkGatewayConnectionsClient) (csk ConnectionSharedKey, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewayConnectionsSetSharedKeyFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewayConnectionsSetSharedKeyFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if csk.Response.Response, err = future.GetResult(sender); err == nil && csk.Response.Response.StatusCode != http.StatusNoContent {
+		csk, err = client.SetSharedKeyResponder(csk.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewayConnectionsSetSharedKeyFuture", "Result", csk.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewayConnectionsUpdateTagsFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type VirtualNetworkGatewayConnectionsUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewayConnectionsClient) (VirtualNetworkGatewayConnectionListEntity, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewayConnectionsUpdateTagsFuture) Result(client VirtualNetworkGatewayConnectionsClient) (vngcle VirtualNetworkGatewayConnectionListEntity, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewayConnectionsUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewayConnectionsUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vngcle.Response.Response, err = future.GetResult(sender); err == nil && vngcle.Response.Response.StatusCode != http.StatusNoContent {
+		vngcle, err = client.UpdateTagsResponder(vngcle.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewayConnectionsUpdateTagsFuture", "Result", vngcle.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewayIPConfiguration IP configuration for virtual network gateway
@@ -13629,21 +15099,6 @@ type VirtualNetworkGatewayIPConfigurationPropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualNetworkGatewayIPConfigurationPropertiesFormat.
-func (vngicpf VirtualNetworkGatewayIPConfigurationPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vngicpf.PrivateIPAllocationMethod != "" {
-		objectMap["privateIPAllocationMethod"] = vngicpf.PrivateIPAllocationMethod
-	}
-	if vngicpf.Subnet != nil {
-		objectMap["subnet"] = vngicpf.Subnet
-	}
-	if vngicpf.PublicIPAddress != nil {
-		objectMap["publicIPAddress"] = vngicpf.PublicIPAddress
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualNetworkGatewayListConnectionsResult response for the VirtualNetworkGatewayListConnections API
 // service call
 type VirtualNetworkGatewayListConnectionsResult struct {
@@ -13652,15 +15107,6 @@ type VirtualNetworkGatewayListConnectionsResult struct {
 	Value *[]VirtualNetworkGatewayConnectionListEntity `json:"value,omitempty"`
 	// NextLink - READ-ONLY; The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for VirtualNetworkGatewayListConnectionsResult.
-func (vnglcr VirtualNetworkGatewayListConnectionsResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vnglcr.Value != nil {
-		objectMap["value"] = vnglcr.Value
-	}
-	return json.Marshal(objectMap)
 }
 
 // VirtualNetworkGatewayListConnectionsResultIterator provides access to a complete listing of
@@ -13732,15 +15178,10 @@ func (vnglcr VirtualNetworkGatewayListConnectionsResult) IsEmpty() bool {
 	return vnglcr.Value == nil || len(*vnglcr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vnglcr VirtualNetworkGatewayListConnectionsResult) hasNextLink() bool {
-	return vnglcr.NextLink != nil && len(*vnglcr.NextLink) != 0
-}
-
 // virtualNetworkGatewayListConnectionsResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vnglcr VirtualNetworkGatewayListConnectionsResult) virtualNetworkGatewayListConnectionsResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vnglcr.hasNextLink() {
+	if vnglcr.NextLink == nil || len(to.String(vnglcr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -13769,16 +15210,11 @@ func (page *VirtualNetworkGatewayListConnectionsResultPage) NextWithContext(ctx 
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vnglcr)
-		if err != nil {
-			return err
-		}
-		page.vnglcr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vnglcr)
+	if err != nil {
+		return err
 	}
+	page.vnglcr = next
 	return nil
 }
 
@@ -13808,11 +15244,8 @@ func (page VirtualNetworkGatewayListConnectionsResultPage) Values() []VirtualNet
 }
 
 // Creates a new instance of the VirtualNetworkGatewayListConnectionsResultPage type.
-func NewVirtualNetworkGatewayListConnectionsResultPage(cur VirtualNetworkGatewayListConnectionsResult, getNextPage func(context.Context, VirtualNetworkGatewayListConnectionsResult) (VirtualNetworkGatewayListConnectionsResult, error)) VirtualNetworkGatewayListConnectionsResultPage {
-	return VirtualNetworkGatewayListConnectionsResultPage{
-		fn:     getNextPage,
-		vnglcr: cur,
-	}
+func NewVirtualNetworkGatewayListConnectionsResultPage(getNextPage func(context.Context, VirtualNetworkGatewayListConnectionsResult) (VirtualNetworkGatewayListConnectionsResult, error)) VirtualNetworkGatewayListConnectionsResultPage {
+	return VirtualNetworkGatewayListConnectionsResultPage{fn: getNextPage}
 }
 
 // VirtualNetworkGatewayListResult response for the ListVirtualNetworkGateways API service call.
@@ -13822,15 +15255,6 @@ type VirtualNetworkGatewayListResult struct {
 	Value *[]VirtualNetworkGateway `json:"value,omitempty"`
 	// NextLink - READ-ONLY; The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for VirtualNetworkGatewayListResult.
-func (vnglr VirtualNetworkGatewayListResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vnglr.Value != nil {
-		objectMap["value"] = vnglr.Value
-	}
-	return json.Marshal(objectMap)
 }
 
 // VirtualNetworkGatewayListResultIterator provides access to a complete listing of VirtualNetworkGateway
@@ -13902,15 +15326,10 @@ func (vnglr VirtualNetworkGatewayListResult) IsEmpty() bool {
 	return vnglr.Value == nil || len(*vnglr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vnglr VirtualNetworkGatewayListResult) hasNextLink() bool {
-	return vnglr.NextLink != nil && len(*vnglr.NextLink) != 0
-}
-
 // virtualNetworkGatewayListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vnglr VirtualNetworkGatewayListResult) virtualNetworkGatewayListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vnglr.hasNextLink() {
+	if vnglr.NextLink == nil || len(to.String(vnglr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -13938,16 +15357,11 @@ func (page *VirtualNetworkGatewayListResultPage) NextWithContext(ctx context.Con
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vnglr)
-		if err != nil {
-			return err
-		}
-		page.vnglr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vnglr)
+	if err != nil {
+		return err
 	}
+	page.vnglr = next
 	return nil
 }
 
@@ -13977,11 +15391,8 @@ func (page VirtualNetworkGatewayListResultPage) Values() []VirtualNetworkGateway
 }
 
 // Creates a new instance of the VirtualNetworkGatewayListResultPage type.
-func NewVirtualNetworkGatewayListResultPage(cur VirtualNetworkGatewayListResult, getNextPage func(context.Context, VirtualNetworkGatewayListResult) (VirtualNetworkGatewayListResult, error)) VirtualNetworkGatewayListResultPage {
-	return VirtualNetworkGatewayListResultPage{
-		fn:    getNextPage,
-		vnglr: cur,
-	}
+func NewVirtualNetworkGatewayListResultPage(getNextPage func(context.Context, VirtualNetworkGatewayListResult) (VirtualNetworkGatewayListResult, error)) VirtualNetworkGatewayListResultPage {
+	return VirtualNetworkGatewayListResultPage{fn: getNextPage}
 }
 
 // VirtualNetworkGatewayPropertiesFormat virtualNetworkGateway properties
@@ -14010,112 +15421,230 @@ type VirtualNetworkGatewayPropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualNetworkGatewayPropertiesFormat.
-func (vngpf VirtualNetworkGatewayPropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vngpf.IPConfigurations != nil {
-		objectMap["ipConfigurations"] = vngpf.IPConfigurations
-	}
-	if vngpf.GatewayType != "" {
-		objectMap["gatewayType"] = vngpf.GatewayType
-	}
-	if vngpf.VpnType != "" {
-		objectMap["vpnType"] = vngpf.VpnType
-	}
-	if vngpf.EnableBgp != nil {
-		objectMap["enableBgp"] = vngpf.EnableBgp
-	}
-	if vngpf.ActiveActive != nil {
-		objectMap["activeActive"] = vngpf.ActiveActive
-	}
-	if vngpf.GatewayDefaultSite != nil {
-		objectMap["gatewayDefaultSite"] = vngpf.GatewayDefaultSite
-	}
-	if vngpf.Sku != nil {
-		objectMap["sku"] = vngpf.Sku
-	}
-	if vngpf.VpnClientConfiguration != nil {
-		objectMap["vpnClientConfiguration"] = vngpf.VpnClientConfiguration
-	}
-	if vngpf.BgpSettings != nil {
-		objectMap["bgpSettings"] = vngpf.BgpSettings
-	}
-	if vngpf.ResourceGUID != nil {
-		objectMap["resourceGuid"] = vngpf.ResourceGUID
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualNetworkGatewaysCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualNetworkGatewaysCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewaysClient) (VirtualNetworkGateway, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewaysCreateOrUpdateFuture) Result(client VirtualNetworkGatewaysClient) (vng VirtualNetworkGateway, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewaysCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vng.Response.Response, err = future.GetResult(sender); err == nil && vng.Response.Response.StatusCode != http.StatusNoContent {
+		vng, err = client.CreateOrUpdateResponder(vng.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysCreateOrUpdateFuture", "Result", vng.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewaysDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualNetworkGatewaysDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewaysClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewaysDeleteFuture) Result(client VirtualNetworkGatewaysClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewaysDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // VirtualNetworkGatewaysGeneratevpnclientpackageFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type VirtualNetworkGatewaysGeneratevpnclientpackageFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewaysClient) (String, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewaysGeneratevpnclientpackageFuture) Result(client VirtualNetworkGatewaysClient) (s String, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGeneratevpnclientpackageFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewaysGeneratevpnclientpackageFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if s.Response.Response, err = future.GetResult(sender); err == nil && s.Response.Response.StatusCode != http.StatusNoContent {
+		s, err = client.GeneratevpnclientpackageResponder(s.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGeneratevpnclientpackageFuture", "Result", s.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewaysGenerateVpnProfileFuture an abstraction for monitoring and retrieving the results
 // of a long-running operation.
 type VirtualNetworkGatewaysGenerateVpnProfileFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewaysClient) (String, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewaysGenerateVpnProfileFuture) Result(client VirtualNetworkGatewaysClient) (s String, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGenerateVpnProfileFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewaysGenerateVpnProfileFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if s.Response.Response, err = future.GetResult(sender); err == nil && s.Response.Response.StatusCode != http.StatusNoContent {
+		s, err = client.GenerateVpnProfileResponder(s.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGenerateVpnProfileFuture", "Result", s.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewaysGetAdvertisedRoutesFuture an abstraction for monitoring and retrieving the results
 // of a long-running operation.
 type VirtualNetworkGatewaysGetAdvertisedRoutesFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewaysClient) (GatewayRouteListResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewaysGetAdvertisedRoutesFuture) Result(client VirtualNetworkGatewaysClient) (grlr GatewayRouteListResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGetAdvertisedRoutesFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewaysGetAdvertisedRoutesFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if grlr.Response.Response, err = future.GetResult(sender); err == nil && grlr.Response.Response.StatusCode != http.StatusNoContent {
+		grlr, err = client.GetAdvertisedRoutesResponder(grlr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGetAdvertisedRoutesFuture", "Result", grlr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewaysGetBgpPeerStatusFuture an abstraction for monitoring and retrieving the results of
 // a long-running operation.
 type VirtualNetworkGatewaysGetBgpPeerStatusFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewaysClient) (BgpPeerStatusListResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewaysGetBgpPeerStatusFuture) Result(client VirtualNetworkGatewaysClient) (bpslr BgpPeerStatusListResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGetBgpPeerStatusFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewaysGetBgpPeerStatusFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if bpslr.Response.Response, err = future.GetResult(sender); err == nil && bpslr.Response.Response.StatusCode != http.StatusNoContent {
+		bpslr, err = client.GetBgpPeerStatusResponder(bpslr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGetBgpPeerStatusFuture", "Result", bpslr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewaysGetLearnedRoutesFuture an abstraction for monitoring and retrieving the results of
 // a long-running operation.
 type VirtualNetworkGatewaysGetLearnedRoutesFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewaysClient) (GatewayRouteListResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewaysGetLearnedRoutesFuture) Result(client VirtualNetworkGatewaysClient) (grlr GatewayRouteListResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGetLearnedRoutesFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewaysGetLearnedRoutesFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if grlr.Response.Response, err = future.GetResult(sender); err == nil && grlr.Response.Response.StatusCode != http.StatusNoContent {
+		grlr, err = client.GetLearnedRoutesResponder(grlr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGetLearnedRoutesFuture", "Result", grlr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewaysGetVpnProfilePackageURLFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type VirtualNetworkGatewaysGetVpnProfilePackageURLFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewaysClient) (String, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewaysGetVpnProfilePackageURLFuture) Result(client VirtualNetworkGatewaysClient) (s String, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGetVpnProfilePackageURLFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewaysGetVpnProfilePackageURLFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if s.Response.Response, err = future.GetResult(sender); err == nil && s.Response.Response.StatusCode != http.StatusNoContent {
+		s, err = client.GetVpnProfilePackageURLResponder(s.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysGetVpnProfilePackageURLFuture", "Result", s.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewaySku virtualNetworkGatewaySku details
@@ -14131,19 +15660,59 @@ type VirtualNetworkGatewaySku struct {
 // VirtualNetworkGatewaysResetFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualNetworkGatewaysResetFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewaysClient) (VirtualNetworkGateway, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewaysResetFuture) Result(client VirtualNetworkGatewaysClient) (vng VirtualNetworkGateway, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysResetFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewaysResetFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vng.Response.Response, err = future.GetResult(sender); err == nil && vng.Response.Response.StatusCode != http.StatusNoContent {
+		vng, err = client.ResetResponder(vng.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysResetFuture", "Result", vng.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkGatewaysUpdateTagsFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualNetworkGatewaysUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkGatewaysClient) (VirtualNetworkGateway, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkGatewaysUpdateTagsFuture) Result(client VirtualNetworkGatewaysClient) (vng VirtualNetworkGateway, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkGatewaysUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vng.Response.Response, err = future.GetResult(sender); err == nil && vng.Response.Response.StatusCode != http.StatusNoContent {
+		vng, err = client.UpdateTagsResponder(vng.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkGatewaysUpdateTagsFuture", "Result", vng.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkListResult response for the ListVirtualNetworks API service call.
@@ -14223,15 +15792,10 @@ func (vnlr VirtualNetworkListResult) IsEmpty() bool {
 	return vnlr.Value == nil || len(*vnlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vnlr VirtualNetworkListResult) hasNextLink() bool {
-	return vnlr.NextLink != nil && len(*vnlr.NextLink) != 0
-}
-
 // virtualNetworkListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vnlr VirtualNetworkListResult) virtualNetworkListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vnlr.hasNextLink() {
+	if vnlr.NextLink == nil || len(to.String(vnlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -14259,16 +15823,11 @@ func (page *VirtualNetworkListResultPage) NextWithContext(ctx context.Context) (
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vnlr)
-		if err != nil {
-			return err
-		}
-		page.vnlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vnlr)
+	if err != nil {
+		return err
 	}
+	page.vnlr = next
 	return nil
 }
 
@@ -14298,11 +15857,8 @@ func (page VirtualNetworkListResultPage) Values() []VirtualNetwork {
 }
 
 // Creates a new instance of the VirtualNetworkListResultPage type.
-func NewVirtualNetworkListResultPage(cur VirtualNetworkListResult, getNextPage func(context.Context, VirtualNetworkListResult) (VirtualNetworkListResult, error)) VirtualNetworkListResultPage {
-	return VirtualNetworkListResultPage{
-		fn:   getNextPage,
-		vnlr: cur,
-	}
+func NewVirtualNetworkListResultPage(getNextPage func(context.Context, VirtualNetworkListResult) (VirtualNetworkListResult, error)) VirtualNetworkListResultPage {
+	return VirtualNetworkListResultPage{fn: getNextPage}
 }
 
 // VirtualNetworkListUsageResult response for the virtual networks GetUsage API service call.
@@ -14312,15 +15868,6 @@ type VirtualNetworkListUsageResult struct {
 	Value *[]VirtualNetworkUsage `json:"value,omitempty"`
 	// NextLink - The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for VirtualNetworkListUsageResult.
-func (vnlur VirtualNetworkListUsageResult) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vnlur.NextLink != nil {
-		objectMap["nextLink"] = vnlur.NextLink
-	}
-	return json.Marshal(objectMap)
 }
 
 // VirtualNetworkListUsageResultIterator provides access to a complete listing of VirtualNetworkUsage
@@ -14392,15 +15939,10 @@ func (vnlur VirtualNetworkListUsageResult) IsEmpty() bool {
 	return vnlur.Value == nil || len(*vnlur.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vnlur VirtualNetworkListUsageResult) hasNextLink() bool {
-	return vnlur.NextLink != nil && len(*vnlur.NextLink) != 0
-}
-
 // virtualNetworkListUsageResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vnlur VirtualNetworkListUsageResult) virtualNetworkListUsageResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vnlur.hasNextLink() {
+	if vnlur.NextLink == nil || len(to.String(vnlur.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -14428,16 +15970,11 @@ func (page *VirtualNetworkListUsageResultPage) NextWithContext(ctx context.Conte
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vnlur)
-		if err != nil {
-			return err
-		}
-		page.vnlur = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vnlur)
+	if err != nil {
+		return err
 	}
+	page.vnlur = next
 	return nil
 }
 
@@ -14467,11 +16004,8 @@ func (page VirtualNetworkListUsageResultPage) Values() []VirtualNetworkUsage {
 }
 
 // Creates a new instance of the VirtualNetworkListUsageResultPage type.
-func NewVirtualNetworkListUsageResultPage(cur VirtualNetworkListUsageResult, getNextPage func(context.Context, VirtualNetworkListUsageResult) (VirtualNetworkListUsageResult, error)) VirtualNetworkListUsageResultPage {
-	return VirtualNetworkListUsageResultPage{
-		fn:    getNextPage,
-		vnlur: cur,
-	}
+func NewVirtualNetworkListUsageResultPage(getNextPage func(context.Context, VirtualNetworkListUsageResult) (VirtualNetworkListUsageResult, error)) VirtualNetworkListUsageResultPage {
+	return VirtualNetworkListUsageResultPage{fn: getNextPage}
 }
 
 // VirtualNetworkPeering peerings in a virtual network resource.
@@ -14635,15 +16169,10 @@ func (vnplr VirtualNetworkPeeringListResult) IsEmpty() bool {
 	return vnplr.Value == nil || len(*vnplr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vnplr VirtualNetworkPeeringListResult) hasNextLink() bool {
-	return vnplr.NextLink != nil && len(*vnplr.NextLink) != 0
-}
-
 // virtualNetworkPeeringListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vnplr VirtualNetworkPeeringListResult) virtualNetworkPeeringListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vnplr.hasNextLink() {
+	if vnplr.NextLink == nil || len(to.String(vnplr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -14671,16 +16200,11 @@ func (page *VirtualNetworkPeeringListResultPage) NextWithContext(ctx context.Con
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vnplr)
-		if err != nil {
-			return err
-		}
-		page.vnplr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vnplr)
+	if err != nil {
+		return err
 	}
+	page.vnplr = next
 	return nil
 }
 
@@ -14710,11 +16234,8 @@ func (page VirtualNetworkPeeringListResultPage) Values() []VirtualNetworkPeering
 }
 
 // Creates a new instance of the VirtualNetworkPeeringListResultPage type.
-func NewVirtualNetworkPeeringListResultPage(cur VirtualNetworkPeeringListResult, getNextPage func(context.Context, VirtualNetworkPeeringListResult) (VirtualNetworkPeeringListResult, error)) VirtualNetworkPeeringListResultPage {
-	return VirtualNetworkPeeringListResultPage{
-		fn:    getNextPage,
-		vnplr: cur,
-	}
+func NewVirtualNetworkPeeringListResultPage(getNextPage func(context.Context, VirtualNetworkPeeringListResult) (VirtualNetworkPeeringListResult, error)) VirtualNetworkPeeringListResultPage {
+	return VirtualNetworkPeeringListResultPage{fn: getNextPage}
 }
 
 // VirtualNetworkPeeringPropertiesFormat properties of the virtual network peering.
@@ -14740,19 +16261,53 @@ type VirtualNetworkPeeringPropertiesFormat struct {
 // VirtualNetworkPeeringsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualNetworkPeeringsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkPeeringsClient) (VirtualNetworkPeering, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkPeeringsCreateOrUpdateFuture) Result(client VirtualNetworkPeeringsClient) (vnp VirtualNetworkPeering, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkPeeringsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkPeeringsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vnp.Response.Response, err = future.GetResult(sender); err == nil && vnp.Response.Response.StatusCode != http.StatusNoContent {
+		vnp, err = client.CreateOrUpdateResponder(vnp.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworkPeeringsCreateOrUpdateFuture", "Result", vnp.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkPeeringsDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualNetworkPeeringsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworkPeeringsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworkPeeringsDeleteFuture) Result(client VirtualNetworkPeeringsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworkPeeringsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworkPeeringsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // VirtualNetworkPropertiesFormat properties of the virtual network.
@@ -14778,28 +16333,82 @@ type VirtualNetworkPropertiesFormat struct {
 // VirtualNetworksCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualNetworksCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworksClient) (VirtualNetwork, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworksCreateOrUpdateFuture) Result(client VirtualNetworksClient) (vn VirtualNetwork, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworksCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworksCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vn.Response.Response, err = future.GetResult(sender); err == nil && vn.Response.Response.StatusCode != http.StatusNoContent {
+		vn, err = client.CreateOrUpdateResponder(vn.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworksCreateOrUpdateFuture", "Result", vn.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworksDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type VirtualNetworksDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworksClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworksDeleteFuture) Result(client VirtualNetworksClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworksDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworksDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // VirtualNetworksUpdateTagsFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualNetworksUpdateTagsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualNetworksClient) (VirtualNetwork, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualNetworksUpdateTagsFuture) Result(client VirtualNetworksClient) (vn VirtualNetwork, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.VirtualNetworksUpdateTagsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.VirtualNetworksUpdateTagsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vn.Response.Response, err = future.GetResult(sender); err == nil && vn.Response.Response.StatusCode != http.StatusNoContent {
+		vn, err = client.UpdateTagsResponder(vn.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.VirtualNetworksUpdateTagsFuture", "Result", vn.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualNetworkUsage usage details for subnet.
@@ -14942,15 +16551,6 @@ type VpnClientRevokedCertificatePropertiesFormat struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VpnClientRevokedCertificatePropertiesFormat.
-func (vcrcpf VpnClientRevokedCertificatePropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vcrcpf.Thumbprint != nil {
-		objectMap["thumbprint"] = vcrcpf.Thumbprint
-	}
-	return json.Marshal(objectMap)
-}
-
 // VpnClientRootCertificate VPN client root certificate of virtual network gateway
 type VpnClientRootCertificate struct {
 	// VpnClientRootCertificatePropertiesFormat - Properties of the vpn client root certificate.
@@ -15038,15 +16638,6 @@ type VpnClientRootCertificatePropertiesFormat struct {
 	PublicCertData *string `json:"publicCertData,omitempty"`
 	// ProvisioningState - READ-ONLY; The provisioning state of the VPN client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `json:"provisioningState,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for VpnClientRootCertificatePropertiesFormat.
-func (vcrcpf VpnClientRootCertificatePropertiesFormat) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vcrcpf.PublicCertData != nil {
-		objectMap["publicCertData"] = vcrcpf.PublicCertData
-	}
-	return json.Marshal(objectMap)
 }
 
 // VpnDeviceScriptParameters vpn device configuration script generation parameters
@@ -15191,98 +16782,312 @@ type WatcherPropertiesFormat struct {
 // WatchersCheckConnectivityFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type WatchersCheckConnectivityFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (ConnectivityInformation, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersCheckConnectivityFuture) Result(client WatchersClient) (ci ConnectivityInformation, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersCheckConnectivityFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersCheckConnectivityFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if ci.Response.Response, err = future.GetResult(sender); err == nil && ci.Response.Response.StatusCode != http.StatusNoContent {
+		ci, err = client.CheckConnectivityResponder(ci.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.WatchersCheckConnectivityFuture", "Result", ci.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // WatchersDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type WatchersDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersDeleteFuture) Result(client WatchersClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // WatchersGetAzureReachabilityReportFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type WatchersGetAzureReachabilityReportFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (AzureReachabilityReport, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersGetAzureReachabilityReportFuture) Result(client WatchersClient) (arr AzureReachabilityReport, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersGetAzureReachabilityReportFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersGetAzureReachabilityReportFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if arr.Response.Response, err = future.GetResult(sender); err == nil && arr.Response.Response.StatusCode != http.StatusNoContent {
+		arr, err = client.GetAzureReachabilityReportResponder(arr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.WatchersGetAzureReachabilityReportFuture", "Result", arr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // WatchersGetFlowLogStatusFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type WatchersGetFlowLogStatusFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (FlowLogInformation, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersGetFlowLogStatusFuture) Result(client WatchersClient) (fli FlowLogInformation, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersGetFlowLogStatusFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersGetFlowLogStatusFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if fli.Response.Response, err = future.GetResult(sender); err == nil && fli.Response.Response.StatusCode != http.StatusNoContent {
+		fli, err = client.GetFlowLogStatusResponder(fli.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.WatchersGetFlowLogStatusFuture", "Result", fli.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // WatchersGetNextHopFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type WatchersGetNextHopFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (NextHopResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersGetNextHopFuture) Result(client WatchersClient) (nhr NextHopResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersGetNextHopFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersGetNextHopFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if nhr.Response.Response, err = future.GetResult(sender); err == nil && nhr.Response.Response.StatusCode != http.StatusNoContent {
+		nhr, err = client.GetNextHopResponder(nhr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.WatchersGetNextHopFuture", "Result", nhr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // WatchersGetTroubleshootingFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type WatchersGetTroubleshootingFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (TroubleshootingResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersGetTroubleshootingFuture) Result(client WatchersClient) (tr TroubleshootingResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersGetTroubleshootingFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersGetTroubleshootingFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if tr.Response.Response, err = future.GetResult(sender); err == nil && tr.Response.Response.StatusCode != http.StatusNoContent {
+		tr, err = client.GetTroubleshootingResponder(tr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.WatchersGetTroubleshootingFuture", "Result", tr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // WatchersGetTroubleshootingResultFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type WatchersGetTroubleshootingResultFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (TroubleshootingResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersGetTroubleshootingResultFuture) Result(client WatchersClient) (tr TroubleshootingResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersGetTroubleshootingResultFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersGetTroubleshootingResultFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if tr.Response.Response, err = future.GetResult(sender); err == nil && tr.Response.Response.StatusCode != http.StatusNoContent {
+		tr, err = client.GetTroubleshootingResultResponder(tr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.WatchersGetTroubleshootingResultFuture", "Result", tr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // WatchersGetVMSecurityRulesFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type WatchersGetVMSecurityRulesFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (SecurityGroupViewResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersGetVMSecurityRulesFuture) Result(client WatchersClient) (sgvr SecurityGroupViewResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersGetVMSecurityRulesFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersGetVMSecurityRulesFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if sgvr.Response.Response, err = future.GetResult(sender); err == nil && sgvr.Response.Response.StatusCode != http.StatusNoContent {
+		sgvr, err = client.GetVMSecurityRulesResponder(sgvr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.WatchersGetVMSecurityRulesFuture", "Result", sgvr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // WatchersListAvailableProvidersFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type WatchersListAvailableProvidersFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (AvailableProvidersList, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersListAvailableProvidersFuture) Result(client WatchersClient) (apl AvailableProvidersList, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersListAvailableProvidersFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersListAvailableProvidersFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if apl.Response.Response, err = future.GetResult(sender); err == nil && apl.Response.Response.StatusCode != http.StatusNoContent {
+		apl, err = client.ListAvailableProvidersResponder(apl.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.WatchersListAvailableProvidersFuture", "Result", apl.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // WatchersSetFlowLogConfigurationFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type WatchersSetFlowLogConfigurationFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (FlowLogInformation, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersSetFlowLogConfigurationFuture) Result(client WatchersClient) (fli FlowLogInformation, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersSetFlowLogConfigurationFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersSetFlowLogConfigurationFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if fli.Response.Response, err = future.GetResult(sender); err == nil && fli.Response.Response.StatusCode != http.StatusNoContent {
+		fli, err = client.SetFlowLogConfigurationResponder(fli.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.WatchersSetFlowLogConfigurationFuture", "Result", fli.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // WatchersVerifyIPFlowFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type WatchersVerifyIPFlowFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(WatchersClient) (VerificationIPFlowResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *WatchersVerifyIPFlowFuture) Result(client WatchersClient) (vifr VerificationIPFlowResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "network.WatchersVerifyIPFlowFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("network.WatchersVerifyIPFlowFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vifr.Response.Response, err = future.GetResult(sender); err == nil && vifr.Response.Response.StatusCode != http.StatusNoContent {
+		vifr, err = client.VerifyIPFlowResponder(vifr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "network.WatchersVerifyIPFlowFuture", "Result", vifr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }

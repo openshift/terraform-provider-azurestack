@@ -36,8 +36,7 @@ func NewCostsClient(subscriptionID string) CostsClient {
 	return NewCostsClientWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewCostsClientWithBaseURI creates an instance of the CostsClient client using a custom endpoint.  Use this when
-// interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure stack).
+// NewCostsClientWithBaseURI creates an instance of the CostsClient client.
 func NewCostsClientWithBaseURI(baseURI string, subscriptionID string) CostsClient {
 	return CostsClient{NewWithBaseURI(baseURI, subscriptionID)}
 }
@@ -81,7 +80,6 @@ func (client CostsClient) CreateOrUpdate(ctx context.Context, resourceGroupName 
 	result, err = client.CreateOrUpdateResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.CostsClient", "CreateOrUpdate", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -114,7 +112,8 @@ func (client CostsClient) CreateOrUpdatePreparer(ctx context.Context, resourceGr
 // CreateOrUpdateSender sends the CreateOrUpdate request. The method will close the
 // http.Response Body if it receives an error.
 func (client CostsClient) CreateOrUpdateSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // CreateOrUpdateResponder handles the response to the CreateOrUpdate request. The method always
@@ -122,6 +121,7 @@ func (client CostsClient) CreateOrUpdateSender(req *http.Request) (*http.Respons
 func (client CostsClient) CreateOrUpdateResponder(resp *http.Response) (result LabCost, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -162,7 +162,6 @@ func (client CostsClient) Get(ctx context.Context, resourceGroupName string, lab
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.CostsClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -196,7 +195,8 @@ func (client CostsClient) GetPreparer(ctx context.Context, resourceGroupName str
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client CostsClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -204,6 +204,7 @@ func (client CostsClient) GetSender(req *http.Request) (*http.Response, error) {
 func (client CostsClient) GetResponder(resp *http.Response) (result LabCost, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())

@@ -35,9 +35,7 @@ func NewAvailabilitySetsClient(subscriptionID string) AvailabilitySetsClient {
 	return NewAvailabilitySetsClientWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewAvailabilitySetsClientWithBaseURI creates an instance of the AvailabilitySetsClient client using a custom
-// endpoint.  Use this when interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure
-// stack).
+// NewAvailabilitySetsClientWithBaseURI creates an instance of the AvailabilitySetsClient client.
 func NewAvailabilitySetsClientWithBaseURI(baseURI string, subscriptionID string) AvailabilitySetsClient {
 	return AvailabilitySetsClient{NewWithBaseURI(baseURI, subscriptionID)}
 }
@@ -74,7 +72,6 @@ func (client AvailabilitySetsClient) CreateOrUpdate(ctx context.Context, resourc
 	result, err = client.CreateOrUpdateResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "compute.AvailabilitySetsClient", "CreateOrUpdate", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -106,7 +103,8 @@ func (client AvailabilitySetsClient) CreateOrUpdatePreparer(ctx context.Context,
 // CreateOrUpdateSender sends the CreateOrUpdate request. The method will close the
 // http.Response Body if it receives an error.
 func (client AvailabilitySetsClient) CreateOrUpdateSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // CreateOrUpdateResponder handles the response to the CreateOrUpdate request. The method always
@@ -114,6 +112,7 @@ func (client AvailabilitySetsClient) CreateOrUpdateSender(req *http.Request) (*h
 func (client AvailabilitySetsClient) CreateOrUpdateResponder(resp *http.Response) (result AvailabilitySet, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -152,7 +151,6 @@ func (client AvailabilitySetsClient) Delete(ctx context.Context, resourceGroupNa
 	result, err = client.DeleteResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "compute.AvailabilitySetsClient", "Delete", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -182,7 +180,8 @@ func (client AvailabilitySetsClient) DeletePreparer(ctx context.Context, resourc
 // DeleteSender sends the Delete request. The method will close the
 // http.Response Body if it receives an error.
 func (client AvailabilitySetsClient) DeleteSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // DeleteResponder handles the response to the Delete request. The method always
@@ -190,6 +189,7 @@ func (client AvailabilitySetsClient) DeleteSender(req *http.Request) (*http.Resp
 func (client AvailabilitySetsClient) DeleteResponder(resp *http.Response) (result OperationStatusResponse, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -228,7 +228,6 @@ func (client AvailabilitySetsClient) Get(ctx context.Context, resourceGroupName 
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "compute.AvailabilitySetsClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -258,7 +257,8 @@ func (client AvailabilitySetsClient) GetPreparer(ctx context.Context, resourceGr
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client AvailabilitySetsClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -266,6 +266,7 @@ func (client AvailabilitySetsClient) GetSender(req *http.Request) (*http.Respons
 func (client AvailabilitySetsClient) GetResponder(resp *http.Response) (result AvailabilitySet, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -304,11 +305,6 @@ func (client AvailabilitySetsClient) List(ctx context.Context, resourceGroupName
 	result.aslr, err = client.ListResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "compute.AvailabilitySetsClient", "List", resp, "Failure responding to request")
-		return
-	}
-	if result.aslr.hasNextLink() && result.aslr.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -337,7 +333,8 @@ func (client AvailabilitySetsClient) ListPreparer(ctx context.Context, resourceG
 // ListSender sends the List request. The method will close the
 // http.Response Body if it receives an error.
 func (client AvailabilitySetsClient) ListSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListResponder handles the response to the List request. The method always
@@ -345,6 +342,7 @@ func (client AvailabilitySetsClient) ListSender(req *http.Request) (*http.Respon
 func (client AvailabilitySetsClient) ListResponder(resp *http.Response) (result AvailabilitySetListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -421,7 +419,6 @@ func (client AvailabilitySetsClient) ListAvailableSizes(ctx context.Context, res
 	result, err = client.ListAvailableSizesResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "compute.AvailabilitySetsClient", "ListAvailableSizes", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -451,7 +448,8 @@ func (client AvailabilitySetsClient) ListAvailableSizesPreparer(ctx context.Cont
 // ListAvailableSizesSender sends the ListAvailableSizes request. The method will close the
 // http.Response Body if it receives an error.
 func (client AvailabilitySetsClient) ListAvailableSizesSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListAvailableSizesResponder handles the response to the ListAvailableSizes request. The method always
@@ -459,6 +457,7 @@ func (client AvailabilitySetsClient) ListAvailableSizesSender(req *http.Request)
 func (client AvailabilitySetsClient) ListAvailableSizesResponder(resp *http.Response) (result VirtualMachineSizeListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -467,9 +466,7 @@ func (client AvailabilitySetsClient) ListAvailableSizesResponder(resp *http.Resp
 }
 
 // ListBySubscription lists all availability sets in a subscription.
-// Parameters:
-// expand - the expand expression to apply to the operation. Allowed values are 'instanceView'.
-func (client AvailabilitySetsClient) ListBySubscription(ctx context.Context, expand string) (result AvailabilitySetListResultPage, err error) {
+func (client AvailabilitySetsClient) ListBySubscription(ctx context.Context) (result AvailabilitySetListResultPage, err error) {
 	if tracing.IsEnabled() {
 		ctx = tracing.StartSpan(ctx, fqdn+"/AvailabilitySetsClient.ListBySubscription")
 		defer func() {
@@ -481,7 +478,7 @@ func (client AvailabilitySetsClient) ListBySubscription(ctx context.Context, exp
 		}()
 	}
 	result.fn = client.listBySubscriptionNextResults
-	req, err := client.ListBySubscriptionPreparer(ctx, expand)
+	req, err := client.ListBySubscriptionPreparer(ctx)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "compute.AvailabilitySetsClient", "ListBySubscription", nil, "Failure preparing request")
 		return
@@ -497,18 +494,13 @@ func (client AvailabilitySetsClient) ListBySubscription(ctx context.Context, exp
 	result.aslr, err = client.ListBySubscriptionResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "compute.AvailabilitySetsClient", "ListBySubscription", resp, "Failure responding to request")
-		return
-	}
-	if result.aslr.hasNextLink() && result.aslr.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
 }
 
 // ListBySubscriptionPreparer prepares the ListBySubscription request.
-func (client AvailabilitySetsClient) ListBySubscriptionPreparer(ctx context.Context, expand string) (*http.Request, error) {
+func (client AvailabilitySetsClient) ListBySubscriptionPreparer(ctx context.Context) (*http.Request, error) {
 	pathParameters := map[string]interface{}{
 		"subscriptionId": autorest.Encode("path", client.SubscriptionID),
 	}
@@ -516,9 +508,6 @@ func (client AvailabilitySetsClient) ListBySubscriptionPreparer(ctx context.Cont
 	const APIVersion = "2017-12-01"
 	queryParameters := map[string]interface{}{
 		"api-version": APIVersion,
-	}
-	if len(expand) > 0 {
-		queryParameters["$expand"] = autorest.Encode("query", expand)
 	}
 
 	preparer := autorest.CreatePreparer(
@@ -532,7 +521,8 @@ func (client AvailabilitySetsClient) ListBySubscriptionPreparer(ctx context.Cont
 // ListBySubscriptionSender sends the ListBySubscription request. The method will close the
 // http.Response Body if it receives an error.
 func (client AvailabilitySetsClient) ListBySubscriptionSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListBySubscriptionResponder handles the response to the ListBySubscription request. The method always
@@ -540,6 +530,7 @@ func (client AvailabilitySetsClient) ListBySubscriptionSender(req *http.Request)
 func (client AvailabilitySetsClient) ListBySubscriptionResponder(resp *http.Response) (result AvailabilitySetListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -569,7 +560,7 @@ func (client AvailabilitySetsClient) listBySubscriptionNextResults(ctx context.C
 }
 
 // ListBySubscriptionComplete enumerates all values, automatically crossing page boundaries as required.
-func (client AvailabilitySetsClient) ListBySubscriptionComplete(ctx context.Context, expand string) (result AvailabilitySetListResultIterator, err error) {
+func (client AvailabilitySetsClient) ListBySubscriptionComplete(ctx context.Context) (result AvailabilitySetListResultIterator, err error) {
 	if tracing.IsEnabled() {
 		ctx = tracing.StartSpan(ctx, fqdn+"/AvailabilitySetsClient.ListBySubscription")
 		defer func() {
@@ -580,7 +571,7 @@ func (client AvailabilitySetsClient) ListBySubscriptionComplete(ctx context.Cont
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	result.page, err = client.ListBySubscription(ctx, expand)
+	result.page, err = client.ListBySubscription(ctx)
 	return
 }
 
@@ -616,7 +607,6 @@ func (client AvailabilitySetsClient) Update(ctx context.Context, resourceGroupNa
 	result, err = client.UpdateResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "compute.AvailabilitySetsClient", "Update", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -648,7 +638,8 @@ func (client AvailabilitySetsClient) UpdatePreparer(ctx context.Context, resourc
 // UpdateSender sends the Update request. The method will close the
 // http.Response Body if it receives an error.
 func (client AvailabilitySetsClient) UpdateSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // UpdateResponder handles the response to the Update request. The method always
@@ -656,6 +647,7 @@ func (client AvailabilitySetsClient) UpdateSender(req *http.Request) (*http.Resp
 func (client AvailabilitySetsClient) UpdateResponder(resp *http.Response) (result AvailabilitySet, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())

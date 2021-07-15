@@ -37,8 +37,7 @@ func NewGroupsClient(tenantID string) GroupsClient {
 	return NewGroupsClientWithBaseURI(DefaultBaseURI, tenantID)
 }
 
-// NewGroupsClientWithBaseURI creates an instance of the GroupsClient client using a custom endpoint.  Use this when
-// interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure stack).
+// NewGroupsClientWithBaseURI creates an instance of the GroupsClient client.
 func NewGroupsClientWithBaseURI(baseURI string, tenantID string) GroupsClient {
 	return GroupsClient{NewWithBaseURI(baseURI, tenantID)}
 }
@@ -81,7 +80,6 @@ func (client GroupsClient) AddMember(ctx context.Context, groupObjectID string, 
 	result, err = client.AddMemberResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "AddMember", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -112,7 +110,8 @@ func (client GroupsClient) AddMemberPreparer(ctx context.Context, groupObjectID 
 // AddMemberSender sends the AddMember request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) AddMemberSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // AddMemberResponder handles the response to the AddMember request. The method always
@@ -120,6 +119,7 @@ func (client GroupsClient) AddMemberSender(req *http.Request) (*http.Response, e
 func (client GroupsClient) AddMemberResponder(resp *http.Response) (result autorest.Response, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
 		autorest.ByClosing())
 	result.Response = resp
@@ -164,7 +164,6 @@ func (client GroupsClient) AddOwner(ctx context.Context, objectID string, parame
 	result, err = client.AddOwnerResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "AddOwner", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -195,7 +194,8 @@ func (client GroupsClient) AddOwnerPreparer(ctx context.Context, objectID string
 // AddOwnerSender sends the AddOwner request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) AddOwnerSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // AddOwnerResponder handles the response to the AddOwner request. The method always
@@ -203,6 +203,7 @@ func (client GroupsClient) AddOwnerSender(req *http.Request) (*http.Response, er
 func (client GroupsClient) AddOwnerResponder(resp *http.Response) (result autorest.Response, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
 		autorest.ByClosing())
 	result.Response = resp
@@ -248,7 +249,6 @@ func (client GroupsClient) Create(ctx context.Context, parameters GroupCreatePar
 	result, err = client.CreateResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "Create", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -278,7 +278,8 @@ func (client GroupsClient) CreatePreparer(ctx context.Context, parameters GroupC
 // CreateSender sends the Create request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) CreateSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // CreateResponder handles the response to the Create request. The method always
@@ -286,6 +287,7 @@ func (client GroupsClient) CreateSender(req *http.Request) (*http.Response, erro
 func (client GroupsClient) CreateResponder(resp *http.Response) (result ADGroup, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -323,7 +325,6 @@ func (client GroupsClient) Delete(ctx context.Context, objectID string) (result 
 	result, err = client.DeleteResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "Delete", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -352,7 +353,8 @@ func (client GroupsClient) DeletePreparer(ctx context.Context, objectID string) 
 // DeleteSender sends the Delete request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) DeleteSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // DeleteResponder handles the response to the Delete request. The method always
@@ -360,6 +362,7 @@ func (client GroupsClient) DeleteSender(req *http.Request) (*http.Response, erro
 func (client GroupsClient) DeleteResponder(resp *http.Response) (result autorest.Response, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
 		autorest.ByClosing())
 	result.Response = resp
@@ -396,7 +399,6 @@ func (client GroupsClient) Get(ctx context.Context, objectID string) (result ADG
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -425,7 +427,8 @@ func (client GroupsClient) GetPreparer(ctx context.Context, objectID string) (*h
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -433,6 +436,7 @@ func (client GroupsClient) GetSender(req *http.Request) (*http.Response, error) 
 func (client GroupsClient) GetResponder(resp *http.Response) (result ADGroup, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -476,11 +480,6 @@ func (client GroupsClient) GetGroupMembers(ctx context.Context, objectID string)
 	result.dolr, err = client.GetGroupMembersResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "GetGroupMembers", resp, "Failure responding to request")
-		return
-	}
-	if result.dolr.hasNextLink() && result.dolr.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -509,7 +508,8 @@ func (client GroupsClient) GetGroupMembersPreparer(ctx context.Context, objectID
 // GetGroupMembersSender sends the GetGroupMembers request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) GetGroupMembersSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetGroupMembersResponder handles the response to the GetGroupMembers request. The method always
@@ -517,6 +517,7 @@ func (client GroupsClient) GetGroupMembersSender(req *http.Request) (*http.Respo
 func (client GroupsClient) GetGroupMembersResponder(resp *http.Response) (result DirectoryObjectListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -570,7 +571,6 @@ func (client GroupsClient) GetGroupMembersNext(ctx context.Context, nextLink str
 	result, err = client.GetGroupMembersNextResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "GetGroupMembersNext", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -599,7 +599,8 @@ func (client GroupsClient) GetGroupMembersNextPreparer(ctx context.Context, next
 // GetGroupMembersNextSender sends the GetGroupMembersNext request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) GetGroupMembersNextSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetGroupMembersNextResponder handles the response to the GetGroupMembersNext request. The method always
@@ -607,6 +608,7 @@ func (client GroupsClient) GetGroupMembersNextSender(req *http.Request) (*http.R
 func (client GroupsClient) GetGroupMembersNextResponder(resp *http.Response) (result DirectoryObjectListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -651,7 +653,6 @@ func (client GroupsClient) GetMemberGroups(ctx context.Context, objectID string,
 	result, err = client.GetMemberGroupsResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "GetMemberGroups", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -682,7 +683,8 @@ func (client GroupsClient) GetMemberGroupsPreparer(ctx context.Context, objectID
 // GetMemberGroupsSender sends the GetMemberGroups request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) GetMemberGroupsSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetMemberGroupsResponder handles the response to the GetMemberGroups request. The method always
@@ -690,6 +692,7 @@ func (client GroupsClient) GetMemberGroupsSender(req *http.Request) (*http.Respo
 func (client GroupsClient) GetMemberGroupsResponder(resp *http.Response) (result GroupGetMemberGroupsResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -735,7 +738,6 @@ func (client GroupsClient) IsMemberOf(ctx context.Context, parameters CheckGroup
 	result, err = client.IsMemberOfResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "IsMemberOf", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -765,7 +767,8 @@ func (client GroupsClient) IsMemberOfPreparer(ctx context.Context, parameters Ch
 // IsMemberOfSender sends the IsMemberOf request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) IsMemberOfSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // IsMemberOfResponder handles the response to the IsMemberOf request. The method always
@@ -773,6 +776,7 @@ func (client GroupsClient) IsMemberOfSender(req *http.Request) (*http.Response, 
 func (client GroupsClient) IsMemberOfResponder(resp *http.Response) (result CheckGroupMembershipResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -816,11 +820,6 @@ func (client GroupsClient) List(ctx context.Context, filter string) (result Grou
 	result.glr, err = client.ListResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "List", resp, "Failure responding to request")
-		return
-	}
-	if result.glr.hasNextLink() && result.glr.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -851,7 +850,8 @@ func (client GroupsClient) ListPreparer(ctx context.Context, filter string) (*ht
 // ListSender sends the List request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) ListSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListResponder handles the response to the List request. The method always
@@ -859,6 +859,7 @@ func (client GroupsClient) ListSender(req *http.Request) (*http.Response, error)
 func (client GroupsClient) ListResponder(resp *http.Response) (result GroupListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -912,7 +913,6 @@ func (client GroupsClient) ListNext(ctx context.Context, nextLink string) (resul
 	result, err = client.ListNextResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "ListNext", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -941,7 +941,8 @@ func (client GroupsClient) ListNextPreparer(ctx context.Context, nextLink string
 // ListNextSender sends the ListNext request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) ListNextSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListNextResponder handles the response to the ListNext request. The method always
@@ -949,6 +950,7 @@ func (client GroupsClient) ListNextSender(req *http.Request) (*http.Response, er
 func (client GroupsClient) ListNextResponder(resp *http.Response) (result GroupListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -987,11 +989,6 @@ func (client GroupsClient) ListOwners(ctx context.Context, objectID string) (res
 	result.dolr, err = client.ListOwnersResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "ListOwners", resp, "Failure responding to request")
-		return
-	}
-	if result.dolr.hasNextLink() && result.dolr.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -1020,7 +1017,8 @@ func (client GroupsClient) ListOwnersPreparer(ctx context.Context, objectID stri
 // ListOwnersSender sends the ListOwners request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) ListOwnersSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListOwnersResponder handles the response to the ListOwners request. The method always
@@ -1028,6 +1026,7 @@ func (client GroupsClient) ListOwnersSender(req *http.Request) (*http.Response, 
 func (client GroupsClient) ListOwnersResponder(resp *http.Response) (result DirectoryObjectListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -1103,7 +1102,6 @@ func (client GroupsClient) RemoveMember(ctx context.Context, groupObjectID strin
 	result, err = client.RemoveMemberResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "RemoveMember", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -1133,7 +1131,8 @@ func (client GroupsClient) RemoveMemberPreparer(ctx context.Context, groupObject
 // RemoveMemberSender sends the RemoveMember request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) RemoveMemberSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // RemoveMemberResponder handles the response to the RemoveMember request. The method always
@@ -1141,6 +1140,7 @@ func (client GroupsClient) RemoveMemberSender(req *http.Request) (*http.Response
 func (client GroupsClient) RemoveMemberResponder(resp *http.Response) (result autorest.Response, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
 		autorest.ByClosing())
 	result.Response = resp
@@ -1178,7 +1178,6 @@ func (client GroupsClient) RemoveOwner(ctx context.Context, objectID string, own
 	result, err = client.RemoveOwnerResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "graphrbac.GroupsClient", "RemoveOwner", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -1208,7 +1207,8 @@ func (client GroupsClient) RemoveOwnerPreparer(ctx context.Context, objectID str
 // RemoveOwnerSender sends the RemoveOwner request. The method will close the
 // http.Response Body if it receives an error.
 func (client GroupsClient) RemoveOwnerSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	sd := autorest.GetSendDecorators(req.Context(), autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // RemoveOwnerResponder handles the response to the RemoveOwner request. The method always
@@ -1216,6 +1216,7 @@ func (client GroupsClient) RemoveOwnerSender(req *http.Request) (*http.Response,
 func (client GroupsClient) RemoveOwnerResponder(resp *http.Response) (result autorest.Response, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
 		autorest.ByClosing())
 	result.Response = resp
