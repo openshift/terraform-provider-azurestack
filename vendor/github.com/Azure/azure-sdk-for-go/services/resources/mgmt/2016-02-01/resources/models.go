@@ -31,6 +31,34 @@ import (
 // The package's fully qualified name.
 const fqdn = "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2016-02-01/resources"
 
+// DeploymentMode enumerates the values for deployment mode.
+type DeploymentMode string
+
+const (
+	// Complete ...
+	Complete DeploymentMode = "Complete"
+	// Incremental ...
+	Incremental DeploymentMode = "Incremental"
+)
+
+// PossibleDeploymentModeValues returns an array of possible values for the DeploymentMode const type.
+func PossibleDeploymentModeValues() []DeploymentMode {
+	return []DeploymentMode{Complete, Incremental}
+}
+
+// ResourceIdentityType enumerates the values for resource identity type.
+type ResourceIdentityType string
+
+const (
+	// SystemAssigned ...
+	SystemAssigned ResourceIdentityType = "SystemAssigned"
+)
+
+// PossibleResourceIdentityTypeValues returns an array of possible values for the ResourceIdentityType const type.
+func PossibleResourceIdentityTypeValues() []ResourceIdentityType {
+	return []ResourceIdentityType{SystemAssigned}
+}
+
 // AliasPathType ...
 type AliasPathType struct {
 	// Path - The path of an alias.
@@ -102,18 +130,6 @@ type DeploymentExtended struct {
 	Name *string `json:"name,omitempty"`
 	// Properties - Deployment properties.
 	Properties *DeploymentPropertiesExtended `json:"properties,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for DeploymentExtended.
-func (de DeploymentExtended) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if de.Name != nil {
-		objectMap["name"] = de.Name
-	}
-	if de.Properties != nil {
-		objectMap["properties"] = de.Properties
-	}
-	return json.Marshal(objectMap)
 }
 
 // DeploymentExtendedFilter deployment filter.
@@ -199,15 +215,10 @@ func (dlr DeploymentListResult) IsEmpty() bool {
 	return dlr.Value == nil || len(*dlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (dlr DeploymentListResult) hasNextLink() bool {
-	return dlr.NextLink != nil && len(*dlr.NextLink) != 0
-}
-
 // deploymentListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (dlr DeploymentListResult) deploymentListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !dlr.hasNextLink() {
+	if dlr.NextLink == nil || len(to.String(dlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -235,16 +246,11 @@ func (page *DeploymentListResultPage) NextWithContext(ctx context.Context) (err 
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.dlr)
-		if err != nil {
-			return err
-		}
-		page.dlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.dlr)
+	if err != nil {
+		return err
 	}
+	page.dlr = next
 	return nil
 }
 
@@ -274,11 +280,8 @@ func (page DeploymentListResultPage) Values() []DeploymentExtended {
 }
 
 // Creates a new instance of the DeploymentListResultPage type.
-func NewDeploymentListResultPage(cur DeploymentListResult, getNextPage func(context.Context, DeploymentListResult) (DeploymentListResult, error)) DeploymentListResultPage {
-	return DeploymentListResultPage{
-		fn:  getNextPage,
-		dlr: cur,
-	}
+func NewDeploymentListResultPage(getNextPage func(context.Context, DeploymentListResult) (DeploymentListResult, error)) DeploymentListResultPage {
+	return DeploymentListResultPage{fn: getNextPage}
 }
 
 // DeploymentOperation deployment operation information.
@@ -390,15 +393,10 @@ func (dolr DeploymentOperationsListResult) IsEmpty() bool {
 	return dolr.Value == nil || len(*dolr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (dolr DeploymentOperationsListResult) hasNextLink() bool {
-	return dolr.NextLink != nil && len(*dolr.NextLink) != 0
-}
-
 // deploymentOperationsListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (dolr DeploymentOperationsListResult) deploymentOperationsListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !dolr.hasNextLink() {
+	if dolr.NextLink == nil || len(to.String(dolr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -426,16 +424,11 @@ func (page *DeploymentOperationsListResultPage) NextWithContext(ctx context.Cont
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.dolr)
-		if err != nil {
-			return err
-		}
-		page.dolr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.dolr)
+	if err != nil {
+		return err
 	}
+	page.dolr = next
 	return nil
 }
 
@@ -465,11 +458,8 @@ func (page DeploymentOperationsListResultPage) Values() []DeploymentOperation {
 }
 
 // Creates a new instance of the DeploymentOperationsListResultPage type.
-func NewDeploymentOperationsListResultPage(cur DeploymentOperationsListResult, getNextPage func(context.Context, DeploymentOperationsListResult) (DeploymentOperationsListResult, error)) DeploymentOperationsListResultPage {
-	return DeploymentOperationsListResultPage{
-		fn:   getNextPage,
-		dolr: cur,
-	}
+func NewDeploymentOperationsListResultPage(getNextPage func(context.Context, DeploymentOperationsListResult) (DeploymentOperationsListResult, error)) DeploymentOperationsListResultPage {
+	return DeploymentOperationsListResultPage{fn: getNextPage}
 }
 
 // DeploymentProperties deployment properties.
@@ -519,19 +509,53 @@ type DeploymentPropertiesExtended struct {
 // DeploymentsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type DeploymentsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(DeploymentsClient) (DeploymentExtended, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *DeploymentsCreateOrUpdateFuture) Result(client DeploymentsClient) (de DeploymentExtended, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "resources.DeploymentsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("resources.DeploymentsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if de.Response.Response, err = future.GetResult(sender); err == nil && de.Response.Response.StatusCode != http.StatusNoContent {
+		de, err = client.CreateOrUpdateResponder(de.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "resources.DeploymentsCreateOrUpdateFuture", "Result", de.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // DeploymentsDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type DeploymentsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(DeploymentsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *DeploymentsDeleteFuture) Result(client DeploymentsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "resources.DeploymentsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("resources.DeploymentsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // DeploymentValidateResult information from validate template deployment response.
@@ -551,8 +575,7 @@ type ErrorAdditionalInfo struct {
 	Info interface{} `json:"info,omitempty"`
 }
 
-// ErrorResponse common error response for all Azure Resource Manager APIs to return error details for
-// failed operations. (This also follows the OData error response format.)
+// ErrorResponse the resource management error response.
 type ErrorResponse struct {
 	// Code - READ-ONLY; The error code.
 	Code *string `json:"code,omitempty"`
@@ -627,68 +650,6 @@ func (gr GenericResource) MarshalJSON() ([]byte, error) {
 	}
 	if gr.Tags != nil {
 		objectMap["tags"] = gr.Tags
-	}
-	return json.Marshal(objectMap)
-}
-
-// GenericResourceExpanded resource information.
-type GenericResourceExpanded struct {
-	// CreatedTime - READ-ONLY; The created time of the resource. This is only present if requested via the $expand query parameter.
-	CreatedTime *date.Time `json:"createdTime,omitempty"`
-	// ChangedTime - READ-ONLY; The changed time of the resource. This is only present if requested via the $expand query parameter.
-	ChangedTime *date.Time `json:"changedTime,omitempty"`
-	// ProvisioningState - READ-ONLY; The provisioning state of the resource. This is only present if requested via the $expand query parameter.
-	ProvisioningState *string `json:"provisioningState,omitempty"`
-	// Plan - The plan of the resource.
-	Plan *Plan `json:"plan,omitempty"`
-	// Properties - The resource properties.
-	Properties interface{} `json:"properties,omitempty"`
-	// Kind - The kind of the resource.
-	Kind *string `json:"kind,omitempty"`
-	// ManagedBy - Id of the resource that manages this resource.
-	ManagedBy *string `json:"managedBy,omitempty"`
-	// Sku - The sku of the resource.
-	Sku *Sku `json:"sku,omitempty"`
-	// Identity - The identity of the resource.
-	Identity *Identity `json:"identity,omitempty"`
-	// ID - READ-ONLY; Resource Id
-	ID *string `json:"id,omitempty"`
-	// Name - READ-ONLY; Resource name
-	Name *string `json:"name,omitempty"`
-	// Type - READ-ONLY; Resource type
-	Type *string `json:"type,omitempty"`
-	// Location - Resource location
-	Location *string `json:"location,omitempty"`
-	// Tags - Resource tags
-	Tags map[string]*string `json:"tags"`
-}
-
-// MarshalJSON is the custom marshaler for GenericResourceExpanded.
-func (gre GenericResourceExpanded) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if gre.Plan != nil {
-		objectMap["plan"] = gre.Plan
-	}
-	if gre.Properties != nil {
-		objectMap["properties"] = gre.Properties
-	}
-	if gre.Kind != nil {
-		objectMap["kind"] = gre.Kind
-	}
-	if gre.ManagedBy != nil {
-		objectMap["managedBy"] = gre.ManagedBy
-	}
-	if gre.Sku != nil {
-		objectMap["sku"] = gre.Sku
-	}
-	if gre.Identity != nil {
-		objectMap["identity"] = gre.Identity
-	}
-	if gre.Location != nil {
-		objectMap["location"] = gre.Location
-	}
-	if gre.Tags != nil {
-		objectMap["tags"] = gre.Tags
 	}
 	return json.Marshal(objectMap)
 }
@@ -829,15 +790,10 @@ func (glr GroupListResult) IsEmpty() bool {
 	return glr.Value == nil || len(*glr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (glr GroupListResult) hasNextLink() bool {
-	return glr.NextLink != nil && len(*glr.NextLink) != 0
-}
-
 // groupListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (glr GroupListResult) groupListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !glr.hasNextLink() {
+	if glr.NextLink == nil || len(to.String(glr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -865,16 +821,11 @@ func (page *GroupListResultPage) NextWithContext(ctx context.Context) (err error
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.glr)
-		if err != nil {
-			return err
-		}
-		page.glr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.glr)
+	if err != nil {
+		return err
 	}
+	page.glr = next
 	return nil
 }
 
@@ -904,11 +855,8 @@ func (page GroupListResultPage) Values() []Group {
 }
 
 // Creates a new instance of the GroupListResultPage type.
-func NewGroupListResultPage(cur GroupListResult, getNextPage func(context.Context, GroupListResult) (GroupListResult, error)) GroupListResultPage {
-	return GroupListResultPage{
-		fn:  getNextPage,
-		glr: cur,
-	}
+func NewGroupListResultPage(getNextPage func(context.Context, GroupListResult) (GroupListResult, error)) GroupListResultPage {
+	return GroupListResultPage{fn: getNextPage}
 }
 
 // GroupProperties the resource group properties.
@@ -919,10 +867,24 @@ type GroupProperties struct {
 
 // GroupsDeleteFuture an abstraction for monitoring and retrieving the results of a long-running operation.
 type GroupsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(GroupsClient) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *GroupsDeleteFuture) Result(client GroupsClient) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "resources.GroupsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("resources.GroupsDeleteFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // HTTPMessage ...
@@ -941,25 +903,16 @@ type Identity struct {
 	Type ResourceIdentityType `json:"type,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for Identity.
-func (i Identity) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if i.Type != "" {
-		objectMap["type"] = i.Type
-	}
-	return json.Marshal(objectMap)
-}
-
 // ListResult list of resource groups.
 type ListResult struct {
 	autorest.Response `json:"-"`
 	// Value - The list of resources.
-	Value *[]GenericResourceExpanded `json:"value,omitempty"`
+	Value *[]GenericResource `json:"value,omitempty"`
 	// NextLink - The URL to get the next set of results.
 	NextLink *string `json:"nextLink,omitempty"`
 }
 
-// ListResultIterator provides access to a complete listing of GenericResourceExpanded values.
+// ListResultIterator provides access to a complete listing of GenericResource values.
 type ListResultIterator struct {
 	i    int
 	page ListResultPage
@@ -1010,9 +963,9 @@ func (iter ListResultIterator) Response() ListResult {
 
 // Value returns the current value or a zero-initialized value if the
 // iterator has advanced beyond the end of the collection.
-func (iter ListResultIterator) Value() GenericResourceExpanded {
+func (iter ListResultIterator) Value() GenericResource {
 	if !iter.page.NotDone() {
-		return GenericResourceExpanded{}
+		return GenericResource{}
 	}
 	return iter.page.Values()[iter.i]
 }
@@ -1027,15 +980,10 @@ func (lr ListResult) IsEmpty() bool {
 	return lr.Value == nil || len(*lr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (lr ListResult) hasNextLink() bool {
-	return lr.NextLink != nil && len(*lr.NextLink) != 0
-}
-
 // listResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (lr ListResult) listResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !lr.hasNextLink() {
+	if lr.NextLink == nil || len(to.String(lr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -1044,7 +992,7 @@ func (lr ListResult) listResultPreparer(ctx context.Context) (*http.Request, err
 		autorest.WithBaseURL(to.String(lr.NextLink)))
 }
 
-// ListResultPage contains a page of GenericResourceExpanded values.
+// ListResultPage contains a page of GenericResource values.
 type ListResultPage struct {
 	fn func(context.Context, ListResult) (ListResult, error)
 	lr ListResult
@@ -1063,16 +1011,11 @@ func (page *ListResultPage) NextWithContext(ctx context.Context) (err error) {
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.lr)
-		if err != nil {
-			return err
-		}
-		page.lr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.lr)
+	if err != nil {
+		return err
 	}
+	page.lr = next
 	return nil
 }
 
@@ -1094,7 +1037,7 @@ func (page ListResultPage) Response() ListResult {
 }
 
 // Values returns the slice of values for the current page or nil if there are no values.
-func (page ListResultPage) Values() []GenericResourceExpanded {
+func (page ListResultPage) Values() []GenericResource {
 	if page.lr.IsEmpty() {
 		return nil
 	}
@@ -1102,11 +1045,8 @@ func (page ListResultPage) Values() []GenericResourceExpanded {
 }
 
 // Creates a new instance of the ListResultPage type.
-func NewListResultPage(cur ListResult, getNextPage func(context.Context, ListResult) (ListResult, error)) ListResultPage {
-	return ListResultPage{
-		fn: getNextPage,
-		lr: cur,
-	}
+func NewListResultPage(getNextPage func(context.Context, ListResult) (ListResult, error)) ListResultPage {
+	return ListResultPage{fn: getNextPage}
 }
 
 // ManagementErrorWithDetails ...
@@ -1132,10 +1072,24 @@ type MoveInfo struct {
 // MoveResourcesFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type MoveResourcesFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(Client) (autorest.Response, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *MoveResourcesFuture) Result(client Client) (ar autorest.Response, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "resources.MoveResourcesFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("resources.MoveResourcesFuture")
+		return
+	}
+	ar.Response = future.Response()
+	return
 }
 
 // ParametersLink entity representing the reference to the deployment parameters.
@@ -1248,15 +1202,10 @@ func (plr ProviderListResult) IsEmpty() bool {
 	return plr.Value == nil || len(*plr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (plr ProviderListResult) hasNextLink() bool {
-	return plr.NextLink != nil && len(*plr.NextLink) != 0
-}
-
 // providerListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (plr ProviderListResult) providerListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !plr.hasNextLink() {
+	if plr.NextLink == nil || len(to.String(plr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -1284,16 +1233,11 @@ func (page *ProviderListResultPage) NextWithContext(ctx context.Context) (err er
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.plr)
-		if err != nil {
-			return err
-		}
-		page.plr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.plr)
+	if err != nil {
+		return err
 	}
+	page.plr = next
 	return nil
 }
 
@@ -1323,11 +1267,8 @@ func (page ProviderListResultPage) Values() []Provider {
 }
 
 // Creates a new instance of the ProviderListResultPage type.
-func NewProviderListResultPage(cur ProviderListResult, getNextPage func(context.Context, ProviderListResult) (ProviderListResult, error)) ProviderListResultPage {
-	return ProviderListResultPage{
-		fn:  getNextPage,
-		plr: cur,
-	}
+func NewProviderListResultPage(getNextPage func(context.Context, ProviderListResult) (ProviderListResult, error)) ProviderListResultPage {
+	return ProviderListResultPage{fn: getNextPage}
 }
 
 // ProviderOperationDisplayProperties resource provider operation's display properties.
@@ -1448,21 +1389,6 @@ type TagDetails struct {
 	Values *[]TagValue `json:"values,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for TagDetails.
-func (td TagDetails) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if td.TagName != nil {
-		objectMap["tagName"] = td.TagName
-	}
-	if td.Count != nil {
-		objectMap["count"] = td.Count
-	}
-	if td.Values != nil {
-		objectMap["values"] = td.Values
-	}
-	return json.Marshal(objectMap)
-}
-
 // TagsListResult list of subscription tags.
 type TagsListResult struct {
 	autorest.Response `json:"-"`
@@ -1540,15 +1466,10 @@ func (tlr TagsListResult) IsEmpty() bool {
 	return tlr.Value == nil || len(*tlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (tlr TagsListResult) hasNextLink() bool {
-	return tlr.NextLink != nil && len(*tlr.NextLink) != 0
-}
-
 // tagsListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (tlr TagsListResult) tagsListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !tlr.hasNextLink() {
+	if tlr.NextLink == nil || len(to.String(tlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -1576,16 +1497,11 @@ func (page *TagsListResultPage) NextWithContext(ctx context.Context) (err error)
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.tlr)
-		if err != nil {
-			return err
-		}
-		page.tlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.tlr)
+	if err != nil {
+		return err
 	}
+	page.tlr = next
 	return nil
 }
 
@@ -1615,11 +1531,8 @@ func (page TagsListResultPage) Values() []TagDetails {
 }
 
 // Creates a new instance of the TagsListResultPage type.
-func NewTagsListResultPage(cur TagsListResult, getNextPage func(context.Context, TagsListResult) (TagsListResult, error)) TagsListResultPage {
-	return TagsListResultPage{
-		fn:  getNextPage,
-		tlr: cur,
-	}
+func NewTagsListResultPage(getNextPage func(context.Context, TagsListResult) (TagsListResult, error)) TagsListResultPage {
+	return TagsListResultPage{fn: getNextPage}
 }
 
 // TagValue tag information.
@@ -1631,18 +1544,6 @@ type TagValue struct {
 	TagValue *string `json:"tagValue,omitempty"`
 	// Count - The tag value count.
 	Count *TagCount `json:"count,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for TagValue.
-func (tv TagValue) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if tv.TagValue != nil {
-		objectMap["tagValue"] = tv.TagValue
-	}
-	if tv.Count != nil {
-		objectMap["count"] = tv.Count
-	}
-	return json.Marshal(objectMap)
 }
 
 // TargetResource target resource.
@@ -1675,8 +1576,28 @@ type TemplateLink struct {
 
 // UpdateFuture an abstraction for monitoring and retrieving the results of a long-running operation.
 type UpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(Client) (GenericResource, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *UpdateFuture) Result(client Client) (gr GenericResource, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "resources.UpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("resources.UpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if gr.Response.Response, err = future.GetResult(sender); err == nil && gr.Response.Response.StatusCode != http.StatusNoContent {
+		gr, err = client.UpdateResponder(gr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "resources.UpdateFuture", "Result", gr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }

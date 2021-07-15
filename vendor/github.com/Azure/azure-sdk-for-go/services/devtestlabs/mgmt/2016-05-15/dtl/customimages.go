@@ -36,8 +36,7 @@ func NewCustomImagesClient(subscriptionID string) CustomImagesClient {
 	return NewCustomImagesClientWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewCustomImagesClientWithBaseURI creates an instance of the CustomImagesClient client using a custom endpoint.  Use
-// this when interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure stack).
+// NewCustomImagesClientWithBaseURI creates an instance of the CustomImagesClient client.
 func NewCustomImagesClientWithBaseURI(baseURI string, subscriptionID string) CustomImagesClient {
 	return CustomImagesClient{NewWithBaseURI(baseURI, subscriptionID)}
 }
@@ -73,7 +72,7 @@ func (client CustomImagesClient) CreateOrUpdate(ctx context.Context, resourceGro
 
 	result, err = client.CreateOrUpdateSender(req)
 	if err != nil {
-		err = autorest.NewErrorWithError(err, "dtl.CustomImagesClient", "CreateOrUpdate", nil, "Failure sending request")
+		err = autorest.NewErrorWithError(err, "dtl.CustomImagesClient", "CreateOrUpdate", result.Response(), "Failure sending request")
 		return
 	}
 
@@ -107,38 +106,13 @@ func (client CustomImagesClient) CreateOrUpdatePreparer(ctx context.Context, res
 // CreateOrUpdateSender sends the CreateOrUpdate request. The method will close the
 // http.Response Body if it receives an error.
 func (client CustomImagesClient) CreateOrUpdateSender(req *http.Request) (future CustomImagesCreateOrUpdateFuture, err error) {
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
 	var resp *http.Response
-	resp, err = client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	resp, err = autorest.SendWithSender(client, req, sd...)
 	if err != nil {
 		return
 	}
-	var azf azure.Future
-	azf, err = azure.NewFutureFromResponse(resp)
-	future.FutureAPI = &azf
-	future.Result = func(client CustomImagesClient) (ci CustomImage, err error) {
-		var done bool
-		done, err = future.DoneWithContext(context.Background(), client)
-		if err != nil {
-			err = autorest.NewErrorWithError(err, "dtl.CustomImagesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
-			return
-		}
-		if !done {
-			err = azure.NewAsyncOpIncompleteError("dtl.CustomImagesCreateOrUpdateFuture")
-			return
-		}
-		sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
-		ci.Response.Response, err = future.GetResult(sender)
-		if ci.Response.Response == nil && err == nil {
-			err = autorest.NewErrorWithError(err, "dtl.CustomImagesCreateOrUpdateFuture", "Result", nil, "received nil response and error")
-		}
-		if err == nil && ci.Response.Response.StatusCode != http.StatusNoContent {
-			ci, err = client.CreateOrUpdateResponder(ci.Response.Response)
-			if err != nil {
-				err = autorest.NewErrorWithError(err, "dtl.CustomImagesCreateOrUpdateFuture", "Result", ci.Response.Response, "Failure responding to request")
-			}
-		}
-		return
-	}
+	future.Future, err = azure.NewFutureFromResponse(resp)
 	return
 }
 
@@ -147,6 +121,7 @@ func (client CustomImagesClient) CreateOrUpdateSender(req *http.Request) (future
 func (client CustomImagesClient) CreateOrUpdateResponder(resp *http.Response) (result CustomImage, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -178,7 +153,7 @@ func (client CustomImagesClient) Delete(ctx context.Context, resourceGroupName s
 
 	result, err = client.DeleteSender(req)
 	if err != nil {
-		err = autorest.NewErrorWithError(err, "dtl.CustomImagesClient", "Delete", nil, "Failure sending request")
+		err = autorest.NewErrorWithError(err, "dtl.CustomImagesClient", "Delete", result.Response(), "Failure sending request")
 		return
 	}
 
@@ -210,28 +185,13 @@ func (client CustomImagesClient) DeletePreparer(ctx context.Context, resourceGro
 // DeleteSender sends the Delete request. The method will close the
 // http.Response Body if it receives an error.
 func (client CustomImagesClient) DeleteSender(req *http.Request) (future CustomImagesDeleteFuture, err error) {
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
 	var resp *http.Response
-	resp, err = client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	resp, err = autorest.SendWithSender(client, req, sd...)
 	if err != nil {
 		return
 	}
-	var azf azure.Future
-	azf, err = azure.NewFutureFromResponse(resp)
-	future.FutureAPI = &azf
-	future.Result = func(client CustomImagesClient) (ar autorest.Response, err error) {
-		var done bool
-		done, err = future.DoneWithContext(context.Background(), client)
-		if err != nil {
-			err = autorest.NewErrorWithError(err, "dtl.CustomImagesDeleteFuture", "Result", future.Response(), "Polling failure")
-			return
-		}
-		if !done {
-			err = azure.NewAsyncOpIncompleteError("dtl.CustomImagesDeleteFuture")
-			return
-		}
-		ar.Response = future.Response()
-		return
-	}
+	future.Future, err = azure.NewFutureFromResponse(resp)
 	return
 }
 
@@ -240,6 +200,7 @@ func (client CustomImagesClient) DeleteSender(req *http.Request) (future CustomI
 func (client CustomImagesClient) DeleteResponder(resp *http.Response) (result autorest.Response, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent),
 		autorest.ByClosing())
 	result.Response = resp
@@ -279,7 +240,6 @@ func (client CustomImagesClient) Get(ctx context.Context, resourceGroupName stri
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.CustomImagesClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -313,7 +273,8 @@ func (client CustomImagesClient) GetPreparer(ctx context.Context, resourceGroupN
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client CustomImagesClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -321,6 +282,7 @@ func (client CustomImagesClient) GetSender(req *http.Request) (*http.Response, e
 func (client CustomImagesClient) GetResponder(resp *http.Response) (result CustomImage, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -364,11 +326,6 @@ func (client CustomImagesClient) List(ctx context.Context, resourceGroupName str
 	result.rwcci, err = client.ListResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.CustomImagesClient", "List", resp, "Failure responding to request")
-		return
-	}
-	if result.rwcci.hasNextLink() && result.rwcci.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -410,7 +367,8 @@ func (client CustomImagesClient) ListPreparer(ctx context.Context, resourceGroup
 // ListSender sends the List request. The method will close the
 // http.Response Body if it receives an error.
 func (client CustomImagesClient) ListSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListResponder handles the response to the List request. The method always
@@ -418,6 +376,7 @@ func (client CustomImagesClient) ListSender(req *http.Request) (*http.Response, 
 func (client CustomImagesClient) ListResponder(resp *http.Response) (result ResponseWithContinuationCustomImage, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())

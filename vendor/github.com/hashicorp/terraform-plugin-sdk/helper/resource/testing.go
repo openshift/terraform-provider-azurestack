@@ -2,7 +2,6 @@ package resource
 
 import (
 	"bytes"
-	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -12,7 +11,6 @@ import (
 	"path/filepath"
 	"reflect"
 	"regexp"
-	"strconv"
 	"strings"
 	"syscall"
 	"testing"
@@ -21,7 +19,8 @@ import (
 	"github.com/hashicorp/errwrap"
 	"github.com/hashicorp/go-multierror"
 	"github.com/hashicorp/logutils"
-	"github.com/hashicorp/terraform-plugin-sdk/acctest"
+	"github.com/mitchellh/colorstring"
+
 	"github.com/hashicorp/terraform-plugin-sdk/helper/logging"
 	"github.com/hashicorp/terraform-plugin-sdk/internal/addrs"
 	"github.com/hashicorp/terraform-plugin-sdk/internal/command/format"
@@ -32,7 +31,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/internal/states"
 	"github.com/hashicorp/terraform-plugin-sdk/internal/tfdiags"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
-	"github.com/mitchellh/colorstring"
 )
 
 // flagSweep is a flag available when running tests on the command line. It
@@ -56,9 +54,12 @@ import (
 // destroyed.
 
 var flagSweep = flag.String("sweep", "", "List of Regions to run available Sweepers")
-var flagSweepAllowFailures = flag.Bool("sweep-allow-failures", false, "Enable to allow Sweeper Tests to continue after failures")
 var flagSweepRun = flag.String("sweep-run", "", "Comma seperated list of Sweeper Tests to run")
 var sweeperFuncs map[string]*Sweeper
+
+// map of sweepers that have ran, and the success/fail status based on any error
+// raised
+var sweeperRunList map[string]bool
 
 // type SweeperFunc is a signature for a function that acts as a sweeper. It
 // accepts a string for the region that the sweeper is to be ran in. This
@@ -104,72 +105,26 @@ func TestMain(m *testing.M) {
 
 		// get filtered list of sweepers to run based on sweep-run flag
 		sweepers := filterSweepers(*flagSweepRun, sweeperFuncs)
+		for _, region := range regions {
+			region = strings.TrimSpace(region)
+			// reset sweeperRunList for each region
+			sweeperRunList = map[string]bool{}
 
-		if _, err := runSweepers(regions, sweepers, *flagSweepAllowFailures); err != nil {
-			os.Exit(1)
+			log.Printf("[DEBUG] Running Sweepers for region (%s):\n", region)
+			for _, sweeper := range sweepers {
+				if err := runSweeperWithRegion(region, sweeper); err != nil {
+					log.Fatalf("[ERR] error running (%s): %s", sweeper.Name, err)
+				}
+			}
+
+			log.Printf("Sweeper Tests ran:\n")
+			for s, _ := range sweeperRunList {
+				fmt.Printf("\t- %s\n", s)
+			}
 		}
 	} else {
-		exitCode := m.Run()
-
-		if acctest.TestHelper != nil {
-			err := acctest.TestHelper.Close()
-			if err != nil {
-				log.Printf("Error cleaning up temporary test files: %s", err)
-			}
-		}
-		os.Exit(exitCode)
+		os.Exit(m.Run())
 	}
-}
-
-func runSweepers(regions []string, sweepers map[string]*Sweeper, allowFailures bool) (map[string]map[string]error, error) {
-	var sweeperErrorFound bool
-	sweeperRunList := make(map[string]map[string]error)
-
-	for _, region := range regions {
-		region = strings.TrimSpace(region)
-
-		var regionSweeperErrorFound bool
-		regionSweeperRunList := make(map[string]error)
-
-		log.Printf("[DEBUG] Running Sweepers for region (%s):\n", region)
-		for _, sweeper := range sweepers {
-			if err := runSweeperWithRegion(region, sweeper, sweepers, regionSweeperRunList, allowFailures); err != nil {
-				if allowFailures {
-					continue
-				}
-
-				sweeperRunList[region] = regionSweeperRunList
-				return sweeperRunList, fmt.Errorf("sweeper (%s) for region (%s) failed: %s", sweeper.Name, region, err)
-			}
-		}
-
-		log.Printf("Sweeper Tests ran successfully:\n")
-		for sweeper, sweeperErr := range regionSweeperRunList {
-			if sweeperErr == nil {
-				fmt.Printf("\t- %s\n", sweeper)
-			} else {
-				regionSweeperErrorFound = true
-			}
-		}
-
-		if regionSweeperErrorFound {
-			sweeperErrorFound = true
-			log.Printf("Sweeper Tests ran unsuccessfully:\n")
-			for sweeper, sweeperErr := range regionSweeperRunList {
-				if sweeperErr != nil {
-					fmt.Printf("\t- %s: %s\n", sweeper, sweeperErr)
-				}
-			}
-		}
-
-		sweeperRunList[region] = regionSweeperRunList
-	}
-
-	if sweeperErrorFound {
-		return sweeperRunList, errors.New("at least one sweeper failed")
-	}
-
-	return sweeperRunList, nil
 }
 
 // filterSweepers takes a comma seperated string listing the names of sweepers
@@ -184,61 +139,29 @@ func filterSweepers(f string, source map[string]*Sweeper) map[string]*Sweeper {
 	}
 
 	sweepers := make(map[string]*Sweeper)
-	for name := range source {
+	for name, sweeper := range source {
 		for _, s := range filterSlice {
 			if strings.Contains(strings.ToLower(name), s) {
-				for foundName, foundSweeper := range filterSweeperWithDependencies(name, source) {
-					sweepers[foundName] = foundSweeper
-				}
+				sweepers[name] = sweeper
 			}
 		}
 	}
 	return sweepers
 }
 
-// filterSweeperWithDependencies recursively returns sweeper and all dependencies.
-// Since filterSweepers performs fuzzy matching, this function is used
-// to perform exact sweeper and dependency lookup.
-func filterSweeperWithDependencies(name string, source map[string]*Sweeper) map[string]*Sweeper {
-	result := make(map[string]*Sweeper)
-
-	currentSweeper, ok := source[name]
-	if !ok {
-		log.Printf("[WARN] Sweeper has dependency (%s), but that sweeper was not found", name)
-		return result
-	}
-
-	result[name] = currentSweeper
-
-	for _, dependency := range currentSweeper.Dependencies {
-		for foundName, foundSweeper := range filterSweeperWithDependencies(dependency, source) {
-			result[foundName] = foundSweeper
-		}
-	}
-
-	return result
-}
-
 // runSweeperWithRegion recieves a sweeper and a region, and recursively calls
 // itself with that region for every dependency found for that sweeper. If there
 // are no dependencies, invoke the contained sweeper fun with the region, and
 // add the success/fail status to the sweeperRunList.
-func runSweeperWithRegion(region string, s *Sweeper, sweepers map[string]*Sweeper, sweeperRunList map[string]error, allowFailures bool) error {
+func runSweeperWithRegion(region string, s *Sweeper) error {
 	for _, dep := range s.Dependencies {
-		if depSweeper, ok := sweepers[dep]; ok {
+		if depSweeper, ok := sweeperFuncs[dep]; ok {
 			log.Printf("[DEBUG] Sweeper (%s) has dependency (%s), running..", s.Name, dep)
-			err := runSweeperWithRegion(region, depSweeper, sweepers, sweeperRunList, allowFailures)
-
-			if err != nil {
-				if allowFailures {
-					log.Printf("[ERROR] Error running Sweeper (%s) in region (%s): %s", depSweeper.Name, region, err)
-					continue
-				}
-
+			if err := runSweeperWithRegion(region, depSweeper); err != nil {
 				return err
 			}
 		} else {
-			log.Printf("[WARN] Sweeper (%s) has dependency (%s), but that sweeper was not found", s.Name, dep)
+			log.Printf("[DEBUG] Sweeper (%s) has dependency (%s), but that sweeper was not found", s.Name, dep)
 		}
 	}
 
@@ -247,21 +170,17 @@ func runSweeperWithRegion(region string, s *Sweeper, sweepers map[string]*Sweepe
 		return nil
 	}
 
-	log.Printf("[DEBUG] Running Sweeper (%s) in region (%s)", s.Name, region)
-
 	runE := s.F(region)
-
-	sweeperRunList[s.Name] = runE
-
-	if runE != nil {
-		log.Printf("[ERROR] Error running Sweeper (%s) in region (%s): %s", s.Name, region, runE)
+	if runE == nil {
+		sweeperRunList[s.Name] = true
+	} else {
+		sweeperRunList[s.Name] = false
 	}
 
 	return runE
 }
 
 const TestEnvVar = "TF_ACC"
-const TestDisableBinaryTestingFlagEnvVar = "TF_DISABLE_BINARY_TESTING"
 
 // TestProvider can be implemented by any ResourceProvider to provide custom
 // reset functionality at the start of an acceptance test.
@@ -312,17 +231,6 @@ type TestCase struct {
 	Providers         map[string]terraform.ResourceProvider
 	ProviderFactories map[string]terraform.ResourceProviderFactory
 
-	// ExternalProviders are providers the TestCase relies on that should
-	// be downloaded from the registry during init. This is only really
-	// necessary to set if you're using import, as providers in your config
-	// will be automatically retrieved during init. Import doesn't always
-	// use a config, however, so we allow manually specifying them here to
-	// be downloaded for import tests.
-	//
-	// ExternalProviders will only be used when using binary acceptance
-	// testing in reattach mode.
-	ExternalProviders map[string]ExternalProvider
-
 	// PreventPostDestroyRefresh can be set to true for cases where data sources
 	// are tested alongside real resources
 	PreventPostDestroyRefresh bool
@@ -346,19 +254,6 @@ type TestCase struct {
 	// IDRefreshIgnore is a list of configuration keys that will be ignored.
 	IDRefreshName   string
 	IDRefreshIgnore []string
-
-	// DisableBinaryDriver forces this test case to run using the legacy test
-	// driver, even if the binary test driver has been enabled.
-	//
-	// Deprecated: This property will be removed in version 2.0.0 of the SDK.
-	DisableBinaryDriver bool
-}
-
-// ExternalProvider holds information about third-party providers that should
-// be downloaded by Terraform as part of running the test step.
-type ExternalProvider struct {
-	VersionConstraint string // the version constraint for the provider
-	Source            string // the provider source
 }
 
 // TestStep is a single apply sequence of a test, done within the
@@ -569,14 +464,6 @@ func Test(t TestT, c TestCase) {
 			TestEnvVar))
 		return
 	}
-	if v := os.Getenv(TestDisableBinaryTestingFlagEnvVar); v != "" {
-		b, err := strconv.ParseBool(v)
-		if err != nil {
-			t.Error(fmt.Errorf("Error parsing EnvVar %q value %q: %s", TestDisableBinaryTestingFlagEnvVar, v, err))
-		}
-
-		c.DisableBinaryDriver = b
-	}
 
 	logWriter, err := LogOutput(t)
 	if err != nil {
@@ -587,6 +474,12 @@ func Test(t TestT, c TestCase) {
 	// We require verbose mode so that the user knows what is going on.
 	if !testTesting && !testing.Verbose() && !c.IsUnitTest {
 		t.Fatal("Acceptance tests must be run with the -v flag on tests")
+		return
+	}
+
+	// Run the PreCheck if we have it
+	if c.PreCheck != nil {
+		c.PreCheck()
 	}
 
 	// get instances of all providers, so we can use the individual
@@ -598,32 +491,6 @@ func Test(t TestT, c TestCase) {
 			t.Fatal(err)
 		}
 		providers[name] = p
-	}
-
-	if acctest.TestHelper != nil && c.DisableBinaryDriver == false {
-		// auto-configure all providers
-		for _, p := range providers {
-			err = p.Configure(terraform.NewResourceConfigRaw(nil))
-			if err != nil {
-				t.Fatal(err)
-			}
-		}
-
-		// Run the PreCheck if we have it.
-		// This is done after the auto-configure to allow providers
-		// to override the default auto-configure parameters.
-		if c.PreCheck != nil {
-			c.PreCheck()
-		}
-
-		// inject providers for ImportStateVerify
-		RunNewTest(t.(*testing.T), c, providers)
-		return
-	} else {
-		// run the PreCheck if we have it
-		if c.PreCheck != nil {
-			c.PreCheck()
-		}
 	}
 
 	providerResolver, err := testProviderResolver(c)
@@ -666,10 +533,7 @@ func Test(t TestT, c TestCase) {
 		} else {
 			if step.ImportState {
 				if step.Config == "" {
-					step.Config, err = testProviderConfig(c)
-					if err != nil {
-						t.Fatal("Error setting config for providers: " + err.Error())
-					}
+					step.Config = testProviderConfig(c)
 				}
 
 				// Can optionally set step.Config in addition to
@@ -778,38 +642,13 @@ func Test(t TestT, c TestCase) {
 // testProviderConfig takes the list of Providers in a TestCase and returns a
 // config with only empty provider blocks. This is useful for Import, where no
 // config is provided, but the providers must be defined.
-func testProviderConfig(c TestCase) (string, error) {
+func testProviderConfig(c TestCase) string {
 	var lines []string
-	var requiredProviders []string
 	for p := range c.Providers {
 		lines = append(lines, fmt.Sprintf("provider %q {}\n", p))
 	}
-	for p, v := range c.ExternalProviders {
-		if _, ok := c.Providers[p]; ok {
-			return "", fmt.Errorf("Provider %q set in both Providers and ExternalProviders for TestCase. Must be set in only one.", p)
-		}
-		if _, ok := c.ProviderFactories[p]; ok {
-			return "", fmt.Errorf("Provider %q set in both ProviderFactories and ExternalProviders for TestCase. Must be set in only one.", p)
-		}
-		lines = append(lines, fmt.Sprintf("provider %q {}\n", p))
-		var providerBlock string
-		if v.VersionConstraint != "" {
-			providerBlock = fmt.Sprintf("%s\nversion = %q", providerBlock, v.VersionConstraint)
-		}
-		if v.Source != "" {
-			providerBlock = fmt.Sprintf("%s\nsource = %q", providerBlock, v.Source)
-		}
-		if providerBlock != "" {
-			providerBlock = fmt.Sprintf("%s = {%s\n}\n", p, providerBlock)
-		}
-		requiredProviders = append(requiredProviders, providerBlock)
-	}
 
-	if len(requiredProviders) > 0 {
-		lines = append([]string{fmt.Sprintf("terraform {\nrequired_providers {\n%s}\n}\n\n", strings.Join(requiredProviders, ""))}, lines...)
-	}
-
-	return strings.Join(lines, ""), nil
+	return strings.Join(lines, "")
 }
 
 // testProviderFactories combines the fixed Providers and
@@ -934,12 +773,12 @@ func testIDOnlyRefresh(c TestCase, opts terraform.ContextOpts, step TestStep, r 
 	expected := r.Primary.Attributes
 	// Remove fields we're ignoring
 	for _, v := range c.IDRefreshIgnore {
-		for k := range actual {
+		for k, _ := range actual {
 			if strings.HasPrefix(k, v) {
 				delete(actual, k)
 			}
 		}
-		for k := range expected {
+		for k, _ := range expected {
 			if strings.HasPrefix(k, v) {
 				delete(expected, k)
 			}
@@ -1077,28 +916,28 @@ func ComposeAggregateTestCheckFunc(fs ...TestCheckFunc) TestCheckFunc {
 // testing that computed values were set, when it is not possible to
 // know ahead of time what the values will be.
 func TestCheckResourceAttrSet(name, key string) TestCheckFunc {
-	return checkIfIndexesIntoTypeSet(key, func(s *terraform.State) error {
+	return func(s *terraform.State) error {
 		is, err := primaryInstanceState(s, name)
 		if err != nil {
 			return err
 		}
 
 		return testCheckResourceAttrSet(is, name, key)
-	})
+	}
 }
 
 // TestCheckModuleResourceAttrSet - as per TestCheckResourceAttrSet but with
 // support for non-root modules
 func TestCheckModuleResourceAttrSet(mp []string, name string, key string) TestCheckFunc {
 	mpt := addrs.Module(mp).UnkeyedInstanceShim()
-	return checkIfIndexesIntoTypeSet(key, func(s *terraform.State) error {
+	return func(s *terraform.State) error {
 		is, err := modulePathPrimaryInstanceState(s, mpt, name)
 		if err != nil {
 			return err
 		}
 
 		return testCheckResourceAttrSet(is, name, key)
-	})
+	}
 }
 
 func testCheckResourceAttrSet(is *terraform.InstanceState, name string, key string) error {
@@ -1112,28 +951,28 @@ func testCheckResourceAttrSet(is *terraform.InstanceState, name string, key stri
 // TestCheckResourceAttr is a TestCheckFunc which validates
 // the value in state for the given name/key combination.
 func TestCheckResourceAttr(name, key, value string) TestCheckFunc {
-	return checkIfIndexesIntoTypeSet(key, func(s *terraform.State) error {
+	return func(s *terraform.State) error {
 		is, err := primaryInstanceState(s, name)
 		if err != nil {
 			return err
 		}
 
 		return testCheckResourceAttr(is, name, key, value)
-	})
+	}
 }
 
 // TestCheckModuleResourceAttr - as per TestCheckResourceAttr but with
 // support for non-root modules
 func TestCheckModuleResourceAttr(mp []string, name string, key string, value string) TestCheckFunc {
 	mpt := addrs.Module(mp).UnkeyedInstanceShim()
-	return checkIfIndexesIntoTypeSet(key, func(s *terraform.State) error {
+	return func(s *terraform.State) error {
 		is, err := modulePathPrimaryInstanceState(s, mpt, name)
 		if err != nil {
 			return err
 		}
 
 		return testCheckResourceAttr(is, name, key, value)
-	})
+	}
 }
 
 func testCheckResourceAttr(is *terraform.InstanceState, name string, key string, value string) error {
@@ -1167,28 +1006,28 @@ func testCheckResourceAttr(is *terraform.InstanceState, name string, key string,
 // TestCheckNoResourceAttr is a TestCheckFunc which ensures that
 // NO value exists in state for the given name/key combination.
 func TestCheckNoResourceAttr(name, key string) TestCheckFunc {
-	return checkIfIndexesIntoTypeSet(key, func(s *terraform.State) error {
+	return func(s *terraform.State) error {
 		is, err := primaryInstanceState(s, name)
 		if err != nil {
 			return err
 		}
 
 		return testCheckNoResourceAttr(is, name, key)
-	})
+	}
 }
 
 // TestCheckModuleNoResourceAttr - as per TestCheckNoResourceAttr but with
 // support for non-root modules
 func TestCheckModuleNoResourceAttr(mp []string, name string, key string) TestCheckFunc {
 	mpt := addrs.Module(mp).UnkeyedInstanceShim()
-	return checkIfIndexesIntoTypeSet(key, func(s *terraform.State) error {
+	return func(s *terraform.State) error {
 		is, err := modulePathPrimaryInstanceState(s, mpt, name)
 		if err != nil {
 			return err
 		}
 
 		return testCheckNoResourceAttr(is, name, key)
-	})
+	}
 }
 
 func testCheckNoResourceAttr(is *terraform.InstanceState, name string, key string) error {
@@ -1215,28 +1054,28 @@ func testCheckNoResourceAttr(is *terraform.InstanceState, name string, key strin
 // TestMatchResourceAttr is a TestCheckFunc which checks that the value
 // in state for the given name/key combination matches the given regex.
 func TestMatchResourceAttr(name, key string, r *regexp.Regexp) TestCheckFunc {
-	return checkIfIndexesIntoTypeSet(key, func(s *terraform.State) error {
+	return func(s *terraform.State) error {
 		is, err := primaryInstanceState(s, name)
 		if err != nil {
 			return err
 		}
 
 		return testMatchResourceAttr(is, name, key, r)
-	})
+	}
 }
 
 // TestModuleMatchResourceAttr - as per TestMatchResourceAttr but with
 // support for non-root modules
 func TestModuleMatchResourceAttr(mp []string, name string, key string, r *regexp.Regexp) TestCheckFunc {
 	mpt := addrs.Module(mp).UnkeyedInstanceShim()
-	return checkIfIndexesIntoTypeSet(key, func(s *terraform.State) error {
+	return func(s *terraform.State) error {
 		is, err := modulePathPrimaryInstanceState(s, mpt, name)
 		if err != nil {
 			return err
 		}
 
 		return testMatchResourceAttr(is, name, key, r)
-	})
+	}
 }
 
 func testMatchResourceAttr(is *terraform.InstanceState, name string, key string, r *regexp.Regexp) error {
@@ -1272,7 +1111,7 @@ func TestCheckModuleResourceAttrPtr(mp []string, name string, key string, value 
 // TestCheckResourceAttrPair is a TestCheckFunc which validates that the values
 // in state for a pair of name/key combinations are equal.
 func TestCheckResourceAttrPair(nameFirst, keyFirst, nameSecond, keySecond string) TestCheckFunc {
-	return checkIfIndexesIntoTypeSetPair(keyFirst, keySecond, func(s *terraform.State) error {
+	return func(s *terraform.State) error {
 		isFirst, err := primaryInstanceState(s, nameFirst)
 		if err != nil {
 			return err
@@ -1284,7 +1123,7 @@ func TestCheckResourceAttrPair(nameFirst, keyFirst, nameSecond, keySecond string
 		}
 
 		return testCheckResourceAttrPair(isFirst, nameFirst, keyFirst, isSecond, nameSecond, keySecond)
-	})
+	}
 }
 
 // TestCheckModuleResourceAttrPair - as per TestCheckResourceAttrPair but with
@@ -1292,7 +1131,7 @@ func TestCheckResourceAttrPair(nameFirst, keyFirst, nameSecond, keySecond string
 func TestCheckModuleResourceAttrPair(mpFirst []string, nameFirst string, keyFirst string, mpSecond []string, nameSecond string, keySecond string) TestCheckFunc {
 	mptFirst := addrs.Module(mpFirst).UnkeyedInstanceShim()
 	mptSecond := addrs.Module(mpSecond).UnkeyedInstanceShim()
-	return checkIfIndexesIntoTypeSetPair(keyFirst, keySecond, func(s *terraform.State) error {
+	return func(s *terraform.State) error {
 		isFirst, err := modulePathPrimaryInstanceState(s, mptFirst, nameFirst)
 		if err != nil {
 			return err
@@ -1304,7 +1143,7 @@ func TestCheckModuleResourceAttrPair(mpFirst []string, nameFirst string, keyFirs
 		}
 
 		return testCheckResourceAttrPair(isFirst, nameFirst, keyFirst, isSecond, nameSecond, keySecond)
-	})
+	}
 }
 
 func testCheckResourceAttrPair(isFirst *terraform.InstanceState, nameFirst string, keyFirst string, isSecond *terraform.InstanceState, nameSecond string, keySecond string) error {
@@ -1478,37 +1317,5 @@ func detailedErrorMessage(err error) string {
 		return tErr.ErrorDetail()
 	default:
 		return err.Error()
-	}
-}
-
-// indexesIntoTypeSet is a heuristic to try and identify if a flatmap style
-// string address uses a precalculated TypeSet hash, which are integers and
-// typically are large and obviously not a list index
-func indexesIntoTypeSet(key string) bool {
-	for _, part := range strings.Split(key, ".") {
-		if i, err := strconv.Atoi(part); err == nil && i > 100 {
-			return true
-		}
-	}
-	return false
-}
-
-func checkIfIndexesIntoTypeSet(key string, f TestCheckFunc) TestCheckFunc {
-	return func(s *terraform.State) error {
-		err := f(s)
-		if err != nil && s.IsBinaryDrivenTest && indexesIntoTypeSet(key) {
-			return fmt.Errorf("Error in test check: %s\nTest check address %q likely indexes into TypeSet\nThis is not possible in V1 of the SDK while using the binary driver\nPlease disable the driver for this TestCase with DisableBinaryDriver: true", err, key)
-		}
-		return err
-	}
-}
-
-func checkIfIndexesIntoTypeSetPair(keyFirst, keySecond string, f TestCheckFunc) TestCheckFunc {
-	return func(s *terraform.State) error {
-		err := f(s)
-		if err != nil && s.IsBinaryDrivenTest && (indexesIntoTypeSet(keyFirst) || indexesIntoTypeSet(keySecond)) {
-			return fmt.Errorf("Error in test check: %s\nTest check address %q or %q likely indexes into TypeSet\nThis is not possible in V1 of the SDK while using the binary driver\nPlease disable the driver for this TestCase with DisableBinaryDriver: true", err, keyFirst, keySecond)
-		}
-		return err
 	}
 }

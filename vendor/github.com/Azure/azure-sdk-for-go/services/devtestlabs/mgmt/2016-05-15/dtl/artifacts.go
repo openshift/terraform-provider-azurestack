@@ -35,8 +35,7 @@ func NewArtifactsClient(subscriptionID string) ArtifactsClient {
 	return NewArtifactsClientWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewArtifactsClientWithBaseURI creates an instance of the ArtifactsClient client using a custom endpoint.  Use this
-// when interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure stack).
+// NewArtifactsClientWithBaseURI creates an instance of the ArtifactsClient client.
 func NewArtifactsClientWithBaseURI(baseURI string, subscriptionID string) ArtifactsClient {
 	return ArtifactsClient{NewWithBaseURI(baseURI, subscriptionID)}
 }
@@ -76,7 +75,6 @@ func (client ArtifactsClient) GenerateArmTemplate(ctx context.Context, resourceG
 	result, err = client.GenerateArmTemplateResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.ArtifactsClient", "GenerateArmTemplate", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -110,7 +108,8 @@ func (client ArtifactsClient) GenerateArmTemplatePreparer(ctx context.Context, r
 // GenerateArmTemplateSender sends the GenerateArmTemplate request. The method will close the
 // http.Response Body if it receives an error.
 func (client ArtifactsClient) GenerateArmTemplateSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GenerateArmTemplateResponder handles the response to the GenerateArmTemplate request. The method always
@@ -118,6 +117,7 @@ func (client ArtifactsClient) GenerateArmTemplateSender(req *http.Request) (*htt
 func (client ArtifactsClient) GenerateArmTemplateResponder(resp *http.Response) (result ArmTemplateInfo, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -159,7 +159,6 @@ func (client ArtifactsClient) Get(ctx context.Context, resourceGroupName string,
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.ArtifactsClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -194,7 +193,8 @@ func (client ArtifactsClient) GetPreparer(ctx context.Context, resourceGroupName
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client ArtifactsClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -202,6 +202,7 @@ func (client ArtifactsClient) GetSender(req *http.Request) (*http.Response, erro
 func (client ArtifactsClient) GetResponder(resp *http.Response) (result Artifact, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -246,11 +247,6 @@ func (client ArtifactsClient) List(ctx context.Context, resourceGroupName string
 	result.rwca, err = client.ListResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "dtl.ArtifactsClient", "List", resp, "Failure responding to request")
-		return
-	}
-	if result.rwca.hasNextLink() && result.rwca.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -293,7 +289,8 @@ func (client ArtifactsClient) ListPreparer(ctx context.Context, resourceGroupNam
 // ListSender sends the List request. The method will close the
 // http.Response Body if it receives an error.
 func (client ArtifactsClient) ListSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListResponder handles the response to the List request. The method always
@@ -301,6 +298,7 @@ func (client ArtifactsClient) ListSender(req *http.Request) (*http.Response, err
 func (client ArtifactsClient) ListResponder(resp *http.Response) (result ResponseWithContinuationArtifact, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())

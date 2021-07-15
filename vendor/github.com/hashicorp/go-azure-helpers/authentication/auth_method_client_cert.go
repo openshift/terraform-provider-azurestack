@@ -5,6 +5,8 @@ import (
 	"crypto/x509"
 	"fmt"
 	"io/ioutil"
+	"os"
+	"strings"
 
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/adal"
@@ -18,7 +20,6 @@ type servicePrincipalClientCertificateAuth struct {
 	clientCertPassword string
 	subscriptionId     string
 	tenantId           string
-	tenantOnly         bool
 }
 
 func (a servicePrincipalClientCertificateAuth) build(b Builder) (authMethod, error) {
@@ -28,7 +29,6 @@ func (a servicePrincipalClientCertificateAuth) build(b Builder) (authMethod, err
 		clientCertPassword: b.ClientCertPassword,
 		subscriptionId:     b.SubscriptionID,
 		tenantId:           b.TenantID,
-		tenantOnly:         b.TenantOnly,
 	}
 	return method, nil
 }
@@ -46,8 +46,13 @@ func (a servicePrincipalClientCertificateAuth) getAuthorizationToken(sender auto
 		return nil, fmt.Errorf("Error getting Authorization Token for client cert: an OAuth token wasn't configured correctly; please file a bug with more details")
 	}
 
+	certificateData, err := ioutil.ReadFile(a.clientCertPath)
+	if err != nil {
+		return nil, fmt.Errorf("Error reading Client Certificate %q: %v", a.clientCertPath, err)
+	}
+
 	// Get the certificate and private key from pfx file
-	certificate, rsaPrivateKey, err := decodePkcs12File(a.clientCertPath, a.clientCertPassword)
+	certificate, rsaPrivateKey, err := decodePkcs12(certificateData, a.clientCertPassword)
 	if err != nil {
 		return nil, fmt.Errorf("Error decoding pkcs12 certificate: %v", err)
 	}
@@ -79,7 +84,7 @@ func (a servicePrincipalClientCertificateAuth) validate() error {
 
 	fmtErrorMessage := "A %s must be configured when authenticating as a Service Principal using a Client Certificate."
 
-	if !a.tenantOnly && a.subscriptionId == "" {
+	if a.subscriptionId == "" {
 		err = multierror.Append(err, fmt.Errorf(fmtErrorMessage, "Subscription ID"))
 	}
 
@@ -90,11 +95,16 @@ func (a servicePrincipalClientCertificateAuth) validate() error {
 	if a.clientCertPath == "" {
 		err = multierror.Append(err, fmt.Errorf(fmtErrorMessage, "Client Certificate Path"))
 	} else {
+		if strings.HasSuffix(strings.ToLower(a.clientCertPath), ".pfx") {
+			// ensure it exists on disk
+			_, fileErr := os.Stat(a.clientCertPath)
+			if os.IsNotExist(fileErr) {
+				err = multierror.Append(err, fmt.Errorf("Error locating Client Certificate specified at %q: %s", a.clientCertPath, fileErr))
+			}
 
-		// validate the certificate path is a valid pfx file
-		_, _, derr := decodePkcs12File(a.clientCertPath, a.clientCertPassword)
-		if derr != nil {
-			err = multierror.Append(err, fmt.Errorf("The Client Certificate Path is not a valid pfx file: %v", derr))
+			// we're intentionally /not/ checking it's an actual PFX file at this point, as that happens in the getAuthorizationToken
+		} else {
+			err = multierror.Append(err, fmt.Errorf("The Client Certificate Path is not a *.pfx file: %q", a.clientCertPath))
 		}
 	}
 
@@ -105,13 +115,8 @@ func (a servicePrincipalClientCertificateAuth) validate() error {
 	return err.ErrorOrNil()
 }
 
-func decodePkcs12File(f string, password string) (*x509.Certificate, *rsa.PrivateKey, error) {
-	certificateData, err := ioutil.ReadFile(f)
-	if err != nil {
-		return nil, nil, fmt.Errorf("Error reading Client Certificate %q: %v", f, err)
-	}
-
-	privateKey, certificate, err := pkcs12.Decode(certificateData, password)
+func decodePkcs12(pkcs []byte, password string) (*x509.Certificate, *rsa.PrivateKey, error) {
+	privateKey, certificate, err := pkcs12.Decode(pkcs, password)
 	if err != nil {
 		return nil, nil, err
 	}

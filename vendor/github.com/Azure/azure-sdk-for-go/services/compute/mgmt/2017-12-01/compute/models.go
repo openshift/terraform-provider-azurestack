@@ -31,6 +31,801 @@ import (
 // The package's fully qualified name.
 const fqdn = "github.com/Azure/azure-sdk-for-go/services/compute/mgmt/2017-12-01/compute"
 
+// AccessLevel enumerates the values for access level.
+type AccessLevel string
+
+const (
+	// None ...
+	None AccessLevel = "None"
+	// Read ...
+	Read AccessLevel = "Read"
+)
+
+// PossibleAccessLevelValues returns an array of possible values for the AccessLevel const type.
+func PossibleAccessLevelValues() []AccessLevel {
+	return []AccessLevel{None, Read}
+}
+
+// CachingTypes enumerates the values for caching types.
+type CachingTypes string
+
+const (
+	// CachingTypesNone ...
+	CachingTypesNone CachingTypes = "None"
+	// CachingTypesReadOnly ...
+	CachingTypesReadOnly CachingTypes = "ReadOnly"
+	// CachingTypesReadWrite ...
+	CachingTypesReadWrite CachingTypes = "ReadWrite"
+)
+
+// PossibleCachingTypesValues returns an array of possible values for the CachingTypes const type.
+func PossibleCachingTypesValues() []CachingTypes {
+	return []CachingTypes{CachingTypesNone, CachingTypesReadOnly, CachingTypesReadWrite}
+}
+
+// ComponentNames enumerates the values for component names.
+type ComponentNames string
+
+const (
+	// MicrosoftWindowsShellSetup ...
+	MicrosoftWindowsShellSetup ComponentNames = "Microsoft-Windows-Shell-Setup"
+)
+
+// PossibleComponentNamesValues returns an array of possible values for the ComponentNames const type.
+func PossibleComponentNamesValues() []ComponentNames {
+	return []ComponentNames{MicrosoftWindowsShellSetup}
+}
+
+// DiskCreateOption enumerates the values for disk create option.
+type DiskCreateOption string
+
+const (
+	// Attach ...
+	Attach DiskCreateOption = "Attach"
+	// Copy ...
+	Copy DiskCreateOption = "Copy"
+	// Empty ...
+	Empty DiskCreateOption = "Empty"
+	// FromImage ...
+	FromImage DiskCreateOption = "FromImage"
+	// Import ...
+	Import DiskCreateOption = "Import"
+)
+
+// PossibleDiskCreateOptionValues returns an array of possible values for the DiskCreateOption const type.
+func PossibleDiskCreateOptionValues() []DiskCreateOption {
+	return []DiskCreateOption{Attach, Copy, Empty, FromImage, Import}
+}
+
+// DiskCreateOptionTypes enumerates the values for disk create option types.
+type DiskCreateOptionTypes string
+
+const (
+	// DiskCreateOptionTypesAttach ...
+	DiskCreateOptionTypesAttach DiskCreateOptionTypes = "Attach"
+	// DiskCreateOptionTypesEmpty ...
+	DiskCreateOptionTypesEmpty DiskCreateOptionTypes = "Empty"
+	// DiskCreateOptionTypesFromImage ...
+	DiskCreateOptionTypesFromImage DiskCreateOptionTypes = "FromImage"
+)
+
+// PossibleDiskCreateOptionTypesValues returns an array of possible values for the DiskCreateOptionTypes const type.
+func PossibleDiskCreateOptionTypesValues() []DiskCreateOptionTypes {
+	return []DiskCreateOptionTypes{DiskCreateOptionTypesAttach, DiskCreateOptionTypesEmpty, DiskCreateOptionTypesFromImage}
+}
+
+// InstanceViewTypes enumerates the values for instance view types.
+type InstanceViewTypes string
+
+const (
+	// InstanceView ...
+	InstanceView InstanceViewTypes = "instanceView"
+)
+
+// PossibleInstanceViewTypesValues returns an array of possible values for the InstanceViewTypes const type.
+func PossibleInstanceViewTypesValues() []InstanceViewTypes {
+	return []InstanceViewTypes{InstanceView}
+}
+
+// IntervalInMins enumerates the values for interval in mins.
+type IntervalInMins string
+
+const (
+	// FiveMins ...
+	FiveMins IntervalInMins = "FiveMins"
+	// SixtyMins ...
+	SixtyMins IntervalInMins = "SixtyMins"
+	// ThirtyMins ...
+	ThirtyMins IntervalInMins = "ThirtyMins"
+	// ThreeMins ...
+	ThreeMins IntervalInMins = "ThreeMins"
+)
+
+// PossibleIntervalInMinsValues returns an array of possible values for the IntervalInMins const type.
+func PossibleIntervalInMinsValues() []IntervalInMins {
+	return []IntervalInMins{FiveMins, SixtyMins, ThirtyMins, ThreeMins}
+}
+
+// IPVersion enumerates the values for ip version.
+type IPVersion string
+
+const (
+	// IPv4 ...
+	IPv4 IPVersion = "IPv4"
+	// IPv6 ...
+	IPv6 IPVersion = "IPv6"
+)
+
+// PossibleIPVersionValues returns an array of possible values for the IPVersion const type.
+func PossibleIPVersionValues() []IPVersion {
+	return []IPVersion{IPv4, IPv6}
+}
+
+// MaintenanceOperationResultCodeTypes enumerates the values for maintenance operation result code types.
+type MaintenanceOperationResultCodeTypes string
+
+const (
+	// MaintenanceOperationResultCodeTypesMaintenanceAborted ...
+	MaintenanceOperationResultCodeTypesMaintenanceAborted MaintenanceOperationResultCodeTypes = "MaintenanceAborted"
+	// MaintenanceOperationResultCodeTypesMaintenanceCompleted ...
+	MaintenanceOperationResultCodeTypesMaintenanceCompleted MaintenanceOperationResultCodeTypes = "MaintenanceCompleted"
+	// MaintenanceOperationResultCodeTypesNone ...
+	MaintenanceOperationResultCodeTypesNone MaintenanceOperationResultCodeTypes = "None"
+	// MaintenanceOperationResultCodeTypesRetryLater ...
+	MaintenanceOperationResultCodeTypesRetryLater MaintenanceOperationResultCodeTypes = "RetryLater"
+)
+
+// PossibleMaintenanceOperationResultCodeTypesValues returns an array of possible values for the MaintenanceOperationResultCodeTypes const type.
+func PossibleMaintenanceOperationResultCodeTypesValues() []MaintenanceOperationResultCodeTypes {
+	return []MaintenanceOperationResultCodeTypes{MaintenanceOperationResultCodeTypesMaintenanceAborted, MaintenanceOperationResultCodeTypesMaintenanceCompleted, MaintenanceOperationResultCodeTypesNone, MaintenanceOperationResultCodeTypesRetryLater}
+}
+
+// OperatingSystemStateTypes enumerates the values for operating system state types.
+type OperatingSystemStateTypes string
+
+const (
+	// Generalized ...
+	Generalized OperatingSystemStateTypes = "Generalized"
+	// Specialized ...
+	Specialized OperatingSystemStateTypes = "Specialized"
+)
+
+// PossibleOperatingSystemStateTypesValues returns an array of possible values for the OperatingSystemStateTypes const type.
+func PossibleOperatingSystemStateTypesValues() []OperatingSystemStateTypes {
+	return []OperatingSystemStateTypes{Generalized, Specialized}
+}
+
+// OperatingSystemTypes enumerates the values for operating system types.
+type OperatingSystemTypes string
+
+const (
+	// Linux ...
+	Linux OperatingSystemTypes = "Linux"
+	// Windows ...
+	Windows OperatingSystemTypes = "Windows"
+)
+
+// PossibleOperatingSystemTypesValues returns an array of possible values for the OperatingSystemTypes const type.
+func PossibleOperatingSystemTypesValues() []OperatingSystemTypes {
+	return []OperatingSystemTypes{Linux, Windows}
+}
+
+// PassNames enumerates the values for pass names.
+type PassNames string
+
+const (
+	// OobeSystem ...
+	OobeSystem PassNames = "OobeSystem"
+)
+
+// PossiblePassNamesValues returns an array of possible values for the PassNames const type.
+func PossiblePassNamesValues() []PassNames {
+	return []PassNames{OobeSystem}
+}
+
+// ProtocolTypes enumerates the values for protocol types.
+type ProtocolTypes string
+
+const (
+	// HTTP ...
+	HTTP ProtocolTypes = "Http"
+	// HTTPS ...
+	HTTPS ProtocolTypes = "Https"
+)
+
+// PossibleProtocolTypesValues returns an array of possible values for the ProtocolTypes const type.
+func PossibleProtocolTypesValues() []ProtocolTypes {
+	return []ProtocolTypes{HTTP, HTTPS}
+}
+
+// ResourceIdentityType enumerates the values for resource identity type.
+type ResourceIdentityType string
+
+const (
+	// ResourceIdentityTypeNone ...
+	ResourceIdentityTypeNone ResourceIdentityType = "None"
+	// ResourceIdentityTypeSystemAssigned ...
+	ResourceIdentityTypeSystemAssigned ResourceIdentityType = "SystemAssigned"
+	// ResourceIdentityTypeSystemAssignedUserAssigned ...
+	ResourceIdentityTypeSystemAssignedUserAssigned ResourceIdentityType = "SystemAssigned, UserAssigned"
+	// ResourceIdentityTypeUserAssigned ...
+	ResourceIdentityTypeUserAssigned ResourceIdentityType = "UserAssigned"
+)
+
+// PossibleResourceIdentityTypeValues returns an array of possible values for the ResourceIdentityType const type.
+func PossibleResourceIdentityTypeValues() []ResourceIdentityType {
+	return []ResourceIdentityType{ResourceIdentityTypeNone, ResourceIdentityTypeSystemAssigned, ResourceIdentityTypeSystemAssignedUserAssigned, ResourceIdentityTypeUserAssigned}
+}
+
+// ResourceSkuCapacityScaleType enumerates the values for resource sku capacity scale type.
+type ResourceSkuCapacityScaleType string
+
+const (
+	// ResourceSkuCapacityScaleTypeAutomatic ...
+	ResourceSkuCapacityScaleTypeAutomatic ResourceSkuCapacityScaleType = "Automatic"
+	// ResourceSkuCapacityScaleTypeManual ...
+	ResourceSkuCapacityScaleTypeManual ResourceSkuCapacityScaleType = "Manual"
+	// ResourceSkuCapacityScaleTypeNone ...
+	ResourceSkuCapacityScaleTypeNone ResourceSkuCapacityScaleType = "None"
+)
+
+// PossibleResourceSkuCapacityScaleTypeValues returns an array of possible values for the ResourceSkuCapacityScaleType const type.
+func PossibleResourceSkuCapacityScaleTypeValues() []ResourceSkuCapacityScaleType {
+	return []ResourceSkuCapacityScaleType{ResourceSkuCapacityScaleTypeAutomatic, ResourceSkuCapacityScaleTypeManual, ResourceSkuCapacityScaleTypeNone}
+}
+
+// ResourceSkuRestrictionsReasonCode enumerates the values for resource sku restrictions reason code.
+type ResourceSkuRestrictionsReasonCode string
+
+const (
+	// NotAvailableForSubscription ...
+	NotAvailableForSubscription ResourceSkuRestrictionsReasonCode = "NotAvailableForSubscription"
+	// QuotaID ...
+	QuotaID ResourceSkuRestrictionsReasonCode = "QuotaId"
+)
+
+// PossibleResourceSkuRestrictionsReasonCodeValues returns an array of possible values for the ResourceSkuRestrictionsReasonCode const type.
+func PossibleResourceSkuRestrictionsReasonCodeValues() []ResourceSkuRestrictionsReasonCode {
+	return []ResourceSkuRestrictionsReasonCode{NotAvailableForSubscription, QuotaID}
+}
+
+// ResourceSkuRestrictionsType enumerates the values for resource sku restrictions type.
+type ResourceSkuRestrictionsType string
+
+const (
+	// Location ...
+	Location ResourceSkuRestrictionsType = "Location"
+	// Zone ...
+	Zone ResourceSkuRestrictionsType = "Zone"
+)
+
+// PossibleResourceSkuRestrictionsTypeValues returns an array of possible values for the ResourceSkuRestrictionsType const type.
+func PossibleResourceSkuRestrictionsTypeValues() []ResourceSkuRestrictionsType {
+	return []ResourceSkuRestrictionsType{Location, Zone}
+}
+
+// RollingUpgradeActionType enumerates the values for rolling upgrade action type.
+type RollingUpgradeActionType string
+
+const (
+	// Cancel ...
+	Cancel RollingUpgradeActionType = "Cancel"
+	// Start ...
+	Start RollingUpgradeActionType = "Start"
+)
+
+// PossibleRollingUpgradeActionTypeValues returns an array of possible values for the RollingUpgradeActionType const type.
+func PossibleRollingUpgradeActionTypeValues() []RollingUpgradeActionType {
+	return []RollingUpgradeActionType{Cancel, Start}
+}
+
+// RollingUpgradeStatusCode enumerates the values for rolling upgrade status code.
+type RollingUpgradeStatusCode string
+
+const (
+	// Cancelled ...
+	Cancelled RollingUpgradeStatusCode = "Cancelled"
+	// Completed ...
+	Completed RollingUpgradeStatusCode = "Completed"
+	// Faulted ...
+	Faulted RollingUpgradeStatusCode = "Faulted"
+	// RollingForward ...
+	RollingForward RollingUpgradeStatusCode = "RollingForward"
+)
+
+// PossibleRollingUpgradeStatusCodeValues returns an array of possible values for the RollingUpgradeStatusCode const type.
+func PossibleRollingUpgradeStatusCodeValues() []RollingUpgradeStatusCode {
+	return []RollingUpgradeStatusCode{Cancelled, Completed, Faulted, RollingForward}
+}
+
+// SettingNames enumerates the values for setting names.
+type SettingNames string
+
+const (
+	// AutoLogon ...
+	AutoLogon SettingNames = "AutoLogon"
+	// FirstLogonCommands ...
+	FirstLogonCommands SettingNames = "FirstLogonCommands"
+)
+
+// PossibleSettingNamesValues returns an array of possible values for the SettingNames const type.
+func PossibleSettingNamesValues() []SettingNames {
+	return []SettingNames{AutoLogon, FirstLogonCommands}
+}
+
+// StatusLevelTypes enumerates the values for status level types.
+type StatusLevelTypes string
+
+const (
+	// Error ...
+	Error StatusLevelTypes = "Error"
+	// Info ...
+	Info StatusLevelTypes = "Info"
+	// Warning ...
+	Warning StatusLevelTypes = "Warning"
+)
+
+// PossibleStatusLevelTypesValues returns an array of possible values for the StatusLevelTypes const type.
+func PossibleStatusLevelTypesValues() []StatusLevelTypes {
+	return []StatusLevelTypes{Error, Info, Warning}
+}
+
+// StorageAccountTypes enumerates the values for storage account types.
+type StorageAccountTypes string
+
+const (
+	// PremiumLRS ...
+	PremiumLRS StorageAccountTypes = "Premium_LRS"
+	// StandardLRS ...
+	StandardLRS StorageAccountTypes = "Standard_LRS"
+)
+
+// PossibleStorageAccountTypesValues returns an array of possible values for the StorageAccountTypes const type.
+func PossibleStorageAccountTypesValues() []StorageAccountTypes {
+	return []StorageAccountTypes{PremiumLRS, StandardLRS}
+}
+
+// UpgradeMode enumerates the values for upgrade mode.
+type UpgradeMode string
+
+const (
+	// Automatic ...
+	Automatic UpgradeMode = "Automatic"
+	// Manual ...
+	Manual UpgradeMode = "Manual"
+	// Rolling ...
+	Rolling UpgradeMode = "Rolling"
+)
+
+// PossibleUpgradeModeValues returns an array of possible values for the UpgradeMode const type.
+func PossibleUpgradeModeValues() []UpgradeMode {
+	return []UpgradeMode{Automatic, Manual, Rolling}
+}
+
+// UpgradeOperationInvoker enumerates the values for upgrade operation invoker.
+type UpgradeOperationInvoker string
+
+const (
+	// Platform ...
+	Platform UpgradeOperationInvoker = "Platform"
+	// Unknown ...
+	Unknown UpgradeOperationInvoker = "Unknown"
+	// User ...
+	User UpgradeOperationInvoker = "User"
+)
+
+// PossibleUpgradeOperationInvokerValues returns an array of possible values for the UpgradeOperationInvoker const type.
+func PossibleUpgradeOperationInvokerValues() []UpgradeOperationInvoker {
+	return []UpgradeOperationInvoker{Platform, Unknown, User}
+}
+
+// UpgradeState enumerates the values for upgrade state.
+type UpgradeState string
+
+const (
+	// UpgradeStateCancelled ...
+	UpgradeStateCancelled UpgradeState = "Cancelled"
+	// UpgradeStateCompleted ...
+	UpgradeStateCompleted UpgradeState = "Completed"
+	// UpgradeStateFaulted ...
+	UpgradeStateFaulted UpgradeState = "Faulted"
+	// UpgradeStateRollingForward ...
+	UpgradeStateRollingForward UpgradeState = "RollingForward"
+)
+
+// PossibleUpgradeStateValues returns an array of possible values for the UpgradeState const type.
+func PossibleUpgradeStateValues() []UpgradeState {
+	return []UpgradeState{UpgradeStateCancelled, UpgradeStateCompleted, UpgradeStateFaulted, UpgradeStateRollingForward}
+}
+
+// VirtualMachineEvictionPolicyTypes enumerates the values for virtual machine eviction policy types.
+type VirtualMachineEvictionPolicyTypes string
+
+const (
+	// Deallocate ...
+	Deallocate VirtualMachineEvictionPolicyTypes = "Deallocate"
+	// Delete ...
+	Delete VirtualMachineEvictionPolicyTypes = "Delete"
+)
+
+// PossibleVirtualMachineEvictionPolicyTypesValues returns an array of possible values for the VirtualMachineEvictionPolicyTypes const type.
+func PossibleVirtualMachineEvictionPolicyTypesValues() []VirtualMachineEvictionPolicyTypes {
+	return []VirtualMachineEvictionPolicyTypes{Deallocate, Delete}
+}
+
+// VirtualMachinePriorityTypes enumerates the values for virtual machine priority types.
+type VirtualMachinePriorityTypes string
+
+const (
+	// Low ...
+	Low VirtualMachinePriorityTypes = "Low"
+	// Regular ...
+	Regular VirtualMachinePriorityTypes = "Regular"
+)
+
+// PossibleVirtualMachinePriorityTypesValues returns an array of possible values for the VirtualMachinePriorityTypes const type.
+func PossibleVirtualMachinePriorityTypesValues() []VirtualMachinePriorityTypes {
+	return []VirtualMachinePriorityTypes{Low, Regular}
+}
+
+// VirtualMachineScaleSetSkuScaleType enumerates the values for virtual machine scale set sku scale type.
+type VirtualMachineScaleSetSkuScaleType string
+
+const (
+	// VirtualMachineScaleSetSkuScaleTypeAutomatic ...
+	VirtualMachineScaleSetSkuScaleTypeAutomatic VirtualMachineScaleSetSkuScaleType = "Automatic"
+	// VirtualMachineScaleSetSkuScaleTypeNone ...
+	VirtualMachineScaleSetSkuScaleTypeNone VirtualMachineScaleSetSkuScaleType = "None"
+)
+
+// PossibleVirtualMachineScaleSetSkuScaleTypeValues returns an array of possible values for the VirtualMachineScaleSetSkuScaleType const type.
+func PossibleVirtualMachineScaleSetSkuScaleTypeValues() []VirtualMachineScaleSetSkuScaleType {
+	return []VirtualMachineScaleSetSkuScaleType{VirtualMachineScaleSetSkuScaleTypeAutomatic, VirtualMachineScaleSetSkuScaleTypeNone}
+}
+
+// VirtualMachineSizeTypes enumerates the values for virtual machine size types.
+type VirtualMachineSizeTypes string
+
+const (
+	// BasicA0 ...
+	BasicA0 VirtualMachineSizeTypes = "Basic_A0"
+	// BasicA1 ...
+	BasicA1 VirtualMachineSizeTypes = "Basic_A1"
+	// BasicA2 ...
+	BasicA2 VirtualMachineSizeTypes = "Basic_A2"
+	// BasicA3 ...
+	BasicA3 VirtualMachineSizeTypes = "Basic_A3"
+	// BasicA4 ...
+	BasicA4 VirtualMachineSizeTypes = "Basic_A4"
+	// StandardA0 ...
+	StandardA0 VirtualMachineSizeTypes = "Standard_A0"
+	// StandardA1 ...
+	StandardA1 VirtualMachineSizeTypes = "Standard_A1"
+	// StandardA10 ...
+	StandardA10 VirtualMachineSizeTypes = "Standard_A10"
+	// StandardA11 ...
+	StandardA11 VirtualMachineSizeTypes = "Standard_A11"
+	// StandardA1V2 ...
+	StandardA1V2 VirtualMachineSizeTypes = "Standard_A1_v2"
+	// StandardA2 ...
+	StandardA2 VirtualMachineSizeTypes = "Standard_A2"
+	// StandardA2mV2 ...
+	StandardA2mV2 VirtualMachineSizeTypes = "Standard_A2m_v2"
+	// StandardA2V2 ...
+	StandardA2V2 VirtualMachineSizeTypes = "Standard_A2_v2"
+	// StandardA3 ...
+	StandardA3 VirtualMachineSizeTypes = "Standard_A3"
+	// StandardA4 ...
+	StandardA4 VirtualMachineSizeTypes = "Standard_A4"
+	// StandardA4mV2 ...
+	StandardA4mV2 VirtualMachineSizeTypes = "Standard_A4m_v2"
+	// StandardA4V2 ...
+	StandardA4V2 VirtualMachineSizeTypes = "Standard_A4_v2"
+	// StandardA5 ...
+	StandardA5 VirtualMachineSizeTypes = "Standard_A5"
+	// StandardA6 ...
+	StandardA6 VirtualMachineSizeTypes = "Standard_A6"
+	// StandardA7 ...
+	StandardA7 VirtualMachineSizeTypes = "Standard_A7"
+	// StandardA8 ...
+	StandardA8 VirtualMachineSizeTypes = "Standard_A8"
+	// StandardA8mV2 ...
+	StandardA8mV2 VirtualMachineSizeTypes = "Standard_A8m_v2"
+	// StandardA8V2 ...
+	StandardA8V2 VirtualMachineSizeTypes = "Standard_A8_v2"
+	// StandardA9 ...
+	StandardA9 VirtualMachineSizeTypes = "Standard_A9"
+	// StandardB1ms ...
+	StandardB1ms VirtualMachineSizeTypes = "Standard_B1ms"
+	// StandardB1s ...
+	StandardB1s VirtualMachineSizeTypes = "Standard_B1s"
+	// StandardB2ms ...
+	StandardB2ms VirtualMachineSizeTypes = "Standard_B2ms"
+	// StandardB2s ...
+	StandardB2s VirtualMachineSizeTypes = "Standard_B2s"
+	// StandardB4ms ...
+	StandardB4ms VirtualMachineSizeTypes = "Standard_B4ms"
+	// StandardB8ms ...
+	StandardB8ms VirtualMachineSizeTypes = "Standard_B8ms"
+	// StandardD1 ...
+	StandardD1 VirtualMachineSizeTypes = "Standard_D1"
+	// StandardD11 ...
+	StandardD11 VirtualMachineSizeTypes = "Standard_D11"
+	// StandardD11V2 ...
+	StandardD11V2 VirtualMachineSizeTypes = "Standard_D11_v2"
+	// StandardD12 ...
+	StandardD12 VirtualMachineSizeTypes = "Standard_D12"
+	// StandardD12V2 ...
+	StandardD12V2 VirtualMachineSizeTypes = "Standard_D12_v2"
+	// StandardD13 ...
+	StandardD13 VirtualMachineSizeTypes = "Standard_D13"
+	// StandardD13V2 ...
+	StandardD13V2 VirtualMachineSizeTypes = "Standard_D13_v2"
+	// StandardD14 ...
+	StandardD14 VirtualMachineSizeTypes = "Standard_D14"
+	// StandardD14V2 ...
+	StandardD14V2 VirtualMachineSizeTypes = "Standard_D14_v2"
+	// StandardD15V2 ...
+	StandardD15V2 VirtualMachineSizeTypes = "Standard_D15_v2"
+	// StandardD16sV3 ...
+	StandardD16sV3 VirtualMachineSizeTypes = "Standard_D16s_v3"
+	// StandardD16V3 ...
+	StandardD16V3 VirtualMachineSizeTypes = "Standard_D16_v3"
+	// StandardD1V2 ...
+	StandardD1V2 VirtualMachineSizeTypes = "Standard_D1_v2"
+	// StandardD2 ...
+	StandardD2 VirtualMachineSizeTypes = "Standard_D2"
+	// StandardD2sV3 ...
+	StandardD2sV3 VirtualMachineSizeTypes = "Standard_D2s_v3"
+	// StandardD2V2 ...
+	StandardD2V2 VirtualMachineSizeTypes = "Standard_D2_v2"
+	// StandardD2V3 ...
+	StandardD2V3 VirtualMachineSizeTypes = "Standard_D2_v3"
+	// StandardD3 ...
+	StandardD3 VirtualMachineSizeTypes = "Standard_D3"
+	// StandardD32sV3 ...
+	StandardD32sV3 VirtualMachineSizeTypes = "Standard_D32s_v3"
+	// StandardD32V3 ...
+	StandardD32V3 VirtualMachineSizeTypes = "Standard_D32_v3"
+	// StandardD3V2 ...
+	StandardD3V2 VirtualMachineSizeTypes = "Standard_D3_v2"
+	// StandardD4 ...
+	StandardD4 VirtualMachineSizeTypes = "Standard_D4"
+	// StandardD4sV3 ...
+	StandardD4sV3 VirtualMachineSizeTypes = "Standard_D4s_v3"
+	// StandardD4V2 ...
+	StandardD4V2 VirtualMachineSizeTypes = "Standard_D4_v2"
+	// StandardD4V3 ...
+	StandardD4V3 VirtualMachineSizeTypes = "Standard_D4_v3"
+	// StandardD5V2 ...
+	StandardD5V2 VirtualMachineSizeTypes = "Standard_D5_v2"
+	// StandardD64sV3 ...
+	StandardD64sV3 VirtualMachineSizeTypes = "Standard_D64s_v3"
+	// StandardD64V3 ...
+	StandardD64V3 VirtualMachineSizeTypes = "Standard_D64_v3"
+	// StandardD8sV3 ...
+	StandardD8sV3 VirtualMachineSizeTypes = "Standard_D8s_v3"
+	// StandardD8V3 ...
+	StandardD8V3 VirtualMachineSizeTypes = "Standard_D8_v3"
+	// StandardDS1 ...
+	StandardDS1 VirtualMachineSizeTypes = "Standard_DS1"
+	// StandardDS11 ...
+	StandardDS11 VirtualMachineSizeTypes = "Standard_DS11"
+	// StandardDS11V2 ...
+	StandardDS11V2 VirtualMachineSizeTypes = "Standard_DS11_v2"
+	// StandardDS12 ...
+	StandardDS12 VirtualMachineSizeTypes = "Standard_DS12"
+	// StandardDS12V2 ...
+	StandardDS12V2 VirtualMachineSizeTypes = "Standard_DS12_v2"
+	// StandardDS13 ...
+	StandardDS13 VirtualMachineSizeTypes = "Standard_DS13"
+	// StandardDS132V2 ...
+	StandardDS132V2 VirtualMachineSizeTypes = "Standard_DS13-2_v2"
+	// StandardDS134V2 ...
+	StandardDS134V2 VirtualMachineSizeTypes = "Standard_DS13-4_v2"
+	// StandardDS13V2 ...
+	StandardDS13V2 VirtualMachineSizeTypes = "Standard_DS13_v2"
+	// StandardDS14 ...
+	StandardDS14 VirtualMachineSizeTypes = "Standard_DS14"
+	// StandardDS144V2 ...
+	StandardDS144V2 VirtualMachineSizeTypes = "Standard_DS14-4_v2"
+	// StandardDS148V2 ...
+	StandardDS148V2 VirtualMachineSizeTypes = "Standard_DS14-8_v2"
+	// StandardDS14V2 ...
+	StandardDS14V2 VirtualMachineSizeTypes = "Standard_DS14_v2"
+	// StandardDS15V2 ...
+	StandardDS15V2 VirtualMachineSizeTypes = "Standard_DS15_v2"
+	// StandardDS1V2 ...
+	StandardDS1V2 VirtualMachineSizeTypes = "Standard_DS1_v2"
+	// StandardDS2 ...
+	StandardDS2 VirtualMachineSizeTypes = "Standard_DS2"
+	// StandardDS2V2 ...
+	StandardDS2V2 VirtualMachineSizeTypes = "Standard_DS2_v2"
+	// StandardDS3 ...
+	StandardDS3 VirtualMachineSizeTypes = "Standard_DS3"
+	// StandardDS3V2 ...
+	StandardDS3V2 VirtualMachineSizeTypes = "Standard_DS3_v2"
+	// StandardDS4 ...
+	StandardDS4 VirtualMachineSizeTypes = "Standard_DS4"
+	// StandardDS4V2 ...
+	StandardDS4V2 VirtualMachineSizeTypes = "Standard_DS4_v2"
+	// StandardDS5V2 ...
+	StandardDS5V2 VirtualMachineSizeTypes = "Standard_DS5_v2"
+	// StandardE16sV3 ...
+	StandardE16sV3 VirtualMachineSizeTypes = "Standard_E16s_v3"
+	// StandardE16V3 ...
+	StandardE16V3 VirtualMachineSizeTypes = "Standard_E16_v3"
+	// StandardE2sV3 ...
+	StandardE2sV3 VirtualMachineSizeTypes = "Standard_E2s_v3"
+	// StandardE2V3 ...
+	StandardE2V3 VirtualMachineSizeTypes = "Standard_E2_v3"
+	// StandardE3216V3 ...
+	StandardE3216V3 VirtualMachineSizeTypes = "Standard_E32-16_v3"
+	// StandardE328sV3 ...
+	StandardE328sV3 VirtualMachineSizeTypes = "Standard_E32-8s_v3"
+	// StandardE32sV3 ...
+	StandardE32sV3 VirtualMachineSizeTypes = "Standard_E32s_v3"
+	// StandardE32V3 ...
+	StandardE32V3 VirtualMachineSizeTypes = "Standard_E32_v3"
+	// StandardE4sV3 ...
+	StandardE4sV3 VirtualMachineSizeTypes = "Standard_E4s_v3"
+	// StandardE4V3 ...
+	StandardE4V3 VirtualMachineSizeTypes = "Standard_E4_v3"
+	// StandardE6416sV3 ...
+	StandardE6416sV3 VirtualMachineSizeTypes = "Standard_E64-16s_v3"
+	// StandardE6432sV3 ...
+	StandardE6432sV3 VirtualMachineSizeTypes = "Standard_E64-32s_v3"
+	// StandardE64sV3 ...
+	StandardE64sV3 VirtualMachineSizeTypes = "Standard_E64s_v3"
+	// StandardE64V3 ...
+	StandardE64V3 VirtualMachineSizeTypes = "Standard_E64_v3"
+	// StandardE8sV3 ...
+	StandardE8sV3 VirtualMachineSizeTypes = "Standard_E8s_v3"
+	// StandardE8V3 ...
+	StandardE8V3 VirtualMachineSizeTypes = "Standard_E8_v3"
+	// StandardF1 ...
+	StandardF1 VirtualMachineSizeTypes = "Standard_F1"
+	// StandardF16 ...
+	StandardF16 VirtualMachineSizeTypes = "Standard_F16"
+	// StandardF16s ...
+	StandardF16s VirtualMachineSizeTypes = "Standard_F16s"
+	// StandardF16sV2 ...
+	StandardF16sV2 VirtualMachineSizeTypes = "Standard_F16s_v2"
+	// StandardF1s ...
+	StandardF1s VirtualMachineSizeTypes = "Standard_F1s"
+	// StandardF2 ...
+	StandardF2 VirtualMachineSizeTypes = "Standard_F2"
+	// StandardF2s ...
+	StandardF2s VirtualMachineSizeTypes = "Standard_F2s"
+	// StandardF2sV2 ...
+	StandardF2sV2 VirtualMachineSizeTypes = "Standard_F2s_v2"
+	// StandardF32sV2 ...
+	StandardF32sV2 VirtualMachineSizeTypes = "Standard_F32s_v2"
+	// StandardF4 ...
+	StandardF4 VirtualMachineSizeTypes = "Standard_F4"
+	// StandardF4s ...
+	StandardF4s VirtualMachineSizeTypes = "Standard_F4s"
+	// StandardF4sV2 ...
+	StandardF4sV2 VirtualMachineSizeTypes = "Standard_F4s_v2"
+	// StandardF64sV2 ...
+	StandardF64sV2 VirtualMachineSizeTypes = "Standard_F64s_v2"
+	// StandardF72sV2 ...
+	StandardF72sV2 VirtualMachineSizeTypes = "Standard_F72s_v2"
+	// StandardF8 ...
+	StandardF8 VirtualMachineSizeTypes = "Standard_F8"
+	// StandardF8s ...
+	StandardF8s VirtualMachineSizeTypes = "Standard_F8s"
+	// StandardF8sV2 ...
+	StandardF8sV2 VirtualMachineSizeTypes = "Standard_F8s_v2"
+	// StandardG1 ...
+	StandardG1 VirtualMachineSizeTypes = "Standard_G1"
+	// StandardG2 ...
+	StandardG2 VirtualMachineSizeTypes = "Standard_G2"
+	// StandardG3 ...
+	StandardG3 VirtualMachineSizeTypes = "Standard_G3"
+	// StandardG4 ...
+	StandardG4 VirtualMachineSizeTypes = "Standard_G4"
+	// StandardG5 ...
+	StandardG5 VirtualMachineSizeTypes = "Standard_G5"
+	// StandardGS1 ...
+	StandardGS1 VirtualMachineSizeTypes = "Standard_GS1"
+	// StandardGS2 ...
+	StandardGS2 VirtualMachineSizeTypes = "Standard_GS2"
+	// StandardGS3 ...
+	StandardGS3 VirtualMachineSizeTypes = "Standard_GS3"
+	// StandardGS4 ...
+	StandardGS4 VirtualMachineSizeTypes = "Standard_GS4"
+	// StandardGS44 ...
+	StandardGS44 VirtualMachineSizeTypes = "Standard_GS4-4"
+	// StandardGS48 ...
+	StandardGS48 VirtualMachineSizeTypes = "Standard_GS4-8"
+	// StandardGS5 ...
+	StandardGS5 VirtualMachineSizeTypes = "Standard_GS5"
+	// StandardGS516 ...
+	StandardGS516 VirtualMachineSizeTypes = "Standard_GS5-16"
+	// StandardGS58 ...
+	StandardGS58 VirtualMachineSizeTypes = "Standard_GS5-8"
+	// StandardH16 ...
+	StandardH16 VirtualMachineSizeTypes = "Standard_H16"
+	// StandardH16m ...
+	StandardH16m VirtualMachineSizeTypes = "Standard_H16m"
+	// StandardH16mr ...
+	StandardH16mr VirtualMachineSizeTypes = "Standard_H16mr"
+	// StandardH16r ...
+	StandardH16r VirtualMachineSizeTypes = "Standard_H16r"
+	// StandardH8 ...
+	StandardH8 VirtualMachineSizeTypes = "Standard_H8"
+	// StandardH8m ...
+	StandardH8m VirtualMachineSizeTypes = "Standard_H8m"
+	// StandardL16s ...
+	StandardL16s VirtualMachineSizeTypes = "Standard_L16s"
+	// StandardL32s ...
+	StandardL32s VirtualMachineSizeTypes = "Standard_L32s"
+	// StandardL4s ...
+	StandardL4s VirtualMachineSizeTypes = "Standard_L4s"
+	// StandardL8s ...
+	StandardL8s VirtualMachineSizeTypes = "Standard_L8s"
+	// StandardM12832ms ...
+	StandardM12832ms VirtualMachineSizeTypes = "Standard_M128-32ms"
+	// StandardM12864ms ...
+	StandardM12864ms VirtualMachineSizeTypes = "Standard_M128-64ms"
+	// StandardM128ms ...
+	StandardM128ms VirtualMachineSizeTypes = "Standard_M128ms"
+	// StandardM128s ...
+	StandardM128s VirtualMachineSizeTypes = "Standard_M128s"
+	// StandardM6416ms ...
+	StandardM6416ms VirtualMachineSizeTypes = "Standard_M64-16ms"
+	// StandardM6432ms ...
+	StandardM6432ms VirtualMachineSizeTypes = "Standard_M64-32ms"
+	// StandardM64ms ...
+	StandardM64ms VirtualMachineSizeTypes = "Standard_M64ms"
+	// StandardM64s ...
+	StandardM64s VirtualMachineSizeTypes = "Standard_M64s"
+	// StandardNC12 ...
+	StandardNC12 VirtualMachineSizeTypes = "Standard_NC12"
+	// StandardNC12sV2 ...
+	StandardNC12sV2 VirtualMachineSizeTypes = "Standard_NC12s_v2"
+	// StandardNC12sV3 ...
+	StandardNC12sV3 VirtualMachineSizeTypes = "Standard_NC12s_v3"
+	// StandardNC24 ...
+	StandardNC24 VirtualMachineSizeTypes = "Standard_NC24"
+	// StandardNC24r ...
+	StandardNC24r VirtualMachineSizeTypes = "Standard_NC24r"
+	// StandardNC24rsV2 ...
+	StandardNC24rsV2 VirtualMachineSizeTypes = "Standard_NC24rs_v2"
+	// StandardNC24rsV3 ...
+	StandardNC24rsV3 VirtualMachineSizeTypes = "Standard_NC24rs_v3"
+	// StandardNC24sV2 ...
+	StandardNC24sV2 VirtualMachineSizeTypes = "Standard_NC24s_v2"
+	// StandardNC24sV3 ...
+	StandardNC24sV3 VirtualMachineSizeTypes = "Standard_NC24s_v3"
+	// StandardNC6 ...
+	StandardNC6 VirtualMachineSizeTypes = "Standard_NC6"
+	// StandardNC6sV2 ...
+	StandardNC6sV2 VirtualMachineSizeTypes = "Standard_NC6s_v2"
+	// StandardNC6sV3 ...
+	StandardNC6sV3 VirtualMachineSizeTypes = "Standard_NC6s_v3"
+	// StandardND12s ...
+	StandardND12s VirtualMachineSizeTypes = "Standard_ND12s"
+	// StandardND24rs ...
+	StandardND24rs VirtualMachineSizeTypes = "Standard_ND24rs"
+	// StandardND24s ...
+	StandardND24s VirtualMachineSizeTypes = "Standard_ND24s"
+	// StandardND6s ...
+	StandardND6s VirtualMachineSizeTypes = "Standard_ND6s"
+	// StandardNV12 ...
+	StandardNV12 VirtualMachineSizeTypes = "Standard_NV12"
+	// StandardNV24 ...
+	StandardNV24 VirtualMachineSizeTypes = "Standard_NV24"
+	// StandardNV6 ...
+	StandardNV6 VirtualMachineSizeTypes = "Standard_NV6"
+)
+
+// PossibleVirtualMachineSizeTypesValues returns an array of possible values for the VirtualMachineSizeTypes const type.
+func PossibleVirtualMachineSizeTypesValues() []VirtualMachineSizeTypes {
+	return []VirtualMachineSizeTypes{BasicA0, BasicA1, BasicA2, BasicA3, BasicA4, StandardA0, StandardA1, StandardA10, StandardA11, StandardA1V2, StandardA2, StandardA2mV2, StandardA2V2, StandardA3, StandardA4, StandardA4mV2, StandardA4V2, StandardA5, StandardA6, StandardA7, StandardA8, StandardA8mV2, StandardA8V2, StandardA9, StandardB1ms, StandardB1s, StandardB2ms, StandardB2s, StandardB4ms, StandardB8ms, StandardD1, StandardD11, StandardD11V2, StandardD12, StandardD12V2, StandardD13, StandardD13V2, StandardD14, StandardD14V2, StandardD15V2, StandardD16sV3, StandardD16V3, StandardD1V2, StandardD2, StandardD2sV3, StandardD2V2, StandardD2V3, StandardD3, StandardD32sV3, StandardD32V3, StandardD3V2, StandardD4, StandardD4sV3, StandardD4V2, StandardD4V3, StandardD5V2, StandardD64sV3, StandardD64V3, StandardD8sV3, StandardD8V3, StandardDS1, StandardDS11, StandardDS11V2, StandardDS12, StandardDS12V2, StandardDS13, StandardDS132V2, StandardDS134V2, StandardDS13V2, StandardDS14, StandardDS144V2, StandardDS148V2, StandardDS14V2, StandardDS15V2, StandardDS1V2, StandardDS2, StandardDS2V2, StandardDS3, StandardDS3V2, StandardDS4, StandardDS4V2, StandardDS5V2, StandardE16sV3, StandardE16V3, StandardE2sV3, StandardE2V3, StandardE3216V3, StandardE328sV3, StandardE32sV3, StandardE32V3, StandardE4sV3, StandardE4V3, StandardE6416sV3, StandardE6432sV3, StandardE64sV3, StandardE64V3, StandardE8sV3, StandardE8V3, StandardF1, StandardF16, StandardF16s, StandardF16sV2, StandardF1s, StandardF2, StandardF2s, StandardF2sV2, StandardF32sV2, StandardF4, StandardF4s, StandardF4sV2, StandardF64sV2, StandardF72sV2, StandardF8, StandardF8s, StandardF8sV2, StandardG1, StandardG2, StandardG3, StandardG4, StandardG5, StandardGS1, StandardGS2, StandardGS3, StandardGS4, StandardGS44, StandardGS48, StandardGS5, StandardGS516, StandardGS58, StandardH16, StandardH16m, StandardH16mr, StandardH16r, StandardH8, StandardH8m, StandardL16s, StandardL32s, StandardL4s, StandardL8s, StandardM12832ms, StandardM12864ms, StandardM128ms, StandardM128s, StandardM6416ms, StandardM6432ms, StandardM64ms, StandardM64s, StandardNC12, StandardNC12sV2, StandardNC12sV3, StandardNC24, StandardNC24r, StandardNC24rsV2, StandardNC24rsV3, StandardNC24sV2, StandardNC24sV3, StandardNC6, StandardNC6sV2, StandardNC6sV3, StandardND12s, StandardND24rs, StandardND24s, StandardND6s, StandardNV12, StandardNV24, StandardNV6}
+}
+
 // AccessURI a disk access SAS uri.
 type AccessURI struct {
 	autorest.Response `json:"-"`
@@ -366,15 +1161,10 @@ func (aslr AvailabilitySetListResult) IsEmpty() bool {
 	return aslr.Value == nil || len(*aslr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (aslr AvailabilitySetListResult) hasNextLink() bool {
-	return aslr.NextLink != nil && len(*aslr.NextLink) != 0
-}
-
 // availabilitySetListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (aslr AvailabilitySetListResult) availabilitySetListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !aslr.hasNextLink() {
+	if aslr.NextLink == nil || len(to.String(aslr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -402,16 +1192,11 @@ func (page *AvailabilitySetListResultPage) NextWithContext(ctx context.Context) 
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.aslr)
-		if err != nil {
-			return err
-		}
-		page.aslr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.aslr)
+	if err != nil {
+		return err
 	}
+	page.aslr = next
 	return nil
 }
 
@@ -441,11 +1226,8 @@ func (page AvailabilitySetListResultPage) Values() []AvailabilitySet {
 }
 
 // Creates a new instance of the AvailabilitySetListResultPage type.
-func NewAvailabilitySetListResultPage(cur AvailabilitySetListResult, getNextPage func(context.Context, AvailabilitySetListResult) (AvailabilitySetListResult, error)) AvailabilitySetListResultPage {
-	return AvailabilitySetListResultPage{
-		fn:   getNextPage,
-		aslr: cur,
-	}
+func NewAvailabilitySetListResultPage(getNextPage func(context.Context, AvailabilitySetListResult) (AvailabilitySetListResult, error)) AvailabilitySetListResultPage {
+	return AvailabilitySetListResultPage{fn: getNextPage}
 }
 
 // AvailabilitySetProperties the instance view of a resource.
@@ -458,21 +1240,6 @@ type AvailabilitySetProperties struct {
 	VirtualMachines *[]SubResource `json:"virtualMachines,omitempty"`
 	// Statuses - READ-ONLY; The resource status information.
 	Statuses *[]InstanceViewStatus `json:"statuses,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for AvailabilitySetProperties.
-func (asp AvailabilitySetProperties) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if asp.PlatformUpdateDomainCount != nil {
-		objectMap["platformUpdateDomainCount"] = asp.PlatformUpdateDomainCount
-	}
-	if asp.PlatformFaultDomainCount != nil {
-		objectMap["platformFaultDomainCount"] = asp.PlatformFaultDomainCount
-	}
-	if asp.VirtualMachines != nil {
-		objectMap["virtualMachines"] = asp.VirtualMachines
-	}
-	return json.Marshal(objectMap)
 }
 
 // AvailabilitySetUpdate specifies information about the availability set that the virtual machine should
@@ -844,15 +1611,10 @@ func (dl DiskList) IsEmpty() bool {
 	return dl.Value == nil || len(*dl.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (dl DiskList) hasNextLink() bool {
-	return dl.NextLink != nil && len(*dl.NextLink) != 0
-}
-
 // diskListPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (dl DiskList) diskListPreparer(ctx context.Context) (*http.Request, error) {
-	if !dl.hasNextLink() {
+	if dl.NextLink == nil || len(to.String(dl.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -880,16 +1642,11 @@ func (page *DiskListPage) NextWithContext(ctx context.Context) (err error) {
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.dl)
-		if err != nil {
-			return err
-		}
-		page.dl = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.dl)
+	if err != nil {
+		return err
 	}
+	page.dl = next
 	return nil
 }
 
@@ -919,11 +1676,8 @@ func (page DiskListPage) Values() []Disk {
 }
 
 // Creates a new instance of the DiskListPage type.
-func NewDiskListPage(cur DiskList, getNextPage func(context.Context, DiskList) (DiskList, error)) DiskListPage {
-	return DiskListPage{
-		fn: getNextPage,
-		dl: cur,
-	}
+func NewDiskListPage(getNextPage func(context.Context, DiskList) (DiskList, error)) DiskListPage {
+	return DiskListPage{fn: getNextPage}
 }
 
 // DiskProperties disk resource properties.
@@ -942,48 +1696,90 @@ type DiskProperties struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for DiskProperties.
-func (dp DiskProperties) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if dp.OsType != "" {
-		objectMap["osType"] = dp.OsType
-	}
-	if dp.CreationData != nil {
-		objectMap["creationData"] = dp.CreationData
-	}
-	if dp.DiskSizeGB != nil {
-		objectMap["diskSizeGB"] = dp.DiskSizeGB
-	}
-	if dp.EncryptionSettings != nil {
-		objectMap["encryptionSettings"] = dp.EncryptionSettings
-	}
-	return json.Marshal(objectMap)
-}
-
 // DisksCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type DisksCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(DisksClient) (Disk, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *DisksCreateOrUpdateFuture) Result(client DisksClient) (d Disk, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.DisksCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.DisksCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if d.Response.Response, err = future.GetResult(sender); err == nil && d.Response.Response.StatusCode != http.StatusNoContent {
+		d, err = client.CreateOrUpdateResponder(d.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.DisksCreateOrUpdateFuture", "Result", d.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // DisksDeleteFuture an abstraction for monitoring and retrieving the results of a long-running operation.
 type DisksDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(DisksClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *DisksDeleteFuture) Result(client DisksClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.DisksDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.DisksDeleteFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeleteResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.DisksDeleteFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // DisksGrantAccessFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type DisksGrantAccessFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(DisksClient) (AccessURI, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *DisksGrantAccessFuture) Result(client DisksClient) (au AccessURI, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.DisksGrantAccessFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.DisksGrantAccessFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if au.Response.Response, err = future.GetResult(sender); err == nil && au.Response.Response.StatusCode != http.StatusNoContent {
+		au, err = client.GrantAccessResponder(au.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.DisksGrantAccessFuture", "Result", au.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // DiskSku the disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
@@ -994,30 +1790,61 @@ type DiskSku struct {
 	Tier *string `json:"tier,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for DiskSku.
-func (ds DiskSku) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if ds.Name != "" {
-		objectMap["name"] = ds.Name
-	}
-	return json.Marshal(objectMap)
-}
-
 // DisksRevokeAccessFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type DisksRevokeAccessFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(DisksClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *DisksRevokeAccessFuture) Result(client DisksClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.DisksRevokeAccessFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.DisksRevokeAccessFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.RevokeAccessResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.DisksRevokeAccessFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // DisksUpdateFuture an abstraction for monitoring and retrieving the results of a long-running operation.
 type DisksUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(DisksClient) (Disk, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *DisksUpdateFuture) Result(client DisksClient) (d Disk, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.DisksUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.DisksUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if d.Response.Response, err = future.GetResult(sender); err == nil && d.Response.Response.StatusCode != http.StatusNoContent {
+		d, err = client.UpdateResponder(d.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.DisksUpdateFuture", "Result", d.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // DiskUpdate disk update resource.
@@ -1324,15 +2151,10 @@ func (ilr ImageListResult) IsEmpty() bool {
 	return ilr.Value == nil || len(*ilr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (ilr ImageListResult) hasNextLink() bool {
-	return ilr.NextLink != nil && len(*ilr.NextLink) != 0
-}
-
 // imageListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (ilr ImageListResult) imageListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !ilr.hasNextLink() {
+	if ilr.NextLink == nil || len(to.String(ilr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -1360,16 +2182,11 @@ func (page *ImageListResultPage) NextWithContext(ctx context.Context) (err error
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.ilr)
-		if err != nil {
-			return err
-		}
-		page.ilr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.ilr)
+	if err != nil {
+		return err
 	}
+	page.ilr = next
 	return nil
 }
 
@@ -1399,11 +2216,8 @@ func (page ImageListResultPage) Values() []Image {
 }
 
 // Creates a new instance of the ImageListResultPage type.
-func NewImageListResultPage(cur ImageListResult, getNextPage func(context.Context, ImageListResult) (ImageListResult, error)) ImageListResultPage {
-	return ImageListResultPage{
-		fn:  getNextPage,
-		ilr: cur,
-	}
+func NewImageListResultPage(getNextPage func(context.Context, ImageListResult) (ImageListResult, error)) ImageListResultPage {
+	return ImageListResultPage{fn: getNextPage}
 }
 
 // ImageOSDisk describes an Operating System disk.
@@ -1436,22 +2250,10 @@ type ImageProperties struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for ImageProperties.
-func (IP ImageProperties) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if IP.SourceVirtualMachine != nil {
-		objectMap["sourceVirtualMachine"] = IP.SourceVirtualMachine
-	}
-	if IP.StorageProfile != nil {
-		objectMap["storageProfile"] = IP.StorageProfile
-	}
-	return json.Marshal(objectMap)
-}
-
 // ImageReference specifies information about the image to use. You can specify information about platform
 // images, marketplace images, or virtual machine images. This element is required when you want to use a
 // platform image, marketplace image, or virtual machine image, but is not used in other creation
-// operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
+// operations.
 type ImageReference struct {
 	// Publisher - The image publisher.
 	Publisher *string `json:"publisher,omitempty"`
@@ -1468,18 +2270,58 @@ type ImageReference struct {
 // ImagesCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type ImagesCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ImagesClient) (Image, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ImagesCreateOrUpdateFuture) Result(client ImagesClient) (i Image, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.ImagesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.ImagesCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if i.Response.Response, err = future.GetResult(sender); err == nil && i.Response.Response.StatusCode != http.StatusNoContent {
+		i, err = client.CreateOrUpdateResponder(i.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.ImagesCreateOrUpdateFuture", "Result", i.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ImagesDeleteFuture an abstraction for monitoring and retrieving the results of a long-running operation.
 type ImagesDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ImagesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ImagesDeleteFuture) Result(client ImagesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.ImagesDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.ImagesDeleteFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeleteResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.ImagesDeleteFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ImageStorageProfile describes a storage profile.
@@ -1494,10 +2336,30 @@ type ImageStorageProfile struct {
 
 // ImagesUpdateFuture an abstraction for monitoring and retrieving the results of a long-running operation.
 type ImagesUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(ImagesClient) (Image, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *ImagesUpdateFuture) Result(client ImagesClient) (i Image, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.ImagesUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.ImagesUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if i.Response.Response, err = future.GetResult(sender); err == nil && i.Response.Response.StatusCode != http.StatusNoContent {
+		i, err = client.UpdateResponder(i.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.ImagesUpdateFuture", "Result", i.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // ImageUpdate the source user image virtual hard disk. Only tags may be updated.
@@ -1696,15 +2558,10 @@ func (lur ListUsagesResult) IsEmpty() bool {
 	return lur.Value == nil || len(*lur.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (lur ListUsagesResult) hasNextLink() bool {
-	return lur.NextLink != nil && len(*lur.NextLink) != 0
-}
-
 // listUsagesResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (lur ListUsagesResult) listUsagesResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !lur.hasNextLink() {
+	if lur.NextLink == nil || len(to.String(lur.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -1732,16 +2589,11 @@ func (page *ListUsagesResultPage) NextWithContext(ctx context.Context) (err erro
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.lur)
-		if err != nil {
-			return err
-		}
-		page.lur = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.lur)
+	if err != nil {
+		return err
 	}
+	page.lur = next
 	return nil
 }
 
@@ -1771,11 +2623,8 @@ func (page ListUsagesResultPage) Values() []Usage {
 }
 
 // Creates a new instance of the ListUsagesResultPage type.
-func NewListUsagesResultPage(cur ListUsagesResult, getNextPage func(context.Context, ListUsagesResult) (ListUsagesResult, error)) ListUsagesResultPage {
-	return ListUsagesResultPage{
-		fn:  getNextPage,
-		lur: cur,
-	}
+func NewListUsagesResultPage(getNextPage func(context.Context, ListUsagesResult) (ListUsagesResult, error)) ListUsagesResultPage {
+	return ListUsagesResultPage{fn: getNextPage}
 }
 
 // ListVirtualMachineExtensionImage ...
@@ -1793,19 +2642,59 @@ type ListVirtualMachineImageResource struct {
 // LogAnalyticsExportRequestRateByIntervalFuture an abstraction for monitoring and retrieving the results
 // of a long-running operation.
 type LogAnalyticsExportRequestRateByIntervalFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(LogAnalyticsClient) (LogAnalyticsOperationResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *LogAnalyticsExportRequestRateByIntervalFuture) Result(client LogAnalyticsClient) (laor LogAnalyticsOperationResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.LogAnalyticsExportRequestRateByIntervalFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.LogAnalyticsExportRequestRateByIntervalFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if laor.Response.Response, err = future.GetResult(sender); err == nil && laor.Response.Response.StatusCode != http.StatusNoContent {
+		laor, err = client.ExportRequestRateByIntervalResponder(laor.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.LogAnalyticsExportRequestRateByIntervalFuture", "Result", laor.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // LogAnalyticsExportThrottledRequestsFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type LogAnalyticsExportThrottledRequestsFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(LogAnalyticsClient) (LogAnalyticsOperationResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *LogAnalyticsExportThrottledRequestsFuture) Result(client LogAnalyticsClient) (laor LogAnalyticsOperationResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.LogAnalyticsExportThrottledRequestsFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.LogAnalyticsExportThrottledRequestsFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if laor.Response.Response, err = future.GetResult(sender); err == nil && laor.Response.Response.StatusCode != http.StatusNoContent {
+		laor, err = client.ExportThrottledRequestsResponder(laor.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.LogAnalyticsExportThrottledRequestsFuture", "Result", laor.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // LogAnalyticsInputBase api input base class for LogAnalytics Api.
@@ -2331,15 +3220,10 @@ func (rsr ResourceSkusResult) IsEmpty() bool {
 	return rsr.Value == nil || len(*rsr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (rsr ResourceSkusResult) hasNextLink() bool {
-	return rsr.NextLink != nil && len(*rsr.NextLink) != 0
-}
-
 // resourceSkusResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (rsr ResourceSkusResult) resourceSkusResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !rsr.hasNextLink() {
+	if rsr.NextLink == nil || len(to.String(rsr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -2367,16 +3251,11 @@ func (page *ResourceSkusResultPage) NextWithContext(ctx context.Context) (err er
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.rsr)
-		if err != nil {
-			return err
-		}
-		page.rsr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.rsr)
+	if err != nil {
+		return err
 	}
+	page.rsr = next
 	return nil
 }
 
@@ -2406,11 +3285,8 @@ func (page ResourceSkusResultPage) Values() []ResourceSku {
 }
 
 // Creates a new instance of the ResourceSkusResultPage type.
-func NewResourceSkusResultPage(cur ResourceSkusResult, getNextPage func(context.Context, ResourceSkusResult) (ResourceSkusResult, error)) ResourceSkusResultPage {
-	return ResourceSkusResultPage{
-		fn:  getNextPage,
-		rsr: cur,
-	}
+func NewResourceSkusResultPage(getNextPage func(context.Context, ResourceSkusResult) (ResourceSkusResult, error)) ResourceSkusResultPage {
+	return ResourceSkusResultPage{fn: getNextPage}
 }
 
 // ResourceUpdate the Resource model definition.
@@ -2719,15 +3595,10 @@ func (rclr RunCommandListResult) IsEmpty() bool {
 	return rclr.Value == nil || len(*rclr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (rclr RunCommandListResult) hasNextLink() bool {
-	return rclr.NextLink != nil && len(*rclr.NextLink) != 0
-}
-
 // runCommandListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (rclr RunCommandListResult) runCommandListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !rclr.hasNextLink() {
+	if rclr.NextLink == nil || len(to.String(rclr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -2755,16 +3626,11 @@ func (page *RunCommandListResultPage) NextWithContext(ctx context.Context) (err 
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.rclr)
-		if err != nil {
-			return err
-		}
-		page.rclr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.rclr)
+	if err != nil {
+		return err
 	}
+	page.rclr = next
 	return nil
 }
 
@@ -2794,11 +3660,8 @@ func (page RunCommandListResultPage) Values() []RunCommandDocumentBase {
 }
 
 // Creates a new instance of the RunCommandListResultPage type.
-func NewRunCommandListResultPage(cur RunCommandListResult, getNextPage func(context.Context, RunCommandListResult) (RunCommandListResult, error)) RunCommandListResultPage {
-	return RunCommandListResultPage{
-		fn:   getNextPage,
-		rclr: cur,
-	}
+func NewRunCommandListResultPage(getNextPage func(context.Context, RunCommandListResult) (RunCommandListResult, error)) RunCommandListResultPage {
+	return RunCommandListResultPage{fn: getNextPage}
 }
 
 // RunCommandParameterDefinition describes the properties of a run command parameter.
@@ -2913,9 +3776,7 @@ type RunCommandResultProperties struct {
 	Output interface{} `json:"output,omitempty"`
 }
 
-// Sku describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware
-// the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU
-// name.
+// Sku describes a virtual machine scale set sku.
 type Sku struct {
 	// Name - The sku name.
 	Name *string `json:"name,omitempty"`
@@ -3126,15 +3987,10 @@ func (sl SnapshotList) IsEmpty() bool {
 	return sl.Value == nil || len(*sl.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (sl SnapshotList) hasNextLink() bool {
-	return sl.NextLink != nil && len(*sl.NextLink) != 0
-}
-
 // snapshotListPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (sl SnapshotList) snapshotListPreparer(ctx context.Context) (*http.Request, error) {
-	if !sl.hasNextLink() {
+	if sl.NextLink == nil || len(to.String(sl.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -3162,16 +4018,11 @@ func (page *SnapshotListPage) NextWithContext(ctx context.Context) (err error) {
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.sl)
-		if err != nil {
-			return err
-		}
-		page.sl = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.sl)
+	if err != nil {
+		return err
 	}
+	page.sl = next
 	return nil
 }
 
@@ -3201,56 +4052,153 @@ func (page SnapshotListPage) Values() []Snapshot {
 }
 
 // Creates a new instance of the SnapshotListPage type.
-func NewSnapshotListPage(cur SnapshotList, getNextPage func(context.Context, SnapshotList) (SnapshotList, error)) SnapshotListPage {
-	return SnapshotListPage{
-		fn: getNextPage,
-		sl: cur,
-	}
+func NewSnapshotListPage(getNextPage func(context.Context, SnapshotList) (SnapshotList, error)) SnapshotListPage {
+	return SnapshotListPage{fn: getNextPage}
 }
 
 // SnapshotsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type SnapshotsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SnapshotsClient) (Snapshot, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SnapshotsCreateOrUpdateFuture) Result(client SnapshotsClient) (s Snapshot, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.SnapshotsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.SnapshotsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if s.Response.Response, err = future.GetResult(sender); err == nil && s.Response.Response.StatusCode != http.StatusNoContent {
+		s, err = client.CreateOrUpdateResponder(s.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.SnapshotsCreateOrUpdateFuture", "Result", s.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // SnapshotsDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type SnapshotsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SnapshotsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SnapshotsDeleteFuture) Result(client SnapshotsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.SnapshotsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.SnapshotsDeleteFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeleteResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.SnapshotsDeleteFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // SnapshotsGrantAccessFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type SnapshotsGrantAccessFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SnapshotsClient) (AccessURI, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SnapshotsGrantAccessFuture) Result(client SnapshotsClient) (au AccessURI, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.SnapshotsGrantAccessFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.SnapshotsGrantAccessFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if au.Response.Response, err = future.GetResult(sender); err == nil && au.Response.Response.StatusCode != http.StatusNoContent {
+		au, err = client.GrantAccessResponder(au.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.SnapshotsGrantAccessFuture", "Result", au.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // SnapshotsRevokeAccessFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type SnapshotsRevokeAccessFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SnapshotsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SnapshotsRevokeAccessFuture) Result(client SnapshotsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.SnapshotsRevokeAccessFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.SnapshotsRevokeAccessFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.RevokeAccessResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.SnapshotsRevokeAccessFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // SnapshotsUpdateFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type SnapshotsUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(SnapshotsClient) (Snapshot, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *SnapshotsUpdateFuture) Result(client SnapshotsClient) (s Snapshot, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.SnapshotsUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.SnapshotsUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if s.Response.Response, err = future.GetResult(sender); err == nil && s.Response.Response.StatusCode != http.StatusNoContent {
+		s, err = client.UpdateResponder(s.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.SnapshotsUpdateFuture", "Result", s.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // SnapshotUpdate snapshot update resource.
@@ -3977,52 +4925,62 @@ type VirtualMachineExtensionProperties struct {
 	InstanceView *VirtualMachineExtensionInstanceView `json:"instanceView,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualMachineExtensionProperties.
-func (vmep VirtualMachineExtensionProperties) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vmep.ForceUpdateTag != nil {
-		objectMap["forceUpdateTag"] = vmep.ForceUpdateTag
-	}
-	if vmep.Publisher != nil {
-		objectMap["publisher"] = vmep.Publisher
-	}
-	if vmep.Type != nil {
-		objectMap["type"] = vmep.Type
-	}
-	if vmep.TypeHandlerVersion != nil {
-		objectMap["typeHandlerVersion"] = vmep.TypeHandlerVersion
-	}
-	if vmep.AutoUpgradeMinorVersion != nil {
-		objectMap["autoUpgradeMinorVersion"] = vmep.AutoUpgradeMinorVersion
-	}
-	if vmep.Settings != nil {
-		objectMap["settings"] = vmep.Settings
-	}
-	if vmep.ProtectedSettings != nil {
-		objectMap["protectedSettings"] = vmep.ProtectedSettings
-	}
-	if vmep.InstanceView != nil {
-		objectMap["instanceView"] = vmep.InstanceView
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualMachineExtensionsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of
 // a long-running operation.
 type VirtualMachineExtensionsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineExtensionsClient) (VirtualMachineExtension, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineExtensionsCreateOrUpdateFuture) Result(client VirtualMachineExtensionsClient) (vme VirtualMachineExtension, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineExtensionsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineExtensionsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vme.Response.Response, err = future.GetResult(sender); err == nil && vme.Response.Response.StatusCode != http.StatusNoContent {
+		vme, err = client.CreateOrUpdateResponder(vme.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineExtensionsCreateOrUpdateFuture", "Result", vme.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineExtensionsDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineExtensionsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineExtensionsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineExtensionsDeleteFuture) Result(client VirtualMachineExtensionsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineExtensionsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineExtensionsDeleteFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeleteResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineExtensionsDeleteFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineExtensionsListResult the List Extension operation response
@@ -4035,10 +4993,30 @@ type VirtualMachineExtensionsListResult struct {
 // VirtualMachineExtensionsUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineExtensionsUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineExtensionsClient) (VirtualMachineExtension, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineExtensionsUpdateFuture) Result(client VirtualMachineExtensionsClient) (vme VirtualMachineExtension, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineExtensionsUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineExtensionsUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vme.Response.Response, err = future.GetResult(sender); err == nil && vme.Response.Response.StatusCode != http.StatusNoContent {
+		vme, err = client.UpdateResponder(vme.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineExtensionsUpdateFuture", "Result", vme.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineExtensionUpdate describes a Virtual Machine Extension.
@@ -4127,18 +5105,6 @@ type VirtualMachineIdentity struct {
 	Type ResourceIdentityType `json:"type,omitempty"`
 	// IdentityIds - The list of user identities associated with the Virtual Machine. The user identity references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/identities/{identityName}'.
 	IdentityIds *[]string `json:"identityIds,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for VirtualMachineIdentity.
-func (vmi VirtualMachineIdentity) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vmi.Type != "" {
-		objectMap["type"] = vmi.Type
-	}
-	if vmi.IdentityIds != nil {
-		objectMap["identityIds"] = vmi.IdentityIds
-	}
-	return json.Marshal(objectMap)
 }
 
 // VirtualMachineImage describes a Virtual Machine Image.
@@ -4379,15 +5345,10 @@ func (vmlr VirtualMachineListResult) IsEmpty() bool {
 	return vmlr.Value == nil || len(*vmlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vmlr VirtualMachineListResult) hasNextLink() bool {
-	return vmlr.NextLink != nil && len(*vmlr.NextLink) != 0
-}
-
 // virtualMachineListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vmlr VirtualMachineListResult) virtualMachineListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vmlr.hasNextLink() {
+	if vmlr.NextLink == nil || len(to.String(vmlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -4415,16 +5376,11 @@ func (page *VirtualMachineListResultPage) NextWithContext(ctx context.Context) (
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vmlr)
-		if err != nil {
-			return err
-		}
-		page.vmlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vmlr)
+	if err != nil {
+		return err
 	}
+	page.vmlr = next
 	return nil
 }
 
@@ -4454,11 +5410,8 @@ func (page VirtualMachineListResultPage) Values() []VirtualMachine {
 }
 
 // Creates a new instance of the VirtualMachineListResultPage type.
-func NewVirtualMachineListResultPage(cur VirtualMachineListResult, getNextPage func(context.Context, VirtualMachineListResult) (VirtualMachineListResult, error)) VirtualMachineListResultPage {
-	return VirtualMachineListResultPage{
-		fn:   getNextPage,
-		vmlr: cur,
-	}
+func NewVirtualMachineListResultPage(getNextPage func(context.Context, VirtualMachineListResult) (VirtualMachineListResult, error)) VirtualMachineListResultPage {
+	return VirtualMachineListResultPage{fn: getNextPage}
 }
 
 // VirtualMachineProperties describes the properties of a Virtual Machine.
@@ -4485,33 +5438,6 @@ type VirtualMachineProperties struct {
 	VMID *string `json:"vmId,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualMachineProperties.
-func (vmp VirtualMachineProperties) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vmp.HardwareProfile != nil {
-		objectMap["hardwareProfile"] = vmp.HardwareProfile
-	}
-	if vmp.StorageProfile != nil {
-		objectMap["storageProfile"] = vmp.StorageProfile
-	}
-	if vmp.OsProfile != nil {
-		objectMap["osProfile"] = vmp.OsProfile
-	}
-	if vmp.NetworkProfile != nil {
-		objectMap["networkProfile"] = vmp.NetworkProfile
-	}
-	if vmp.DiagnosticsProfile != nil {
-		objectMap["diagnosticsProfile"] = vmp.DiagnosticsProfile
-	}
-	if vmp.AvailabilitySet != nil {
-		objectMap["availabilitySet"] = vmp.AvailabilitySet
-	}
-	if vmp.LicenseType != nil {
-		objectMap["licenseType"] = vmp.LicenseType
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualMachineScaleSet describes a Virtual Machine Scale Set.
 type VirtualMachineScaleSet struct {
 	autorest.Response `json:"-"`
@@ -4522,7 +5448,7 @@ type VirtualMachineScaleSet struct {
 	*VirtualMachineScaleSetProperties `json:"properties,omitempty"`
 	// Identity - The identity of the virtual machine scale set, if configured.
 	Identity *VirtualMachineScaleSetIdentity `json:"identity,omitempty"`
-	// Zones - The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
+	// Zones - The virtual machine scale set zones.
 	Zones *[]string `json:"zones,omitempty"`
 	// ID - READ-ONLY; Resource Id
 	ID *string `json:"id,omitempty"`
@@ -4828,15 +5754,10 @@ func (vmsselr VirtualMachineScaleSetExtensionListResult) IsEmpty() bool {
 	return vmsselr.Value == nil || len(*vmsselr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vmsselr VirtualMachineScaleSetExtensionListResult) hasNextLink() bool {
-	return vmsselr.NextLink != nil && len(*vmsselr.NextLink) != 0
-}
-
 // virtualMachineScaleSetExtensionListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vmsselr VirtualMachineScaleSetExtensionListResult) virtualMachineScaleSetExtensionListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vmsselr.hasNextLink() {
+	if vmsselr.NextLink == nil || len(to.String(vmsselr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -4864,16 +5785,11 @@ func (page *VirtualMachineScaleSetExtensionListResultPage) NextWithContext(ctx c
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vmsselr)
-		if err != nil {
-			return err
-		}
-		page.vmsselr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vmsselr)
+	if err != nil {
+		return err
 	}
+	page.vmsselr = next
 	return nil
 }
 
@@ -4903,11 +5819,8 @@ func (page VirtualMachineScaleSetExtensionListResultPage) Values() []VirtualMach
 }
 
 // Creates a new instance of the VirtualMachineScaleSetExtensionListResultPage type.
-func NewVirtualMachineScaleSetExtensionListResultPage(cur VirtualMachineScaleSetExtensionListResult, getNextPage func(context.Context, VirtualMachineScaleSetExtensionListResult) (VirtualMachineScaleSetExtensionListResult, error)) VirtualMachineScaleSetExtensionListResultPage {
-	return VirtualMachineScaleSetExtensionListResultPage{
-		fn:      getNextPage,
-		vmsselr: cur,
-	}
+func NewVirtualMachineScaleSetExtensionListResultPage(getNextPage func(context.Context, VirtualMachineScaleSetExtensionListResult) (VirtualMachineScaleSetExtensionListResult, error)) VirtualMachineScaleSetExtensionListResultPage {
+	return VirtualMachineScaleSetExtensionListResultPage{fn: getNextPage}
 }
 
 // VirtualMachineScaleSetExtensionProfile describes a virtual machine scale set extension profile.
@@ -4937,49 +5850,62 @@ type VirtualMachineScaleSetExtensionProperties struct {
 	ProvisioningState *string `json:"provisioningState,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualMachineScaleSetExtensionProperties.
-func (vmssep VirtualMachineScaleSetExtensionProperties) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vmssep.ForceUpdateTag != nil {
-		objectMap["forceUpdateTag"] = vmssep.ForceUpdateTag
-	}
-	if vmssep.Publisher != nil {
-		objectMap["publisher"] = vmssep.Publisher
-	}
-	if vmssep.Type != nil {
-		objectMap["type"] = vmssep.Type
-	}
-	if vmssep.TypeHandlerVersion != nil {
-		objectMap["typeHandlerVersion"] = vmssep.TypeHandlerVersion
-	}
-	if vmssep.AutoUpgradeMinorVersion != nil {
-		objectMap["autoUpgradeMinorVersion"] = vmssep.AutoUpgradeMinorVersion
-	}
-	if vmssep.Settings != nil {
-		objectMap["settings"] = vmssep.Settings
-	}
-	if vmssep.ProtectedSettings != nil {
-		objectMap["protectedSettings"] = vmssep.ProtectedSettings
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualMachineScaleSetExtensionsCreateOrUpdateFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type VirtualMachineScaleSetExtensionsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetExtensionsClient) (VirtualMachineScaleSetExtension, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetExtensionsCreateOrUpdateFuture) Result(client VirtualMachineScaleSetExtensionsClient) (vmsse VirtualMachineScaleSetExtension, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetExtensionsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetExtensionsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vmsse.Response.Response, err = future.GetResult(sender); err == nil && vmsse.Response.Response.StatusCode != http.StatusNoContent {
+		vmsse, err = client.CreateOrUpdateResponder(vmsse.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetExtensionsCreateOrUpdateFuture", "Result", vmsse.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetExtensionsDeleteFuture an abstraction for monitoring and retrieving the results of
 // a long-running operation.
 type VirtualMachineScaleSetExtensionsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetExtensionsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetExtensionsDeleteFuture) Result(client VirtualMachineScaleSetExtensionsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetExtensionsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetExtensionsDeleteFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeleteResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetExtensionsDeleteFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetIdentity identity for the virtual machine scale set.
@@ -4994,18 +5920,6 @@ type VirtualMachineScaleSetIdentity struct {
 	IdentityIds *[]string `json:"identityIds,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualMachineScaleSetIdentity.
-func (vmssi VirtualMachineScaleSetIdentity) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vmssi.Type != "" {
-		objectMap["type"] = vmssi.Type
-	}
-	if vmssi.IdentityIds != nil {
-		objectMap["identityIds"] = vmssi.IdentityIds
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualMachineScaleSetInstanceView the instance view of a virtual machine scale set.
 type VirtualMachineScaleSetInstanceView struct {
 	autorest.Response `json:"-"`
@@ -5015,15 +5929,6 @@ type VirtualMachineScaleSetInstanceView struct {
 	Extensions *[]VirtualMachineScaleSetVMExtensionsSummary `json:"extensions,omitempty"`
 	// Statuses - The resource status information.
 	Statuses *[]InstanceViewStatus `json:"statuses,omitempty"`
-}
-
-// MarshalJSON is the custom marshaler for VirtualMachineScaleSetInstanceView.
-func (vmssiv VirtualMachineScaleSetInstanceView) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vmssiv.Statuses != nil {
-		objectMap["statuses"] = vmssiv.Statuses
-	}
-	return json.Marshal(objectMap)
 }
 
 // VirtualMachineScaleSetInstanceViewStatusesSummary instance view statuses summary for virtual machines of
@@ -5198,15 +6103,10 @@ func (vmsslouh VirtualMachineScaleSetListOSUpgradeHistory) IsEmpty() bool {
 	return vmsslouh.Value == nil || len(*vmsslouh.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vmsslouh VirtualMachineScaleSetListOSUpgradeHistory) hasNextLink() bool {
-	return vmsslouh.NextLink != nil && len(*vmsslouh.NextLink) != 0
-}
-
 // virtualMachineScaleSetListOSUpgradeHistoryPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vmsslouh VirtualMachineScaleSetListOSUpgradeHistory) virtualMachineScaleSetListOSUpgradeHistoryPreparer(ctx context.Context) (*http.Request, error) {
-	if !vmsslouh.hasNextLink() {
+	if vmsslouh.NextLink == nil || len(to.String(vmsslouh.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -5235,16 +6135,11 @@ func (page *VirtualMachineScaleSetListOSUpgradeHistoryPage) NextWithContext(ctx 
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vmsslouh)
-		if err != nil {
-			return err
-		}
-		page.vmsslouh = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vmsslouh)
+	if err != nil {
+		return err
 	}
+	page.vmsslouh = next
 	return nil
 }
 
@@ -5274,11 +6169,8 @@ func (page VirtualMachineScaleSetListOSUpgradeHistoryPage) Values() []UpgradeOpe
 }
 
 // Creates a new instance of the VirtualMachineScaleSetListOSUpgradeHistoryPage type.
-func NewVirtualMachineScaleSetListOSUpgradeHistoryPage(cur VirtualMachineScaleSetListOSUpgradeHistory, getNextPage func(context.Context, VirtualMachineScaleSetListOSUpgradeHistory) (VirtualMachineScaleSetListOSUpgradeHistory, error)) VirtualMachineScaleSetListOSUpgradeHistoryPage {
-	return VirtualMachineScaleSetListOSUpgradeHistoryPage{
-		fn:       getNextPage,
-		vmsslouh: cur,
-	}
+func NewVirtualMachineScaleSetListOSUpgradeHistoryPage(getNextPage func(context.Context, VirtualMachineScaleSetListOSUpgradeHistory) (VirtualMachineScaleSetListOSUpgradeHistory, error)) VirtualMachineScaleSetListOSUpgradeHistoryPage {
+	return VirtualMachineScaleSetListOSUpgradeHistoryPage{fn: getNextPage}
 }
 
 // VirtualMachineScaleSetListResult the List Virtual Machine operation response.
@@ -5359,15 +6251,10 @@ func (vmsslr VirtualMachineScaleSetListResult) IsEmpty() bool {
 	return vmsslr.Value == nil || len(*vmsslr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vmsslr VirtualMachineScaleSetListResult) hasNextLink() bool {
-	return vmsslr.NextLink != nil && len(*vmsslr.NextLink) != 0
-}
-
 // virtualMachineScaleSetListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vmsslr VirtualMachineScaleSetListResult) virtualMachineScaleSetListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vmsslr.hasNextLink() {
+	if vmsslr.NextLink == nil || len(to.String(vmsslr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -5395,16 +6282,11 @@ func (page *VirtualMachineScaleSetListResultPage) NextWithContext(ctx context.Co
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vmsslr)
-		if err != nil {
-			return err
-		}
-		page.vmsslr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vmsslr)
+	if err != nil {
+		return err
 	}
+	page.vmsslr = next
 	return nil
 }
 
@@ -5434,11 +6316,8 @@ func (page VirtualMachineScaleSetListResultPage) Values() []VirtualMachineScaleS
 }
 
 // Creates a new instance of the VirtualMachineScaleSetListResultPage type.
-func NewVirtualMachineScaleSetListResultPage(cur VirtualMachineScaleSetListResult, getNextPage func(context.Context, VirtualMachineScaleSetListResult) (VirtualMachineScaleSetListResult, error)) VirtualMachineScaleSetListResultPage {
-	return VirtualMachineScaleSetListResultPage{
-		fn:     getNextPage,
-		vmsslr: cur,
-	}
+func NewVirtualMachineScaleSetListResultPage(getNextPage func(context.Context, VirtualMachineScaleSetListResult) (VirtualMachineScaleSetListResult, error)) VirtualMachineScaleSetListResultPage {
+	return VirtualMachineScaleSetListResultPage{fn: getNextPage}
 }
 
 // VirtualMachineScaleSetListSkusResult the Virtual Machine Scale Set List Skus operation response.
@@ -5519,15 +6398,10 @@ func (vmsslsr VirtualMachineScaleSetListSkusResult) IsEmpty() bool {
 	return vmsslsr.Value == nil || len(*vmsslsr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vmsslsr VirtualMachineScaleSetListSkusResult) hasNextLink() bool {
-	return vmsslsr.NextLink != nil && len(*vmsslsr.NextLink) != 0
-}
-
 // virtualMachineScaleSetListSkusResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vmsslsr VirtualMachineScaleSetListSkusResult) virtualMachineScaleSetListSkusResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vmsslsr.hasNextLink() {
+	if vmsslsr.NextLink == nil || len(to.String(vmsslsr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -5555,16 +6429,11 @@ func (page *VirtualMachineScaleSetListSkusResultPage) NextWithContext(ctx contex
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vmsslsr)
-		if err != nil {
-			return err
-		}
-		page.vmsslsr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vmsslsr)
+	if err != nil {
+		return err
 	}
+	page.vmsslsr = next
 	return nil
 }
 
@@ -5594,11 +6463,8 @@ func (page VirtualMachineScaleSetListSkusResultPage) Values() []VirtualMachineSc
 }
 
 // Creates a new instance of the VirtualMachineScaleSetListSkusResultPage type.
-func NewVirtualMachineScaleSetListSkusResultPage(cur VirtualMachineScaleSetListSkusResult, getNextPage func(context.Context, VirtualMachineScaleSetListSkusResult) (VirtualMachineScaleSetListSkusResult, error)) VirtualMachineScaleSetListSkusResultPage {
-	return VirtualMachineScaleSetListSkusResultPage{
-		fn:      getNextPage,
-		vmsslsr: cur,
-	}
+func NewVirtualMachineScaleSetListSkusResultPage(getNextPage func(context.Context, VirtualMachineScaleSetListSkusResult) (VirtualMachineScaleSetListSkusResult, error)) VirtualMachineScaleSetListSkusResultPage {
+	return VirtualMachineScaleSetListSkusResultPage{fn: getNextPage}
 }
 
 // VirtualMachineScaleSetListWithLinkResult the List Virtual Machine operation response.
@@ -5679,15 +6545,10 @@ func (vmsslwlr VirtualMachineScaleSetListWithLinkResult) IsEmpty() bool {
 	return vmsslwlr.Value == nil || len(*vmsslwlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vmsslwlr VirtualMachineScaleSetListWithLinkResult) hasNextLink() bool {
-	return vmsslwlr.NextLink != nil && len(*vmsslwlr.NextLink) != 0
-}
-
 // virtualMachineScaleSetListWithLinkResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vmsslwlr VirtualMachineScaleSetListWithLinkResult) virtualMachineScaleSetListWithLinkResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vmsslwlr.hasNextLink() {
+	if vmsslwlr.NextLink == nil || len(to.String(vmsslwlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -5715,16 +6576,11 @@ func (page *VirtualMachineScaleSetListWithLinkResultPage) NextWithContext(ctx co
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vmsslwlr)
-		if err != nil {
-			return err
-		}
-		page.vmsslwlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vmsslwlr)
+	if err != nil {
+		return err
 	}
+	page.vmsslwlr = next
 	return nil
 }
 
@@ -5754,11 +6610,8 @@ func (page VirtualMachineScaleSetListWithLinkResultPage) Values() []VirtualMachi
 }
 
 // Creates a new instance of the VirtualMachineScaleSetListWithLinkResultPage type.
-func NewVirtualMachineScaleSetListWithLinkResultPage(cur VirtualMachineScaleSetListWithLinkResult, getNextPage func(context.Context, VirtualMachineScaleSetListWithLinkResult) (VirtualMachineScaleSetListWithLinkResult, error)) VirtualMachineScaleSetListWithLinkResultPage {
-	return VirtualMachineScaleSetListWithLinkResultPage{
-		fn:       getNextPage,
-		vmsslwlr: cur,
-	}
+func NewVirtualMachineScaleSetListWithLinkResultPage(getNextPage func(context.Context, VirtualMachineScaleSetListWithLinkResult) (VirtualMachineScaleSetListWithLinkResult, error)) VirtualMachineScaleSetListWithLinkResultPage {
+	return VirtualMachineScaleSetListWithLinkResultPage{fn: getNextPage}
 }
 
 // VirtualMachineScaleSetManagedDiskParameters describes the parameters of a ScaleSet managed disk.
@@ -5924,30 +6777,6 @@ type VirtualMachineScaleSetProperties struct {
 	PlatformFaultDomainCount *int32 `json:"platformFaultDomainCount,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualMachineScaleSetProperties.
-func (vmssp VirtualMachineScaleSetProperties) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vmssp.UpgradePolicy != nil {
-		objectMap["upgradePolicy"] = vmssp.UpgradePolicy
-	}
-	if vmssp.VirtualMachineProfile != nil {
-		objectMap["virtualMachineProfile"] = vmssp.VirtualMachineProfile
-	}
-	if vmssp.Overprovision != nil {
-		objectMap["overprovision"] = vmssp.Overprovision
-	}
-	if vmssp.SinglePlacementGroup != nil {
-		objectMap["singlePlacementGroup"] = vmssp.SinglePlacementGroup
-	}
-	if vmssp.ZoneBalance != nil {
-		objectMap["zoneBalance"] = vmssp.ZoneBalance
-	}
-	if vmssp.PlatformFaultDomainCount != nil {
-		objectMap["platformFaultDomainCount"] = vmssp.PlatformFaultDomainCount
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualMachineScaleSetPublicIPAddressConfiguration describes a virtual machines scale set IP
 // Configuration's PublicIPAddress configuration
 type VirtualMachineScaleSetPublicIPAddressConfiguration struct {
@@ -6020,55 +6849,175 @@ type VirtualMachineScaleSetPublicIPAddressConfigurationProperties struct {
 // VirtualMachineScaleSetRollingUpgradesCancelFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type VirtualMachineScaleSetRollingUpgradesCancelFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetRollingUpgradesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetRollingUpgradesCancelFuture) Result(client VirtualMachineScaleSetRollingUpgradesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetRollingUpgradesCancelFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetRollingUpgradesCancelFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.CancelResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetRollingUpgradesCancelFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetRollingUpgradesStartOSUpgradeFuture an abstraction for monitoring and retrieving
 // the results of a long-running operation.
 type VirtualMachineScaleSetRollingUpgradesStartOSUpgradeFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetRollingUpgradesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetRollingUpgradesStartOSUpgradeFuture) Result(client VirtualMachineScaleSetRollingUpgradesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetRollingUpgradesStartOSUpgradeFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetRollingUpgradesStartOSUpgradeFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.StartOSUpgradeResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetRollingUpgradesStartOSUpgradeFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of
 // a long-running operation.
 type VirtualMachineScaleSetsCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (VirtualMachineScaleSet, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsCreateOrUpdateFuture) Result(client VirtualMachineScaleSetsClient) (vmss VirtualMachineScaleSet, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vmss.Response.Response, err = future.GetResult(sender); err == nil && vmss.Response.Response.StatusCode != http.StatusNoContent {
+		vmss, err = client.CreateOrUpdateResponder(vmss.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsCreateOrUpdateFuture", "Result", vmss.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsDeallocateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetsDeallocateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsDeallocateFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsDeallocateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsDeallocateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeallocateResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsDeallocateFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsDeleteFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsDeleteFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeleteResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsDeleteFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsDeleteInstancesFuture an abstraction for monitoring and retrieving the results of
 // a long-running operation.
 type VirtualMachineScaleSetsDeleteInstancesFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsDeleteInstancesFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsDeleteInstancesFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsDeleteInstancesFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeleteInstancesResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsDeleteInstancesFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetSku describes an available virtual machine scale set sku.
@@ -6096,64 +7045,204 @@ type VirtualMachineScaleSetSkuCapacity struct {
 // VirtualMachineScaleSetsPerformMaintenanceFuture an abstraction for monitoring and retrieving the results
 // of a long-running operation.
 type VirtualMachineScaleSetsPerformMaintenanceFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsPerformMaintenanceFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsPerformMaintenanceFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsPerformMaintenanceFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.PerformMaintenanceResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsPerformMaintenanceFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsPowerOffFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetsPowerOffFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsPowerOffFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsPowerOffFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsPowerOffFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.PowerOffResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsPowerOffFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsRedeployFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetsRedeployFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsRedeployFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsRedeployFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsRedeployFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.RedeployResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsRedeployFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsReimageAllFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetsReimageAllFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsReimageAllFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsReimageAllFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsReimageAllFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.ReimageAllResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsReimageAllFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsReimageFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetsReimageFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsReimageFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsReimageFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsReimageFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.ReimageResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsReimageFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsRestartFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetsRestartFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsRestartFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsRestartFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsRestartFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.RestartResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsRestartFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsStartFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetsStartFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsStartFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsStartFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsStartFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.StartResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsStartFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetStorageProfile describes a virtual machine scale set storage profile.
@@ -6169,19 +7258,59 @@ type VirtualMachineScaleSetStorageProfile struct {
 // VirtualMachineScaleSetsUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetsUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (VirtualMachineScaleSet, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsUpdateFuture) Result(client VirtualMachineScaleSetsClient) (vmss VirtualMachineScaleSet, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vmss.Response.Response, err = future.GetResult(sender); err == nil && vmss.Response.Response.StatusCode != http.StatusNoContent {
+		vmss, err = client.UpdateResponder(vmss.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsUpdateFuture", "Result", vmss.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetsUpdateInstancesFuture an abstraction for monitoring and retrieving the results of
 // a long-running operation.
 type VirtualMachineScaleSetsUpdateInstancesFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetsUpdateInstancesFuture) Result(client VirtualMachineScaleSetsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsUpdateInstancesFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetsUpdateInstancesFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.UpdateInstancesResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetsUpdateInstancesFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetUpdate describes a Virtual Machine Scale Set.
@@ -6346,8 +7475,7 @@ func (vmssuic *VirtualMachineScaleSetUpdateIPConfiguration) UnmarshalJSON(body [
 }
 
 // VirtualMachineScaleSetUpdateIPConfigurationProperties describes a virtual machine scale set network
-// profile's IP configuration properties. NOTE: The subnet of a scale set may be modified as long as the
-// original subnet and the new subnet are in the same virtual network.
+// profile's IP configuration properties.
 type VirtualMachineScaleSetUpdateIPConfigurationProperties struct {
 	// Subnet - The subnet.
 	Subnet *APIEntityReference `json:"subnet,omitempty"`
@@ -6491,7 +7619,7 @@ type VirtualMachineScaleSetUpdateProperties struct {
 	VirtualMachineProfile *VirtualMachineScaleSetUpdateVMProfile `json:"virtualMachineProfile,omitempty"`
 	// Overprovision - Specifies whether the Virtual Machine Scale Set should be overprovisioned.
 	Overprovision *bool `json:"overprovision,omitempty"`
-	// SinglePlacementGroup - When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
+	// SinglePlacementGroup - When true this limits the scale set to a single placement group, of max size 100 virtual machines.
 	SinglePlacementGroup *bool `json:"singlePlacementGroup,omitempty"`
 }
 
@@ -6780,42 +7908,6 @@ type VirtualMachineScaleSetVMInstanceView struct {
 	PlacementGroupID *string `json:"placementGroupId,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualMachineScaleSetVMInstanceView.
-func (vmssviv VirtualMachineScaleSetVMInstanceView) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vmssviv.PlatformUpdateDomain != nil {
-		objectMap["platformUpdateDomain"] = vmssviv.PlatformUpdateDomain
-	}
-	if vmssviv.PlatformFaultDomain != nil {
-		objectMap["platformFaultDomain"] = vmssviv.PlatformFaultDomain
-	}
-	if vmssviv.RdpThumbPrint != nil {
-		objectMap["rdpThumbPrint"] = vmssviv.RdpThumbPrint
-	}
-	if vmssviv.VMAgent != nil {
-		objectMap["vmAgent"] = vmssviv.VMAgent
-	}
-	if vmssviv.MaintenanceRedeployStatus != nil {
-		objectMap["maintenanceRedeployStatus"] = vmssviv.MaintenanceRedeployStatus
-	}
-	if vmssviv.Disks != nil {
-		objectMap["disks"] = vmssviv.Disks
-	}
-	if vmssviv.Extensions != nil {
-		objectMap["extensions"] = vmssviv.Extensions
-	}
-	if vmssviv.BootDiagnostics != nil {
-		objectMap["bootDiagnostics"] = vmssviv.BootDiagnostics
-	}
-	if vmssviv.Statuses != nil {
-		objectMap["statuses"] = vmssviv.Statuses
-	}
-	if vmssviv.PlacementGroupID != nil {
-		objectMap["placementGroupId"] = vmssviv.PlacementGroupID
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualMachineScaleSetVMListResult the List Virtual Machine Scale Set VMs operation response.
 type VirtualMachineScaleSetVMListResult struct {
 	autorest.Response `json:"-"`
@@ -6894,15 +7986,10 @@ func (vmssvlr VirtualMachineScaleSetVMListResult) IsEmpty() bool {
 	return vmssvlr.Value == nil || len(*vmssvlr.Value) == 0
 }
 
-// hasNextLink returns true if the NextLink is not empty.
-func (vmssvlr VirtualMachineScaleSetVMListResult) hasNextLink() bool {
-	return vmssvlr.NextLink != nil && len(*vmssvlr.NextLink) != 0
-}
-
 // virtualMachineScaleSetVMListResultPreparer prepares a request to retrieve the next set of results.
 // It returns nil if no more results exist.
 func (vmssvlr VirtualMachineScaleSetVMListResult) virtualMachineScaleSetVMListResultPreparer(ctx context.Context) (*http.Request, error) {
-	if !vmssvlr.hasNextLink() {
+	if vmssvlr.NextLink == nil || len(to.String(vmssvlr.NextLink)) < 1 {
 		return nil, nil
 	}
 	return autorest.Prepare((&http.Request{}).WithContext(ctx),
@@ -6930,16 +8017,11 @@ func (page *VirtualMachineScaleSetVMListResultPage) NextWithContext(ctx context.
 			tracing.EndSpan(ctx, sc, err)
 		}()
 	}
-	for {
-		next, err := page.fn(ctx, page.vmssvlr)
-		if err != nil {
-			return err
-		}
-		page.vmssvlr = next
-		if !next.hasNextLink() || !next.IsEmpty() {
-			break
-		}
+	next, err := page.fn(ctx, page.vmssvlr)
+	if err != nil {
+		return err
 	}
+	page.vmssvlr = next
 	return nil
 }
 
@@ -6969,11 +8051,8 @@ func (page VirtualMachineScaleSetVMListResultPage) Values() []VirtualMachineScal
 }
 
 // Creates a new instance of the VirtualMachineScaleSetVMListResultPage type.
-func NewVirtualMachineScaleSetVMListResultPage(cur VirtualMachineScaleSetVMListResult, getNextPage func(context.Context, VirtualMachineScaleSetVMListResult) (VirtualMachineScaleSetVMListResult, error)) VirtualMachineScaleSetVMListResultPage {
-	return VirtualMachineScaleSetVMListResultPage{
-		fn:      getNextPage,
-		vmssvlr: cur,
-	}
+func NewVirtualMachineScaleSetVMListResultPage(getNextPage func(context.Context, VirtualMachineScaleSetVMListResult) (VirtualMachineScaleSetVMListResult, error)) VirtualMachineScaleSetVMListResultPage {
+	return VirtualMachineScaleSetVMListResultPage{fn: getNextPage}
 }
 
 // VirtualMachineScaleSetVMProfile describes a virtual machine scale set virtual machine profile.
@@ -7023,166 +8102,439 @@ type VirtualMachineScaleSetVMProperties struct {
 	LicenseType *string `json:"licenseType,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for VirtualMachineScaleSetVMProperties.
-func (vmssvp VirtualMachineScaleSetVMProperties) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if vmssvp.HardwareProfile != nil {
-		objectMap["hardwareProfile"] = vmssvp.HardwareProfile
-	}
-	if vmssvp.StorageProfile != nil {
-		objectMap["storageProfile"] = vmssvp.StorageProfile
-	}
-	if vmssvp.OsProfile != nil {
-		objectMap["osProfile"] = vmssvp.OsProfile
-	}
-	if vmssvp.NetworkProfile != nil {
-		objectMap["networkProfile"] = vmssvp.NetworkProfile
-	}
-	if vmssvp.DiagnosticsProfile != nil {
-		objectMap["diagnosticsProfile"] = vmssvp.DiagnosticsProfile
-	}
-	if vmssvp.AvailabilitySet != nil {
-		objectMap["availabilitySet"] = vmssvp.AvailabilitySet
-	}
-	if vmssvp.LicenseType != nil {
-		objectMap["licenseType"] = vmssvp.LicenseType
-	}
-	return json.Marshal(objectMap)
-}
-
 // VirtualMachineScaleSetVMsDeallocateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetVMsDeallocateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetVMsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetVMsDeallocateFuture) Result(client VirtualMachineScaleSetVMsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsDeallocateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetVMsDeallocateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeallocateResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsDeallocateFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetVMsDeleteFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetVMsDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetVMsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetVMsDeleteFuture) Result(client VirtualMachineScaleSetVMsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetVMsDeleteFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeleteResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsDeleteFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetVMsPerformMaintenanceFuture an abstraction for monitoring and retrieving the
 // results of a long-running operation.
 type VirtualMachineScaleSetVMsPerformMaintenanceFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetVMsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetVMsPerformMaintenanceFuture) Result(client VirtualMachineScaleSetVMsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsPerformMaintenanceFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetVMsPerformMaintenanceFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.PerformMaintenanceResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsPerformMaintenanceFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetVMsPowerOffFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetVMsPowerOffFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetVMsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetVMsPowerOffFuture) Result(client VirtualMachineScaleSetVMsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsPowerOffFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetVMsPowerOffFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.PowerOffResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsPowerOffFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetVMsRedeployFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetVMsRedeployFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetVMsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetVMsRedeployFuture) Result(client VirtualMachineScaleSetVMsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsRedeployFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetVMsRedeployFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.RedeployResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsRedeployFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetVMsReimageAllFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetVMsReimageAllFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetVMsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetVMsReimageAllFuture) Result(client VirtualMachineScaleSetVMsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsReimageAllFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetVMsReimageAllFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.ReimageAllResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsReimageAllFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetVMsReimageFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetVMsReimageFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetVMsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetVMsReimageFuture) Result(client VirtualMachineScaleSetVMsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsReimageFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetVMsReimageFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.ReimageResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsReimageFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetVMsRestartFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetVMsRestartFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetVMsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetVMsRestartFuture) Result(client VirtualMachineScaleSetVMsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsRestartFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetVMsRestartFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.RestartResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsRestartFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetVMsStartFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetVMsStartFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetVMsClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetVMsStartFuture) Result(client VirtualMachineScaleSetVMsClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsStartFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetVMsStartFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.StartResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsStartFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineScaleSetVMsUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachineScaleSetVMsUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachineScaleSetVMsClient) (VirtualMachineScaleSetVM, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachineScaleSetVMsUpdateFuture) Result(client VirtualMachineScaleSetVMsClient) (vmssv VirtualMachineScaleSetVM, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachineScaleSetVMsUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vmssv.Response.Response, err = future.GetResult(sender); err == nil && vmssv.Response.Response.StatusCode != http.StatusNoContent {
+		vmssv, err = client.UpdateResponder(vmssv.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachineScaleSetVMsUpdateFuture", "Result", vmssv.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachinesCaptureFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type VirtualMachinesCaptureFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (VirtualMachineCaptureResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesCaptureFuture) Result(client VirtualMachinesClient) (vmcr VirtualMachineCaptureResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesCaptureFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesCaptureFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if vmcr.Response.Response, err = future.GetResult(sender); err == nil && vmcr.Response.Response.StatusCode != http.StatusNoContent {
+		vmcr, err = client.CaptureResponder(vmcr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesCaptureFuture", "Result", vmcr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachinesConvertToManagedDisksFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachinesConvertToManagedDisksFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesConvertToManagedDisksFuture) Result(client VirtualMachinesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesConvertToManagedDisksFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesConvertToManagedDisksFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.ConvertToManagedDisksResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesConvertToManagedDisksFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachinesCreateOrUpdateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachinesCreateOrUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (VirtualMachine, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesCreateOrUpdateFuture) Result(client VirtualMachinesClient) (VM VirtualMachine, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesCreateOrUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesCreateOrUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if VM.Response.Response, err = future.GetResult(sender); err == nil && VM.Response.Response.StatusCode != http.StatusNoContent {
+		VM, err = client.CreateOrUpdateResponder(VM.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesCreateOrUpdateFuture", "Result", VM.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachinesDeallocateFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachinesDeallocateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesDeallocateFuture) Result(client VirtualMachinesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesDeallocateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesDeallocateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeallocateResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesDeallocateFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachinesDeleteFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type VirtualMachinesDeleteFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesDeleteFuture) Result(client VirtualMachinesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesDeleteFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesDeleteFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.DeleteResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesDeleteFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineSize describes the properties of a VM size.
@@ -7211,55 +8563,175 @@ type VirtualMachineSizeListResult struct {
 // VirtualMachinesPerformMaintenanceFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachinesPerformMaintenanceFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesPerformMaintenanceFuture) Result(client VirtualMachinesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesPerformMaintenanceFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesPerformMaintenanceFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.PerformMaintenanceResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesPerformMaintenanceFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachinesPowerOffFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type VirtualMachinesPowerOffFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesPowerOffFuture) Result(client VirtualMachinesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesPowerOffFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesPowerOffFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.PowerOffResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesPowerOffFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachinesRedeployFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type VirtualMachinesRedeployFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesRedeployFuture) Result(client VirtualMachinesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesRedeployFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesRedeployFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.RedeployResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesRedeployFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachinesRestartFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type VirtualMachinesRestartFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesRestartFuture) Result(client VirtualMachinesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesRestartFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesRestartFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.RestartResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesRestartFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachinesRunCommandFuture an abstraction for monitoring and retrieving the results of a
 // long-running operation.
 type VirtualMachinesRunCommandFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (RunCommandResult, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesRunCommandFuture) Result(client VirtualMachinesClient) (rcr RunCommandResult, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesRunCommandFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesRunCommandFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if rcr.Response.Response, err = future.GetResult(sender); err == nil && rcr.Response.Response.StatusCode != http.StatusNoContent {
+		rcr, err = client.RunCommandResponder(rcr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesRunCommandFuture", "Result", rcr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachinesStartFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type VirtualMachinesStartFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (OperationStatusResponse, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesStartFuture) Result(client VirtualMachinesClient) (osr OperationStatusResponse, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesStartFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesStartFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if osr.Response.Response, err = future.GetResult(sender); err == nil && osr.Response.Response.StatusCode != http.StatusNoContent {
+		osr, err = client.StartResponder(osr.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesStartFuture", "Result", osr.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineStatusCodeCount the status code and count of the virtual machine scale set instance view
@@ -7274,10 +8746,30 @@ type VirtualMachineStatusCodeCount struct {
 // VirtualMachinesUpdateFuture an abstraction for monitoring and retrieving the results of a long-running
 // operation.
 type VirtualMachinesUpdateFuture struct {
-	azure.FutureAPI
-	// Result returns the result of the asynchronous operation.
-	// If the operation has not completed it will return an error.
-	Result func(VirtualMachinesClient) (VirtualMachine, error)
+	azure.Future
+}
+
+// Result returns the result of the asynchronous operation.
+// If the operation has not completed it will return an error.
+func (future *VirtualMachinesUpdateFuture) Result(client VirtualMachinesClient) (VM VirtualMachine, err error) {
+	var done bool
+	done, err = future.DoneWithContext(context.Background(), client)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "compute.VirtualMachinesUpdateFuture", "Result", future.Response(), "Polling failure")
+		return
+	}
+	if !done {
+		err = azure.NewAsyncOpIncompleteError("compute.VirtualMachinesUpdateFuture")
+		return
+	}
+	sender := autorest.DecorateSender(client, autorest.DoRetryForStatusCodes(client.RetryAttempts, client.RetryDuration, autorest.StatusCodesForRetry...))
+	if VM.Response.Response, err = future.GetResult(sender); err == nil && VM.Response.Response.StatusCode != http.StatusNoContent {
+		VM, err = client.UpdateResponder(VM.Response.Response)
+		if err != nil {
+			err = autorest.NewErrorWithError(err, "compute.VirtualMachinesUpdateFuture", "Result", VM.Response.Response, "Failure responding to request")
+		}
+	}
+	return
 }
 
 // VirtualMachineUpdate describes a Virtual Machine Update.

@@ -10,7 +10,7 @@ import (
 
 func buildServicePrincipalObjectIDFunc(c *Config) func(ctx context.Context) (string, error) {
 	return func(ctx context.Context) (string, error) {
-		env, err := AzureEnvironmentByNameFromEndpoint(ctx, c.MetadataHost, c.Environment)
+		env, err := DetermineEnvironment(c.Environment)
 		if err != nil {
 			return "", err
 		}

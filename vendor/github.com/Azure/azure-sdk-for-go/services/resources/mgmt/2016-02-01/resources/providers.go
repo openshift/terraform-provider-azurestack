@@ -35,8 +35,7 @@ func NewProvidersClient(subscriptionID string) ProvidersClient {
 	return NewProvidersClientWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewProvidersClientWithBaseURI creates an instance of the ProvidersClient client using a custom endpoint.  Use this
-// when interacting with an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure stack).
+// NewProvidersClientWithBaseURI creates an instance of the ProvidersClient client.
 func NewProvidersClientWithBaseURI(baseURI string, subscriptionID string) ProvidersClient {
 	return ProvidersClient{NewWithBaseURI(baseURI, subscriptionID)}
 }
@@ -73,7 +72,6 @@ func (client ProvidersClient) Get(ctx context.Context, resourceProviderNamespace
 	result, err = client.GetResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "resources.ProvidersClient", "Get", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -105,7 +103,8 @@ func (client ProvidersClient) GetPreparer(ctx context.Context, resourceProviderN
 // GetSender sends the Get request. The method will close the
 // http.Response Body if it receives an error.
 func (client ProvidersClient) GetSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // GetResponder handles the response to the Get request. The method always
@@ -113,6 +112,7 @@ func (client ProvidersClient) GetSender(req *http.Request) (*http.Response, erro
 func (client ProvidersClient) GetResponder(resp *http.Response) (result Provider, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -153,11 +153,6 @@ func (client ProvidersClient) List(ctx context.Context, top *int32, expand strin
 	result.plr, err = client.ListResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "resources.ProvidersClient", "List", resp, "Failure responding to request")
-		return
-	}
-	if result.plr.hasNextLink() && result.plr.IsEmpty() {
-		err = result.NextWithContext(ctx)
-		return
 	}
 
 	return
@@ -191,7 +186,8 @@ func (client ProvidersClient) ListPreparer(ctx context.Context, top *int32, expa
 // ListSender sends the List request. The method will close the
 // http.Response Body if it receives an error.
 func (client ProvidersClient) ListSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // ListResponder handles the response to the List request. The method always
@@ -199,6 +195,7 @@ func (client ProvidersClient) ListSender(req *http.Request) (*http.Response, err
 func (client ProvidersClient) ListResponder(resp *http.Response) (result ProviderListResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -273,7 +270,6 @@ func (client ProvidersClient) Register(ctx context.Context, resourceProviderName
 	result, err = client.RegisterResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "resources.ProvidersClient", "Register", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -302,7 +298,8 @@ func (client ProvidersClient) RegisterPreparer(ctx context.Context, resourceProv
 // RegisterSender sends the Register request. The method will close the
 // http.Response Body if it receives an error.
 func (client ProvidersClient) RegisterSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // RegisterResponder handles the response to the Register request. The method always
@@ -310,6 +307,7 @@ func (client ProvidersClient) RegisterSender(req *http.Request) (*http.Response,
 func (client ProvidersClient) RegisterResponder(resp *http.Response) (result Provider, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
@@ -347,7 +345,6 @@ func (client ProvidersClient) Unregister(ctx context.Context, resourceProviderNa
 	result, err = client.UnregisterResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "resources.ProvidersClient", "Unregister", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -376,7 +373,8 @@ func (client ProvidersClient) UnregisterPreparer(ctx context.Context, resourcePr
 // UnregisterSender sends the Unregister request. The method will close the
 // http.Response Body if it receives an error.
 func (client ProvidersClient) UnregisterSender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // UnregisterResponder handles the response to the Unregister request. The method always
@@ -384,6 +382,7 @@ func (client ProvidersClient) UnregisterSender(req *http.Request) (*http.Respons
 func (client ProvidersClient) UnregisterResponder(resp *http.Response) (result Provider, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())

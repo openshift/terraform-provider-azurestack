@@ -45,8 +45,7 @@ func New(subscriptionID string) BaseClient {
 	return NewWithBaseURI(DefaultBaseURI, subscriptionID)
 }
 
-// NewWithBaseURI creates an instance of the BaseClient client using a custom endpoint.  Use this when interacting with
-// an Azure cloud that uses a non-standard base URI (sovereign clouds, Azure stack).
+// NewWithBaseURI creates an instance of the BaseClient client.
 func NewWithBaseURI(baseURI string, subscriptionID string) BaseClient {
 	return BaseClient{
 		Client:         autorest.NewClientWithUserAgent(UserAgent()),
@@ -87,7 +86,6 @@ func (client BaseClient) CheckDNSNameAvailability(ctx context.Context, location 
 	result, err = client.CheckDNSNameAvailabilityResponder(resp)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "network.BaseClient", "CheckDNSNameAvailability", resp, "Failure responding to request")
-		return
 	}
 
 	return
@@ -117,7 +115,8 @@ func (client BaseClient) CheckDNSNameAvailabilityPreparer(ctx context.Context, l
 // CheckDNSNameAvailabilitySender sends the CheckDNSNameAvailability request. The method will close the
 // http.Response Body if it receives an error.
 func (client BaseClient) CheckDNSNameAvailabilitySender(req *http.Request) (*http.Response, error) {
-	return client.Send(req, azure.DoRetryWithRegistration(client.Client))
+	sd := autorest.GetSendDecorators(req.Context(), azure.DoRetryWithRegistration(client.Client))
+	return autorest.SendWithSender(client, req, sd...)
 }
 
 // CheckDNSNameAvailabilityResponder handles the response to the CheckDNSNameAvailability request. The method always
@@ -125,6 +124,7 @@ func (client BaseClient) CheckDNSNameAvailabilitySender(req *http.Request) (*htt
 func (client BaseClient) CheckDNSNameAvailabilityResponder(resp *http.Response) (result DNSNameAvailabilityResult, err error) {
 	err = autorest.Respond(
 		resp,
+		client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing())
