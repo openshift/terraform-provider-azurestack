@@ -12,6 +12,7 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk v1.16.0
 	github.com/terraform-providers/terraform-provider-azurerm v1.44.1-0.20200911233120-57b2bfc9d42c
 	golang.org/x/crypto v0.0.0-20210220033148-5ea612d1eb83
+	golang.org/x/sys v0.0.0-20220503163025-988cb79eb6c6 // indirect
 )
 
 replace github.com/terraform-providers/terraform-provider-azurerm => github.com/openshift/terraform-provider-azurerm v1.40.1-0.20210224232508-7509319df0f4 // Pin to openshift fork with tag v2.48.0-openshift
